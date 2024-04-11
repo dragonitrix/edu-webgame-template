@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void NextScene()
@@ -55,8 +55,7 @@ public class GameManager : MonoBehaviour
         var animator = TransitionAnimator.Start(
             TransitionType.SeaWaves, // transition type
             color: Color.white,
-            duration: 1f, // transition duration in seconds
-            sceneNameToLoad: "sc_sandbox_test2"
+            duration: 1f // transition duration in seconds
         );
         animator.onTransitionEnd.AddListener(callback);
     }
