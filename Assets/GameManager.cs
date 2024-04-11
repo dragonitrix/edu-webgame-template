@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TransitionsPlus;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,9 +31,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void NextScene()
+    {
+        ExitSceneTransition(() =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        });
+    }
+
+    public void JumpToScene(string sceneNameToLoad)
+    {
+        ExitSceneTransition(() =>
+        {
+            SceneManager.LoadScene(sceneNameToLoad);
+        });
+    }
+
+    public void ExitSceneTransition(UnityAction callback)
     {
         var animator = TransitionAnimator.Start(
             TransitionType.SeaWaves, // transition type
@@ -40,12 +58,6 @@ public class GameManager : MonoBehaviour
             duration: 1f, // transition duration in seconds
             sceneNameToLoad: "sc_sandbox_test2"
         );
-
-        void callback()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
         animator.onTransitionEnd.AddListener(callback);
     }
 
