@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum GAME_INDEX
 {
+    NULL,
     SUPERX,
     TRASHBIN,
     COUNTME,
@@ -15,15 +16,16 @@ public enum PLAYER_COUNT
     _1_PLAYER,
     _2_PLAYER,
 }
+
 public class GameDB : MonoBehaviour
 {
 
     public static Dictionary<GAME_INDEX, string> gameSceneIndices = new Dictionary<GAME_INDEX, string>()
     {
-        {GAME_INDEX.SUPERX,"sc_superx"},
-        {GAME_INDEX.TRASHBIN,"sc_trashbin"},
-        {GAME_INDEX.COUNTME,"sc_countme"},
-        {GAME_INDEX.SHADOW,"sc_shadow"}
+        {GAME_INDEX.SUPERX,"sc_game_superx"},
+        {GAME_INDEX.TRASHBIN,"sc_game_trashbin"},
+        {GAME_INDEX.COUNTME,"sc_game_countme"},
+        {GAME_INDEX.SHADOW,"sc_game_shadow"}
     };
 
     // Singleton instance
