@@ -160,7 +160,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 265538739336362508, guid: d097a011e381bee4b82ba5fc72c5afd8, type: 3}
       propertyPath: m_Name
-      value: Button-mid
+      value: close Button
       objectReference: {fileID: 0}
     - target: {fileID: 2532846322069693221, guid: d097a011e381bee4b82ba5fc72c5afd8, type: 3}
       propertyPath: m_Pivot.x

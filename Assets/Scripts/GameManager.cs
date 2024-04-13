@@ -64,7 +64,13 @@ public class GameManager : MonoBehaviour
         animator.onTransitionEnd.AddListener(callback);
     }
 
-    GAME_INDEX gameIndex;
+    [Header("Gameplay setting")]
+
+    public GAME_INDEX gameIndex;
+
+    public int gameLevel;
+    public PLAYER_COUNT gamePlayers;
+
     public void SetTargetGame(int index)
     {
         SetTargetGame((GAME_INDEX)index);
@@ -93,5 +99,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetLevel(int level)
+    {
+        gameLevel = level;
+    }
 
+    public void SetPlayerCount(int pCount)
+    {
+        gamePlayers = (PLAYER_COUNT)pCount;
+    }
 }

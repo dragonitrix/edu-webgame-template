@@ -9,6 +9,12 @@ public enum GAME_INDEX
     COUNTME,
     SHADOW
 }
+
+public enum PLAYER_COUNT
+{
+    _1_PLAYER,
+    _2_PLAYER,
+}
 public class GameDB : MonoBehaviour
 {
 
