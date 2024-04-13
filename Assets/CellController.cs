@@ -18,18 +18,22 @@ public class CellController : MonoBehaviour
     public List<Color> colors = new List<Color>();
     public int status = 0;
     public string value = "-";
+    public int index = 0;
+    public bool disableButton = false;
 
     void Awake()
     {
         bgImg = GetComponent<Image>();
         button = GetComponent<Button>();
         text = transform.GetComponentInChildren<TextMeshProUGUI>();
+        img = transform.GetComponentInChildren<Image>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         button.onClick.AddListener(OnClicked);
+        button.interactable = !disableButton;
     }
 
     public void SetStatus(int index, bool tweenSize = true)
@@ -43,6 +47,7 @@ public class CellController : MonoBehaviour
     public void SetValue(string val, bool tweenSize = true)
     {
         value = val;
+        text.text = value;
         if (tweenSize) TweenSize(text.transform);
     }
 
@@ -65,6 +70,17 @@ public class CellController : MonoBehaviour
     void OnClicked()
     {
         AudioManager.instance.PlaySound("ui_click_1");
+        DebugButtonClick();
+    }
+
+    void DebugButtonClick()
+    {
+        status++;
+        if (status >= colors.Count) status -= colors.Count;
+        SetStatus(status);
+
+        GameController.instance.CheckWinCondition();
+
     }
 
     public void SetEnableText(bool val)
