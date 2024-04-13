@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TransitionsPlus;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         AudioManager.instance.PlayBGM("bgm");
+        DOTween.Init();
     }
 
     // Update is called once per frame
@@ -61,5 +63,35 @@ public class GameManager : MonoBehaviour
         );
         animator.onTransitionEnd.AddListener(callback);
     }
+
+    GAME_INDEX gameIndex;
+    public void SetTargetGame(int index)
+    {
+        SetTargetGame((GAME_INDEX)index);
+    }
+
+    // unique code for each game
+    public void OnGameSelected(int index)
+    {
+        SetTargetGame(index);
+
+    }
+
+    public void SetTargetGame(GAME_INDEX index)
+    {
+        gameIndex = index;
+
+        switch (gameIndex)
+        {
+            case GAME_INDEX.SUPERX:
+                MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
+                break;
+            default:
+                SetTargetGame(index);
+                break;
+
+        }
+    }
+
 
 }

@@ -11,6 +11,22 @@ public class MenuController : MonoBehaviour
 
     [Header("Popup")]
     public PopupController settingsPopup;
+    public MultiPagePopupController levelSelectedPopup;
+
+    public static MenuController instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +43,8 @@ public class MenuController : MonoBehaviour
 
     void OnClickPlay()
     {
-        GameManager.instance.NextScene();
+        //GameManager.instance.NextScene();
+        levelSelectedPopup.Enter();
     }
 
     void OnClickSettings()
