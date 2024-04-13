@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Random = UnityEngine.Random;
+using UnityEngine.Events;
 
 public class RouletteController : MonoBehaviour
 {
@@ -90,13 +91,22 @@ public class RouletteController : MonoBehaviour
 
     public void SpinHandleTo(int index)
     {
+
+        AudioManager.instance.PlaySound("ui_roulette_spin");
+
         var angle = 360 / sectionCount;
         var extraRound = Random.Range(2, 5);
         var targetAngle = (index * angle) + angle / 2 + extraRound * 360;
 
         var handleTween = handle.DORotate(new Vector3(0, 0, -targetAngle), 2f, RotateMode.FastBeyond360).SetEase(Ease.OutCubic);
-
+        handleTween.OnComplete(() =>
+        {
+            OnSpinFinished.Invoke();
+            AudioManager.instance.StopSound("ui_roulette_spin");
+        });
     }
+
+    public UnityEvent OnSpinFinished;
 
 }
 

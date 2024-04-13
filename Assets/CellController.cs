@@ -21,6 +21,10 @@ public class CellController : MonoBehaviour
     public int index = 0;
     public bool disableButton = false;
 
+    public delegate void OnClickedDelegate(CellController cell);
+
+    public OnClickedDelegate onClicked;
+
     void Awake()
     {
         bgImg = GetComponent<Image>();
@@ -32,8 +36,8 @@ public class CellController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(OnClicked);
-        button.interactable = !disableButton;
+        button.onClick.AddListener(OnClickedDefault);
+        SetEnableButton(!disableButton);
     }
 
     public void SetStatus(int index, bool tween = true)
@@ -73,11 +77,13 @@ public class CellController : MonoBehaviour
         );
     }
 
-    void OnClicked()
+    void OnClickedDefault()
     {
         AudioManager.instance.PlaySound("ui_click_1");
-        DebugButtonClick();
+        //DebugButtonClick();
+        onClicked(this);
     }
+
 
     void DebugButtonClick()
     {
@@ -107,6 +113,11 @@ public class CellController : MonoBehaviour
             img.color.b,
             val ? 1 : 0
         );
+    }
+
+    public void SetEnableButton(bool val)
+    {
+        button.interactable = val;
     }
 
     public void HardReset()

@@ -18,6 +18,8 @@ public class SuperX_GameController : GameController
     public GridController gridController;
     public RouletteController rouletteController;
 
+    public Button spinButton;
+
     [Header("Game Settings")]
     public TextMeshProUGUI titleText;
 
@@ -28,6 +30,9 @@ public class SuperX_GameController : GameController
     public int gridHeight = 5;
     public int consecutiveCountToWin = 4;
 
+    [Header("Game Val")]
+    public int correctNumber;
+
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
@@ -36,6 +41,7 @@ public class SuperX_GameController : GameController
         levelSettings = new SuperX_LevelSettings(level);
 
         gridController.InitGrid();
+        rouletteController.OnSpinFinished.AddListener(OnSpinFinished);
         rouletteController.SetMembers(levelSettings.rouletteMembers.ToList());
 
 
@@ -63,22 +69,65 @@ public class SuperX_GameController : GameController
             var member = memberForInit[i];
             cell.SetValue(member.ToString(), false);
             cell.SetEnableText(true);
+            cell.SetEnableButton(false);
+            cell.onClicked += OnMainBoardClicked;
         }
+    }
+
+    public void OnSpinClicked()
+    {
+        var val = rouletteController.RandomMember();
+        correctNumber = levelSettings.mainNumber - val;
+
+        SetPhase(GAME_PHASE.SPIN_2_ANSWER);
 
     }
 
-    public void OnSpinClicked(){
-        var val = rouletteController.RandomMember();
+    public void OnSpinFinished()
+    {
+        // helper board code here
+        SetPhase(GAME_PHASE.ANSWER);
+    }
+
+    public void OnMainBoardClicked(CellController cell)
+    {
+        if (gamePhase != GAME_PHASE.ANSWER) return;
+
+        // Debug.Log("cell clicked | index: " + cell.index + " status: " + cell.status + " value: " + cell.value);
+
+        // check answer
+        if (cell.value == correctNumber.ToString())
+        {
+            Debug.Log("answer corrected");
+            cell.SetStatus(1);
+            AudioManager.instance.PlaySound("ui_win_2");
+        }
+        else
+        {
+            Debug.Log("answer incorrect");
+            AudioManager.instance.PlaySound("ui_fail_1");
+        }
+
+        CheckWinCondition();
+        SetPhase(GAME_PHASE.ANSWER_2_SPIN);
     }
 
     public override void CheckWinCondition()
     {
         base.CheckWinCondition();
-
         var result = CheckConnect();
+        if (result != Player.None)
+        {
+            Debug.Log("current winner: " + result);
+            FinishedGame(true, 0);
+        }
 
-        // if (result != Player.None) Debug.Log("current winner: " + result);
-
+        // fail safe
+        var blankCellCount = gridController.cells.Where((cell) => cell.status == 0).ToList().Count;
+        if (blankCellCount == 0)
+        {
+            FinishedGame(false, 0);
+        }
     }
 
     public Player CheckConnect()
@@ -186,5 +235,63 @@ public class SuperX_GameController : GameController
         P_1,
         P_2
     };
+
+    public GAME_PHASE gamePhase;
+
+    public void SetPhase(GAME_PHASE targetPhase)
+    {
+
+        if (gamePhase == targetPhase) return;
+
+        // exit current phase
+        switch (gamePhase)
+        {
+            case GAME_PHASE.SPIN:
+                spinButton.interactable = false;
+                break;
+            case GAME_PHASE.SPIN_2_ANSWER:
+                break;
+            case GAME_PHASE.ANSWER:
+                var cells = gridController.cells;
+                foreach (var cell in cells)
+                {
+                    cell.SetEnableButton(false);
+                }
+                break;
+            case GAME_PHASE.ANSWER_2_SPIN:
+                break;
+        }
+
+        gamePhase = targetPhase;
+        // Debug.Log("Set phase: " + gamePhase);
+
+        // enter target phase
+        switch (gamePhase)
+        {
+            case GAME_PHASE.SPIN:
+                spinButton.interactable = true;
+                break;
+            case GAME_PHASE.SPIN_2_ANSWER:
+                break;
+            case GAME_PHASE.ANSWER:
+                var cells = gridController.cells;
+                foreach (var cell in cells)
+                {
+                    cell.SetEnableButton(true);
+                }
+                break;
+            case GAME_PHASE.ANSWER_2_SPIN:
+                SetPhase(GAME_PHASE.SPIN);
+                break;
+        }
+    }
+
+    public enum GAME_PHASE
+    {
+        SPIN,
+        SPIN_2_ANSWER,
+        ANSWER,
+        ANSWER_2_SPIN,
+    }
 
 }

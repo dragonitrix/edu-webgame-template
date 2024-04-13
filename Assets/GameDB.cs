@@ -76,30 +76,35 @@ public enum SUPERX_LEVEL
 public class SuperX_LevelSettings
 {
     public string titleText;
-
     public int[] members;
     public int[] rouletteMembers;
+
+    public int mainNumber;
 
     public SuperX_LevelSettings(SUPERX_LEVEL level)
     {
         switch (level)
         {
             case SUPERX_LEVEL.SUPER_7:
+                mainNumber = 7;
                 titleText = "Super 7";
                 members = new int[] { 4, 5, 6, 7 };
                 rouletteMembers = new int[] { 0, 1, 2, 3 };
                 break;
             case SUPERX_LEVEL.SUPER_8:
+                mainNumber = 8;
                 titleText = "Super 8";
                 members = new int[] { 4, 5, 6, 7, 8 };
                 rouletteMembers = new int[] { 0, 1, 2, 3, 4 };
                 break;
             case SUPERX_LEVEL.SUPER_9:
+                mainNumber = 9;
                 titleText = "Super 9";
                 members = new int[] { 5, 6, 7, 8, 9 };
                 rouletteMembers = new int[] { 0, 1, 2, 3, 4 };
                 break;
             case SUPERX_LEVEL.SUPER_10:
+                mainNumber = 10;
                 titleText = "Super 10";
                 members = new int[] { 0, 1, 2, 3, 4 };
                 rouletteMembers = new int[] { 6, 7, 8, 9, 10 };

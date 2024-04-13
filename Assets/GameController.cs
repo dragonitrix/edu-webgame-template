@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     {
         this.gameLevel = gameLevel;
         this.playerCount = playerCount;
+        gameState = GAME_STATE.IDLE;
     }
 
     public virtual void StartGame()

@@ -36,6 +36,7 @@ public class GridController : MonoBehaviour
         {
             var clone = Instantiate(cell_prefab, gridRect);
             var cell = clone.GetComponent<CellController>();
+            cell.index = i;
             cells.Add(cell);
             cell.HardReset();
         }
