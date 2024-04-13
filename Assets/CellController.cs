@@ -25,8 +25,8 @@ public class CellController : MonoBehaviour
     {
         bgImg = GetComponent<Image>();
         button = GetComponent<Button>();
-        text = transform.GetComponentInChildren<TextMeshProUGUI>();
-        img = transform.GetComponentInChildren<Image>();
+        text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        img = transform.GetChild(1).GetComponent<Image>();
     }
 
     // Start is called before the first frame update
@@ -36,12 +36,18 @@ public class CellController : MonoBehaviour
         button.interactable = !disableButton;
     }
 
-    public void SetStatus(int index, bool tweenSize = true)
+    public void SetStatus(int index, bool tween = true)
     {
         status = index;
-        bgImg.DOColor(colors[status], tweenDuration);
-
-        if (tweenSize) TweenSize(transform);
+        if (tween)
+        {
+            TweenSize(transform);
+            bgImg.DOColor(colors[status], tweenDuration);
+        }
+        else
+        {
+            bgImg.color = colors[status];
+        }
     }
 
     public void SetValue(string val, bool tweenSize = true)
@@ -106,9 +112,9 @@ public class CellController : MonoBehaviour
     public void HardReset()
     {
         SetValue("", false);
+        SetStatus(0, false);
         SetEnableImage(false);
         SetEnableText(false);
-        SetStatus(0);
     }
 
 }
