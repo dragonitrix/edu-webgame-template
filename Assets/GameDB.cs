@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,6 +108,59 @@ public class SuperX_LevelSettings
                 titleText = "Super 10";
                 members = new int[] { 0, 1, 2, 3, 4 };
                 rouletteMembers = new int[] { 6, 7, 8, 9, 10 };
+                break;
+        }
+    }
+}
+
+
+public enum TICTACTOE_MODE
+{
+    PLUS,
+    MINUS,
+    MULTIPLY,
+    DIVIDE,
+}
+
+[Serializable]
+public class TicTacToe_LevelSettings
+{
+    public string titleText;
+    public int[] members;
+    public int[] firstRowMembers;
+    public int[] secondRowMembers;
+
+    public int specialBoardType;
+
+    public TicTacToe_LevelSettings(TICTACTOE_MODE level)
+    {
+        specialBoardType = 0;
+        switch (level)
+        {
+            case TICTACTOE_MODE.PLUS:
+                titleText = "Tic-Tac-Toe: การบวก";
+                members = new int[] { 33, 59, 63, 36, 55, 40, 71, 67, 56, 49, 75, 42, 47, 44, 91, 52, 37, 54, 73, 75, 50, 82, 58, 84, 35, 53, 68, 48, 74, 65, 90, 60, 39, 66, 41, 89 };
+                firstRowMembers = new int[] { 22, 24, 32, 37, 41, 78, 56, 63 };
+                secondRowMembers = new int[] { 11, 12, 15, 17, 18, 26, 34, 43 };
+                break;
+            case TICTACTOE_MODE.MINUS:
+                titleText = "Tic-Tac-Toe: การลบ";
+                members = new int[] { 35, 47, 60, 39, 43, 32, 58, 22, 52, 34, 83, 15, 23, 36, 44, 57, 49, 44, 14, 28, 55, 40, 26, 75, 46, 56, 29, 37, 41, 63, 30, 21, 18, 17, 25, 32 };
+                firstRowMembers = new int[] { 45, 47, 48, 56, 59, 70, 85, 93, 99 };
+                secondRowMembers = new int[] { 10, 12, 13, 15, 21, 23, 24, 30, 31 };
+                break;
+            case TICTACTOE_MODE.MULTIPLY:
+                titleText = "Tic-Tac-Toe: การคูณ";
+                members = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 24, 25, 27, 28, 30, 32, 35, 36, 40, 42, 45, 48, 49, 54, 56, 63, 64, 72, 81 };
+                firstRowMembers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                secondRowMembers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                break;
+            case TICTACTOE_MODE.DIVIDE:
+                specialBoardType = 1;
+                titleText = "Tic-Tac-Toe: การหาร";
+                members = new int[] { 12, 2, 64, 24, 7, 200, 6, 10, 63, 27, 60, 100, 4, 20, 108, 28, 30, 50, 3, 48, 5, 14, 15, 40, 16, 54, 18, 32, 105, 25, 8, 56, 9, 21, 35, 36 };
+                firstRowMembers = new int[] { 12, 16, 20, 36, 48, 54, 56, 60, 63, 64, 105, 108, 200 };
+                secondRowMembers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
                 break;
         }
     }
