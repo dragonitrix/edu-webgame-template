@@ -40,6 +40,8 @@ public class SuperX_GameController : GameController
         level = (SUPERX_LEVEL)gameLevel;
         levelSettings = new SuperX_LevelSettings(level);
 
+        titleText.text = levelSettings.titleText;
+
         gridController.InitGrid();
         rouletteController.OnSpinFinished.AddListener(OnSpinFinished);
         rouletteController.SetMembers(levelSettings.rouletteMembers.ToList());
@@ -101,15 +103,21 @@ public class SuperX_GameController : GameController
             Debug.Log("answer corrected");
             cell.SetStatus(1);
             AudioManager.instance.PlaySound("ui_win_2");
+            SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
         else
         {
             Debug.Log("answer incorrect");
             AudioManager.instance.PlaySound("ui_fail_1");
+            SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
         }
-
-        CheckWinCondition();
         SetPhase(GAME_PHASE.ANSWER_2_SPIN);
+    }
+
+    public void OnAnswerEffectComplete()
+    {
+        CheckWinCondition();
+        if (gameState != GAME_STATE.ENDED) SetPhase(GAME_PHASE.SPIN);
     }
 
     public override void CheckWinCondition()
@@ -281,7 +289,6 @@ public class SuperX_GameController : GameController
                 }
                 break;
             case GAME_PHASE.ANSWER_2_SPIN:
-                SetPhase(GAME_PHASE.SPIN);
                 break;
         }
     }
