@@ -3,7 +3,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 using TMPro;
-using UnityEngine.UIElements;
+using TransitionsPlus;
+using UnityEngine.UI;
 
 public class TicTacToe_GameController : GameController
 {
@@ -15,6 +16,12 @@ public class TicTacToe_GameController : GameController
     public GridController firstRowNumbers;
     public GridController secondRowNumbers;
 
+    [Header("Transition")]
+    public TransitionProfile transitionProfile;
+    public TransitionAnimator transitionAnimator;
+    public RawImage transitionRenderer;
+    public Image bgImage;
+
     [Header("Game Settings")]
     public TextMeshProUGUI titleText;
     public TICTACTOE_MODE mode;
@@ -22,6 +29,11 @@ public class TicTacToe_GameController : GameController
     public int gridWidth = 6;
     public int gridHeight = 6;
     public int consecutiveCountToWin = 4;
+
+    public Player currentPlayer;
+
+    public Color p_1Color;
+    public Color p_2Color;
 
     [Header("Game Value")]
     GridController helperBoard;
@@ -44,7 +56,7 @@ public class TicTacToe_GameController : GameController
     //debuging purpose only
     private void Start()
     {
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._2_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -91,8 +103,9 @@ public class TicTacToe_GameController : GameController
             secondRowGridCells[i].SetEnableText(true);
             secondRowGridCells[i].onClicked += OnSecondRowButtonClick;
         }
-
+        SetCurrentPlayer(Player.P_1, false);
         initHelperBoard(levelSettings.specialBoardType);
+        transitionAnimator.onTransitionEnd.AddListener(OnPlayerSwitchTransitionComplete);
     }
 
     public void OnMainGridButtonClick(CellController cell)
@@ -106,7 +119,7 @@ public class TicTacToe_GameController : GameController
         if (cell.value == correctNumber.ToString())
         {
             Debug.Log("answer corrected");
-            cell.SetStatus(1);
+            cell.SetStatus((int)currentPlayer);
             //AudioManager.instance.PlaySound("ui_win_2");
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
@@ -148,6 +161,7 @@ public class TicTacToe_GameController : GameController
 
     public void OnFirstRowButtonClick(CellController cell)
     {
+        if (gamePhase != GAME_PHASE.SELECTNUMBER) return;
         clearSelectedCell(firstRowNumbers.cells, cell);
         selectedNumberFromFirstRow = int.Parse(cell.value);
         if (selectedNumberFromSecondRow > 0) calculation(selectedNumberFromFirstRow, selectedNumberFromSecondRow);
@@ -155,9 +169,22 @@ public class TicTacToe_GameController : GameController
 
     public void OnSecondRowButtonClick(CellController cell)
     {
+        if (gamePhase != GAME_PHASE.SELECTNUMBER) return;
         clearSelectedCell(secondRowNumbers.cells, cell);
         selectedNumberFromSecondRow = int.Parse(cell.value);
         if (selectedNumberFromFirstRow > 0) calculation(selectedNumberFromFirstRow, selectedNumberFromSecondRow);
+    }
+
+    void enableRowButton(bool enable = true)
+    {
+        foreach (var item in firstRowNumbers.cells)
+        {
+            item.SetEnableButton(enable);
+        }
+        foreach (var item in secondRowNumbers.cells)
+        {
+            item.SetEnableButton(enable);
+        }
     }
 
     void calculation(int x, int y)
@@ -324,6 +351,21 @@ public class TicTacToe_GameController : GameController
     void OnAnswerEffectComplete()
     {
         CheckWinCondition();
+        if (gameState != GAME_STATE.ENDED)
+        {
+
+            switch (playerCount)
+            {
+                case PLAYER_COUNT._1_PLAYER:
+                    SetPhase(GAME_PHASE.SELECTNUMBER);
+                    break;
+                case PLAYER_COUNT._2_PLAYER:
+                    SwitchTurn();
+                    break;
+            }
+
+
+        }
         SetPhase(GAME_PHASE.NOANSWER);
     }
 
@@ -465,6 +507,7 @@ public class TicTacToe_GameController : GameController
                 //spinButton.interactable = false;
                 break;
             case GAME_PHASE.SELECTNUMBER_2_ANSWER:
+                enableRowButton(false);
                 break;
             case GAME_PHASE.ANSWER:
                 var cells = mainGridController.cells;
@@ -474,6 +517,7 @@ public class TicTacToe_GameController : GameController
                 }
                 break;
             case GAME_PHASE.ANSWER_2_SELECTNUMBER:
+                enableRowButton();
                 break;
             case GAME_PHASE.NOANSWER:
                 break;
@@ -506,13 +550,74 @@ public class TicTacToe_GameController : GameController
                 clearSelectedCell(firstRowNumbers.cells);
                 clearSelectedCell(secondRowNumbers.cells);
                 clearHelperBoard();
-                SetPhase(GAME_PHASE.SELECTNUMBER);
+                if (gameState != GAME_STATE.ENDED)
+                    SetPhase(GAME_PHASE.SELECTNUMBER);
                 break;
             case GAME_PHASE.NOANSWER:
                 SetPhase(GAME_PHASE.ANSWER_2_SELECTNUMBER);
                 break;
         }
     }
+
+    public void SwitchTurn()
+    {
+        switch (currentPlayer)
+        {
+            case Player.P_1:
+                SetCurrentPlayer(Player.P_2);
+                break;
+            case Player.P_2:
+                SetCurrentPlayer(Player.P_1);
+                break;
+        }
+    }
+
+    public void SetCurrentPlayer(Player player, bool transitionAnim = true)
+    {
+        if (currentPlayer == player) return;
+        currentPlayer = player;
+
+        if (transitionAnim)
+        {
+            // do something
+            StartPlayerSwitchTransition(currentPlayer);
+        }
+    }
+
+    public void StartPlayerSwitchTransition(Player player)
+    {
+        var color = Color.white;
+        switch (player)
+        {
+            case Player.P_1:
+                color = p_1Color;
+                break;
+            case Player.P_2:
+                color = p_2Color;
+                break;
+        }
+        transitionProfile.color = color;
+        transitionAnimator.Play();
+
+    }
+
+    public void OnPlayerSwitchTransitionComplete()
+    {
+        transitionAnimator.SetProgress(0);
+        var color = Color.white;
+        switch (currentPlayer)
+        {
+            case Player.P_1:
+                color = p_1Color;
+                break;
+            case Player.P_2:
+                color = p_2Color;
+                break;
+        }
+        bgImage.color = color;
+        SetPhase(GAME_PHASE.SELECTNUMBER);
+    }
+
     public enum GAME_PHASE
     {
         SELECTNUMBER,
