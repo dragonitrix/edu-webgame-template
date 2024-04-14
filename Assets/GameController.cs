@@ -20,16 +20,20 @@ public class GameController : MonoBehaviour
     }
 
     public GAME_STATE gameState;
-
     public int gameLevel = 0;
-
     public PLAYER_COUNT playerCount = PLAYER_COUNT._1_PLAYER;
+
+    public PopupController pausePopup;
 
     public virtual void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         this.gameLevel = gameLevel;
         this.playerCount = playerCount;
         gameState = GAME_STATE.IDLE;
+
+
+
+
     }
 
     public virtual void StartGame()
@@ -51,6 +55,17 @@ public class GameController : MonoBehaviour
     {
         gameState = GAME_STATE.ENDED;
     }
+
+    public virtual void OnPause()
+    {
+
+    }
+
+    public virtual void OnResume()
+    {
+
+    }
+
 }
 
 public enum GAME_STATE
