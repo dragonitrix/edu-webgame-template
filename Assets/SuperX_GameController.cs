@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using TransitionsPlus;
+using DG.Tweening;
 
 public class SuperX_GameController : GameController
 {
@@ -19,6 +20,9 @@ public class SuperX_GameController : GameController
     public GridController gridController;
     public RouletteController rouletteController;
     public Button spinButton;
+
+    public RectTransform spinHighlight;
+    public RectTransform boardHighlight;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -86,6 +90,7 @@ public class SuperX_GameController : GameController
 
         transitionAnimator.onTransitionEnd.AddListener(OnPlayerSwitchTransitionComplete);
 
+        SetPhase(GAME_PHASE.SPIN);
     }
 
     public void OnSpinClicked()
@@ -335,6 +340,7 @@ public class SuperX_GameController : GameController
         {
             case GAME_PHASE.SPIN:
                 spinButton.interactable = false;
+                spinHighlight.DOScale(Vector3.zero, 0.2f);
                 break;
             case GAME_PHASE.SPIN_2_ANSWER:
                 break;
@@ -344,6 +350,7 @@ public class SuperX_GameController : GameController
                 {
                     cell.SetEnableButton(false);
                 }
+                boardHighlight.DOScale(Vector3.zero, 0.2f);
                 break;
             case GAME_PHASE.ANSWER_2_SPIN:
                 break;
@@ -357,6 +364,8 @@ public class SuperX_GameController : GameController
         {
             case GAME_PHASE.SPIN:
                 spinButton.interactable = true;
+                spinHighlight.DOScale(Vector3.one, 0.2f);
+                AudioManager.instance.PlaySound("ui_highlight_1");
                 break;
             case GAME_PHASE.SPIN_2_ANSWER:
                 break;
@@ -366,6 +375,8 @@ public class SuperX_GameController : GameController
                 {
                     cell.SetEnableButton(true);
                 }
+                boardHighlight.DOScale(Vector3.one, 0.2f);
+                AudioManager.instance.PlaySound("ui_highlight_1");
                 break;
             case GAME_PHASE.ANSWER_2_SPIN:
                 break;
@@ -374,6 +385,7 @@ public class SuperX_GameController : GameController
 
     public enum GAME_PHASE
     {
+        NULL,
         SPIN,
         SPIN_2_ANSWER,
         ANSWER,
