@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using TransitionsPlus;
 
 public class SuperX_GameController : GameController
 {
@@ -11,24 +12,31 @@ public class SuperX_GameController : GameController
     // for debug purpose only
     void Start()
     {
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._2_PLAYER);
     }
 
     [Header("Object Ref")]
     public GridController gridController;
     public RouletteController rouletteController;
-
     public Button spinButton;
+
+    [Header("Transition")]
+    public TransitionProfile transitionProfile;
+    public TransitionAnimator transitionAnimator;
+    public RawImage transitionRenderer;
+    public Image bgImage;
 
     [Header("Game Settings")]
     public TextMeshProUGUI titleText;
-
     public SUPERX_LEVEL level;
     public SuperX_LevelSettings levelSettings;
-
     public int gridWidth = 8;
     public int gridHeight = 5;
     public int consecutiveCountToWin = 4;
+    public Player currentPlayer;
+
+    public Color p_1Color;
+    public Color p_2Color;
 
     [Header("Game Val")]
     public int correctNumber;
@@ -74,6 +82,10 @@ public class SuperX_GameController : GameController
             cell.SetEnableButton(false);
             cell.onClicked += OnMainBoardClicked;
         }
+        SetCurrentPlayer(Player.P_1, false);
+
+        transitionAnimator.onTransitionEnd.AddListener(OnPlayerSwitchTransitionComplete);
+
     }
 
     public void OnSpinClicked()
@@ -101,7 +113,7 @@ public class SuperX_GameController : GameController
         if (cell.value == correctNumber.ToString())
         {
             Debug.Log("answer corrected");
-            cell.SetStatus(1);
+            cell.SetStatus((int)currentPlayer);
             AudioManager.instance.PlaySound("ui_win_2");
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
@@ -109,8 +121,8 @@ public class SuperX_GameController : GameController
         {
             Debug.Log("answer incorrect");
             AudioManager.instance.PlaySound("ui_fail_1");
-            //SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
-            SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
+            SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+            //SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
         }
         SetPhase(GAME_PHASE.ANSWER_2_SPIN);
     }
@@ -118,7 +130,21 @@ public class SuperX_GameController : GameController
     public void OnAnswerEffectComplete()
     {
         CheckWinCondition();
-        if (gameState != GAME_STATE.ENDED) SetPhase(GAME_PHASE.SPIN);
+        if (gameState != GAME_STATE.ENDED)
+        {
+
+            switch (playerCount)
+            {
+                case PLAYER_COUNT._1_PLAYER:
+                    SetPhase(GAME_PHASE.SPIN);
+                    break;
+                case PLAYER_COUNT._2_PLAYER:
+                    SwitchTurn();
+                    break;
+            }
+
+
+        }
     }
 
     public override void CheckWinCondition()
@@ -137,6 +163,65 @@ public class SuperX_GameController : GameController
         {
             FinishedGame(false, 0);
         }
+    }
+
+    public void SwitchTurn()
+    {
+        switch (currentPlayer)
+        {
+            case Player.P_1:
+                SetCurrentPlayer(Player.P_2);
+                break;
+            case Player.P_2:
+                SetCurrentPlayer(Player.P_1);
+                break;
+        }
+    }
+
+    public void SetCurrentPlayer(Player player, bool transitionAnim = true)
+    {
+        if (currentPlayer == player) return;
+        currentPlayer = player;
+
+        if (transitionAnim)
+        {
+            // do something
+            StartPlayerSwitchTransition(currentPlayer);
+        }
+    }
+
+    public void StartPlayerSwitchTransition(Player player)
+    {
+        var color = Color.white;
+        switch (player)
+        {
+            case Player.P_1:
+                color = p_1Color;
+                break;
+            case Player.P_2:
+                color = p_2Color;
+                break;
+        }
+        transitionProfile.color = color;
+        transitionAnimator.Play();
+
+    }
+
+    public void OnPlayerSwitchTransitionComplete()
+    {
+        transitionAnimator.SetProgress(0);
+        var color = Color.white;
+        switch (currentPlayer)
+        {
+            case Player.P_1:
+                color = p_1Color;
+                break;
+            case Player.P_2:
+                color = p_2Color;
+                break;
+        }
+        bgImage.color = color;
+        SetPhase(GAME_PHASE.SPIN);
     }
 
     public Player CheckConnect()
@@ -238,13 +323,6 @@ public class SuperX_GameController : GameController
         return Player.None; // No winner yet
     }
 
-    public enum Player
-    {
-        None,
-        P_1,
-        P_2
-    };
-
     public GAME_PHASE gamePhase;
 
     public void SetPhase(GAME_PHASE targetPhase)
@@ -302,4 +380,10 @@ public class SuperX_GameController : GameController
         ANSWER_2_SPIN,
     }
 
+    public enum Player
+    {
+        None,
+        P_1,
+        P_2
+    };
 }

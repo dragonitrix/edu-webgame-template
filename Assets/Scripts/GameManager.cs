@@ -112,6 +112,11 @@ public class GameManager : MonoBehaviour
         SetLevel(index);
     }
 
+    public void OnPlayerCountSelected(int index)
+    {
+        SetPlayerCount(index);
+    }
+
     public void SetTargetGame(GAME_INDEX index)
     {
         gameIndex = index;
@@ -124,7 +129,6 @@ public class GameManager : MonoBehaviour
             default:
                 //SetTargetGame(index);
                 break;
-
         }
     }
 
@@ -135,14 +139,20 @@ public class GameManager : MonoBehaviour
         switch (gameIndex)
         {
             case GAME_INDEX.SUPERX:
-                JumpToScene(GameDB.gameSceneIndices[GAME_INDEX.SUPERX]);
+                MenuController.instance.levelSelectedPopup.pageController.ToPage(2);
                 break;
         }
-
     }
 
     public void SetPlayerCount(int pCount)
     {
         gamePlayers = (PLAYER_COUNT)pCount;
+
+        switch (gameIndex)
+        {
+            case GAME_INDEX.SUPERX:
+                JumpToScene(GameDB.gameSceneIndices[GAME_INDEX.SUPERX]);
+                break;
+        }
     }
 }
