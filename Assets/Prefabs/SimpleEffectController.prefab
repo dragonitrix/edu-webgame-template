@@ -55,4 +55,6 @@ MonoBehaviour:
     prefab: {fileID: 4877524414998071706, guid: 720d8c112eac1fe4b9c1e25cf2c927a8, type: 3}
   - id: effect_incorrect
     prefab: {fileID: 4877524414998071706, guid: 28ba41d8038389f4ca44fac2d55a68a4, type: 3}
+  - id: effect_popup1
+    prefab: {fileID: 4877524414998071706, guid: 3e20ecf52ccfb4a47ae3047309b2f4ec, type: 3}
   effectRect: {fileID: 2873736938693031401}

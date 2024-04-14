@@ -109,7 +109,8 @@ public class SuperX_GameController : GameController
         {
             Debug.Log("answer incorrect");
             AudioManager.instance.PlaySound("ui_fail_1");
-            SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+            //SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+            SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
         }
         SetPhase(GAME_PHASE.ANSWER_2_SPIN);
     }

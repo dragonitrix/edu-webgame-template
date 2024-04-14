@@ -52,6 +52,12 @@ public class SimpleEffectController : MonoBehaviour
         effect.SetExitCallback(callback);
     }
 
+    public void SpawnWaitPopup(UnityAction callback)
+    {
+        var effect = SpawnEffect("effect_popup1", 0.2f, 0f, 0.2f, 0f, false);
+        effect.SetExitCallback(callback);
+    }
+
     SimpleEffect SpawnEffect(string id, float enterDuration, float enterDelay, float exitDuration, float exitDelay, bool chainToExit = true, bool autoStart = true)
     {
         var prefab = effectDataDictionary[id];
@@ -60,6 +66,8 @@ public class SimpleEffectController : MonoBehaviour
         simpleEffect.Init(enterDuration, enterDelay, exitDuration, exitDelay, chainToExit, autoStart);
         return simpleEffect;
     }
+
+
 
 }
 
