@@ -73,8 +73,8 @@ public class RouletteController : MonoBehaviour
             var labelclone = Instantiate(label_prefab, labelGroup);
             var text = labelclone.GetComponent<TextMeshProUGUI>();
             labelclone.GetComponent<RectTransform>().anchoredPosition = new Vector2(
-                r * Mathf.Cos(-i * anglePI + anglePI * 0.5f),
-                r * Mathf.Sin(-i * anglePI + anglePI * 0.5f)
+                r * Mathf.Cos(-i * anglePI + Mathf.PI / 2 - anglePI * 0.5f),
+                r * Mathf.Sin(-i * anglePI + Mathf.PI / 2 - anglePI * 0.5f)
             );
             text.text = members[i].val.ToString();
 
@@ -84,7 +84,7 @@ public class RouletteController : MonoBehaviour
     public int RandomMember()
     {
         var result = members[Random.Range(0, members.Count)];
-        SpinHandleTo(result.val);
+        SpinHandleTo(result.index);
         Debug.Log("random result: " + result.val);
         return result.val;
     }

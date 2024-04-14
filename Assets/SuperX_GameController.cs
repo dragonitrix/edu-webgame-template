@@ -11,7 +11,7 @@ public class SuperX_GameController : GameController
     // for debug purpose only
     void Start()
     {
-        InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
     }
 
     [Header("Object Ref")]
