@@ -10,6 +10,12 @@ public class PopupController : MonoBehaviour
     [Header("Button")]
     public Button closeButton;
 
+    public delegate void OnPopupEnterDelegate();
+    public OnPopupEnterDelegate OnPopupEnter;
+
+    public delegate void OnPopupExitDelegate();
+    public OnPopupExitDelegate OnPopupExit;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {

@@ -88,6 +88,12 @@ public class GameManager : MonoBehaviour
             GameController.instance.InitGame(gameLevel, gamePlayers);
             EnterSceneTransition(() => { });
         }
+        else if (scene.name.Contains("sc_menu"))
+        {
+            gameIndex = GAME_INDEX.NULL;
+            gameLevel = 0;
+            gamePlayers = PLAYER_COUNT._1_PLAYER;
+        }
     }
 
 
@@ -96,27 +102,12 @@ public class GameManager : MonoBehaviour
     public int gameLevel;
     public PLAYER_COUNT gamePlayers;
 
+
+    // unique code for each game
     public void SetTargetGame(int index)
     {
         SetTargetGame((GAME_INDEX)index);
     }
-
-    // unique code for each game
-    public void OnGameSelected(int index)
-    {
-        SetTargetGame(index);
-    }
-
-    public void OnLevelSelected(int index)
-    {
-        SetLevel(index);
-    }
-
-    public void OnPlayerCountSelected(int index)
-    {
-        SetPlayerCount(index);
-    }
-
     public void SetTargetGame(GAME_INDEX index)
     {
         gameIndex = index;

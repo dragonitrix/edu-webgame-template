@@ -20,7 +20,6 @@ public class MenuController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else if (instance != this)
         {
@@ -51,4 +50,20 @@ public class MenuController : MonoBehaviour
     {
         settingsPopup.Enter();
     }
+
+
+    public void OnGameSelected(int index)
+    {
+        GameManager.instance.SetTargetGame(index);
+    }
+    public void OnLevelSelected(int index)
+    {
+        GameManager.instance.SetLevel(index);
+    }
+    public void OnPlayerCountSelected(int index)
+    {
+        GameManager.instance.SetPlayerCount(index);
+    }
+
+
 }

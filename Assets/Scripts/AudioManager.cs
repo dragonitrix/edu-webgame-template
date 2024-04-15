@@ -122,6 +122,7 @@ public class AudioManager : MonoBehaviour
     {
         SFX_1,
         SFX_2,
+        SFX_3,
         BGM,
     }
 

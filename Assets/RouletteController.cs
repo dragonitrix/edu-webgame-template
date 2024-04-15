@@ -85,7 +85,7 @@ public class RouletteController : MonoBehaviour
     {
         var result = members[Random.Range(0, members.Count)];
         SpinHandleTo(result.index);
-        Debug.Log("random result: " + result.val);
+        // Debug.Log("random result: " + result.val);
         return result.val;
     }
 

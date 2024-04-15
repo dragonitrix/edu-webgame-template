@@ -117,17 +117,16 @@ public class SuperX_GameController : GameController
         // check answer
         if (cell.value == correctNumber.ToString())
         {
-            Debug.Log("answer corrected");
+            // Debug.Log("answer corrected");
             cell.SetStatus((int)currentPlayer);
             AudioManager.instance.PlaySound("ui_win_2");
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
         else
         {
-            Debug.Log("answer incorrect");
+            // Debug.Log("answer incorrect");
             AudioManager.instance.PlaySound("ui_fail_1");
             SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
-            //SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
         }
         SetPhase(GAME_PHASE.ANSWER_2_SPIN);
     }
