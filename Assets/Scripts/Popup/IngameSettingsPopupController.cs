@@ -18,7 +18,7 @@ public class IngameSettingsPopupController : SettingsPopupController
 
     void OnHomeButtonClicked()
     {
-        GameManager.instance.JumpToScene("sc_menu");
+        GameManager.instance.ToMenuScene();
     }
 
 }

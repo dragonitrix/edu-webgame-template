@@ -23,7 +23,9 @@ public class GameController : MonoBehaviour
     public int gameLevel = 0;
     public PLAYER_COUNT playerCount = PLAYER_COUNT._1_PLAYER;
 
+    public PopupController tutorialPopup;
     public PopupController pausePopup;
+    public PopupController resultPopup;
 
     public virtual void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
@@ -31,8 +33,7 @@ public class GameController : MonoBehaviour
         this.playerCount = playerCount;
         gameState = GAME_STATE.IDLE;
 
-
-
+        if (tutorialPopup) tutorialPopup.Enter();
 
     }
 
@@ -54,6 +55,11 @@ public class GameController : MonoBehaviour
     public virtual void FinishedGame(bool result, int score = 0)
     {
         gameState = GAME_STATE.ENDED;
+        if (resultPopup.GetType() == typeof(ResultPopupController))
+        {
+            var _resultPopup = (ResultPopupController)resultPopup;
+            _resultPopup.Enter(result);
+        }
     }
 
     public virtual void OnPause()

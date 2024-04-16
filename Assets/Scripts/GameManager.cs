@@ -55,6 +55,19 @@ public class GameManager : MonoBehaviour
         });
     }
 
+    public void ReloadScene()
+    {
+        ExitSceneTransition(() =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        });
+    }
+
+    public void ToMenuScene()
+    {
+        JumpToScene("sc_menu");
+    }
+
     public void ExitSceneTransition(UnityAction callback)
     {
         AudioManager.instance.PlaySound("ui_transition_1", AudioManager.Channel.SFX_2);

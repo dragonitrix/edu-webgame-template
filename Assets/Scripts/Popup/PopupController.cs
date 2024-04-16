@@ -23,11 +23,14 @@ public class PopupController : MonoBehaviour
         if (closeButton) closeButton.onClick.AddListener(Exit);
     }
 
+    [ContextMenu("Enter")]
     public virtual void Enter()
     {
         animator.SetTrigger("FadeIn");
     }
 
+
+    [ContextMenu("Exit")]
     public virtual void Exit()
     {
         animator.SetTrigger("FadeOut");
