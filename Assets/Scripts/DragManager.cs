@@ -63,11 +63,15 @@ public class DragManager : MonoBehaviour
     void InitialzeDragableTempObject()
     {
         dragableTempBGImage.sprite = currentDragableComponent.dragableBG.sprite;
+        dragableTempBGImage.color = currentDragableComponent.dragableBG.color;
+        dragableTempBGImage.rectTransform.sizeDelta = currentDragableComponent.dragableBG.rectTransform.sizeDelta;
 
         if (currentDragableComponent.dragableContentText != null)
         {
             dragableTempContentText.text = currentDragableComponent.dragableContentText.text;
+            dragableTempContentText.fontSize = currentDragableComponent.dragableContentText.fontSize;
             dragableTempContentText.color = currentDragableComponent.dragableContentText.color;
+            dragableTempContentText.rectTransform.sizeDelta = currentDragableComponent.dragableContentText.rectTransform.sizeDelta;
         }
         else
         {
@@ -78,6 +82,7 @@ public class DragManager : MonoBehaviour
         {
             dragableTempContentImage.sprite = currentDragableComponent.dragableContentImage.sprite;
             dragableTempContentImage.color = currentDragableComponent.dragableContentImage.color;
+            dragableTempContentImage.rectTransform.sizeDelta = currentDragableComponent.dragableContentImage.rectTransform.sizeDelta;
         }
         else
         {
@@ -113,7 +118,7 @@ public class DragManager : MonoBehaviour
     }
     public void OnDropEvent(Droppable dropable, Draggable dragable)
     {
-
+        ResetDragableTempObject();
     }
 }
 
