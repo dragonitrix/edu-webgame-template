@@ -16,10 +16,14 @@ public class PopupController : MonoBehaviour
     public delegate void OnPopupExitDelegate();
     public OnPopupExitDelegate OnPopupExit;
 
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        animator = GetComponent<Animator>();
         if (closeButton) closeButton.onClick.AddListener(Exit);
     }
 
