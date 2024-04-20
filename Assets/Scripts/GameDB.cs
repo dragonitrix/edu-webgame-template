@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class GameDB : MonoBehaviour
 {
-    public static Dictionary<GAME_INDEX, string> gameSceneIndices = new Dictionary<GAME_INDEX, string>()
+    public static Dictionary<MAINGAME_INDEX, string> maingameSceneIndices = new Dictionary<MAINGAME_INDEX, string>()
     {
-        {GAME_INDEX.SUPERX,"sc_game_superx"},
-        {GAME_INDEX.TRASHBIN,"sc_game_trashbin"},
-        {GAME_INDEX.COUNTME,"sc_game_countme"},
-        {GAME_INDEX.SHADOW,"sc_game_shadow"}
+        {MAINGAME_INDEX.SUPER_SAVE,"supersave"},
+        {MAINGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
+    };
+
+    public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
+    {
+        {SUBGAME_INDEX.SUPERX,"superx"},
+        {SUBGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
     };
 
     // Singleton instance
@@ -35,11 +39,11 @@ public class GameDB : MonoBehaviour
     }
 
     // Method to get the scene index for a given game
-    public string GetSceneIndexForGame(GAME_INDEX game)
+    public string GetSceneIndexForGame(SUBGAME_INDEX game)
     {
-        if (gameSceneIndices.ContainsKey(game))
+        if (subgameSceneIndices.ContainsKey(game))
         {
-            return gameSceneIndices[game];
+            return subgameSceneIndices[game];
         }
         else
         {
@@ -49,13 +53,17 @@ public class GameDB : MonoBehaviour
     }
 }
 
-public enum GAME_INDEX
+public enum MAINGAME_INDEX
 {
-    NULL,
+    SUPER_SAVE,
+    TIC_TAC_TOE
+}
+[Serializable]
+public enum SUBGAME_INDEX
+{
+    NULL = 0,
     SUPERX,
-    TRASHBIN,
-    COUNTME,
-    SHADOW
+    TIC_TAC_TOE
 }
 
 public enum PLAYER_COUNT

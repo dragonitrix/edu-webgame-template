@@ -52,9 +52,9 @@ public class MenuController : MonoBehaviour
     }
 
 
-    public void OnGameSelected(int index)
+    public void OnGameSelected(SubgameIndex sindex)
     {
-        GameManager.instance.SetTargetGame(index);
+        GameManager.instance.SetTargetGame(sindex.subgameIndex);
     }
     public void OnLevelSelected(int index)
     {

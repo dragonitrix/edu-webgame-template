@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void ToMenuScene()
     {
-        JumpToScene("sc_menu");
+        JumpToScene("sc_menu_" + GameDB.maingameSceneIndices[maingameIndex]);
     }
 
     public void ExitSceneTransition(UnityAction callback)
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         }
         else if (scene.name.Contains("sc_menu"))
         {
-            gameIndex = GAME_INDEX.NULL;
+            subgameIndex = SUBGAME_INDEX.NULL;
             gameLevel = 0;
             gamePlayers = PLAYER_COUNT._1_PLAYER;
         }
@@ -111,23 +111,29 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Gameplay setting")]
-    public GAME_INDEX gameIndex;
+    public MAINGAME_INDEX maingameIndex;
+
+    [HideInInspector]
+    public SUBGAME_INDEX subgameIndex;
+    [HideInInspector]
     public int gameLevel;
+    [HideInInspector]
     public PLAYER_COUNT gamePlayers;
 
 
     // unique code for each game
     public void SetTargetGame(int index)
     {
-        SetTargetGame((GAME_INDEX)index);
+        SetTargetGame((SUBGAME_INDEX)index);
     }
-    public void SetTargetGame(GAME_INDEX index)
+    public void SetTargetGame(SUBGAME_INDEX index)
     {
-        gameIndex = index;
+        subgameIndex = index;
 
-        switch (gameIndex)
+        switch (subgameIndex)
         {
-            case GAME_INDEX.SUPERX:
+            case SUBGAME_INDEX.SUPERX:
+            case SUBGAME_INDEX.TIC_TAC_TOE:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
                 break;
             default:
@@ -140,9 +146,10 @@ public class GameManager : MonoBehaviour
     {
         gameLevel = level;
 
-        switch (gameIndex)
+        switch (subgameIndex)
         {
-            case GAME_INDEX.SUPERX:
+            case SUBGAME_INDEX.SUPERX:
+            case SUBGAME_INDEX.TIC_TAC_TOE:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(2);
                 break;
         }
@@ -152,10 +159,11 @@ public class GameManager : MonoBehaviour
     {
         gamePlayers = (PLAYER_COUNT)pCount;
 
-        switch (gameIndex)
+        switch (subgameIndex)
         {
-            case GAME_INDEX.SUPERX:
-                JumpToScene(GameDB.gameSceneIndices[GAME_INDEX.SUPERX]);
+            case SUBGAME_INDEX.SUPERX:
+            case SUBGAME_INDEX.TIC_TAC_TOE:
+                JumpToScene("sc_game_" + GameDB.subgameSceneIndices[subgameIndex]);
                 break;
         }
     }

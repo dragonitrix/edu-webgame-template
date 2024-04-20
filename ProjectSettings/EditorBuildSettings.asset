@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu.unity
+    path: Assets/Scenes/sc_menu_supersave.unity
     guid: 49daa48c97e8d3a4aa7d9e223ce9b30e
   - enabled: 1
     path: Assets/Scenes/sc_game_superx.unity
     guid: 0ff31d62b2da1734886fa4903df5cda0
+  - enabled: 1
+    path: Assets/Scenes/sc_game_tictactoe.unity
+    guid: c1089461068c5314b901644c564ce741
+  - enabled: 1
+    path: Assets/Scenes/sc_menu_tictactoe.unity
+    guid: 43252fc8a74c09b4899a1caf0e14f4ee
   m_configObjects: {}

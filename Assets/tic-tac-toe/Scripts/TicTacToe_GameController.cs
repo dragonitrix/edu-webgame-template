@@ -44,24 +44,22 @@ public class TicTacToe_GameController : GameController
     [SerializeField]
     int selectedNumberFromSecondRow = -1;
 
-    private void Awake()
-    {
-        foreach (var t in helperBoards)
-        {
-            t.GetComponent<GridController>().InitGrid();
-            t.SetActive(false);
-        }
-    }
-
     //debuging purpose only
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._2_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
+
+        foreach (var t in helperBoards)
+        {
+            t.GetComponent<GridController>().InitGrid();
+            t.SetActive(false);
+        }
 
         mode = (TICTACTOE_MODE)gameLevel;
         levelSettings = new TicTacToe_LevelSettings(mode);
@@ -240,7 +238,7 @@ public class TicTacToe_GameController : GameController
                     for (int i = nextStartingPoint; i < nextStartingPoint + selectedNumberFromSecondRow; i++)
                     {
                         cells[i].SetStatus(2, false);
-                        if(i >= nextStartingPoint + selectedNumberFromSecondRow - gapNumber)
+                        if (i >= nextStartingPoint + selectedNumberFromSecondRow - gapNumber)
                         {
                             cells[i].gameObject.GetComponent<Draggable>().EnableSelf(true);
                         }
@@ -276,7 +274,7 @@ public class TicTacToe_GameController : GameController
                 nextStartingPoint = 1;
                 bool flip = false;
                 int flipPoint = 0;
-                if(selectedNumberFromFirstRow == selectedNumberFromSecondRow)
+                if (selectedNumberFromFirstRow == selectedNumberFromSecondRow)
                 {
                     flipPoint = selectedNumberFromFirstRow;
                 }
@@ -284,15 +282,15 @@ public class TicTacToe_GameController : GameController
                 {
                     flipPoint = selectedNumberFromFirstRow > selectedNumberFromSecondRow ? selectedNumberFromFirstRow : selectedNumberFromSecondRow;
                 }
-                
+
                 for (int i = 0; i < correctNumber; i++)
                 {
                     nextStartingPoint++;
-                    if(!flip)
+                    if (!flip)
                         cells[i].SetStatus(1, false);
                     else
                         cells[i].SetStatus(2, false);
-                    if(nextStartingPoint > selectedNumberFromFirstRow)
+                    if (nextStartingPoint > selectedNumberFromFirstRow)
                     {
                         nextStartingPoint = 1;
                         flip = !flip;
@@ -306,7 +304,7 @@ public class TicTacToe_GameController : GameController
                 }
                 break;
         }
-        
+
         SetPhase(GAME_PHASE.ANSWER);
     }
 
@@ -316,7 +314,7 @@ public class TicTacToe_GameController : GameController
         selectedNumberFromFirstRow = -1;
         selectedNumberFromSecondRow = -1;
     }
-    
+
     bool scanMainGridForCorrectAnswer(int answer)
     {
         List<CellController> cells = mainGridController.cells;
@@ -326,7 +324,7 @@ public class TicTacToe_GameController : GameController
         bool haveCorrectAnswer = false;
         foreach (var item in cells)
         {
-            if(int.Parse(item.value) == answer && item.status == 0)
+            if (int.Parse(item.value) == answer && item.status == 0)
             {
                 haveCorrectAnswer = true;
                 break;

@@ -272,8 +272,8 @@ MonoBehaviour:
   tweenDuration: 0.2
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
-  - {r: 1, g: 0.64705884, b: 0, a: 1}
-  - {r: 1, g: 0.64705884, b: 0, a: 1}
+  - {r: 1, g: 0.61960787, b: 0.85882354, a: 1}
+  - {r: 1, g: 0.61960787, b: 0.85882354, a: 1}
   status: 0
   value: 
   index: 0
