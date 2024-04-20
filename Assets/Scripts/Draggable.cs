@@ -15,6 +15,28 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public OnDraggedDelegate onDragged;
 
+    public void SetupEssentialComponent()
+    {
+        dragableBG = GetComponent<Image>();
+        //dragableContentText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        dragableContentImage = transform.GetChild(1).GetComponent<Image>();
+    }
+
+    public void EnableSelf(bool enable)
+    {
+        enabled = enable;
+    }
+
+    private void Start()
+    {
+        onDragged += DefaultDragEvent;
+    }
+
+    void DefaultDragEvent(Draggable draggable)
+    {
+        Debug.Log("StartDragging " + gameObject.name);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         DragManager.instance.OnBeginDragEvent(this);

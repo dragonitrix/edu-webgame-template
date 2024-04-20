@@ -217,15 +217,22 @@ public class TicTacToe_GameController : GameController
         {
             default:
             case TICTACTOE_MODE.PLUS:
-                for (int i = 0; i < selectedNumberFromFirstRow; i++)
-                {
-                    cells[i].SetStatus(1, false);
-                }
                 nextStartingPoint = selectedNumberFromFirstRow;
-
+                int gapNumber = 0;
                 while (nextStartingPoint % 10 != 0)
                 {
                     nextStartingPoint++;
+                    gapNumber++;
+                }
+
+                for (int i = 0; i < selectedNumberFromFirstRow + gapNumber; i++)
+                {
+                    if (i < selectedNumberFromFirstRow)
+                        cells[i].SetStatus(1, false);
+                    else
+                    {
+                        cells[i].gameObject.GetComponent<Droppable>().enabled = true;
+                    }
                 }
 
                 if (nextStartingPoint + selectedNumberFromSecondRow <= 100)
@@ -233,6 +240,10 @@ public class TicTacToe_GameController : GameController
                     for (int i = nextStartingPoint; i < nextStartingPoint + selectedNumberFromSecondRow; i++)
                     {
                         cells[i].SetStatus(2, false);
+                        if(i >= nextStartingPoint + selectedNumberFromSecondRow - gapNumber)
+                        {
+                            cells[i].gameObject.GetComponent<Draggable>().EnableSelf(true);
+                        }
                     }
                 }
                 else
@@ -240,6 +251,10 @@ public class TicTacToe_GameController : GameController
                     for (int i = selectedNumberFromFirstRow; i < selectedNumberFromFirstRow + selectedNumberFromSecondRow; i++)
                     {
                         cells[i].SetStatus(2, false);
+                        if (i >= nextStartingPoint + selectedNumberFromSecondRow - gapNumber)
+                        {
+                            cells[i].gameObject.GetComponent<Draggable>().EnableSelf(true);
+                        }
                     }
                 }
                 break;
@@ -320,6 +335,16 @@ public class TicTacToe_GameController : GameController
         return haveCorrectAnswer;
     }
 
+    void OnDroppingCell(Droppable droppable, Draggable draggable)
+    {
+        CellController draggingCell = draggable.GetComponent<CellController>();
+        CellController droppedCell = droppable.GetComponent<CellController>();
+        droppedCell.SetStatus(draggingCell.status, true);
+        draggingCell.SetStatus(0, false);
+        draggable.EnableSelf(false);
+        droppable.EnableSelf(false);
+    }
+
     public void initHelperBoard(int type)
     {
         helperBoard = helperBoards[type].GetComponent<GridController>();
@@ -333,7 +358,12 @@ public class TicTacToe_GameController : GameController
                 {
                     t.SetValue(index.ToString(), false);
                     t.SetEnableText(true);
-
+                    Draggable dg = t.gameObject.AddComponent<Draggable>();
+                    dg.SetupEssentialComponent();
+                    Droppable dp = t.gameObject.AddComponent<Droppable>();
+                    dp.onDropped += OnDroppingCell;
+                    dg.EnableSelf(false);
+                    dp.EnableSelf(false);
                     index++;
                 }
                 break;

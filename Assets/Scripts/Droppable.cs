@@ -10,6 +10,19 @@ public class Droppable : MonoBehaviour, IDropHandler
 
     public OnDroppedDelegate onDropped;
 
+    public void EnableSelf(bool enable)
+    {
+        enabled = enable;
+    }
+    private void Start()
+    {
+        onDropped += DefaultDropEvent;
+    }
+
+    void DefaultDropEvent(Droppable droppable, Draggable draggable)
+    {
+        Debug.Log("Dropping " + draggable.gameObject.name + " To " + droppable.gameObject.name);
+    }
     public void OnDrop(PointerEventData eventData)
     {
         GameObject dropObject = eventData.pointerDrag;
