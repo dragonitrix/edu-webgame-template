@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("The scene " + scene.name + " has been loaded.");
             GameController.instance.InitGame(gameLevel, gamePlayers);
-            EnterSceneTransition(() => { });
         }
         else if (scene.name.Contains("sc_menu"))
         {
@@ -107,6 +106,7 @@ public class GameManager : MonoBehaviour
             gameLevel = 0;
             gamePlayers = PLAYER_COUNT._1_PLAYER;
         }
+        EnterSceneTransition(() => { });
     }
 
 

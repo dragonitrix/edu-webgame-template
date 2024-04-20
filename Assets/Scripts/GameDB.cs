@@ -81,6 +81,8 @@ public class SuperX_LevelSettings
 
     public int mainNumber;
 
+    public GridSettings helperBoardSettings;
+
     public SuperX_LevelSettings(SUPERX_LEVEL level)
     {
         switch (level)
@@ -90,24 +92,28 @@ public class SuperX_LevelSettings
                 titleText = "เกม Super 7";
                 members = new int[] { 4, 5, 6, 7 };
                 rouletteMembers = new int[] { 0, 1, 2, 3 };
+                helperBoardSettings = new GridSettings(7, new Vector2(90, 90), Vector2.zero, UnityEngine.UI.GridLayoutGroup.Constraint.FixedColumnCount, 4);
                 break;
             case SUPERX_LEVEL.SUPER_8:
                 mainNumber = 8;
                 titleText = "เกม Super 8";
                 members = new int[] { 4, 5, 6, 7, 8 };
                 rouletteMembers = new int[] { 0, 1, 2, 3, 4 };
+                helperBoardSettings = new GridSettings(8, new Vector2(90, 90), Vector2.zero, UnityEngine.UI.GridLayoutGroup.Constraint.FixedColumnCount, 4);
                 break;
             case SUPERX_LEVEL.SUPER_9:
                 mainNumber = 9;
                 titleText = "เกม Super 9";
                 members = new int[] { 5, 6, 7, 8, 9 };
                 rouletteMembers = new int[] { 0, 1, 2, 3, 4 };
+                helperBoardSettings = new GridSettings(9, new Vector2(90, 90), Vector2.zero, UnityEngine.UI.GridLayoutGroup.Constraint.FixedColumnCount, 5);
                 break;
             case SUPERX_LEVEL.SUPER_10:
                 mainNumber = 10;
                 titleText = "เกม Super 10";
                 members = new int[] { 0, 1, 2, 3, 4 };
                 rouletteMembers = new int[] { 6, 7, 8, 9, 10 };
+                helperBoardSettings = new GridSettings(10, new Vector2(90, 90), Vector2.zero, UnityEngine.UI.GridLayoutGroup.Constraint.FixedColumnCount, 5);
                 break;
         }
     }

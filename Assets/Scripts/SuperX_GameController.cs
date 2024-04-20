@@ -10,19 +10,21 @@ using DG.Tweening;
 public class SuperX_GameController : GameController
 {
 
-    // for debug purpose only
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
     }
 
     [Header("Object Ref")]
     public GridController gridController;
+    public GridController helperController;
     public RouletteController rouletteController;
     public Button spinButton;
 
     public RectTransform spinHighlight;
     public RectTransform boardHighlight;
+    public RectTransform playerLabel;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -38,12 +40,13 @@ public class SuperX_GameController : GameController
     public int gridHeight = 5;
     public int consecutiveCountToWin = 4;
     public Player currentPlayer;
-
     public Color p_1Color;
     public Color p_2Color;
+    public string playerLebelText = "[x]";
 
     [Header("Game Val")]
-    public int correctNumber;
+    int currentNumber;
+    int correctNumber;
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
@@ -54,15 +57,13 @@ public class SuperX_GameController : GameController
 
         titleText.text = levelSettings.titleText;
 
+        // main board grid init
         gridController.InitGrid();
         rouletteController.OnSpinFinished.AddListener(OnSpinFinished);
         rouletteController.SetMembers(levelSettings.rouletteMembers.ToList());
-
-
+        // cells value init
         var cells = gridController.cells;
-
         List<int> memberForInit = new List<int>();
-
         for (int i = 0; i < cells.Count / levelSettings.members.Length; i++)
         {
             for (int j = 0; j < levelSettings.members.Length; j++)
@@ -74,9 +75,7 @@ public class SuperX_GameController : GameController
         {
             memberForInit.Add(levelSettings.members[Random.Range(0, levelSettings.members.Length)]);
         }
-
         memberForInit.Shuffle();
-
         for (int i = 0; i < cells.Count; i++)
         {
             var cell = cells[i];
@@ -86,6 +85,19 @@ public class SuperX_GameController : GameController
             cell.SetEnableButton(false);
             cell.onClicked += OnMainBoardClicked;
         }
+
+        // helper board init
+        helperController.gridSettings = levelSettings.helperBoardSettings;
+        helperController.InitGrid();
+        var helperCells = helperController.cells;
+        for (int i = 0; i < helperCells.Count; i++)
+        {
+            var hCell = helperCells[i];
+            hCell.SetValue((i + 1).ToString(), false);
+            hCell.SetEnableText(true);
+            hCell.SetEnableButton(false);
+        }
+
         SetCurrentPlayer(Player.P_1, false);
 
         transitionAnimator.onTransitionEnd.AddListener(OnPlayerSwitchTransitionComplete);
@@ -93,9 +105,15 @@ public class SuperX_GameController : GameController
         SetPhase(GAME_PHASE.SPIN);
     }
 
+    public override void StartGame()
+    {
+        base.StartGame();
+    }
+
     public void OnSpinClicked()
     {
         var val = rouletteController.RandomMember();
+        currentNumber = val;
         correctNumber = levelSettings.mainNumber - val;
 
         SetPhase(GAME_PHASE.SPIN_2_ANSWER);
@@ -105,12 +123,15 @@ public class SuperX_GameController : GameController
     public void OnSpinFinished()
     {
         // helper board code here
+        SetHelperBoardValue(currentNumber);
+
         SetPhase(GAME_PHASE.ANSWER);
     }
 
     public void OnMainBoardClicked(CellController cell)
     {
         if (gamePhase != GAME_PHASE.ANSWER) return;
+        if (cell.status != 0) return;
 
         // Debug.Log("cell clicked | index: " + cell.index + " status: " + cell.status + " value: " + cell.value);
 
@@ -136,7 +157,7 @@ public class SuperX_GameController : GameController
         CheckWinCondition();
         if (gameState != GAME_STATE.ENDED)
         {
-
+            SetHelperBoardValue(0);
             switch (playerCount)
             {
                 case PLAYER_COUNT._1_PLAYER:
@@ -146,8 +167,6 @@ public class SuperX_GameController : GameController
                     SwitchTurn();
                     break;
             }
-
-
         }
     }
 
@@ -182,16 +201,32 @@ public class SuperX_GameController : GameController
         }
     }
 
+    public void SetHelperBoardValue(int val)
+    {
+        var helperCells = helperController.cells;
+        for (int i = 0; i < helperCells.Count; i++)
+        {
+            var hCell = helperCells[i];
+            if (i < val) hCell.SetStatus(1);
+            else hCell.SetStatus(0, false);
+        }
+    }
+
     public void SetCurrentPlayer(Player player, bool transitionAnim = true)
     {
         if (currentPlayer == player) return;
         currentPlayer = player;
+
+        var text = playerLabel.GetComponent<TextMeshProUGUI>();
+        text.text = playerLebelText.Replace("[x]", ((int)currentPlayer).ToString());
 
         if (transitionAnim)
         {
             // do something
             StartPlayerSwitchTransition(currentPlayer);
         }
+
+
     }
 
     public void StartPlayerSwitchTransition(Player player)
@@ -208,6 +243,11 @@ public class SuperX_GameController : GameController
         }
         transitionProfile.color = color;
         transitionAnimator.Play();
+
+        playerLabel.DOScale(Vector3.zero, 0.1f).OnComplete(() =>
+        {
+            playerLabel.DOScale(Vector3.one, 0.1f);
+        });
 
     }
 

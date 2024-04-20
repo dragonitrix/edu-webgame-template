@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Mitr-SemiBold-underlay SDF
   m_EditorClassIdentifier: 
-  hashCode: 1085451785
+  hashCode: -185108232
   material: {fileID: 6754948481179151024}
-  materialHashCode: 332906249
+  materialHashCode: -1115718568
   m_Version: 1.1.0
   m_SourceFontFileGUID: 258212605f15b8b41a0727063a9e1ba6
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 258212605f15b8b41a0727063a9e1ba6, type: 3}
@@ -4775,6 +4775,21 @@ MonoBehaviour:
           m_YAdvance: 0
       m_SecondAdjustmentRecord:
         m_GlyphIndex: 723
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 10
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_FeatureLookupFlags: 0
+    - m_FirstAdjustmentRecord:
+        m_GlyphIndex: 739
+        m_GlyphValueRecord:
+          m_XPlacement: 0
+          m_YPlacement: 0
+          m_XAdvance: 0
+          m_YAdvance: 0
+      m_SecondAdjustmentRecord:
+        m_GlyphIndex: 721
         m_GlyphValueRecord:
           m_XPlacement: 0
           m_YPlacement: 10

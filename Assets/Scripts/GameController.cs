@@ -32,11 +32,9 @@ public class GameController : MonoBehaviour
         this.gameLevel = gameLevel;
         this.playerCount = playerCount;
         gameState = GAME_STATE.IDLE;
-
-
     }
 
-    void Start()
+    protected virtual void Start()
     {
         if (gameState == GAME_STATE.IDLE)
         {
@@ -46,6 +44,7 @@ public class GameController : MonoBehaviour
 
     public virtual void StartGame()
     {
+        Debug.Log("start game");
         gameState = GAME_STATE.STARTED;
         // do command
         if (tutorialPopup) tutorialPopup.Enter();
