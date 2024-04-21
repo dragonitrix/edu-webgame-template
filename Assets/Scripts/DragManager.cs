@@ -37,14 +37,14 @@ public class DragManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        InitDragAndDropObject();
+        //InitDragAndDropObject();
     }
 
     void InitDragAndDropObject()
     {
         GetAllDragable();
         GetAllDropable();
-        GetCurrentCanvas();
+        //GetCurrentCanvas();
     }
 
     void GetAllDragable()
