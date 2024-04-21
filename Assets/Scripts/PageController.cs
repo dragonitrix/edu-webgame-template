@@ -31,8 +31,7 @@ public class PageController : MonoBehaviour
 
     public bool forwardOnly = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // fetch all pages to list
         foreach (RectTransform item in pageHolder)
@@ -48,9 +47,12 @@ public class PageController : MonoBehaviour
             }
 
         }
-
         ToPage(0);
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     [ContextMenu("PrevPage")]
