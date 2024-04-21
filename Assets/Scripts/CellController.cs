@@ -95,6 +95,11 @@ public class CellController : MonoBehaviour
 
     }
 
+    public void SetTextSize(float size)
+    {
+        text.fontSize = size;
+    }
+
     public void SetEnableText(bool val)
     {
         text.color = new Color(

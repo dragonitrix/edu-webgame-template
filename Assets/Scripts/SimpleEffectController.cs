@@ -40,11 +40,13 @@ public class SimpleEffectController : MonoBehaviour
         switch (isCorrected)
         {
             case true:
+                AudioManager.instance.PlaySound("ui_win_2");
                 var flare = SpawnEffect("effect_flare", 0.5f, 0.1f, 0.2f, 1.6f);
                 flare.SetRotate(45f);
                 effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, 1.8f);
                 break;
             case false:
+                AudioManager.instance.PlaySound("ui_fail_1");
                 effect = SpawnEffect("effect_incorrect", 0.2f, 0f, 0.2f, 1.8f);
                 break;
         }
@@ -55,6 +57,50 @@ public class SimpleEffectController : MonoBehaviour
     public void SpawnWaitPopup(UnityAction callback)
     {
         var effect = SpawnEffect("effect_popup1", 0.2f, 0f, 0.2f, 0f, false);
+        effect.SetExitCallback(callback);
+    }
+
+    public void SpawnNoAnswerPopup_tictactoe(UnityAction callback)
+    {
+        AudioManager.instance.PlaySound("ui_fail_1");
+        SimpleEffect effect = null;
+        switch (GameController.instance.playerCount)
+        {
+            case PLAYER_COUNT._1_PLAYER:
+                effect = SpawnEffect("effect_noanswer_single", 0.2f, 0f, 0.2f, 0f, false);
+                break;
+            case PLAYER_COUNT._2_PLAYER:
+                effect = SpawnEffect("effect_noanswer_multi", 0.2f, 0f, 0.2f, 0f, false);
+                break;
+        }
+        effect.SetExitCallback(callback);
+    }
+
+    public void SpawnAnswerEffect_tictactoe(bool isCorrected, UnityAction callback)
+    {
+        SimpleEffect effect = null;
+
+        switch (isCorrected)
+        {
+            case true:
+                AudioManager.instance.PlaySound("ui_win_2");
+                var flare = SpawnEffect("effect_flare", 0.5f, 0.1f, 0.2f, 1.6f);
+                flare.SetRotate(45f);
+                effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, 1.8f);
+                break;
+            case false:
+                AudioManager.instance.PlaySound("ui_fail_1");
+                switch (GameController.instance.playerCount)
+                {
+                    case PLAYER_COUNT._1_PLAYER:
+                        effect = SpawnEffect("effect_incorrect_single", 0.2f, 0f, 0.2f, 0f, false);
+                        break;
+                    case PLAYER_COUNT._2_PLAYER:
+                        effect = SpawnEffect("effect_incorrect_multi", 0.2f, 0f, 0.2f, 0f, false);
+                        break;
+                }
+                break;
+        }
         effect.SetExitCallback(callback);
     }
 

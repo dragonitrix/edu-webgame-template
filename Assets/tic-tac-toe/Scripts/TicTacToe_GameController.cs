@@ -13,8 +13,15 @@ public class TicTacToe_GameController : GameController
     [Header("Object Ref")]
     public GameObject[] helperBoards;
     public GridController mainGridController;
-    public GridController firstRowNumbers;
-    public GridController secondRowNumbers;
+
+    public GameObject[] firstRowBoards;
+    public GameObject[] secondRowBoards;
+
+    public GameObject[] helperBGs;
+
+
+    private GridController firstRowNumbers;
+    private GridController secondRowNumbers;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -48,7 +55,7 @@ public class TicTacToe_GameController : GameController
     protected override void Start()
     {
         base.Start();
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._2_PLAYER);
+        if (GameManager.instance == null) InitGame(3, PLAYER_COUNT._2_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -76,6 +83,28 @@ public class TicTacToe_GameController : GameController
             mainGridCells[i].SetEnableText(true);
             mainGridCells[i].onClicked += OnMainGridButtonClick;
         }
+
+
+        switch (mode)
+        {
+            default:
+                firstRowNumbers = firstRowBoards[0].transform.GetComponentInChildren<GridController>();
+                secondRowNumbers = secondRowBoards[0].transform.GetComponentInChildren<GridController>();
+                firstRowBoards[1].SetActive(false);
+                secondRowBoards[1].SetActive(false);
+                helperBGs[1].SetActive(false);
+                break;
+            case TICTACTOE_MODE.DIVIDE:
+                firstRowNumbers = firstRowBoards[1].transform.GetComponentInChildren<GridController>();
+                secondRowNumbers = secondRowBoards[1].transform.GetComponentInChildren<GridController>();
+                firstRowBoards[0].SetActive(false);
+                secondRowBoards[0].SetActive(false);
+                helperBGs[0].SetActive(false);
+                break;
+        }
+
+
+
         firstRowNumbers.gridSettings.cellCount = levelSettings.firstRowMembers.Length;
         firstRowNumbers.InitGrid();
         var firstRowGridCells = firstRowNumbers.cells;
@@ -86,6 +115,7 @@ public class TicTacToe_GameController : GameController
         {
             firstRowGridCells[i].SetValue(firstRowMember[i].ToString(), false);
             firstRowGridCells[i].SetEnableText(true);
+            if (mode == TICTACTOE_MODE.DIVIDE) firstRowGridCells[i].SetTextSize(35);
             firstRowGridCells[i].onClicked += OnFirstRowButtonClick;
         }
 
@@ -116,17 +146,14 @@ public class TicTacToe_GameController : GameController
         // check answer
         if (cell.value == correctNumber.ToString())
         {
-            Debug.Log("answer corrected");
+            //Debug.Log("answer corrected");
             cell.SetStatus((int)currentPlayer);
-            //AudioManager.instance.PlaySound("ui_win_2");
-            SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
+            SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
         }
         else
         {
-            Debug.Log("answer incorrect");
-            //AudioManager.instance.PlaySound("ui_fail_1");
-            //SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
-            SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
+            //Debug.Log("answer incorrect");
+            SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(false, OnAnswerEffectComplete);
         }
         SetPhase(GAME_PHASE.ANSWER_2_SELECTNUMBER);
     }
@@ -564,7 +591,7 @@ public class TicTacToe_GameController : GameController
                 if (scanMainGridForCorrectAnswer(correctNumber))
                     markHelperBoard();
                 else
-                    SimpleEffectController.instance.SpawnWaitPopup(OnAnswerEffectComplete);
+                    SimpleEffectController.instance.SpawnNoAnswerPopup_tictactoe(OnAnswerEffectComplete);
                 break;
             case GAME_PHASE.ANSWER:
                 var cells = mainGridController.cells;

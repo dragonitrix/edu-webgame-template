@@ -140,13 +140,11 @@ public class SuperX_GameController : GameController
         {
             // Debug.Log("answer corrected");
             cell.SetStatus((int)currentPlayer);
-            AudioManager.instance.PlaySound("ui_win_2");
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
         else
         {
             // Debug.Log("answer incorrect");
-            AudioManager.instance.PlaySound("ui_fail_1");
             SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
         }
         SetPhase(GAME_PHASE.ANSWER_2_SPIN);
