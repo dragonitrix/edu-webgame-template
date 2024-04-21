@@ -8,10 +8,10 @@ using DG.Tweening;
 public class CellController : MonoBehaviour
 {
 
-    Image bgImg;
-    Button button;
-    TextMeshProUGUI text;
-    Image img;
+    public Image bgImg;
+    public Button button;
+    public TextMeshProUGUI text;
+    public Image img;
 
     [Header("Settings")]
     public float tweenDuration = 0.2f;
@@ -27,10 +27,10 @@ public class CellController : MonoBehaviour
 
     void Awake()
     {
-        bgImg = GetComponent<Image>();
-        button = GetComponent<Button>();
-        text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        img = transform.GetChild(1).GetComponent<Image>();
+        if (bgImg == null) bgImg = GetComponent<Image>();
+        if (button == null) button = GetComponent<Button>();
+        if (text == null) text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (img == null) img = transform.GetChild(1).GetComponent<Image>();
     }
 
     // Start is called before the first frame update
@@ -59,6 +59,12 @@ public class CellController : MonoBehaviour
         value = val;
         text.text = value;
         if (tweenSize) TweenSize(text.transform);
+    }
+
+    public void SetText(string text, bool tweenSize = true)
+    {
+        this.text.text = text;
+        if (tweenSize) TweenSize(this.text.transform);
     }
 
     public void SetImage(Sprite sprite, bool tweenSize = true)

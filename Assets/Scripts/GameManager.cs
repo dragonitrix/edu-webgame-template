@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
         JumpToScene("sc_menu_" + GameDB.maingameSceneIndices[maingameIndex]);
     }
 
+    void JumpToGame(SUBGAME_INDEX subgameIndex)
+    {
+        JumpToScene("sc_game_" + GameDB.subgameSceneIndices[subgameIndex]);
+    }
+
     public void ExitSceneTransition(UnityAction callback)
     {
         AudioManager.instance.PlaySound("ui_transition_1", AudioManager.Channel.SFX_2);
@@ -136,6 +141,10 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.TIC_TAC_TOE:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
                 break;
+            case SUBGAME_INDEX.WONDER_SOUND:
+            case SUBGAME_INDEX.HOME_CARD:
+                JumpToGame(subgameIndex);
+                break;
             default:
                 //SetTargetGame(index);
                 break;
@@ -163,8 +172,9 @@ public class GameManager : MonoBehaviour
         {
             case SUBGAME_INDEX.SUPERX:
             case SUBGAME_INDEX.TIC_TAC_TOE:
-                JumpToScene("sc_game_" + GameDB.subgameSceneIndices[subgameIndex]);
+                JumpToGame(subgameIndex);
                 break;
         }
     }
+
 }

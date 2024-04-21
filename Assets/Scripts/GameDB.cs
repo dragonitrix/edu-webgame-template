@@ -9,12 +9,16 @@ public class GameDB : MonoBehaviour
     {
         {MAINGAME_INDEX.SUPER_SAVE,"supersave"},
         {MAINGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
+        {MAINGAME_INDEX.WONDER_SOUND,"wondersound"},
+        {MAINGAME_INDEX.HOME_CARD,"homecard"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
     {
         {SUBGAME_INDEX.SUPERX,"superx"},
         {SUBGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
+        {SUBGAME_INDEX.WONDER_SOUND,"wondersound"},
+        {SUBGAME_INDEX.HOME_CARD,"homecard"},
     };
 
     // Singleton instance
@@ -56,14 +60,18 @@ public class GameDB : MonoBehaviour
 public enum MAINGAME_INDEX
 {
     SUPER_SAVE,
-    TIC_TAC_TOE
+    TIC_TAC_TOE,
+    WONDER_SOUND,
+    HOME_CARD
 }
 [Serializable]
 public enum SUBGAME_INDEX
 {
     NULL = 0,
     SUPERX,
-    TIC_TAC_TOE
+    TIC_TAC_TOE,
+    WONDER_SOUND,
+    HOME_CARD
 }
 
 public enum PLAYER_COUNT
@@ -175,6 +183,37 @@ public class TicTacToe_LevelSettings
                 members = new int[] { 12, 2, 64, 24, 7, 200, 6, 10, 63, 27, 60, 100, 4, 20, 108, 28, 30, 50, 3, 48, 5, 14, 15, 40, 16, 54, 18, 32, 105, 25, 8, 56, 9, 21, 35, 36 };
                 firstRowMembers = new int[] { 12, 16, 20, 36, 48, 54, 56, 60, 63, 64, 105, 108, 200 };
                 secondRowMembers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                break;
+        }
+    }
+}
+
+
+public enum WONDERSOUND_LEVEL
+{
+    _1,
+    _2,
+    _3
+}
+
+[Serializable]
+public class WonderSound_LevelSettings
+{
+
+    public string intro_soundid;
+
+    public WonderSound_LevelSettings(WONDERSOUND_LEVEL level)
+    {
+        switch (level)
+        {
+            case WONDERSOUND_LEVEL._1:
+                intro_soundid = "wds_intro_1";
+                break;
+            case WONDERSOUND_LEVEL._2:
+                intro_soundid = "wds_intro_2";
+                break;
+            case WONDERSOUND_LEVEL._3:
+                intro_soundid = "wds_intro_3";
                 break;
         }
     }

@@ -71,6 +71,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Audio clip " + clipname + " not found!");
         }
     }
+
     public void PlaySound(string clipname, System.Action callback = null)
     {
         foreach (AudioSource source in sfxSources)
@@ -107,6 +108,8 @@ public class AudioManager : MonoBehaviour
         {
             case Channel.BGM:
                 return bgmSource;
+            case Channel.SPECIAL:
+                return spacialSource;
             default:
                 return sfxSources[(int)channel];
         }
@@ -124,12 +127,14 @@ public class AudioManager : MonoBehaviour
         SFX_2,
         SFX_3,
         BGM,
+        SPECIAL
     }
 
     [Header("Sources")]
     public AudioSource bgmSource;
     public List<AudioSource> sfxSources = new List<AudioSource>();
 
+    public AudioSource spacialSource;
 
 
     // volume control
