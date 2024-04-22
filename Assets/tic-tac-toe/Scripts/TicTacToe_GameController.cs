@@ -55,7 +55,7 @@ public class TicTacToe_GameController : GameController
     protected override void Start()
     {
         base.Start();
-        if (GameManager.instance == null) InitGame(3, PLAYER_COUNT._2_PLAYER);
+        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
