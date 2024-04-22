@@ -55,6 +55,11 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    public void PlaySpacialSound(string clipname, System.Action callback = null)
+    {
+        PlaySound(clipname, Channel.SPECIAL, callback);
+    }
+
     public void PlaySound(string clipname, Channel channel, System.Action callback = null)
     {
         if (audioDictionary.ContainsKey(clipname))
@@ -94,6 +99,16 @@ public class AudioManager : MonoBehaviour
                 source.Stop();
                 return;
             }
+        }
+        Debug.LogWarning("No SFX channel is currently playing sound " + clipname);
+    }
+    public void StopSound(string clipname, Channel channel)
+    {
+        AudioSource source = GetSource(channel);
+        if (source.isPlaying && source.clip.name == clipname)
+        {
+            source.Stop();
+            return;
         }
         Debug.LogWarning("No SFX channel is currently playing sound " + clipname);
     }

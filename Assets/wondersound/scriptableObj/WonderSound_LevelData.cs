@@ -12,6 +12,7 @@ public class WonderSound_LevelData : ScriptableObject
 [Serializable]
 public class WonderSound_RoundData
 {
+    public string hint;
     public WonderSound_AnswerData correct_answer;
     public WonderSound_AnswerData[] wrong_answer;
 }
@@ -20,5 +21,4 @@ public class WonderSound_RoundData
 public class WonderSound_AnswerData
 {
     public string text;
-    public string audio_id;
 }

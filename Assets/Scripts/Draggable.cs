@@ -12,8 +12,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public Image dragableContentImage;
 
     public delegate void OnDraggedDelegate(Draggable dragable);
-
     public OnDraggedDelegate onDragged;
+
+    public delegate void OnEndDraggedDelegate(Draggable dragable);
+    public OnEndDraggedDelegate onEndDragged;
 
     public void SetupEssentialComponent()
     {
@@ -40,7 +42,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         DragManager.instance.OnBeginDragEvent(this);
-        onDragged(this);
+        onDragged?.Invoke(this);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -51,5 +53,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         DragManager.instance.OnEndDragEvent(this);
+        onEndDragged?.Invoke(this);
     }
 }

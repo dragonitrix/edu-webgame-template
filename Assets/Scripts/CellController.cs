@@ -87,7 +87,7 @@ public class CellController : MonoBehaviour
     {
         AudioManager.instance.PlaySound("ui_click_1");
         //DebugButtonClick();
-        onClicked(this);
+        onClicked?.Invoke(this);
     }
 
 

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8436134197587731338}
   - component: {fileID: 5647360147522620646}
   - component: {fileID: 7233872671271920097}
+  - component: {fileID: 7584472888024075180}
+  - component: {fileID: 4809165711727249243}
   m_Layer: 5
   m_Name: cell
   m_TagString: Untagged
@@ -147,6 +149,33 @@ MonoBehaviour:
   value: '-'
   index: 0
   disableButton: 0
+--- !u!114 &7584472888024075180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027554127763444596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f62a0e03beb0ec4497845b33aaed9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragableBG: {fileID: 2289153366173846853}
+  dragableContentText: {fileID: 6512015302385941234}
+  dragableContentImage: {fileID: 0}
+--- !u!225 &4809165711727249243
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027554127763444596}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2214928201060761329
 GameObject:
   m_ObjectHideFlags: 0
