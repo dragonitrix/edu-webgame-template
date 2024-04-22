@@ -39,6 +39,8 @@ public class WonderSound_GameController : GameController
     Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
     List<CellController> cells;
 
+    WonderSound_LevelData currentLevelData;
+
     WonderSound_RoundData currentRoundData;
 
     bool firstTutorial = true;
@@ -61,12 +63,15 @@ public class WonderSound_GameController : GameController
         {
             case WONDERSOUND_LEVEL._1:
                 intro = intros[0];
+                currentLevelData = levelDatas[0];
                 break;
             case WONDERSOUND_LEVEL._2:
                 intro = intros[1];
+                currentLevelData = levelDatas[1];
                 break;
             case WONDERSOUND_LEVEL._3:
                 intro = intros[2];
+                currentLevelData = levelDatas[2];
                 break;
         }
         tutorialPopup.OnPopupExit += OnTutPopupExit;
@@ -188,12 +193,24 @@ public class WonderSound_GameController : GameController
         hintTextRect.DOScale(Vector3.zero, 0.25f);
         gameBGRect.DOAnchorPos(new Vector2(0, -600), 0.25f);
         dropAreaRect.DOScale(Vector3.zero, 0.25f);
+        answerText.GetComponent<CanvasGroup>().DOFade(0f, 0.25f);
+        dropCell.GetComponent<CanvasGroup>().DOFade(0f, 0.2f);
+
+        if (roundIndex + 1 >= currentLevelData.rounds.Length)
+        {
+            // finished game
+        }
+        else
+        {
+            DoDelayAction(1f, () => { SetPhase(GAME_PHASE.ROUND_START); });
+        }
+
     }
 
     void NewRound()
     {
         roundIndex++;
-        var roundData = levelDatas[0].rounds[roundIndex];
+        var roundData = currentLevelData.rounds[roundIndex];
         currentRoundData = roundData;
 
         string prefix = "wds";
@@ -222,6 +239,13 @@ public class WonderSound_GameController : GameController
         //setting
         mainImage.sprite = imgSprite;
         hintText.text = "คำไบ้: " + roundData.hint.Replace("(x)", " ... ");
+
+        //clear previous cell
+        for (int i = cellRect.childCount - 1; i >= 0; i--)
+        {
+            // Destroy the child GameObject immediately
+            DestroyImmediate(cellRect.GetChild(i).gameObject);
+        }
 
         cells = new List<CellController>();
 
@@ -343,7 +367,7 @@ public class WonderSound_GameController : GameController
 
         var _answerText = "คำตอบ: " + currentRoundData.hint.Replace("(x)", currentRoundData.correct_answer.text);
         answerText.text = _answerText;
-        answerText.GetComponent<CanvasGroup>().DOFade(1f, 0.3f);
+        answerText.GetComponent<CanvasGroup>().DOFade(1f, 0.3f).SetDelay(1f);
 
         AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.ANSWER, index + 1), OnAnswerSoundFinished);
     }
