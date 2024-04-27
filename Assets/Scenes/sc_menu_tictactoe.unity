@@ -2028,6 +2028,8 @@ MonoBehaviour:
   settingsButton: {fileID: 1549467848}
   settingsPopup: {fileID: 2058020171}
   levelSelectedPopup: {fileID: 197619190}
+  title: {fileID: 0}
+  BG_elems: []
 --- !u!4 &1283159592
 Transform:
   m_ObjectHideFlags: 0
