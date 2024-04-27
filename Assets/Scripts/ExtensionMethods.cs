@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public static class ExtensionMethods
 {
 
@@ -42,4 +43,9 @@ public static class ExtensionMethods
         canvasGroup.interactable = true;
         canvasGroup.blocksRaycasts = true;
     }
+
+    public static void AdjustTMPThaiText(this TextMeshProUGUI textMeshProUGUI){
+        textMeshProUGUI.text = ThaiFontAdjuster.Adjust(textMeshProUGUI.text);
+    }
+
 }
