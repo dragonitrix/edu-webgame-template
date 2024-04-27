@@ -30,13 +30,14 @@ public class PopupController : MonoBehaviour
     [ContextMenu("Enter")]
     public virtual void Enter()
     {
+        OnPopupEnter?.Invoke();
         animator.SetTrigger("FadeIn");
     }
-
 
     [ContextMenu("Exit")]
     public virtual void Exit()
     {
+        OnPopupExit?.Invoke();
         animator.SetTrigger("FadeOut");
     }
 }

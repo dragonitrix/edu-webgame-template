@@ -55,6 +55,11 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    public void PlaySpacialSound(string clipname, System.Action callback = null)
+    {
+        PlaySound(clipname, Channel.SPECIAL, callback);
+    }
+
     public void PlaySound(string clipname, Channel channel, System.Action callback = null)
     {
         if (audioDictionary.ContainsKey(clipname))
@@ -71,6 +76,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Audio clip " + clipname + " not found!");
         }
     }
+
     public void PlaySound(string clipname, System.Action callback = null)
     {
         foreach (AudioSource source in sfxSources)
@@ -96,6 +102,16 @@ public class AudioManager : MonoBehaviour
         }
         Debug.LogWarning("No SFX channel is currently playing sound " + clipname);
     }
+    public void StopSound(string clipname, Channel channel)
+    {
+        AudioSource source = GetSource(channel);
+        if (source.isPlaying && source.clip.name == clipname)
+        {
+            source.Stop();
+            return;
+        }
+        Debug.LogWarning("No SFX channel is currently playing sound " + clipname);
+    }
     public void StopSound(Channel channel)
     {
         GetSource(channel).Stop();
@@ -107,6 +123,8 @@ public class AudioManager : MonoBehaviour
         {
             case Channel.BGM:
                 return bgmSource;
+            case Channel.SPECIAL:
+                return spacialSource;
             default:
                 return sfxSources[(int)channel];
         }
@@ -124,12 +142,14 @@ public class AudioManager : MonoBehaviour
         SFX_2,
         SFX_3,
         BGM,
+        SPECIAL
     }
 
     [Header("Sources")]
     public AudioSource bgmSource;
     public List<AudioSource> sfxSources = new List<AudioSource>();
 
+    public AudioSource spacialSource;
 
 
     // volume control

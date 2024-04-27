@@ -40,18 +40,18 @@ public class DragManager : MonoBehaviour
         //InitDragAndDropObject();
     }
 
-    void InitDragAndDropObject()
+    public void InitDragAndDropObject()
     {
         GetAllDragable();
         GetAllDropable();
         //GetCurrentCanvas();
     }
 
-    void GetAllDragable()
+    public void GetAllDragable()
     {
         allDragablesInScene = FindObjectsOfType<Draggable>();
     }
-    void GetAllDropable()
+    public void GetAllDropable()
     {
         allDropablesInScene = FindObjectsOfType<Droppable>();
     }

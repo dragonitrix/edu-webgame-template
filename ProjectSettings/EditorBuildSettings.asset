@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_supersave.unity
-    guid: 49daa48c97e8d3a4aa7d9e223ce9b30e
+    path: Assets/Scenes/sc_menu_wondersound.unity
+    guid: 1adb748e069f84f4a9cd26e885f4dcf4
   - enabled: 1
-    path: Assets/Scenes/sc_game_superx.unity
-    guid: 0ff31d62b2da1734886fa4903df5cda0
+    path: Assets/Scenes/sc_game_wondersound.unity
+    guid: 06321306c6442ef4db9b78ac3b7d5e3e
   m_configObjects: {}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,11 @@ public class MenuController : MonoBehaviour
     [Header("Popup")]
     public PopupController settingsPopup;
     public MultiPagePopupController levelSelectedPopup;
-
     public static MenuController instance;
+
+    [Header("Title")]
+    public RectTransform title;
+    public RectTransform[] BG_elems;
 
     void Awake()
     {
@@ -28,10 +32,22 @@ public class MenuController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         playButton.onClick.AddListener(OnClickPlay);
         settingsButton.onClick.AddListener(OnClickSettings);
+
+        if (title != null)
+        {
+            title.localScale = Vector3.zero;
+            title.DOScale(Vector3.one, 0.25f);
+        }
+
+        for (int i = 0; i < BG_elems.Length; i++)
+        {
+            var item = BG_elems[i];
+            item.DOAnchorPos(Vector2.zero, 0.25f).SetDelay(i * 0.1f);
+        }
     }
 
     // Update is called once per frame
@@ -40,17 +56,15 @@ public class MenuController : MonoBehaviour
 
     }
 
-    void OnClickPlay()
+    protected virtual void OnClickPlay()
     {
-        //GameManager.instance.NextScene();
         levelSelectedPopup.Enter();
     }
 
-    void OnClickSettings()
+    protected virtual void OnClickSettings()
     {
         settingsPopup.Enter();
     }
-
 
     public void OnGameSelected(SubgameIndex sindex)
     {

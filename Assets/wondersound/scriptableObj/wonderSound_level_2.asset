@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2661d3b7955ccdf44a763420423d4b32, type: 3}
+  m_Name: wonderSound_level_2
+  m_EditorClassIdentifier: 
+  rounds:
+  - hint: "\u0E09\u0E31\u0E19\u0E1E\u0E31\u0E1A(x)\u0E44\u0E21\u0E48\u0E40\u0E23\u0E35\u0E22\u0E1A\u0E23\u0E49\u0E2D\u0E22"
+    correct_answer:
+      text: "\u0E1C\u0E49\u0E32"
+    wrong_answer:
+    - text: "\u0E1B\u0E49\u0E32"
+    - text: "\u0E1F\u0E49\u0E32"
+  - hint: "\u0E04\u0E38\u0E13(x)\u0E0A\u0E2D\u0E1A\u0E44\u0E1B\u0E40\u0E14\u0E34\u0E19\u0E2D\u0E2D\u0E01\u0E01\u0E33\u0E25\u0E31\u0E07\u0E01\u0E32\u0E22"
+    correct_answer:
+      text: "\u0E1B\u0E39\u0E48"
+    wrong_answer:
+    - text: "\u0E1C\u0E39\u0E49"
+    - text: "\u0E1F\u0E39\u0E48"
+  - hint: "\u0E04\u0E27\u0E32\u0E21\u0E20\u0E39\u0E21\u0E34\u0E43\u0E08\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E2D\u0E22\u0E39\u0E48\u0E43\u0E19(x)\u0E44\u0E2B\u0E27\u0E49\u0E04\u0E23\u0E39"
+    correct_answer:
+      text: "\u0E1E\u0E32\u0E19"
+    wrong_answer:
+    - text: "\u0E1B\u0E32\u0E19"
+    - text: "\u0E1D\u0E32\u0E19"
+  - hint: "\u0E09\u0E31\u0E19\u0E0A\u0E2D\u0E1A\u0E2A\u0E35(x)"
+    correct_answer:
+      text: "\u0E14\u0E33"
+    wrong_answer:
+    - text: "\u0E15\u0E33"
+    - text: "\u0E17\u0E33"
+  - hint: "(x)\u0E40\u0E1B\u0E47\u0E19\u0E2D\u0E27\u0E31\u0E22\u0E27\u0E30\u0E2A\u0E33\u0E04\u0E31\u0E0D\u0E43\u0E19\u0E23\u0E48\u0E32\u0E07\u0E01\u0E32\u0E22"
+    correct_answer:
+      text: "\u0E44\u0E15"
+    wrong_answer:
+    - text: "\u0E44\u0E16"
+    - text: "\u0E44\u0E14"
+  - hint: "\u0E04\u0E38\u0E13\u0E41\u0E21\u0E48\u0E1B\u0E25\u0E39\u0E01\u0E15\u0E49\u0E19\u0E44\u0E21\u0E49\u0E43\u0E1A(x)"
+    correct_answer:
+      text: "\u0E14\u0E48\u0E32\u0E07"
+    wrong_answer:
+    - text: "\u0E15\u0E48\u0E32\u0E07"
+    - text: "\u0E16\u0E48\u0E32\u0E07"
