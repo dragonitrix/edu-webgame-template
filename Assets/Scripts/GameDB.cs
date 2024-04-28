@@ -11,6 +11,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {MAINGAME_INDEX.WONDER_SOUND,"wondersound"},
         {MAINGAME_INDEX.HOME_CARD,"homecard"},
+        {MAINGAME_INDEX.MONEY_MONEY_MONEY,"moneymoneymoney"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -19,6 +20,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {SUBGAME_INDEX.WONDER_SOUND,"wondersound"},
         {SUBGAME_INDEX.HOME_CARD,"homecard"},
+        {SUBGAME_INDEX.MONEY_MONEY_MONEY,"jobmatching"},
     };
 
     // Singleton instance
@@ -62,7 +64,8 @@ public enum MAINGAME_INDEX
     SUPER_SAVE,
     TIC_TAC_TOE,
     WONDER_SOUND,
-    HOME_CARD
+    HOME_CARD,
+    MONEY_MONEY_MONEY
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -71,7 +74,8 @@ public enum SUBGAME_INDEX
     SUPERX,
     TIC_TAC_TOE,
     WONDER_SOUND,
-    HOME_CARD
+    HOME_CARD,
+    MONEY_MONEY_MONEY
 }
 
 public enum PLAYER_COUNT
@@ -218,3 +222,36 @@ public class WonderSound_LevelSettings
         }
     }
 }
+
+public enum MONEY_GAME
+{
+    GAME_ONE,
+    GAME_TWO,
+    GAME_THREE
+}
+
+[Serializable]
+public class MoneyMM_LevelSettings
+{
+    public string titleText;
+    public int[] members;
+
+    public MoneyMM_LevelSettings(MONEY_GAME level)
+    {
+        switch (level)
+        {
+            default:
+            case MONEY_GAME.GAME_ONE:
+                titleText = "จับคู่งานอดิเรก";
+                break;
+            case MONEY_GAME.GAME_TWO:
+                titleText = "รายได้เท่าไหร่";
+                members = new int[] { 429, 228, 913, 368, 836, 904, 250, 665, 237, 848, 999, 672 };
+                break;
+            case MONEY_GAME.GAME_THREE:
+                titleText = "ออมเงินกันเถอะ";
+                break;
+        }
+    }
+}
+

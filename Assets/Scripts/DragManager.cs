@@ -14,7 +14,8 @@ public class DragManager : MonoBehaviour
     public Canvas currentCanvas;
 
     DragableEssentialComponent currentDragableComponent;
-    Transform dragableTemp;
+    [HideInInspector]
+    public Transform dragableTemp;
     Image dragableTempBGImage;
     TextMeshProUGUI dragableTempContentText;
     Image dragableTempContentImage;
@@ -25,8 +26,8 @@ public class DragManager : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
         dragableTemp = transform.GetChild(0);
         dragableTempBGImage = dragableTemp.GetComponent<Image>();
-        dragableTempContentText = dragableTemp.GetChild(0).GetComponent<TextMeshProUGUI>();
-        dragableTempContentImage = dragableTemp.GetChild(1).GetComponent<Image>();
+        dragableTempContentImage = dragableTemp.GetChild(0).GetComponent<Image>();
+        dragableTempContentText = dragableTemp.GetChild(1).GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -45,6 +46,11 @@ public class DragManager : MonoBehaviour
         GetAllDragable();
         GetAllDropable();
         //GetCurrentCanvas();
+    }
+    public GameObject DuplicateDragableTemp()
+    {
+        GameObject dupedTemp = Instantiate(dragableTemp.gameObject, transform);
+        return dupedTemp;
     }
 
     public void GetAllDragable()
@@ -68,6 +74,7 @@ public class DragManager : MonoBehaviour
 
         if (currentDragableComponent.dragableContentText != null)
         {
+            dragableTempContentText.gameObject.SetActive(true);
             dragableTempContentText.text = currentDragableComponent.dragableContentText.text;
             dragableTempContentText.fontSize = currentDragableComponent.dragableContentText.fontSize;
             dragableTempContentText.color = currentDragableComponent.dragableContentText.color;
@@ -80,6 +87,7 @@ public class DragManager : MonoBehaviour
 
         if (currentDragableComponent.dragableContentImage != null)
         {
+            dragableTempContentImage.gameObject.SetActive(true);
             dragableTempContentImage.sprite = currentDragableComponent.dragableContentImage.sprite;
             dragableTempContentImage.color = currentDragableComponent.dragableContentImage.color;
             dragableTempContentImage.rectTransform.sizeDelta = currentDragableComponent.dragableContentImage.rectTransform.sizeDelta;
@@ -88,6 +96,7 @@ public class DragManager : MonoBehaviour
         {
             dragableTempContentImage.gameObject.SetActive(false);
         }
+
         dragableTemp.SetParent(currentCanvas.transform);
         dragableTemp.gameObject.SetActive(true);
 

@@ -126,6 +126,11 @@ public class CellController : MonoBehaviour
         );
     }
 
+    public bool GetEnableImage
+    {
+        get { return text.color.a == 1; }
+    }
+
     public void SetEnableButton(bool val)
     {
         button.interactable = val;
