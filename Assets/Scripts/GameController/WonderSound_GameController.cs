@@ -7,6 +7,7 @@ using System.Linq;
 using TransitionsPlus;
 using DG.Tweening;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class WonderSound_GameController : GameController
 {
@@ -53,12 +54,26 @@ public class WonderSound_GameController : GameController
     protected override void Start()
     {
         base.Start();
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(2, PLAYER_COUNT._1_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
+
+        int maxLevel = System.Enum.GetValues(typeof(WONDERSOUND_LEVEL)).Length;
+        
+
+        Button nextLevelButton = ((ResultPopupController)resultPopup).retryButton;
+        nextLevelButton.onClick.RemoveAllListeners();
+        nextLevelButton.onClick.AddListener(ToNextLevelButtonEvent);
+
+        if (gameLevel >= maxLevel - 1)
+        {
+            nextLevelButton.gameObject.SetActive(false);
+            Button homeButton = ((ResultPopupController)resultPopup).homeButton;
+            homeButton.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, homeButton.gameObject.GetComponent<RectTransform>().anchoredPosition.y);
+        }
 
         var level = (WONDERSOUND_LEVEL)gameLevel;
         levelSettings = new WonderSound_LevelSettings(level);
@@ -87,6 +102,12 @@ public class WonderSound_GameController : GameController
 
         SetDisplayRoundElement(false);
 
+    }
+
+    void ToNextLevelButtonEvent()
+    {
+        GameManager.instance.gameLevel++;
+        GameManager.instance.ReloadScene();
     }
 
     public override void StartGame()
@@ -282,6 +303,13 @@ public class WonderSound_GameController : GameController
             cells.Add(wrong_cell);
         }
 
+        cells.Shuffle();
+
+        for (int i = 0; i < cells.Count; i++)
+        {
+            cells[i].transform.SetAsLastSibling();
+        }
+
         foreach (var cell in cells)
         {
             cell.GetComponent<Draggable>().onDragged += OnBeginCellDrag;
@@ -329,7 +357,7 @@ public class WonderSound_GameController : GameController
         {
             var cell = cells[i];
             cell.GetComponent<RectTransform>().DOScale(Vector3.one, 0.3f);
-            var word_soundID = GetSoundID(SOUNDID_TYPE.WORD, i + 1);
+            var word_soundID = GetSoundID(SOUNDID_TYPE.WORD, cell.index + 1);
             AudioManager.instance.PlaySpacialSound(word_soundID);
             yield return new WaitForSeconds(2);
         }
