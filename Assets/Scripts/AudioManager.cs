@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
     private void Awake()
     {
         if (instance == null)
@@ -42,7 +41,8 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioClip clip in audioClips)
         {
-            audioDictionary.Add(clip.name, clip);
+            if (!audioDictionary.ContainsKey(clip.name))
+                audioDictionary.Add(clip.name, clip);
         }
     }
 
