@@ -425,7 +425,7 @@ AudioSource:
   m_GameObject: {fileID: 5482262826336018780}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 8528753142213154983, guid: 7147ff10fe72f2140bb6f0b77dd1d933, type: 2}
+  OutputAudioMixerGroup: {fileID: -5807983483390362209, guid: 7147ff10fe72f2140bb6f0b77dd1d933, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -572,10 +572,12 @@ MonoBehaviour:
     parameterName: bgmVol
     minValue: -20
     maxValue: 10
+    defaultVolume: 0.5
   sfxMixerGroups:
     parameterName: sfxVol
     minValue: -10
     maxValue: 10
+    defaultVolume: 0.5
 --- !u!1 &6275573480715436694
 GameObject:
   m_ObjectHideFlags: 0

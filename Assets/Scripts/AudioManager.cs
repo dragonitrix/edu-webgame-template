@@ -22,13 +22,25 @@ public class AudioManager : MonoBehaviour
         LoadSounds();
     }
 
-
     private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
+
+    void Start(){
+        SetBGMVol(bgmMixerGroups.defaultVolume);
+        SetSFXVol(sfxMixerGroups.defaultVolume);
+    }
 
     private void LoadSounds()
     {
         AudioClip[] clipsArray = Resources.LoadAll<AudioClip>("Audios");
         foreach (AudioClip clip in clipsArray)
+        {
+            audioDictionary.Add(clip.name, clip);
+        }
+    }
+
+    public void LoadAdditionalSounds(List<AudioClip> audioClips)
+    {
+        foreach (AudioClip clip in audioClips)
         {
             audioDictionary.Add(clip.name, clip);
         }
@@ -153,8 +165,6 @@ public class AudioManager : MonoBehaviour
 
 
     // volume control
-
-
     public AudioMixer audioMixer;
     [System.Serializable]
     public class MixerGroupSettings
@@ -162,25 +172,12 @@ public class AudioManager : MonoBehaviour
         public string parameterName;
         public float minValue = 0f;
         public float maxValue = 1f;
+        public float defaultVolume = 0.5f;
     }
 
     [Header("Volume Control")]
     public MixerGroupSettings bgmMixerGroups;
     public MixerGroupSettings sfxMixerGroups;
-
-    //private void Start()
-    //{
-    //    foreach (var mixerGroup in mixerGroups)
-    //    {
-    //        // Subscribe to the slider's OnValueChanged event
-    //        mixerGroup.slider.onValueChanged.AddListener(value => OnSliderValueChanged(mixerGroup, value));
-    //
-    //        // Adjust the slider value based on the current volume setting in the Audio Mixer
-    //        float currentValue = GetMixerValue(mixerGroup);
-    //        float sliderValue = Mathf.InverseLerp(mixerGroup.minValue, mixerGroup.maxValue, currentValue);
-    //        mixerGroup.slider.value = sliderValue;
-    //    }
-    //}
 
     public void SetBGMVol(float value)
     {

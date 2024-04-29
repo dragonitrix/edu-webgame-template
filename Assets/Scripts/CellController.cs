@@ -64,6 +64,7 @@ public class CellController : MonoBehaviour
     public void SetText(string text, bool tweenSize = true)
     {
         this.text.text = text;
+        //this.text.text = ThaiFontAdjuster.Adjust(text);
         if (tweenSize) TweenSize(this.text.transform);
     }
 

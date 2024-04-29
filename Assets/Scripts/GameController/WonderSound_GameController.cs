@@ -49,7 +49,7 @@ public class WonderSound_GameController : GameController
     protected override void Start()
     {
         base.Start();
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(1, PLAYER_COUNT._1_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -199,6 +199,7 @@ public class WonderSound_GameController : GameController
         if (roundIndex + 1 >= currentLevelData.rounds.Length)
         {
             // finished game
+            
         }
         else
         {
@@ -238,7 +239,8 @@ public class WonderSound_GameController : GameController
 
         //setting
         mainImage.sprite = imgSprite;
-        hintText.text = "คำไบ้: " + roundData.hint.Replace("(x)", " ... ");
+        var _hintText = "คำไบ้: " + roundData.hint.Replace("(x)", " ... ");
+        hintText.text = ThaiFontAdjuster.Adjust(_hintText);
 
         //clear previous cell
         for (int i = cellRect.childCount - 1; i >= 0; i--)
@@ -366,7 +368,7 @@ public class WonderSound_GameController : GameController
         }
 
         var _answerText = "คำตอบ: " + currentRoundData.hint.Replace("(x)", currentRoundData.correct_answer.text);
-        answerText.text = _answerText;
+        answerText.text = ThaiFontAdjuster.Adjust(_answerText);
         answerText.GetComponent<CanvasGroup>().DOFade(1f, 0.3f).SetDelay(1f);
 
         AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.ANSWER, index + 1), OnAnswerSoundFinished);

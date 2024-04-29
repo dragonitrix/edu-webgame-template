@@ -19,6 +19,10 @@ public class GameController : MonoBehaviour
         }
     }
 
+    [Header("Additional Resources")]
+    public List<AudioClip> sounds = new();
+
+    [Header("Settings")]
     public GAME_STATE gameState;
     public int gameLevel = 0;
     public PLAYER_COUNT playerCount = PLAYER_COUNT._1_PLAYER;
@@ -29,6 +33,8 @@ public class GameController : MonoBehaviour
 
     public virtual void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
+        if (AudioManager.instance) AudioManager.instance.LoadAdditionalSounds(sounds);
+
         this.gameLevel = gameLevel;
         this.playerCount = playerCount;
         gameState = GAME_STATE.IDLE;

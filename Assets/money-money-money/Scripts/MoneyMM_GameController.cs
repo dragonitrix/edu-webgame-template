@@ -6,7 +6,6 @@ using TMPro;
 using TransitionsPlus;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class MoneyMM_GameController : GameController
 {

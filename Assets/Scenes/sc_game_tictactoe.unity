@@ -147,7 +147,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 1334083838}
+        m_Texture: {fileID: 1453826011}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -702,6 +702,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &268735982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1135704560928011857, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &268735985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6399109900922454899, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268735982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &268735987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268735982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 268735985}
 --- !u!1001 &281275656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -900,54 +929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!28 &369002726
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &389883057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1275,6 +1256,7 @@ MonoBehaviour:
   sfxSources:
   - {fileID: 949101952}
   - {fileID: 593841823}
+  spacialSource: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 7147ff10fe72f2140bb6f0b77dd1d933, type: 2}
   bgmMixerGroups:
     parameterName: bgmVol
@@ -1915,6 +1897,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 456345820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &622085325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 295615627389205696, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+  m_PrefabInstance: {fileID: 1671671010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622085327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3644249810337011556, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+  m_PrefabInstance: {fileID: 1671671010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622085325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &622085329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622085325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 622085327}
 --- !u!1 &651506315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +1985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1489495471885985035, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
       propertyPath: m_text
-      value: "3.\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E17\u0E35\u0E48\u0E44\u0E14\u0E49\u0E08\u0E32\u0E01\u0E1A\u0E2D\u0E23\u0E4C\u0E14\u0E0A\u0E48\u0E27\u0E22\u0E04\u0E34\u0E14"
+      value: "3.\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\uF70B\u0E2D\u0E07\u0E17\u0E35\u0E48\u0E44\u0E14\uF70B\u0E08\u0E32\u0E01\u0E1A\u0E2D\u0E23\uF70E\u0E14\u0E0A\uF70A\u0E27\u0E22\u0E04\u0E34\u0E14"
       objectReference: {fileID: 0}
     - target: {fileID: 1690673312556015649, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2152,9 +2163,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6586e3dd94fab964186c90c624c287a4, type: 3}
+    - target: {fileID: 7583586133752122825, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+      propertyPath: m_text
+      value: "\u0E27\u0E34\u0E18\u0E35\u0E01\u0E32\u0E23\u0E40\u0E25\uF70A\u0E19"
+      objectReference: {fileID: 0}
     - target: {fileID: 7955067975081820179, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
       propertyPath: m_text
-      value: "2. \u0E14\u0E39\u0E39\u0E17\u0E35\u0E48\u0E1A\u0E2D\u0E23\u0E4C\u0E14\u0E0A\u0E48\u0E27\u0E22\u0E04\u0E34\u0E14\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2B\u0E32\u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07"
+      value: "2. \u0E14\u0E39\u0E39\u0E17\u0E35\u0E48\u0E1A\u0E2D\u0E23\uF70E\u0E14\u0E0A\uF70A\u0E27\u0E22\u0E04\u0E34\u0E14\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2B\u0E32\u0E04\u0E33\u0E15\u0E2D\u0E1A\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\uF70B\u0E2D\u0E07"
       objectReference: {fileID: 0}
     - target: {fileID: 9203426588214459090, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2178,7 +2193,19 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2103276540556375640, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 651506316}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3720401478734362464, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1577022743}
+    - targetCorrespondingSourceObject: {fileID: 5247849994122180618, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796831764}
+    - targetCorrespondingSourceObject: {fileID: 2711807467972111664, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008613308}
+    - targetCorrespondingSourceObject: {fileID: 3886094383968008417, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1541447574}
   m_SourcePrefab: {fileID: 100100000, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
 --- !u!224 &665792015 stripped
 RectTransform:
@@ -2206,7 +2233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2526001428738286480, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_text
-      value: "\u0E1A\u0E2D\u0E23\u0E4C\u0E14\u0E0A\u0E48\u0E27\u0E22\u0E04\u0E34\u0E14"
+      value: "\u0E1A\u0E2D\u0E23\uF70E\u0E14\u0E0A\uF70A\u0E27\u0E22\u0E04\u0E34\u0E14"
       objectReference: {fileID: 0}
     - target: {fileID: 2526001428738286480, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_fontSize
@@ -2218,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4890890605821926860, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_text
-      value: "\u0E1A\u0E2D\u0E23\u0E4C\u0E14\u0E0A\u0E48\u0E27\u0E22\u0E04\u0E34\u0E14"
+      value: "\u0E1A\u0E2D\u0E23\uF70E\u0E14\u0E0A\uF70A\u0E27\u0E22\u0E04\u0E34\u0E14"
       objectReference: {fileID: 0}
     - target: {fileID: 4890890605821926860, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_fontSize
@@ -2319,13 +2346,48 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3197900986929297609, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 785325697}
+    - targetCorrespondingSourceObject: {fileID: 7972552546406663083, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1169099699}
   m_SourcePrefab: {fileID: 100100000, guid: 4996084ffa273084681f9aba0538828b, type: 3}
 --- !u!224 &710107733 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5796741656682821310, guid: 4996084ffa273084681f9aba0538828b, type: 3}
   m_PrefabInstance: {fileID: 710107732}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &785325692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3197900986929297609, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+  m_PrefabInstance: {fileID: 710107732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &785325695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2526001428738286480, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+  m_PrefabInstance: {fileID: 710107732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785325692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &785325697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785325692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 785325695}
 --- !u!1 &786680909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2524,6 +2586,35 @@ MonoBehaviour:
   gridLayoutGroup: {fileID: 809164964}
   gridRect: {fileID: 809164963}
   cells: []
+--- !u!1 &868561235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2287414805818074601, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+  m_PrefabInstance: {fileID: 1671671010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &868561237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2969634232411557453, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+  m_PrefabInstance: {fileID: 1671671010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868561235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &868561239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868561235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 868561237}
 --- !u!1001 &876937434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3008,6 +3099,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158799726}
   m_CullTransparentMesh: 1
+--- !u!1 &1169099695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7972552546406663083, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+  m_PrefabInstance: {fileID: 710107732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1169099697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4890890605821926860, guid: 4996084ffa273084681f9aba0538828b, type: 3}
+  m_PrefabInstance: {fileID: 710107732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169099695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1169099699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169099695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1169099697}
+--- !u!1 &1189910055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2614655769448638192, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1189910057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1351601802144058708, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189910055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1189910059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189910055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1189910057}
 --- !u!28 &1213795759
 Texture2D:
   m_ObjectHideFlags: 0
@@ -3080,7 +3229,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 369002726}
+        m_Texture: {fileID: 1468157404}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -3114,6 +3263,35 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
+--- !u!1 &1243664774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5580446902542402745, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1243664777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 519165137938795341, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243664774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1243664779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243664774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1243664777}
 --- !u!1 &1252509416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,54 +3415,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252509416}
   m_CullTransparentMesh: 1
---- !u!28 &1334083838
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1417991486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,6 +3499,160 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
+--- !u!1 &1419982553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2813360891176611088, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1419982555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1262087543788439220, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+  m_PrefabInstance: {fileID: 1684665058}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419982553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1419982557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419982553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1419982555}
+--- !u!28 &1453826011
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!28 &1468157404
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!1 &1541447570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3886094383968008417, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1541447572 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1489495471885985035, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541447570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1541447574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541447570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1541447572}
 --- !u!1 &1560847932
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,6 +3728,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560847932}
   m_CullTransparentMesh: 1
+--- !u!1 &1577022739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3720401478734362464, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1577022741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7583586133752122825, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577022739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1577022743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577022739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1577022741}
 --- !u!1 &1619525603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,6 +3981,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 11.7586975
       objectReference: {fileID: 0}
+    - target: {fileID: 2969634232411557453, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+      propertyPath: m_text
+      value: "\u0E01\u0E25\u0E31\u0E1A\u0E2B\u0E19\uF70B\u0E32\u0E2B\u0E25\u0E31\u0E01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644249810337011556, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+      propertyPath: m_text
+      value: "\u0E40\u0E25\uF70A\u0E19\u0E15\uF70A\u0E2D"
+      objectReference: {fileID: 0}
     - target: {fileID: 5244003732277069457, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3751,7 +4072,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2287414805818074601, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 868561239}
+    - targetCorrespondingSourceObject: {fileID: 295615627389205696, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622085329}
   m_SourcePrefab: {fileID: 100100000, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
 --- !u!224 &1671671011 stripped
 RectTransform:
@@ -3869,6 +4196,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 519165137938795341, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      propertyPath: m_text
+      value: "\u0E40\u0E01\uF70A\u0E07\u0E21\u0E32\u0E01\n\u0E40\u0E22\u0E35\u0E48\u0E22\u0E21\u0E17\u0E35\u0E48\u0E2A\u0E38\u0E14\u0E40\u0E25\u0E22"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262087543788439220, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      propertyPath: m_text
+      value: "\u0E01\u0E25\u0E31\u0E1A\u0E2B\u0E19\uF70B\u0E32\u0E2B\u0E25\u0E31\u0E01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351601802144058708, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      propertyPath: m_text
+      value: "\u0E40\u0E25\uF70A\u0E19\u0E43\u0E2B\u0E21\uF70A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399109900922454899, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      propertyPath: m_text
+      value: "\u0E44\u0E21\uF70A\u0E40\u0E1B\uF712\u0E19\u0E44\u0E23 \u0E25\u0E2D\u0E07\u0E43\u0E2B\u0E21\uF70A\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E19\u0E30"
+      objectReference: {fileID: 0}
     - target: {fileID: 8435445510666636730, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
       propertyPath: m_Name
       value: Result Popup
@@ -3880,7 +4223,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5580446902542402745, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243664779}
+    - targetCorrespondingSourceObject: {fileID: 1135704560928011857, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 268735987}
+    - targetCorrespondingSourceObject: {fileID: 2813360891176611088, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1419982557}
+    - targetCorrespondingSourceObject: {fileID: 2614655769448638192, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1189910059}
   m_SourcePrefab: {fileID: 100100000, guid: 02ee75035190f8542a26659362c8ffeb, type: 3}
 --- !u!224 &1684665059 stripped
 RectTransform:
@@ -4090,6 +4445,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725310700}
   m_CullTransparentMesh: 1
+--- !u!1 &1796831760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5247849994122180618, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796831762 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3738015144618892363, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796831760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1796831764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796831760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1796831762}
 --- !u!1 &1807425520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4488,6 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed1559d866b5ed4cbb6b4611c94a026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds: []
   gameState: 0
   gameLevel: 0
   playerCount: 0
@@ -4772,6 +5157,7 @@ GameObject:
   - component: {fileID: 2003475769}
   - component: {fileID: 2003475771}
   - component: {fileID: 2003475770}
+  - component: {fileID: 2003475772}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4818,11 +5204,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "3.\u0E40\u0E25\u0E48\u0E19\u0E15\u0E32\u0E21\u0E02\u0E49\u0E2D 1-3 \u0E27\u0E19\u0E44\u0E1B
-    \u0E08\u0E19\u0E01\u0E27\u0E48\u0E32\u0E08\u0E30\u0E21\u0E35\u0E15\u0E31\u0E27\u0E40\u0E25\u0E02\u0E17\u0E35\u0E48\u0E01\u0E14\u0E40\u0E23\u0E35\u0E22\u0E07\u0E15\u0E34\u0E14\u0E01\u0E31\u0E19
-    4 \u0E15\u0E31\u0E27  \u0E43\u0E19\u0E41\u0E19\u0E27\u0E40\u0E2A\u0E49\u0E19\u0E15\u0E23\u0E07\u0E15\u0E32\u0E21\u0E41\u0E19\u0E27\u0E19\u0E2D\u0E19
+  m_text: "3.\u0E40\u0E25\uF70A\u0E19\u0E15\u0E32\u0E21\u0E02\uF70B\u0E2D 1-3 \u0E27\u0E19\u0E44\u0E1B
+    \u0E08\u0E19\u0E01\u0E27\uF70A\u0E32\u0E08\u0E30\u0E21\u0E35\u0E15\u0E31\u0E27\u0E40\u0E25\u0E02\u0E17\u0E35\u0E48\u0E01\u0E14\u0E40\u0E23\u0E35\u0E22\u0E07\u0E15\u0E34\u0E14\u0E01\u0E31\u0E19
+    4 \u0E15\u0E31\u0E27  \u0E43\u0E19\u0E41\u0E19\u0E27\u0E40\u0E2A\uF70B\u0E19\u0E15\u0E23\u0E07\u0E15\u0E32\u0E21\u0E41\u0E19\u0E27\u0E19\u0E2D\u0E19
     \u0E41\u0E19\u0E27\u0E15\u0E31\u0E49\u0E07 \u0E2B\u0E23\u0E37\u0E2D\u0E41\u0E19\u0E27\u0E17\u0E41\u0E22\u0E07
-    \u0E08\u0E30\u0E16\u0E37\u0E2D\u0E27\u0E48\u0E32\u0E0A\u0E19\u0E30"
+    \u0E08\u0E30\u0E16\u0E37\u0E2D\u0E27\uF70A\u0E32\u0E0A\u0E19\u0E30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b66a8e048d4a5f41a83669573569f86, type: 2}
   m_sharedMaterial: {fileID: 377775148515160995, guid: 3b66a8e048d4a5f41a83669573569f86, type: 2}
@@ -4899,6 +5285,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003475768}
   m_CullTransparentMesh: 1
+--- !u!114 &2003475772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003475768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 2003475770}
+--- !u!1 &2008613304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2711807467972111664, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2008613306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7955067975081820179, guid: 1970dbf383471f140afee13e3ee834bf, type: 3}
+  m_PrefabInstance: {fileID: 665792014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008613304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2008613308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008613304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c3bad312c7a624881ff9b8a4b5107b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 2008613306}
 --- !u!1 &2023903497
 GameObject:
   m_ObjectHideFlags: 0
