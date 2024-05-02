@@ -18,6 +18,7 @@ public class SimpleBatchTweenController : MonoBehaviour
 
     void Start()
     {
+        canvasGroup.alpha = 0f;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
     }
@@ -47,14 +48,14 @@ public class SimpleBatchTweenController : MonoBehaviour
         i = 0;
         foreach (RectTransform item in scale_zero)
         {
-            item.DOScale(zero, duration).SetDelay(i * 0.1f);
+            item.DOScale(zero, duration).From(one).SetDelay(i * 0.1f);
             i++;
         }
 
         i = 0;
         foreach (RectTransform item in scale_one)
         {
-            item.DOScale(one, duration).SetDelay(i * 0.1f);
+            item.DOScale(one, duration).From(zero).SetDelay(i * 0.1f);
             i++;
         }
 

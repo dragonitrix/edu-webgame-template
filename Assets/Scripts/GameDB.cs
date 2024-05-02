@@ -10,8 +10,8 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.SUPER_SAVE,"supersave"},
         {MAINGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {MAINGAME_INDEX.WONDER_SOUND,"wondersound"},
-        {MAINGAME_INDEX.HOME_CARD,"homecard"},
         {MAINGAME_INDEX.MONEY_MONEY_MONEY,"moneymoneymoney"},
+        {MAINGAME_INDEX.HOUSE,"house"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -19,8 +19,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.SUPERX,"superx"},
         {SUBGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {SUBGAME_INDEX.WONDER_SOUND,"wondersound"},
-        {SUBGAME_INDEX.HOME_CARD,"homecard"},
         {SUBGAME_INDEX.MONEY_MONEY_MONEY,"jobmatching"},
+        {SUBGAME_INDEX.HOUSE,"house"},
     };
 
     // Singleton instance
@@ -64,8 +64,8 @@ public enum MAINGAME_INDEX
     SUPER_SAVE,
     TIC_TAC_TOE,
     WONDER_SOUND,
-    HOME_CARD,
-    MONEY_MONEY_MONEY
+    MONEY_MONEY_MONEY,
+    HOUSE
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -74,8 +74,8 @@ public enum SUBGAME_INDEX
     SUPERX,
     TIC_TAC_TOE,
     WONDER_SOUND,
-    HOME_CARD,
-    MONEY_MONEY_MONEY
+    MONEY_MONEY_MONEY,
+    HOUSE
 }
 
 public enum PLAYER_COUNT
@@ -218,6 +218,45 @@ public class WonderSound_LevelSettings
                 break;
             case WONDERSOUND_LEVEL._3:
                 intro_soundid = "wds_intro_3";
+                break;
+        }
+    }
+}
+
+public enum HOUSE_LEVEL
+{
+
+    _1,
+    _2,
+    _3,
+    _4,
+    _5,
+    _6,
+}
+
+[Serializable]
+public class House_LevelSettings
+{
+
+    public string intro_soundid;
+
+    public House_LevelSettings(HOUSE_LEVEL level)
+    {
+        var prefix = "hou_";
+        intro_soundid = prefix + "intro_0" + (level + 1).ToString();
+        switch (level)
+        {
+            case HOUSE_LEVEL._1:
+                break;
+            case HOUSE_LEVEL._2:
+                break;
+            case HOUSE_LEVEL._3:
+                break;
+            case HOUSE_LEVEL._4:
+                break;
+            case HOUSE_LEVEL._5:
+                break;
+            case HOUSE_LEVEL._6:
                 break;
         }
     }

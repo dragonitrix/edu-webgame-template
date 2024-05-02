@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
                 break;
             case SUBGAME_INDEX.WONDER_SOUND:
-            case SUBGAME_INDEX.HOME_CARD:
+            case SUBGAME_INDEX.HOUSE:
                 JumpToGame(subgameIndex);
                 break;
             default:
