@@ -243,7 +243,7 @@ public class House_LevelSettings
     public House_LevelSettings(HOUSE_LEVEL level)
     {
         var prefix = "hou_";
-        intro_soundid = prefix + "intro_0" + (level + 1).ToString();
+        intro_soundid = prefix + "intro_0" + ((int)level + 1).ToString();
         switch (level)
         {
             case HOUSE_LEVEL._1:

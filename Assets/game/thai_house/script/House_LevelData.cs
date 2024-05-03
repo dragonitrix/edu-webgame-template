@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "house_level_0", menuName = "house/LevelData")]
 public class House_LevelData : ScriptableObject
 {
+    public string[] houseTexts;
     public House_RoundData[] rounds;
 }
 

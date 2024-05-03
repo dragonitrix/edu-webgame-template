@@ -7,28 +7,40 @@ using System.Linq;
 using TransitionsPlus;
 using DG.Tweening;
 using UnityEngine.Events;
-using Unity.VisualScripting;
 
 public class House_GameController : GameController
 {
+    [Header("Prefabs")]
+    public GameObject smallCard_prefab;
+
     [Header("intro")]
     public SimpleBatchTweenController[] intros;
     SimpleBatchTweenController intro;
+
+    [Header("Obj Ref")]
+    public House_LevelPresetController levelPreset;
+    public House_CardController mainCard;
+    public RectTransform mainCard_rect;
+    public CanvasGroup mainCard_underlay;
+    public Draggable mainCard_draggable;
+
+    [Header("Data")]
+    public House_LevelData[] levelDatas;
+    public List<Sprite> levelSprites;
+    House_LevelSettings levelSettings;
+    House_LevelData currentLevelData;
+    House_RoundData currentRoundData;
+    public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
 
     bool firstTutorial = true;
     bool isCorrectAnswer = false;
     int currentScore = 0;
     int maxScore = 0;
-
     int roundIndex = -1;
 
-    House_LevelSettings levelSettings;
-    WonderSound_LevelData currentLevelData;
+    House_CardSmall currentAnswerCard;
+    House_HouseBig currentBigHouse;
 
-    WonderSound_RoundData currentRoundData;
-
-    [Header("Data")]
-    public WonderSound_LevelData[] levelDatas;
     protected override void Start()
     {
         base.Start();
@@ -38,14 +50,36 @@ public class House_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
+        tutorialPopup.OnPopupExit += OnTutPopupExit;
 
+        spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
 
         var level = (HOUSE_LEVEL)gameLevel;
         levelSettings = new House_LevelSettings(level);
         currentScore = 0;
 
         intro = intros[gameLevel];
-        currentLevelData = levelDatas[0];
+        currentLevelData = levelDatas[gameLevel];
+        maxScore = currentLevelData.rounds.Length;
+
+        var houseDatas = new List<HouseData>();
+
+        for (int i = 0; i < currentLevelData.houseTexts.Length; i++)
+        {
+            string prefix = "house";
+            string _levelIndex = "_" + (gameLevel + 1).ToString("00");
+            string _roundIndex = "_" + (i + 1).ToString("00");
+            string imgID = prefix + _levelIndex + _roundIndex;
+            houseDatas.Add(new HouseData(imgID, currentLevelData.houseTexts[i]));
+        }
+
+        levelPreset.SetUpHouses(houseDatas);
+
+        foreach (var droparea in levelPreset.GetDropArea())
+        {
+            droparea.onDropped += OnDrop;
+        }
+
         switch (level)
         {
             case HOUSE_LEVEL._1:
@@ -63,7 +97,6 @@ public class House_GameController : GameController
         }
 
         SetDisplayRoundElement(false);
-        tutorialPopup.OnPopupExit += OnTutPopupExit;
     }
 
     void ToNextLevelButtonEvent()
@@ -81,7 +114,7 @@ public class House_GameController : GameController
         //tutorialPopup.closeButton.gameObject.SetActive(false);
         DoDelayAction(0.5f, () =>
         {
-            AudioManager.instance.PlaySpacialSound("wds_tut", OnTutSoundFinished);
+            AudioManager.instance.PlaySpacialSound("hou_tut", OnTutSoundFinished);
         });
     }
 
@@ -89,7 +122,7 @@ public class House_GameController : GameController
     {
         if (!firstTutorial) return;
         firstTutorial = false;
-        AudioManager.instance.StopSound("wds_tut", AudioManager.Channel.SPECIAL);
+        AudioManager.instance.StopSound("hou_tut", AudioManager.Channel.SPECIAL);
         SetPhase(GAME_PHASE.INTRO);
     }
 
@@ -98,8 +131,18 @@ public class House_GameController : GameController
         tutorialPopup.closeButton.gameObject.SetActive(true);
     }
 
-    void OnIntroSoundFinished()
+    void OnIntro1SoundFinished()
     {
+        DoDelayAction(1f, () => { SetPhase(GAME_PHASE.ROUND_START); });
+        //Debug.Log("OnIntro1SoundFinished");
+        //DoDelayAction(1f, () =>
+        //{
+        //    AudioManager.instance.PlaySpacialSound(levelSettings.intro_soundid + "_02", OnIntro2SoundFinished);
+        //});
+    }
+    void OnIntro2SoundFinished()
+    {
+        Debug.Log("OnIntro2SoundFinished");
         DoDelayAction(1f, () => { SetPhase(GAME_PHASE.ROUND_START); });
     }
 
@@ -152,7 +195,8 @@ public class House_GameController : GameController
 
     void OnEnterIntro()
     {
-        // AudioManager.instance.PlaySpacialSound(levelSettings.intro_soundid, OnIntroSoundFinished);
+        Debug.Log("OnEnterIntro");
+        AudioManager.instance.PlaySpacialSound(levelSettings.intro_soundid + "_01", OnIntro1SoundFinished);
         intro.Enter();
         SetDisplayRoundElement(false);
     }
@@ -164,34 +208,112 @@ public class House_GameController : GameController
 
     void OnEnterRoundWaiting()
     {
-        DragManager.instance.GetAllDragable();
-
+        mainCard_draggable.enabled = true;
+        DragManager.instance.GetAllDropable();
     }
 
     void OnEnterRoundAnswering()
     {
+        if (isCorrectAnswer)
+        {
+            AudioManager.instance.PlaySound("ui_win_1");
+            currentScore++;
+            isCorrectAnswer = false;
+        }
+        else
+        {
+            AudioManager.instance.PlaySound("ui_fail_1");
+            currentAnswerCard.ExitAndKill();
+        }
+
+
+
+        // transition out and new round
+        DoDelayAction(1f, () =>
+        {
+            currentBigHouse.Exit();
+            if (roundIndex + 1 >= currentLevelData.rounds.Length)
+            {
+                // finished game
+                // finishText.text = "คะแนนรวม : " + currentScore + "/" + maxScore;
+                FinishedGame(true, currentScore);
+            }
+            else
+            {
+                SetPhase(GAME_PHASE.ROUND_START);
+            }
+        });
 
     }
 
 
     void NewRound()
     {
+        roundIndex++;
+        var roundData = currentLevelData.rounds[roundIndex];
+        currentRoundData = roundData;
 
+        // get card image id
+        mainCard.SetFrontImage(GetCardImg());
+
+        mainCard_rect.GetComponent<CanvasGroup>().DOFade(1f, 0.5f).From(0f);
+        mainCard_rect.anchoredPosition = Vector2.zero;
+        mainCard_underlay.DOFade(1f, 0.5f).From(0f);
+
+        mainCard.FlipTo(true, OnMainCardFlipFinished, 1f);
+
+    }
+    void OnMainCardFlipFinished()
+    {
+        Debug.Log("OnMainCardFlipFinished (Game Controller)");
+        AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.HINT), () =>
+        {
+            DoDelayAction(1f, () =>
+            {
+                AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.HINT), OnMainCardHintSoundFinished);
+            });
+        });
+    }
+
+    void OnMainCardHintSoundFinished()
+    {
+        // tween main card to side
+        mainCard_underlay.DOFade(0f, 0.5f).From(1f);
+        mainCard_rect.DOAnchorPos(new Vector2(600, 0), 0.5f);
+
+        // tween dropable house
+        for (int i = 0; i < levelPreset.houseSmalls.Count; i++)
+        {
+            levelPreset.houseSmalls[i].Enter();
+        }
+
+        // play dropable house sound
+        DoDelayAction(1f, () =>
+        {
+            AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.HOUSE), OnHouseHintSoundFinished);
+        });
+    }
+
+    void OnHouseHintSoundFinished()
+    {
+        SetPhase(GAME_PHASE.ROUND_WAITING);
     }
 
     void SetDisplayRoundElement(bool val)
     {
+        if (val)
+        {
+            mainCard_rect.GetComponent<CanvasGroup>().DOFade(1f, 0f).From(0f);
+        }
+        else
+        {
+            mainCard_rect.GetComponent<CanvasGroup>().DOFade(0f, 0f).From(1f);
+            for (int i = 0; i < levelPreset.houseSmalls.Count; i++)
+            {
+                levelPreset.houseSmalls[i].Exit();
+            }
+        }
 
-    }
-
-    void OnHintSoundFinished()
-    {
-        StartCoroutine(ShowCellCoroutine());
-    }
-
-    IEnumerator ShowCellCoroutine()
-    {
-        yield return new WaitForSeconds(2);
     }
 
     public enum GAME_PHASE
@@ -215,18 +337,29 @@ public class House_GameController : GameController
         action.Invoke();
     }
 
-    void OnBeginCellDrag(Draggable obj)
-    {
-        obj.GetComponent<CanvasGroup>().DOFade(0f, 0.2f);
-    }
-    void OnEndCellDrag(Draggable obj)
-    {
-        obj.GetComponent<CanvasGroup>().DOFade(1f, 0.2f);
-    }
-
     void OnDrop(Droppable droppable, Draggable draggable)
     {
+        var house = droppable.GetComponentInParent<House_HouseSmall>();
+        var current_answer = house.index;
+        var correct_answer = currentRoundData.answer;
 
+        isCorrectAnswer = current_answer == correct_answer;
+
+        var houseBig = levelPreset.houseBigs[current_answer];
+        var clone_smallCard = Instantiate(smallCard_prefab, houseBig.gridGroup);
+        var smallCard = clone_smallCard.GetComponent<House_CardSmall>();
+        smallCard.SetImage(GetCardImg());
+        smallCard.SetText(currentRoundData.text);
+        houseBig.Enter();
+
+        currentAnswerCard = smallCard;
+        currentBigHouse = houseBig;
+
+        // show check mark or something
+        currentAnswerCard.ShowMark(isCorrectAnswer);
+
+        AudioManager.instance.PlaySpacialSound(GetSoundID(SOUNDID_TYPE.ANSWER, current_answer + 1), OnAnswerSoundFinished);
+        SetDisplayRoundElement(false);
     }
 
     void OnAnswerSoundFinished()
@@ -234,9 +367,18 @@ public class House_GameController : GameController
         SetPhase(GAME_PHASE.ROUND_ANSWERING);
     }
 
+    Sprite GetCardImg()
+    {
+        string prefix = "hou_card";
+        string _levelIndex = "_" + (gameLevel + 1).ToString("00");
+        string _roundIndex = "_" + (roundIndex + 1).ToString("00");
+        string imgID = prefix + _levelIndex + _roundIndex;
+        return spriteKeyValuePairs[imgID];
+    }
+
     string GetSoundID(SOUNDID_TYPE type, int index = 0)
     {
-        var prefix = "wds_";
+        var prefix = "hou_";
         string _levelIndex = "_" + (gameLevel + 1).ToString("00");
         string _roundIndex = "_" + (roundIndex + 1).ToString("00");
 
@@ -245,9 +387,9 @@ public class House_GameController : GameController
             case SOUNDID_TYPE.HINT:
                 prefix += "hint";
                 return prefix + _levelIndex + _roundIndex;
-            case SOUNDID_TYPE.WORD:
-                prefix += "word";
-                return prefix + _levelIndex + _roundIndex + "_" + index.ToString("00");
+            case SOUNDID_TYPE.HOUSE:
+                prefix += "house";
+                return prefix + _levelIndex;
             case SOUNDID_TYPE.ANSWER:
                 prefix += "answer";
                 return prefix + _levelIndex + _roundIndex + "_" + index.ToString("00");
@@ -259,8 +401,20 @@ public class House_GameController : GameController
     public enum SOUNDID_TYPE
     {
         HINT,
-        WORD,
+        HOUSE,
         ANSWER
     }
 
+}
+
+public class HouseData
+{
+    public string spriteID;
+    public string text;
+
+    public HouseData(string spriteID, string text)
+    {
+        this.spriteID = spriteID;
+        this.text = text;
+    }
 }

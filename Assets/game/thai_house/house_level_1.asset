@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ee52fd6881b21468ed89cd99d7bd7f, type: 3}
   m_Name: house_level_1
   m_EditorClassIdentifier: 
+  houseTexts:
+  - "\u0E01"
+  - "\u0E02/\u0E04/\u0E06"
   rounds:
   - text: "\u0E01\u0E34\u0E19"
     answer: 0
