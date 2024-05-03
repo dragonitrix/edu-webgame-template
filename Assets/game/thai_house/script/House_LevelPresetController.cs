@@ -11,9 +11,16 @@ public class House_LevelPresetController : MonoBehaviour
     [Header("Obj Ref")]
     public RectTransform bigHouseGroup;
     public RectTransform smallHouseGroup;
+    public CanvasGroup smallHouseCanvasGroup;
+    public CanvasGroup smallHouseCanvasGroup_spacial;
+
+    public GameObject bigHouse_spacial;
+    public GameObject smallHouse_spacial;
 
     public List<House_HouseBig> houseBigs = new();
+    public List<House_HouseBig> houseBigs_spacial = new();
     public List<House_HouseSmall> houseSmalls = new();
+    public List<House_HouseSmall> houseSmalls_spacial = new();
 
     public void SetUpHouses(List<HouseData> houseData)
     {
@@ -31,9 +38,36 @@ public class House_LevelPresetController : MonoBehaviour
             var smallHouse = cloneSmall.GetComponent<House_HouseSmall>();
             smallHouse.index = i;
             smallHouse.SetData(houseData[i]);
-            smallHouse.Exit(true);
             houseSmalls.Add(smallHouse);
         }
+        smallHouseCanvasGroup.alpha = 0;
+    }
+
+    public void SetUpHousesSpacial(List<HouseData> houseData)
+    {
+
+        bigHouse_spacial.SetActive(true);
+        smallHouse_spacial.SetActive(true);
+
+        houseBigs.Clear();
+        houseSmalls.Clear();
+
+        smallHouseCanvasGroup = smallHouseCanvasGroup_spacial;
+        
+        for (int i = 0; i < houseData.Count; i++)
+        {
+            var bigHouse = houseBigs_spacial[i];
+            bigHouse.SetText(houseData[i].text);
+            bigHouse.Exit(true);
+            houseBigs.Add(bigHouse);
+
+            var smallHouse = houseSmalls_spacial[i];
+            smallHouse.index = i;
+            smallHouse.SetText(houseData[i].text);
+            //smallHouse.SetData(houseData[i]);
+            houseSmalls.Add(smallHouse);
+        }
+        smallHouseCanvasGroup.alpha = 0;
     }
 
     public List<Droppable> GetDropArea()

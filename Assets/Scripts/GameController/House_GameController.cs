@@ -44,7 +44,7 @@ public class House_GameController : GameController
     protected override void Start()
     {
         base.Start();
-        if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+        if (GameManager.instance == null) InitGame(4, PLAYER_COUNT._1_PLAYER);
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -73,27 +73,24 @@ public class House_GameController : GameController
             houseDatas.Add(new HouseData(imgID, currentLevelData.houseTexts[i]));
         }
 
-        levelPreset.SetUpHouses(houseDatas);
-
-        foreach (var droparea in levelPreset.GetDropArea())
-        {
-            droparea.onDropped += OnDrop;
-        }
 
         switch (level)
         {
             case HOUSE_LEVEL._1:
-                break;
             case HOUSE_LEVEL._2:
-                break;
             case HOUSE_LEVEL._3:
-                break;
             case HOUSE_LEVEL._4:
+                levelPreset.SetUpHouses(houseDatas);
                 break;
             case HOUSE_LEVEL._5:
-                break;
             case HOUSE_LEVEL._6:
+                levelPreset.SetUpHousesSpacial(houseDatas);
                 break;
+        }
+
+        foreach (var droparea in levelPreset.GetDropArea())
+        {
+            droparea.onDropped += OnDrop;
         }
 
         SetDisplayRoundElement(false);
@@ -282,10 +279,7 @@ public class House_GameController : GameController
         mainCard_rect.DOAnchorPos(new Vector2(600, 0), 0.5f);
 
         // tween dropable house
-        for (int i = 0; i < levelPreset.houseSmalls.Count; i++)
-        {
-            levelPreset.houseSmalls[i].Enter();
-        }
+        levelPreset.smallHouseCanvasGroup.DOFade(1f, 0.5f);
 
         // play dropable house sound
         DoDelayAction(1f, () =>
@@ -303,15 +297,12 @@ public class House_GameController : GameController
     {
         if (val)
         {
-            mainCard_rect.GetComponent<CanvasGroup>().DOFade(1f, 0f).From(0f);
+            mainCard_rect.GetComponent<CanvasGroup>().alpha = 1f;
         }
         else
         {
-            mainCard_rect.GetComponent<CanvasGroup>().DOFade(0f, 0f).From(1f);
-            for (int i = 0; i < levelPreset.houseSmalls.Count; i++)
-            {
-                levelPreset.houseSmalls[i].Exit();
-            }
+            mainCard_rect.GetComponent<CanvasGroup>().alpha = 0f;
+            levelPreset.smallHouseCanvasGroup.alpha = 0f;
         }
 
     }
@@ -339,6 +330,7 @@ public class House_GameController : GameController
 
     void OnDrop(Droppable droppable, Draggable draggable)
     {
+        AudioManager.instance.PlaySound("ui_highlight_1");
         var house = droppable.GetComponentInParent<House_HouseSmall>();
         var current_answer = house.index;
         var correct_answer = currentRoundData.answer;

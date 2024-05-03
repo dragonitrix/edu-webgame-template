@@ -24,10 +24,10 @@ public class House_HouseBig : MonoBehaviour
     public void Exit(bool skip = false)
     {
         if (!skip)
-            rectTransform.DOAnchorPos(new Vector2(0, -2000), 0.5f);
+            rectTransform.DOAnchorPos(new Vector2(0, -2500), 0.5f);
         else
         {
-            rectTransform.anchoredPosition = new Vector2(0, -2000);
+            rectTransform.anchoredPosition = new Vector2(0, -2500);
         }
     }
 
