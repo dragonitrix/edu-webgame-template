@@ -12,5 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ee52fd6881b21468ed89cd99d7bd7f, type: 3}
   m_Name: house_level_6
   m_EditorClassIdentifier: 
-  houseTexts: []
-  rounds: []
+  houseTexts:
+  - "\u0E15"
+  - "\u0E10/\u0E12/\u0E16/\u0E17/\u0E18"
+  - "\u0E14"
+  rounds:
+  - text: "\u0E15\u0E32\u0E01"
+    answer: 0
+  - text: "\u0E44\u0E15"
+    answer: 0
+  - text: "\u0E15\u0E31\u0E1A"
+    answer: 0
+  - text: "\u0E44\u0E16"
+    answer: 1
+  - text: "\u0E16\u0E38\u0E07"
+    answer: 1
+  - text: "\u0E16\u0E32\u0E14"
+    answer: 1
+  - text: "\u0E14\u0E48\u0E32\u0E07"
+    answer: 2
+  - text: "\u0E14\u0E21"
+    answer: 2
+  - text: "\u0E14\u0E34\u0E19"
+    answer: 2

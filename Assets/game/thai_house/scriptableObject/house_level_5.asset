@@ -19,3 +19,19 @@ MonoBehaviour:
   rounds:
   - text: "\u0E1B\u0E49\u0E32"
     answer: 0
+  - text: "\u0E1B\u0E39"
+    answer: 0
+  - text: "\u0E1B\u0E32\u0E01"
+    answer: 0
+  - text: "\u0E1C\u0E49\u0E32"
+    answer: 1
+  - text: "\u0E1E\u0E31\u0E1A"
+    answer: 1
+  - text: "\u0E1E\u0E32\u0E22"
+    answer: 1
+  - text: "\u0E1F\u0E49\u0E32"
+    answer: 2
+  - text: "\u0E1D\u0E19"
+    answer: 2
+  - text: "\u0E1F\u0E39\u0E01"
+    answer: 2
