@@ -10,6 +10,12 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 {
     public bool correctStatus = false;
 
+    [HideInInspector]
+    public string index;
+
+    [HideInInspector]
+    public RectTransform rectTransform;
+
     [Header("Data")]
     public Sprite char_base;
     public Sprite char_final;
@@ -57,8 +63,12 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
         }
     }
 
-    void Start()
+    public void InitChar()
     {
+        rectTransform = GetComponent<RectTransform>();
+        var img = GetComponent<Image>();
+        img.color = new Color(1, 1, 1, 0);
+
         dropareas = transform.GetComponentsInChildren<CharHead_CharDropArea>().ToList();
 
         foreach (var droparea in dropareas)
@@ -80,12 +90,10 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
         {
             droparea.Hide();
         }
-
         CheckCorrect();
-
     }
 
-    public void OnDropInCorrect()
+    public void OnDropIncorrect()
     {
 
     }
@@ -103,21 +111,21 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
         return correctStatus;
     }
 
-    void Update()
+    public List<CHARHEAD_PART_TYPE> GetAllParts()
     {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     outline.SetOutlineWeight(outline.OutlineWeight == 0 ? 10 : 0, true);
-        // }
+        var parts = new List<CHARHEAD_PART_TYPE>();
+
+        foreach (var droparea in dropareas)
+        {
+            parts.Add(droparea.partType);
+        }
+
+        return parts;
     }
 
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    outline.SetOutlineWeight(10, true);
-    //}
+    public void HightLight(bool val)
+    {
+        outline.SetOutlineWeight(val ? 10 : 0, true);
+    }
 
-    //public void OnPointerExit(PointerEventData eventData)
-    //{
-    //    outline.SetOutlineWeight(0, true);
-    //}
 }

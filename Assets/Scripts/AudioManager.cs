@@ -23,7 +23,8 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
 
-    void Start(){
+    void Start()
+    {
         SetBGMVol(bgmMixerGroups.defaultVolume);
         SetSFXVol(sfxMixerGroups.defaultVolume);
     }
@@ -74,18 +75,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string clipname, Channel channel, System.Action callback = null)
     {
-        if (audioDictionary.ContainsKey(clipname))
+        var clip = GetClip(clipname);
+        if (clip != null)
         {
-            AudioClip clip = audioDictionary[clipname];
             AudioSource source = GetSource(channel);
             source.clip = clip;
             source.Play();
             //Debug.Log("play sound: " + clipname + " on channel: " + channel);
             StartCoroutine(WaitForSoundEnd(clip.length, callback));
-        }
-        else
-        {
-            Debug.LogWarning("Audio clip " + clipname + " not found!");
         }
     }
 
@@ -146,6 +143,29 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         callback?.Invoke();
+    }
+
+    AudioClip GetClip(string clipname)
+    {
+        if (audioDictionary.ContainsKey(clipname))
+        {
+            AudioClip clip = audioDictionary[clipname];
+            return clip;
+        }
+        else
+        {
+            Debug.LogWarning("Audio clip " + clipname + " not found!");
+            return null;
+        }
+    }
+
+    public float GetClipLength(string clipname)
+    {
+        var clip = GetClip(clipname);
+        if (clip)
+            return clip.length;
+        else
+            return 0;
     }
 
     public enum Channel

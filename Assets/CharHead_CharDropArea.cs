@@ -22,6 +22,12 @@ public class CharHead_CharDropArea : MonoBehaviour
         droppable.onDropped += OnDrop;
     }
 
+    void Start()
+    {
+        var img = GetComponent<Image>();
+        img.color = new Color(1, 1, 1, 0);
+    }
+
     void OnDrop(Droppable dropable, Draggable dragable)
     {
         if (isDrop) return;
@@ -34,13 +40,13 @@ public class CharHead_CharDropArea : MonoBehaviour
             correctStatus = true;
             partImage.enabled = true;
             partImage.sprite = part.partImage.sprite;
+            part.DropSuccess();
             parent.OnDropCorrect();
         }
         else
         {
-            parent.OnDropInCorrect();
+            parent.OnDropIncorrect();
         }
-
     }
 
     public void Hide()

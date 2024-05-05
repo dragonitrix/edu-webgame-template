@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,16 +12,30 @@ public class CharHead_Part : MonoBehaviour
 
     public Draggable draggable;
 
+    public bool isDrop = false;
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
+    public void SetPart(CHARHEAD_PART_TYPE type)
+    {
+        this.type = type;
+    }
+
     public void InitPart()
     {
         var sprite = ((CharHead_GameController)GameController.instance).spriteKeyValuePairs[type.ToString()];
         partImage.sprite = sprite;
+    }
+
+    public void DropSuccess()
+    {
+        isDrop = true;
+        draggable.enabled = false;
+        partImage.rectTransform.DOScale(Vector2.zero, 0.2f);
     }
 
 }
