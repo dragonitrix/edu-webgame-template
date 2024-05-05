@@ -26,6 +26,8 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     List<CharHead_CharDropArea> dropareas = new();
 
+    int dropStep = 0;
+
     [ContextMenu("Reset")]
     public void SetReset()
     {
@@ -38,7 +40,11 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     public void SetResult(bool tween = false)
     {
-        SetImage(char_final, tween);
+        dropStep += 1;
+        if (dropStep == dropareas.Count)
+            SetImage(char_final, tween);
+        else
+            SetReset(true);
     }
 
     void SetImage(Sprite sprite, bool tween = false)
@@ -68,7 +74,7 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
         rectTransform = GetComponent<RectTransform>();
         var img = GetComponent<Image>();
         img.color = new Color(1, 1, 1, 0);
-
+        dropStep = 0;
         dropareas = transform.GetComponentsInChildren<CharHead_CharDropArea>().ToList();
 
         foreach (var droparea in dropareas)
@@ -83,13 +89,10 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     }
 
-    public void OnDropCorrect()
+    public void OnDropCorrect(CharHead_CharDropArea droparea)
     {
         SetResult(true);
-        foreach (var droparea in dropareas)
-        {
-            droparea.Hide();
-        }
+        droparea.Hide();
         CheckCorrect();
     }
 

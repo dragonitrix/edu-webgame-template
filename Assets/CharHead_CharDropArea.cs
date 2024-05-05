@@ -41,7 +41,7 @@ public class CharHead_CharDropArea : MonoBehaviour
             partImage.enabled = true;
             partImage.sprite = part.partImage.sprite;
             part.DropSuccess();
-            parent.OnDropCorrect();
+            parent.OnDropCorrect(this);
         }
         else
         {

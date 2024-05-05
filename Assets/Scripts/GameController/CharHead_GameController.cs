@@ -54,7 +54,8 @@ public class CharHead_GameController : GameController
         base.InitGame(gameLevel, playerCount);
 
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
-
+        maxScore = 0;
+        int ms = maxScore;
         currentLevelData = levelDatas[0];
 
         levelTitleRect.localScale = Vector2.zero;
@@ -129,8 +130,8 @@ public class CharHead_GameController : GameController
         var roundData = currentLevelData.rounds[roundIndex];
         currentRoundData = roundData;
 
-        this.chars.Clear();
-        this.parts.Clear();
+        ClearCharList();
+        ClearPartList();
 
         RectTransform targetShelf = shelf_2;
 
@@ -203,6 +204,23 @@ public class CharHead_GameController : GameController
 
     }
 
+    void ClearCharList()
+    {
+        foreach (var cha in this.chars)
+        {
+            Destroy(cha.gameObject);
+        }
+        this.chars.Clear();
+    }
+
+    void ClearPartList()
+    {
+        foreach (var part in this.parts)
+        {
+            Destroy(part.gameObject);
+        }
+        this.parts.Clear();
+    }
     void OnEnterRoundWaiting()
     {
         // enable drag 
