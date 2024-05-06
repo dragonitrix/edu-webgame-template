@@ -249,7 +249,7 @@ public class MoneyMM_LevelSettings
                 members = new int[] { 429, 228, 913, 368, 836, 904, 250, 665, 237, 848, 999, 672 };
                 break;
             case MONEY_GAME.GAME_THREE:
-                titleText = "ออมเงินกันเถอะ";
+                titleText = "มาออมเงินกันเถอะ";
                 break;
         }
     }

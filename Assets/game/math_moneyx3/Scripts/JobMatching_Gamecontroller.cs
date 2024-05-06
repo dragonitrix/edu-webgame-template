@@ -153,6 +153,8 @@ public class JobMatching_Gamecontroller : GameController
         }
         else
         {
+            firstToMatch.SetStatus(3, true);
+            secondToMatch.SetStatus(3, true);
             SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectCompleteWrong);
         }
     }
