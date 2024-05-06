@@ -14,8 +14,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rounds:
   - answers:
-    - 
+    - "\u0E40\u0E01\u0E35\u0E4A\u0E22\u0E27"
     choices:
     - choices:
       - "-\u0E49"
-      - "\u0E4A"
+      - "-\u0E4A"
+  - answers:
+    - "\u0E40\u0E09\u0E32"
+    - "\u0E01\u0E4A\u0E27\u0E22"
+    choices:
+    - choices:
+      - "\u0E08"
+      - "\u0E09"
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+  - answers:
+    - "\u0E44\u0E01\u0E48"
+    - "\u0E17\u0E2D\u0E14"
+    choices:
+    - choices:
+      - "\u0E42"
+      - "\u0E44"
+      - "\u0E43"
+    - choices:
+      - "\u0E17"
+      - "\u0E2B"
+  - answers:
+    - "\u0E02\u0E49\u0E32\u0E27"
+    - "\u0E1C\u0E31\u0E14"
+    choices:
+    - choices:
+      - "\u0E02"
+      - "\u0E0A"
+      - "\u0E0B"
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+  - answers:
+    - "\u0E1C\u0E31\u0E14"
+    - "\u0E44\u0E17\u0E22"
+    choices:
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+    - choices:
+      - "\u0E17"
+      - "\u0E2B"
+  - answers:
+    - "\u0E15\u0E49\u0E21"
+    - "\u0E08\u0E37\u0E14"
+    choices:
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+    - choices:
+      - "-\u0E36"
+      - "-\u0E37"
+  - answers:
+    - "\u0E02\u0E49\u0E32\u0E27"
+    - "\u0E15\u0E49\u0E21"
+    - "\u0E01\u0E38\u0E49\u0E07"
+    choices:
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+    - choices:
+      - "-\u0E38"
+      - "-\u0E39"
+  - answers:
+    - "\u0E19\u0E49\u0E33"
+    - "\u0E40\u0E01\u0E4A\u0E01"
+    - "\u0E2E\u0E27\u0E22"
+    choices:
+    - choices:
+      - "\u0E09"
+      - "\u0E19"
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+    - choices:
+      - "\u0E2D"
+      - "\u0E2E"
+  - answers:
+    - "\u0E19\u0E49\u0E33"
+    - "\u0E0A\u0E32"
+    choices:
+    - choices:
+      - "-\u0E32"
+      - "-\u0E33"
+    - choices:
+      - "\u0E02"
+      - "\u0E0A"
+      - "\u0E0B"
+  - answers:
+    - "\u0E01\u0E30"
+    - "\u0E40\u0E1E\u0E23\u0E32"
+    - "\u0E44\u0E01\u0E48"
+    - "\u0E44\u0E02\u0E48"
+    - "\u0E14\u0E32\u0E27"
+    choices:
+    - choices:
+      - "\u0E01"
+      - "\u0E20"
+      - "\u0E16"
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+    - choices:
+      - "\u0E01"
+      - "\u0E20"
+      - "\u0E16"
+    - choices:
+      - "\u0E42"
+      - "\u0E44"
+      - "\u0E43"
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+      - "\u0E04"
