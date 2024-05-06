@@ -20,7 +20,9 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {SUBGAME_INDEX.WONDER_SOUND,"wondersound"},
         {SUBGAME_INDEX.HOME_CARD,"homecard"},
-        {SUBGAME_INDEX.MONEY_MONEY_MONEY,"jobmatching"},
+        {SUBGAME_INDEX.JOB_MATCHING,"jobmatching"},
+        {SUBGAME_INDEX.HOW_MUCH_YOU_EARN,"howmuchyouearn"},
+        {SUBGAME_INDEX.LETS_SAVE_UP,"letssaveup"},
     };
 
     // Singleton instance
@@ -75,7 +77,10 @@ public enum SUBGAME_INDEX
     TIC_TAC_TOE,
     WONDER_SOUND,
     HOME_CARD,
-    MONEY_MONEY_MONEY
+    JOB_MATCHING,
+    HOW_MUCH_YOU_EARN,
+    LETS_SAVE_UP
+
 }
 
 public enum PLAYER_COUNT
@@ -245,7 +250,7 @@ public class MoneyMM_LevelSettings
                 titleText = "จับคู่งานอดิเรก";
                 break;
             case MONEY_GAME.GAME_TWO:
-                titleText = "รายได้เท่าไหร่";
+                titleText = "รายได้เท่าไร";
                 members = new int[] { 429, 228, 913, 368, 836, 904, 250, 665, 237, 848, 999, 672 };
                 break;
             case MONEY_GAME.GAME_THREE:

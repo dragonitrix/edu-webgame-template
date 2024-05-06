@@ -143,6 +143,9 @@ public class GameManager : MonoBehaviour
                 break;
             case SUBGAME_INDEX.WONDER_SOUND:
             case SUBGAME_INDEX.HOME_CARD:
+            case SUBGAME_INDEX.JOB_MATCHING:
+            case SUBGAME_INDEX.HOW_MUCH_YOU_EARN:
+            case SUBGAME_INDEX.LETS_SAVE_UP:
                 JumpToGame(subgameIndex);
                 break;
             default:
