@@ -28,13 +28,13 @@ public class DragManager : MonoBehaviour
         dragableTempBGImage = dragableTemp.GetComponent<Image>();
         dragableTempContentImage = dragableTemp.GetChild(0).GetComponent<Image>();
         dragableTempContentText = dragableTemp.GetChild(1).GetComponent<TextMeshProUGUI>();
+        InitDragAndDropObject();
     }
 
-    private void Start()
-    {
-        InitDragAndDropObject();
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+    //private void Start()
+    //{
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
