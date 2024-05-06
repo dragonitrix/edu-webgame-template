@@ -35,7 +35,7 @@ public class HowMuchYouEarn_GameController : GameController
     int dropValue = 0;
     protected override void Start()
     {
-        //base.Start();
+        base.Start();
         if (GameManager.instance == null) InitGame((int)game, PLAYER_COUNT._1_PLAYER);
         homeButton.onClick.AddListener(OnHomeButtonClicked);
         retryButton.onClick.AddListener(OnRetryButtonClicked);

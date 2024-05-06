@@ -37,9 +37,16 @@ public class JobMatching_Gamecontroller : GameController
     protected override void Start()
     {
         //base.Start();
+        if (tutorialPopup) tutorialPopup.Enter();
+        tutorialPopup.closeButton.onClick.AddListener(StartGameTimer);
         if (GameManager.instance == null) InitGame((int)game, PLAYER_COUNT._1_PLAYER);
         homeButton.onClick.AddListener(OnHomeButtonClicked);
         retryButton.onClick.AddListener(OnRetryButtonClicked);
+    }
+
+    void StartGameTimer()
+    {
+        gameState = GAME_STATE.STARTED;
     }
 
     string getTimer()
