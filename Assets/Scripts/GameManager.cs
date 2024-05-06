@@ -143,6 +143,8 @@ public class GameManager : MonoBehaviour
                 break;
             case SUBGAME_INDEX.WONDER_SOUND:
             case SUBGAME_INDEX.HOUSE:
+            case SUBGAME_INDEX.CHAR_HEAD:
+            case SUBGAME_INDEX.WANNAYUUK:
                 JumpToGame(subgameIndex);
                 break;
             default:

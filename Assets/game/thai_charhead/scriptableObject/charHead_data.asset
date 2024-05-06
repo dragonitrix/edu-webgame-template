@@ -50,7 +50,7 @@ MonoBehaviour:
     - {fileID: 6558792858338857006, guid: 6f5267aceafb8dc41abf6be5a9c6e5de, type: 3}
     - {fileID: 6558792858338857006, guid: c7fb943e1d9e750478044601196adb5d, type: 3}
   - chars:
-    - {fileID: 6558792858338857006, guid: 01441ffda3faa6e4483f2be9111483cc, type: 3}
+    - {fileID: 6558792858338857006, guid: 6102defad38798e4f832050b97c319e7, type: 3}
     - {fileID: 6558792858338857006, guid: d7cc56e9083d3804883c903ec8d7a692, type: 3}
     - {fileID: 6558792858338857006, guid: bfd205063ff85b043bd4f39da8730c25, type: 3}
   - chars:

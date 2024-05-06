@@ -26,7 +26,6 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     List<CharHead_CharDropArea> dropareas = new();
 
-    int dropStep = 0;
 
     [ContextMenu("Reset")]
     public void SetReset()
@@ -40,11 +39,7 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     public void SetResult(bool tween = false)
     {
-        dropStep += 1;
-        if (dropStep == dropareas.Count)
-            SetImage(char_final, tween);
-        else
-            SetReset(true);
+        SetImage(char_final, tween);
     }
 
     void SetImage(Sprite sprite, bool tween = false)
@@ -74,7 +69,6 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
         rectTransform = GetComponent<RectTransform>();
         var img = GetComponent<Image>();
         img.color = new Color(1, 1, 1, 0);
-        dropStep = 0;
         dropareas = transform.GetComponentsInChildren<CharHead_CharDropArea>().ToList();
 
         foreach (var droparea in dropareas)
@@ -91,14 +85,27 @@ public class CharHead_Char : MonoBehaviour // , IPointerEnterHandler, IPointerEx
 
     public void OnDropCorrect(CharHead_CharDropArea droparea)
     {
-        SetResult(true);
-        droparea.Hide();
         CheckCorrect();
+
+        if (correctStatus)
+        {
+            AudioManager.instance.PlaySound("ui_ding");
+            foreach (var _droparea in dropareas)
+            {
+                _droparea.Hide();
+            }
+            SetResult(true);
+        }
+        else
+        {
+            AudioManager.instance.PlaySound("ui_click_1");
+        }
+
     }
 
     public void OnDropIncorrect()
     {
-
+        AudioManager.instance.PlaySound("ui_swipe");
     }
 
     public bool CheckCorrect()

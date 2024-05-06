@@ -20,16 +20,16 @@ public class ResultPopupController : PopupController
         failTitle.SetDisplayed(false);
         winText.SetDisplayed(false);
         failText.SetDisplayed(false);
-        homeButton.onClick.AddListener(OnHomeButtonClicked);
-        retryButton.onClick.AddListener(OnRetryButtonClicked);
+        // homeButton.onClick.AddListener(OnHomeButtonClicked);
+        // retryButton.onClick.AddListener(OnRetryButtonClicked);
     }
 
-    void OnHomeButtonClicked()
+    public void OnHomeButtonClicked()
     {
         GameManager.instance.ToMenuScene();
     }
 
-    void OnRetryButtonClicked()
+    public void OnRetryButtonClicked()
     {
         GameManager.instance.ReloadScene();
     }

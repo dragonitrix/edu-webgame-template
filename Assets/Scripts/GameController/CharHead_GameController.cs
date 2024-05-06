@@ -28,8 +28,12 @@ public class CharHead_GameController : GameController
     public RectTransform partsBucket;
     public RectTransform labelRect;
     public Image labelImage;
-    public RectTransform RewardRect;
+    public RectTransform rewardRect;
     public Image rewardImage;
+
+    public CanvasGroup finalCanvasGroup;
+    public RectTransform finalLabel;
+    public RectTransform finalReward;
 
     [Header("Data")]
     public CharHead_LevelData[] levelDatas;
@@ -41,6 +45,8 @@ public class CharHead_GameController : GameController
     bool isCorrectAnswer = false;
     int currentScore = 0;
     int maxScore = 0;
+
+    [SerializeField]
     int roundIndex = -1;
     protected override void Start()
     {
@@ -159,7 +165,7 @@ public class CharHead_GameController : GameController
         {
             var clone = Instantiate(_char, targetShelf);
             var charScript = clone.GetComponent<CharHead_Char>();
-            charScript.index = _char.name;
+            charScript.index = _char.name.Split(" ")[0];
             charScript.InitChar();
             parts.AddRange(charScript.GetAllParts());
 
@@ -188,7 +194,7 @@ public class CharHead_GameController : GameController
         });
 
         labelRect.localScale = Vector2.zero;
-        RewardRect.anchoredPosition = new Vector2(1500, 0);
+        rewardRect.anchoredPosition = new Vector2(1500, 0);
 
         TweenGameElementIn(true);
 
@@ -241,32 +247,66 @@ public class CharHead_GameController : GameController
             {
                 var rewardSpriteID = "chh_reward_" + (roundIndex + 1).ToString("00");
                 rewardImage.sprite = spriteKeyValuePairs[rewardSpriteID];
+                rewardImage.SetNativeSize();
 
                 var rewardTitleID = "chh_reward_title_" + (roundIndex + 1).ToString("00");
                 labelImage.sprite = spriteKeyValuePairs[rewardTitleID];
 
                 var rewardSoundID = "chh_reward_" + (roundIndex + 1).ToString("00");
-                AudioManager.instance.PlaySpacialSound(rewardSoundID);
+                AudioManager.instance.PlaySpacialSound(rewardSoundID, OnRewardSoundFinished);
 
                 labelRect.DOScale(Vector2.one, 0.2f);
-                shelfRect.DOAnchorPos(new Vector2(-1500, 0), 0.2f).SetDelay(1f);
+                rewardRect.DOAnchorPos(Vector2.zero, 0.2f);
 
-                DoDelayAction(2f, () =>
+            });
+        });
+    }
+
+    void OnRewardSoundFinished()
+    {
+        rewardRect.DOAnchorPos(new Vector2(1500, 0), 0.2f).SetDelay(1f);
+        shelfRect.DOAnchorPos(new Vector2(-1500, 0), 0.2f).SetDelay(1f).OnComplete(() =>
+        {
+            // API_END_GAME
+            if (roundIndex + 1 >= currentLevelData.rounds.Length)
+            {
+                FinishedGameSequence();
+            }
+            else
+            {
+                SetPhase(GAME_PHASE.ROUND_START);
+            }
+        });
+    }
+
+    void FinishedGameSequence()
+    {
+        labelRect.DOScale(Vector2.zero, 0.2f);
+
+        finalCanvasGroup.DOFade(1f, 1f);
+
+        finalLabel.DOScale(Vector2.one, 0.2f);
+
+        AudioManager.instance.PlaySpacialSound("chh_success_final", () =>
+        {
+            finalLabel.DOScale(Vector2.zero, 0.2f);
+            finalReward.DOScale(Vector2.one, 0.2f);
+            DoDelayAction(1f, () =>
+            {
+                AudioManager.instance.PlaySpacialSound("chh_reward_final", () =>
                 {
-                    // API_END_GAME
-                    if (roundIndex + 1 >= currentLevelData.rounds.Length)
-                    {
-                        // finished game
-                        // finishText.text = "คะแนนรวม : " + currentScore + "/" + maxScore;
-                        FinishedGame(true, currentScore);
-                    }
-                    else
-                    {
-                        SetPhase(GAME_PHASE.ROUND_START);
-                    }
+                    // finished game
+                    // finishText.text = "คะแนนรวม : " + currentScore + "/" + maxScore;
+                    FinishedGame(true, currentScore);
                 });
             });
         });
+    }
+
+    public void ForceToNextGame()
+    {
+        // to Wannayuuk game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.WANNAYUUK);
     }
 
     void TweenGameElementIn(bool val)
