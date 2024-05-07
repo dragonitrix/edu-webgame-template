@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8aa0230bec6e44f9909b2f61431afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subgameIndex: 8
+  subgameIndex: 11
 --- !u!224 &2058020167 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7502697198566995512, guid: 2c77f01f2662ec0469511e1cc4c13f83, type: 3}
