@@ -273,7 +273,7 @@ public class WonderSound_GameController : GameController
 
         //setting
         mainImage.sprite = imgSprite;
-        var _hintText = "คำไบ้: " + roundData.hint.Replace("(x)", " ... ");
+        var _hintText = "คำใบ้: " + roundData.hint.Replace("(x)", " ... ");
         hintText.text = ThaiFontAdjuster.Adjust(_hintText);
 
         //clear previous cell
