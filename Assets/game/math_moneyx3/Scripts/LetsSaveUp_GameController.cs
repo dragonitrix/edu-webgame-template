@@ -149,6 +149,7 @@ public class LetsSaveUp_GameController : GameController
         dragableTemp.SetActive(true);
         dragableTemp.transform.SetParent(droppable.transform);
         dropValues[dropZoneValue[droppable]] += moneyValue;
+        if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
     }
 
     public void SetPhase(GAME_PHASE targetPhase)

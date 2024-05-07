@@ -110,6 +110,14 @@ public class HowMuchYouEarn_GameController : GameController
 
     void ShowTargetPopup(bool value = true)
     {
+        if(value)
+        {
+            AudioManager.instance.PlaySound("ui_highlight_1");
+        }
+        else
+        {
+            AudioManager.instance.PlaySound("ui_click_1");
+        }
         targetPopup.SetActive(value);
     }
 
@@ -162,6 +170,7 @@ public class HowMuchYouEarn_GameController : GameController
         dragableTemp.SetActive(true);
         dragableTemp.transform.SetParent(droppable.transform);
         dropValue += moneyValue;
+        if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
     }
 
     public void SetPhase(GAME_PHASE targetPhase)
