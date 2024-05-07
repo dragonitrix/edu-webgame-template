@@ -42,9 +42,9 @@ public class ImgSure_CellQ : MonoBehaviour
         droppable.onDropped += OnDrop;
     }
 
-    public void Show()
+    public void Show(float delay = 0)
     {
-        rectTransform.DOScale(Vector3.one, 0.25f);
+        rectTransform.DOScale(Vector3.one, 0.25f).SetDelay(delay);
     }
 
     public void Hide()

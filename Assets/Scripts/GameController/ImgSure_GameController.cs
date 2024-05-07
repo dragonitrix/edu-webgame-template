@@ -18,6 +18,11 @@ public class ImgSure_GameController : GameController
     public RectTransform cellQRect;
     public RectTransform[] cellARects;
 
+    public CanvasGroup rewardCanvasGroup;
+    public RectTransform rewardRect;
+    public RectTransform rewardLabelRect;
+    public Image rewardImage;
+
 
     [Header("Data")]
     public ImgSure_LevelData levelData;
@@ -196,6 +201,11 @@ public class ImgSure_GameController : GameController
         DragManager.instance.GetAllDragable();
         DragManager.instance.GetAllDropable();
 
+        var soundID = "chh_level_" + (roundIndex + 1).ToString("00");
+        AudioManager.instance.PlaySpacialSound(soundID, () =>
+        {
+            SetPhase(GAME_PHASE.ROUND_WAITING);
+        });
     }
 
     void ClearRoundData()
@@ -220,23 +230,73 @@ public class ImgSure_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        if (isCorrectAnswer)
-        {
-            // API_END_GAME
-            if (roundIndex + 1 >= currentLevelData.rounds.Length)
-            {
-                FinishedGame(true, 0);
-            }
-            else
-            {
 
-                AudioManager.instance.StopSound("ui_ding");
-                SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
-                {
-                    SetPhase(GAME_PHASE.ROUND_START);
-                });
+        // Iterate through all children of the parent transform
+        for (int i = rewardLabelRect.childCount - 1; i >= 0; i--)
+        {
+            // Destroy the child game object
+            DestroyImmediate(rewardLabelRect.GetChild(i).gameObject);
+        }
+
+        if (spriteKeyValuePairs.ContainsKey("ims_reward_" + (roundIndex + 1).ToString("00")))
+        {
+            var clone = Instantiate(cellQ_prefab, rewardLabelRect);
+            var cloneCell = clone.GetComponent<ImgSure_CellQ>();
+            cloneCell.InitCell(this, "", "", spriteKeyValuePairs["ims_reward_" + (roundIndex + 1).ToString("00")], null);
+
+        }
+        else
+        {
+            for (int i = 0; i < currentRoundData.answers.Length; i++)
+            {
+                var cellID = (roundIndex + 1).ToString("00") + "_" + (i + 1).ToString("00");
+                var sprite = spriteKeyValuePairs["ims_answer_" + cellID];
+                var qClone = Instantiate(cellQ_prefab, rewardLabelRect);
+                var cellQ = qClone.GetComponent<ImgSure_CellQ>();
+                cellQ.InitCell(this, "", "", sprite, null);
+
             }
         }
+
+        rewardRect.localScale = Vector3.zero;
+        rewardCanvasGroup.DOFade(1, 1f).OnComplete(() =>
+        {
+
+            rewardImage.sprite = spriteKeyValuePairs["reward_" + (roundIndex + 1).ToString("00")];
+            rewardImage.SetNativeSize();
+            rewardRect.DOScale(Vector2.one, 0.2f);
+
+            for (int i = 0; i < rewardLabelRect.childCount; i++)
+            {
+                rewardLabelRect.GetChild(i).GetComponent<ImgSure_CellQ>().Show(0.5f + i * 0.3f);
+            }
+
+            AudioManager.instance.PlaySpacialSound("ims_reward_" + (roundIndex + 1).ToString("00"), () =>
+            {
+                rewardCanvasGroup.DOFade(0, 1f).OnComplete(() =>
+                {
+                    if (isCorrectAnswer)
+                    {
+                        // API_END_GAME
+                        if (roundIndex + 1 >= currentLevelData.rounds.Length)
+                        {
+                            FinishedGame(true, 0);
+                        }
+                        else
+                        {
+
+                            SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+                            {
+                                SetPhase(GAME_PHASE.ROUND_START);
+                            });
+                        }
+                    }
+                });
+            });
+
+        });
+
+
     }
 
     void OnRewardSoundFinished()
