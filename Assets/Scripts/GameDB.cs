@@ -25,7 +25,6 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.JOB_MATCHING,"jobmatching"},
         {SUBGAME_INDEX.HOW_MUCH_YOU_EARN,"howmuchyouearn"},
         {SUBGAME_INDEX.LETS_SAVE_UP,"letssaveup"},
-        {SUBGAME_INDEX.MONEY_MONEY_MONEY,"jobmatching"},
         {SUBGAME_INDEX.HOUSE,"house"},
         {SUBGAME_INDEX.CHAR_HEAD,"charhead"},
         {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
