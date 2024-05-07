@@ -78,6 +78,7 @@ public class DragManager : MonoBehaviour
             dragableTempContentText.text = currentDragableComponent.dragableContentText.text;
             dragableTempContentText.fontSize = currentDragableComponent.dragableContentText.fontSize;
             dragableTempContentText.color = currentDragableComponent.dragableContentText.color;
+            dragableTempContentText.rectTransform.anchoredPosition = currentDragableComponent.dragableContentText.rectTransform.anchoredPosition;
             dragableTempContentText.rectTransform.sizeDelta = currentDragableComponent.dragableContentText.rectTransform.sizeDelta;
         }
         else

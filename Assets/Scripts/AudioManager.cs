@@ -126,7 +126,7 @@ public class AudioManager : MonoBehaviour
         GetSource(channel).Stop();
     }
 
-    private AudioSource GetSource(Channel channel)
+    public AudioSource GetSource(Channel channel)
     {
         switch (channel)
         {
