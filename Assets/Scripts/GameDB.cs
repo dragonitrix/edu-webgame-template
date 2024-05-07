@@ -10,8 +10,10 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.SUPER_SAVE,"supersave"},
         {MAINGAME_INDEX.TIC_TAC_TOE,"tictactoe"},
         {MAINGAME_INDEX.WONDER_SOUND,"wondersound"},
-        {MAINGAME_INDEX.HOME_CARD,"homecard"},
         {MAINGAME_INDEX.MONEY_MONEY_MONEY,"moneymoneymoney"},
+        {MAINGAME_INDEX.HOUSE,"house"},
+        {MAINGAME_INDEX.CHAR_HEAD,"charhead"},
+        {MAINGAME_INDEX.IMG_SURE,"imgsure"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -23,6 +25,11 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.JOB_MATCHING,"jobmatching"},
         {SUBGAME_INDEX.HOW_MUCH_YOU_EARN,"howmuchyouearn"},
         {SUBGAME_INDEX.LETS_SAVE_UP,"letssaveup"},
+        {SUBGAME_INDEX.MONEY_MONEY_MONEY,"jobmatching"},
+        {SUBGAME_INDEX.HOUSE,"house"},
+        {SUBGAME_INDEX.CHAR_HEAD,"charhead"},
+        {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
+        {SUBGAME_INDEX.IMG_SURE,"imgsure"},
     };
 
     // Singleton instance
@@ -66,8 +73,10 @@ public enum MAINGAME_INDEX
     SUPER_SAVE,
     TIC_TAC_TOE,
     WONDER_SOUND,
-    HOME_CARD,
-    MONEY_MONEY_MONEY
+    MONEY_MONEY_MONEY,
+    HOUSE,
+    CHAR_HEAD,
+    IMG_SURE
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -79,8 +88,11 @@ public enum SUBGAME_INDEX
     HOME_CARD,
     JOB_MATCHING,
     HOW_MUCH_YOU_EARN,
-    LETS_SAVE_UP
-
+    LETS_SAVE_UP,
+    HOUSE,
+    CHAR_HEAD,
+    WANNAYUUK,
+    IMG_SURE
 }
 
 public enum PLAYER_COUNT
@@ -223,6 +235,45 @@ public class WonderSound_LevelSettings
                 break;
             case WONDERSOUND_LEVEL._3:
                 intro_soundid = "wds_intro_3";
+                break;
+        }
+    }
+}
+
+public enum HOUSE_LEVEL
+{
+
+    _1,
+    _2,
+    _3,
+    _4,
+    _5,
+    _6,
+}
+
+[Serializable]
+public class House_LevelSettings
+{
+
+    public string intro_soundid;
+
+    public House_LevelSettings(HOUSE_LEVEL level)
+    {
+        var prefix = "hou_";
+        intro_soundid = prefix + "intro_0" + ((int)level + 1).ToString();
+        switch (level)
+        {
+            case HOUSE_LEVEL._1:
+                break;
+            case HOUSE_LEVEL._2:
+                break;
+            case HOUSE_LEVEL._3:
+                break;
+            case HOUSE_LEVEL._4:
+                break;
+            case HOUSE_LEVEL._5:
+                break;
+            case HOUSE_LEVEL._6:
                 break;
         }
     }

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "TestWebBuild2022.sln"
+    "dotnet.defaultSolution": "edu-webgame-template.sln"
 }

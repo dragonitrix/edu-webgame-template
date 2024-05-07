@@ -23,16 +23,25 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_tictactoe.unity
     guid: c1089461068c5314b901644c564ce741
+  - enabled: 0
+    path: Assets/Scenes/sc_menu_house.unity
+    guid: 07642e4523d1fed4fbcacddd91fbb5c6
+  - enabled: 0
+    path: Assets/Scenes/sc_game_house.unity
+    guid: 02b774584836c1843ad71494ecad146b
+  - enabled: 0
+    path: Assets/Scenes/sc_menu_charhead.unity
+    guid: 68d9a4e0ee0d3b14ba355afbc51b2a66
+  - enabled: 0
+    path: Assets/Scenes/sc_game_charhead.unity
+    guid: d303610b46f971946a703065ee5f5de2
+  - enabled: 0
+    path: Assets/Scenes/sc_game_wannayuuk.unity
+    guid: 6f31677580bd8e24e87506819289051b
   - enabled: 1
-    path: Assets/Scenes/sc_menu_moneymoneymoney.unity
-    guid: d7a883664076aa04c962d827529e0532
+    path: Assets/Scenes/sc_menu_imgsure.unity
+    guid: eac8fa5f9200d9e4c98a6f50624bd44d
   - enabled: 1
-    path: Assets/game/math_moneyx3/Scenes/sc_game_jobmatching.unity
-    guid: 9708435502ec0c544aabbf04486a1018
-  - enabled: 1
-    path: Assets/game/math_moneyx3/Scenes/sc_game_howmuchyouearn.unity
-    guid: 149f8ec13c38f0648bf229432dfc3cb4
-  - enabled: 1
-    path: Assets/game/math_moneyx3/Scenes/sc_game_letssaveup.unity
-    guid: 07725adaa9729f84f8987131a9f25c39
+    path: Assets/Scenes/sc_game_imgsure.unity
+    guid: fffed8084890b8848ad0d070814e9e7b
   m_configObjects: {}

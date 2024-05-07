@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36079595083858409dbc1650ff8785d, type: 3}
+  m_Name: imgSure_level_0
+  m_EditorClassIdentifier: 
+  rounds:
+  - answers:
+    - "-\u0E4A"
+    choices:
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+  - answers:
+    - "\u0E09"
+    - "-\u0E4A"
+    choices:
+    - choices:
+      - "\u0E08"
+      - "\u0E09"
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+  - answers:
+    - "\u0E44"
+    - "\u0E17"
+    choices:
+    - choices:
+      - "\u0E42"
+      - "\u0E44"
+      - "\u0E43"
+    - choices:
+      - "\u0E17"
+      - "\u0E2B"
+  - answers:
+    - "\u0E02"
+    - "\u0E1C"
+    choices:
+    - choices:
+      - "\u0E02"
+      - "\u0E0A"
+      - "\u0E0B"
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+  - answers:
+    - "\u0E1C"
+    - "\u0E17"
+    choices:
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+    - choices:
+      - "\u0E17"
+      - "\u0E2B"
+  - answers:
+    - "\u0E15"
+    - "-\u0E37"
+    choices:
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+    - choices:
+      - "-\u0E36"
+      - "-\u0E37"
+  - answers:
+    - "-\u0E49"
+    - "\u0E15"
+    - "-\u0E38"
+    choices:
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+    - choices:
+      - "-\u0E38"
+      - "-\u0E39"
+  - answers:
+    - "\u0E19"
+    - "-\u0E4A"
+    - "\u0E2E"
+    choices:
+    - choices:
+      - "\u0E09"
+      - "\u0E19"
+    - choices:
+      - "-\u0E49"
+      - "-\u0E4A"
+    - choices:
+      - "\u0E2D"
+      - "\u0E2E"
+  - answers:
+    - "-\u0E33"
+    - "\u0E0A"
+    choices:
+    - choices:
+      - "-\u0E32"
+      - "-\u0E33"
+    - choices:
+      - "\u0E02"
+      - "\u0E0A"
+      - "\u0E0B"
+  - answers:
+    - "\u0E01"
+    - "\u0E1E"
+    - "\u0E01"
+    - "\u0E44"
+    - "\u0E14"
+    choices:
+    - choices:
+      - "\u0E01"
+      - "\u0E20"
+      - "\u0E16"
+    - choices:
+      - "\u0E1E"
+      - "\u0E1F"
+      - "\u0E1C"
+      - "\u0E1D"
+      - "\u0E2C"
+    - choices:
+      - "\u0E01"
+      - "\u0E20"
+      - "\u0E16"
+    - choices:
+      - "\u0E42"
+      - "\u0E44"
+      - "\u0E43"
+    - choices:
+      - "\u0E14"
+      - "\u0E15"
+      - "\u0E04"

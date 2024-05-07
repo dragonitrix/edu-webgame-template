@@ -146,6 +146,10 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.JOB_MATCHING:
             case SUBGAME_INDEX.HOW_MUCH_YOU_EARN:
             case SUBGAME_INDEX.LETS_SAVE_UP:
+            case SUBGAME_INDEX.HOUSE:
+            case SUBGAME_INDEX.CHAR_HEAD:
+            case SUBGAME_INDEX.WANNAYUUK:
+            case SUBGAME_INDEX.IMG_SURE:
                 JumpToGame(subgameIndex);
                 break;
             default:
