@@ -12,5 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ee52fd6881b21468ed89cd99d7bd7f, type: 3}
   m_Name: house_level_4
   m_EditorClassIdentifier: 
-  houseTexts: []
-  rounds: []
+  houseTexts:
+  - "\u0E23"
+  - "\u0E25"
+  rounds:
+  - text: "\u0E23\u0E32"
+    answer: 0
+  - text: "\u0E44\u0E23\u0E48"
+    answer: 0
+  - text: "\u0E23\u0E31\u0E49\u0E27"
+    answer: 0
+  - text: "\u0E23\u0E33"
+    answer: 0
+  - text: "\u0E23\u0E49\u0E2D\u0E19"
+    answer: 0
+  - text: "\u0E25\u0E32"
+    answer: 1
+  - text: "\u0E25\u0E34\u0E07"
+    answer: 1
+  - text: "\u0E25\u0E21"
+    answer: 1
+  - text: "\u0E25\u0E37\u0E48\u0E19"
+    answer: 1
+  - text: "\u0E25\u0E31\u0E07"
+    answer: 1
+  - text: "\u0E25\u0E2D\u0E01"
+    answer: 1

@@ -27,6 +27,8 @@ public class ResultPopupController : PopupController
     public void OnHomeButtonClicked()
     {
         GameManager.instance.ToMenuScene();
+        if (ScoreManager.Instance) ScoreManager.Instance.HardReset();
+
     }
 
     public void OnRetryButtonClicked()

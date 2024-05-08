@@ -23,6 +23,7 @@ public class House_GameController : GameController
     public RectTransform mainCard_rect;
     public CanvasGroup mainCard_underlay;
     public Draggable mainCard_draggable;
+    public TextMeshProUGUI finishText;
 
     [Header("Data")]
     public House_LevelData[] levelDatas;
@@ -34,8 +35,7 @@ public class House_GameController : GameController
 
     bool firstTutorial = true;
     bool isCorrectAnswer = false;
-    int currentScore = 0;
-    int maxScore = 0;
+    bool isLastLevel = false;
     int roundIndex = -1;
 
     House_CardSmall currentAnswerCard;
@@ -56,11 +56,30 @@ public class House_GameController : GameController
 
         var level = (HOUSE_LEVEL)gameLevel;
         levelSettings = new House_LevelSettings(level);
-        currentScore = 0;
+
+        int maxLevel = System.Enum.GetValues(typeof(HOUSE_LEVEL)).Length;
+
+
+        Button nextLevelButton = ((ResultPopupController)resultPopup).retryButton;
+        nextLevelButton.onClick.RemoveAllListeners();
+        nextLevelButton.onClick.AddListener(ToNextLevelButtonEvent);
+
+        if (gameLevel >= maxLevel - 1)
+        {
+            isLastLevel = true;
+            nextLevelButton.gameObject.SetActive(false);
+            Button homeButton = ((ResultPopupController)resultPopup).homeButton;
+            homeButton.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, homeButton.gameObject.GetComponent<RectTransform>().anchoredPosition.y);
+        }
+
 
         intro = intros[gameLevel];
         currentLevelData = levelDatas[gameLevel];
-        maxScore = currentLevelData.rounds.Length;
+        if(ScoreManager.Instance)
+        {
+            ScoreManager.Instance.ResetCurrentScore();
+            ScoreManager.Instance.UpdateCurrentMaxScore(currentLevelData.rounds.Length);
+        }
 
         var houseDatas = new List<HouseData>();
 
@@ -100,6 +119,7 @@ public class House_GameController : GameController
     {
         GameManager.instance.gameLevel++;
         GameManager.instance.ReloadScene();
+        ScoreManager.Instance.UpdateFinalScoreAndMaxScore();
     }
 
     public override void StartGame()
@@ -211,10 +231,10 @@ public class House_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
+
         if (isCorrectAnswer)
         {
             AudioManager.instance.PlaySound("ui_win_1");
-            currentScore++;
             isCorrectAnswer = false;
         }
         else
@@ -224,7 +244,6 @@ public class House_GameController : GameController
         }
 
 
-
         // transition out and new round
         DoDelayAction(1f, () =>
         {
@@ -232,8 +251,16 @@ public class House_GameController : GameController
             if (roundIndex + 1 >= currentLevelData.rounds.Length)
             {
                 // finished game
-                // finishText.text = "คะแนนรวม : " + currentScore + "/" + maxScore;
-                FinishedGame(true, currentScore);
+                if (isLastLevel)
+                {
+                    ScoreManager.Instance.UpdateFinalScoreAndMaxScore();
+                    finishText.text = "สรุปคะแนนรวมทั้่งหมด : " + ScoreManager.Instance.finalScore + "/" + ScoreManager.Instance.finalMaxScore;
+                }
+                else
+                {
+                    finishText.text = "คะแนนรวม : " + ScoreManager.Instance.currentScore + "/" + ScoreManager.Instance.currentMaxScore;
+                }
+                FinishedGame(true, ScoreManager.Instance.currentScore);
             }
             else
             {
@@ -336,6 +363,7 @@ public class House_GameController : GameController
         var correct_answer = currentRoundData.answer;
 
         isCorrectAnswer = current_answer == correct_answer;
+        ScoreManager.Instance.UpdateCurrentScore(isCorrectAnswer);
 
         var houseBig = levelPreset.houseBigs[current_answer];
         var clone_smallCard = Instantiate(smallCard_prefab, houseBig.gridGroup);
