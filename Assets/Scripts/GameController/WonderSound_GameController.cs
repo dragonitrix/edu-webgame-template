@@ -47,8 +47,6 @@ public class WonderSound_GameController : GameController
 
     bool firstTutorial = true;
     bool isCorrectAnswer = false;
-    int currentScore = 0;
-    int maxScore = 0;
 
     int roundIndex = -1;
     protected override void Start()
@@ -77,7 +75,7 @@ public class WonderSound_GameController : GameController
 
         var level = (WONDERSOUND_LEVEL)gameLevel;
         levelSettings = new WonderSound_LevelSettings(level);
-        currentScore = 0;
+        ScoreManager.Instance.ResetCurrentScore();
         switch (level)
         {
             case WONDERSOUND_LEVEL._1:
@@ -93,7 +91,7 @@ public class WonderSound_GameController : GameController
                 currentLevelData = levelDatas[2];
                 break;
         }
-        maxScore = currentLevelData.rounds.Length;
+        ScoreManager.Instance.UpdateCurrentMaxScore(currentLevelData.rounds.Length);
         tutorialPopup.OnPopupExit += OnTutPopupExit;
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
         gameBGImage.color = level_colors[gameLevel];
@@ -223,16 +221,16 @@ public class WonderSound_GameController : GameController
         dropCell.GetComponent<CanvasGroup>().DOFade(0f, 0.2f);
 
         if (isCorrectAnswer)
-        { 
-            currentScore++; 
+        {
+            ScoreManager.Instance.UpdateCurrentScore(isCorrectAnswer); 
             isCorrectAnswer = false;
         }
 
         if (roundIndex + 1 >= currentLevelData.rounds.Length)
         {
             // finished game
-            finishText.text = "คะแนนรวม : " + currentScore + "/" + maxScore;
-            FinishedGame(true, currentScore);
+            finishText.text = "คะแนนรวม : " + ScoreManager.Instance.currentScore + "/" + ScoreManager.Instance.currentMaxScore;
+            FinishedGame(true, ScoreManager.Instance.currentScore);
         }
         else
         {
