@@ -1,7 +1,9 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TransitionsPlus;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +11,9 @@ public class LetsSaveUp_GameController : GameController
 {
     [Header("Object Ref")]
     public Droppable[] dropZone;
+    public List<Transform> checkMarkTransforms = new List<Transform>();
     public TextMeshProUGUI CurrentTargetMoneyText;
+    public Sprite[] checkMarkSprite;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -28,8 +32,8 @@ public class LetsSaveUp_GameController : GameController
     public GAME_PHASE gamePhase;
     int currentTargetValue = 0;
     List<int> dropValues = new List<int>();
-    int allDropValue = 0;
-    Dictionary<Droppable,int> dropZoneValue = new Dictionary<Droppable,int>();
+    Dictionary<Droppable, int> dropZoneValue = new Dictionary<Droppable, int>();
+    List<bool> checkBox = new List<bool>();
 
     protected override void Start()
     {
@@ -47,14 +51,19 @@ public class LetsSaveUp_GameController : GameController
         levelSettings = new MoneyMM_LevelSettings(game);
         dropValues = new List<int>();
         dropZoneValue = new Dictionary<Droppable, int>();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < dropZone.Length; i++)
         {
             dropZoneValue.Add(dropZone[i], i);
             dropValues.Add(0);
         }
+
+        for (int i = 0; i < 3; i++)
+        {
+            checkBox.Add(false);
+        }
         titleText.text = levelSettings.titleText;
         RandomizedTargetMoney();
-
+        ResetDropValues();
         foreach (var item in DragManager.instance.allDropablesInScene)
         {
             item.onDropped += OnMoneyDrop;
@@ -84,18 +93,11 @@ public class LetsSaveUp_GameController : GameController
 
     void CheckForWinCondition()
     {
-        allDropValue = 0;
-        for (int i = 0; i < dropValues.Count; i++)
-        {
-            allDropValue += dropValues[i];
-        }
+        bool checkBox1 = CheckBoolBox1();
+        bool checkBox2 = CheckBoolBox2();
+        bool checkBox3 = CheckBoolBox3();
 
-        bool checkBox1 = (dropZone[0].transform.childCount == 0) || (dropValues[0] < 100);
-        bool checkBox2 = (dropZone[1].transform.childCount == 0) || (dropValues[1] > 100  && dropValues[1] < 200);
-        bool checkBox3 = (dropZone[2].transform.childCount == 0) || (dropValues[2] > 300);
-        bool checkAllDropValue = allDropValue == currentTargetValue;
-
-        if (checkBox1 && checkBox2 && checkBox3 && checkAllDropValue)
+        if (checkBox1 && checkBox2 && checkBox3)
         {
             gameState = GAME_STATE.ENDED;
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
@@ -105,13 +107,88 @@ public class LetsSaveUp_GameController : GameController
             SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
         }
     }
+    public bool CheckBox(int i, int j)
+    {
+        return dropValues[i] + dropValues[j] == currentTargetValue;
+    }
+    bool CheckBoolBox1()
+    {
+        return CheckBox(0, 3) && dropValues[0] < 100;
+    }
+    public void CheckBox1()
+    {
+        bool check = CheckBoolBox1();
+        checkBox[0] = check;
+        CheckMarkShow(check, 0);
+        CheckValue();
+    }
+    bool CheckBoolBox2()
+    {
+        return CheckBox(1, 4) && (dropValues[1] > 100 && dropValues[1] < 200);
+    }
+    public void CheckBox2()
+    {
+        bool check = CheckBoolBox2();
+        checkBox[1] = check;
+        CheckMarkShow(check, 1);
+        CheckValue();
+    }
+    bool CheckBoolBox3()
+    {
+        return CheckBox(2, 5) && (dropValues[2] > 300);
+    }
+    public void CheckBox3()
+    {
+        bool check = CheckBoolBox3();
+        checkBox[2] = check;
+        CheckMarkShow(check, 2);
+        CheckValue();
+    }
+
+    void CheckMarkShow(bool value, int index)
+    {
+        int spriteIndex = value ? 0 : 1;
+        checkMarkTransforms[index].GetComponent<Image>().sprite = checkMarkSprite[spriteIndex];
+        checkMarkTransforms[index].DOScale(1, .3f);
+    }
+
+    void CheckMarkHide(int index)
+    {
+        checkMarkTransforms[index].DOScale(0, .3f);
+    }
 
     void ResetDropValues()
     {
         for (int i = 0; i < dropValues.Count; i++)
         {
             dropValues[i] = 0;
+            TextMeshProUGUI money = dropZone[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            money.text = dropValues[i].ToString();
         }
+    }
+
+    void ResetDropValues(int i, int j)
+    {
+        CheckMarkHide(i);
+        dropValues[i] = 0;
+        dropValues[j] = 0;
+        TextMeshProUGUI money = dropZone[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        money.text = dropValues[i].ToString();
+        money = dropZone[j].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        money.text = dropValues[j].ToString();
+    }
+
+    public void ResetBox1DropValues()
+    {
+        ResetDropValues(0, 3);
+    }
+    public void ResetBox2DropValues()
+    {
+        ResetDropValues(1, 4);
+    }
+    public void ResetBox3DropValues()
+    {
+        ResetDropValues(2, 5);
     }
 
     void OnAnswerEffectComplete()
@@ -123,7 +200,6 @@ public class LetsSaveUp_GameController : GameController
                 ClearDropzone(item);
             }
             ResetDropValues();
-            allDropValue = 0;
             SetPhase(GAME_PHASE.SELECT_TWO);
         }
         else
@@ -145,10 +221,12 @@ public class LetsSaveUp_GameController : GameController
     public void OnMoneyDrop(Droppable droppable, Draggable draggable)
     {
         int moneyValue = draggable.gameObject.GetComponent<DragableCoin>().moneyValue;
-        GameObject dragableTemp = DragManager.instance.DuplicateDragableTemp();
-        dragableTemp.SetActive(true);
-        dragableTemp.transform.SetParent(droppable.transform);
+        //GameObject dragableTemp = DragManager.instance.DuplicateDragableTemp();
+        //dragableTemp.SetActive(true);
+        //dragableTemp.transform.SetParent(droppable.transform);
+        TextMeshProUGUI money = droppable.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         dropValues[dropZoneValue[droppable]] += moneyValue;
+        money.text = dropValues[dropZoneValue[droppable]].ToString();
         if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
     }
 
@@ -187,7 +265,19 @@ public class LetsSaveUp_GameController : GameController
             case GAME_PHASE.SELECT_TWO:
                 break;
             case GAME_PHASE.SELECT_2_CHECK:
-                SetPhase(GAME_PHASE.CHECK);
+                bool allCheck = true;
+                for (int i = 0; i < checkBox.Count; i++)
+                {
+                    if (!checkBox[i])
+                    {
+                        allCheck = false;
+                        break;
+                    }
+                }
+                if (allCheck)
+                    SetPhase(GAME_PHASE.CHECK);
+                else
+                    SetPhase(GAME_PHASE.SELECT_ONE);
                 break;
             case GAME_PHASE.CHECK:
                 CheckForWinCondition();
