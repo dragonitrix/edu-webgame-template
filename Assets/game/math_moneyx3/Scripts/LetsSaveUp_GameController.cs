@@ -150,6 +150,8 @@ public class LetsSaveUp_GameController : GameController
         int spriteIndex = value ? 0 : 1;
         checkMarkTransforms[index].GetComponent<Image>().sprite = checkMarkSprite[spriteIndex];
         checkMarkTransforms[index].DOScale(1, .3f);
+        if (value) AudioManager.instance.PlaySound("ui_ding");
+        else AudioManager.instance.PlaySound("ui_fail_1");
     }
 
     void CheckMarkHide(int index)
