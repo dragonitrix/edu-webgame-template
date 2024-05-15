@@ -16,6 +16,11 @@ public class Bingo_GameController : GameController
     public TextMeshProUGUI equationText;
     public GameObject extraInputObject;
     public Transform[] mainGridPositionHolder;
+    public TextMeshProUGUI[] equationXText;
+    public TextMeshProUGUI[] equationYText;
+    public TMP_InputField[] equationInputField;
+    public Button homeButton;
+    public Button retryButton;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -56,6 +61,9 @@ public class Bingo_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
+
+        homeButton.onClick.AddListener(OnHomeButtonClicked);
+        retryButton.onClick.AddListener(OnRetryButtonClicked);
 
         foreach (var t in helperBoards)
         {
@@ -98,6 +106,16 @@ public class Bingo_GameController : GameController
         SetPhase(GAME_PHASE.SELECTNUMBER_2_ANSWER);
     }
 
+    void OnHomeButtonClicked()
+    {
+        GameManager.instance.ToMenuScene();
+    }
+
+    void OnRetryButtonClicked()
+    {
+        GameManager.instance.ReloadScene();
+    }
+
     public void OnMainGridButtonClick(CellController cell)
     {
         if (correctNumber < 0) return;
@@ -135,6 +153,10 @@ public class Bingo_GameController : GameController
     void ClearHelperBoard()
     {
         ClearSelectedCell(helperBoard.cells);
+        foreach (var item in equationInputField)
+        {
+            item.text = "";
+        }
         helperboardFillAmount = 0;
     }
 
@@ -182,8 +204,26 @@ public class Bingo_GameController : GameController
                 }
                 break;
             case BINGO_LEVEL.TWO:
-                break;
             case BINGO_LEVEL.THREE:
+                string equationX = currentEquation.x.ToString();
+                string equationY = currentEquation.y.ToString();
+
+                foreach (var item in equationX)
+                {
+                    Debug.Log(item);
+                }
+                int index = 0;
+                foreach (char item in equationX)
+                {
+                    equationXText[index].text = item.ToString();
+                    index++;
+                }
+                index = 0;
+                foreach (char item in equationY)
+                {
+                    equationYText[index].text = item.ToString();
+                    index++;
+                }
                 break;
         }
 
