@@ -56,4 +56,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sc_game_letssaveup.unity
     guid: 07725adaa9729f84f8987131a9f25c39
+  - enabled: 1
+    path: Assets/Scenes/sc_menu_bingo.unity
+    guid: 300cda2ccf599b143b1765897abab2cb
+  - enabled: 1
+    path: Assets/Scenes/sc_game_bingo.unity
+    guid: 975d0c2d195b4dc44b82b9cdfe6c013d
   m_configObjects: {}

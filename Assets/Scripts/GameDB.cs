@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.HOUSE,"house"},
         {MAINGAME_INDEX.CHAR_HEAD,"charhead"},
         {MAINGAME_INDEX.IMG_SURE,"imgsure"},
+        {MAINGAME_INDEX.BINGO,"bingo"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -29,6 +31,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.CHAR_HEAD,"charhead"},
         {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
         {SUBGAME_INDEX.IMG_SURE,"imgsure"},
+        {SUBGAME_INDEX.BINGO,"bingo"},
     };
 
     // Singleton instance
@@ -75,7 +78,8 @@ public enum MAINGAME_INDEX
     MONEY_MONEY_MONEY,
     HOUSE,
     CHAR_HEAD,
-    IMG_SURE
+    IMG_SURE,
+    BINGO
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -91,7 +95,8 @@ public enum SUBGAME_INDEX
     HOUSE,
     CHAR_HEAD,
     WANNAYUUK,
-    IMG_SURE
+    IMG_SURE,
+    BINGO
 }
 
 public enum PLAYER_COUNT
@@ -310,3 +315,41 @@ public class MoneyMM_LevelSettings
     }
 }
 
+public enum BINGO_LEVEL
+{
+    ONE,
+    TWO,
+    THREE
+    //FOUR
+}
+public class Bingo_LevelSettings
+{
+    public string titleText;
+    public int[] members;
+
+    public int specialBoardType;
+
+    public Bingo_LevelSettings(BINGO_LEVEL level)
+    {
+        specialBoardType = 1;
+        switch (level)
+        {
+            default:
+            case BINGO_LEVEL.ONE:
+                titleText = "Bingo: Level 1";
+                members = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+                specialBoardType = 0;
+                break;
+            case BINGO_LEVEL.TWO:
+                titleText = "Bingo: Level 2";
+                members = new int[] { 29, 25, 27, 22, 31, 36, 34, 35, 44, 48, 47, 43, 58, 52, 56, 51 };
+                break;
+            case BINGO_LEVEL.THREE:
+                titleText = "Bingo: Level 3";
+                members = new int[] { 31, 38, 34, 35, 44, 46, 47, 43, 58, 52, 56, 51, 60, 61, 64, 63 };
+                break;
+            //case BINGO_LEVEL.FOUR:
+            //    break;
+        }
+    }
+}

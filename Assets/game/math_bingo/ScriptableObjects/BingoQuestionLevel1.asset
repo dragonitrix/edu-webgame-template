@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f082ed8b1064ea046846bcb67525ff46, type: 3}
+  m_Name: BingoQuestionLevel1
+  m_EditorClassIdentifier: 
+  questions:
+  - answer: 1
+    equations:
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+  - answer: 2
+    equations:
+    - {x: 1, y: 1}
+    - {x: 2, y: 0}
+    - {x: 0, y: 2}
+  - answer: 3
+    equations:
+    - {x: 3, y: 0}
+    - {x: 2, y: 1}
+    - {x: 1, y: 2}
+  - answer: 4
+    equations:
+    - {x: 4, y: 0}
+    - {x: 3, y: 1}
+    - {x: 2, y: 2}
+    - {x: 1, y: 3}
+  - answer: 5
+    equations:
+    - {x: 5, y: 0}
+    - {x: 4, y: 1}
+    - {x: 2, y: 3}
+    - {x: 3, y: 2}
+  - answer: 6
+    equations:
+    - {x: 5, y: 1}
+    - {x: 4, y: 2}
+    - {x: 3, y: 3}
+    - {x: 2, y: 4}
+    - {x: 1, y: 5}
+  - answer: 7
+    equations:
+    - {x: 7, y: 0}
+    - {x: 6, y: 1}
+    - {x: 3, y: 4}
+    - {x: 5, y: 2}
+  - answer: 8
+    equations:
+    - {x: 6, y: 2}
+    - {x: 4, y: 4}
+    - {x: 5, y: 3}
+    - {x: 3, y: 5}
+  - answer: 9
+    equations:
+    - {x: 5, y: 4}
+    - {x: 6, y: 3}
+    - {x: 4, y: 5}
+    - {x: 2, y: 7}
+  - answer: 10
+    equations:
+    - {x: 5, y: 5}
+    - {x: 6, y: 4}
+    - {x: 7, y: 3}
+    - {x: 8, y: 2}
+    - {x: 9, y: 1}
+  - answer: 11
+    equations:
+    - {x: 7, y: 4}
+    - {x: 8, y: 3}
+    - {x: 5, y: 6}
+    - {x: 9, y: 2}
+  - answer: 12
+    equations:
+    - {x: 6, y: 6}
+    - {x: 7, y: 5}
+    - {x: 4, y: 8}
+    - {x: 3, y: 9}
+  - answer: 13
+    equations:
+    - {x: 9, y: 4}
+    - {x: 8, y: 5}
+    - {x: 7, y: 6}
+    - {x: 5, y: 8}
+  - answer: 14
+    equations:
+    - {x: 7, y: 7}
+    - {x: 9, y: 5}
+    - {x: 8, y: 6}
+    - {x: 6, y: 8}
+  - answer: 15
+    equations:
+    - {x: 7, y: 8}
+    - {x: 9, y: 6}
+    - {x: 8, y: 7}
+    - {x: 6, y: 9}
+  - answer: 16
+    equations:
+    - {x: 8, y: 8}
+    - {x: 9, y: 7}
+    - {x: 7, y: 9}
