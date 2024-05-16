@@ -135,6 +135,7 @@ public class Yummy_GameController : GameController
             DestroyImmediate(p.gameObject);
         }
         pieces.Clear();
+        breads.Clear();
 
         currentRoundData = levelData.rounds[index];
 
@@ -189,9 +190,6 @@ public class Yummy_GameController : GameController
         }
         else
         {
-            // gameRect.DOAnchorPos(new Vector2(0, -1080f), 0.5f);
-            // SetPhase(GAME_PHASE.ROUND_START);
-
             plateRect.DOAnchorPos(Vector2.zero, 0.5f);
             plateHighlight.DOScale(Vector3.one, 0.2f).SetDelay(0.2f);
         }
@@ -294,7 +292,7 @@ public class Yummy_GameController : GameController
                 {
                     sandwichRect.DOAnchorPos(new Vector2(0, -1080f), 0.5f);
                     gameRect.DOAnchorPos(new Vector2(0, -1080f), 0.5f);
-                    sandwiches[roundIndex].SetEnable(false);
+                    sandwiches[roundIndex].SetCorrect();
 
                     // API_END_GAME
                     var totalCorrect = CheckTotalCorrect();
@@ -304,7 +302,7 @@ public class Yummy_GameController : GameController
                     }
                     else
                     {
-                        SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+                        SimpleEffectController.instance.SpawnSucessEffect(() =>
                         {
                             SetPhase(GAME_PHASE.ROUND_START);
                         });

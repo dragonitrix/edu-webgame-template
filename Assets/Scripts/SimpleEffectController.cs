@@ -54,6 +54,15 @@ public class SimpleEffectController : MonoBehaviour
         effect.SetExitCallback(callback);
     }
 
+    public void SpawnSucessEffect(UnityAction callback)
+    {
+        AudioManager.instance.PlaySound("ui_win_2");
+        var flare = SpawnEffect("effect_flare", 0.5f, 0.1f, 0.2f, 1.6f);
+        flare.SetRotate(45f);
+        var effect = SpawnEffect("effect_success", 0.2f, 0f, 0.2f, 1.8f);
+        effect.SetExitCallback(callback);
+    }
+
     public void SpawnWaitPopup(UnityAction callback)
     {
         var effect = SpawnEffect("effect_popup1", 0.2f, 0f, 0.2f, 0f, false);
