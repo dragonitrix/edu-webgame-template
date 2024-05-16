@@ -39,7 +39,7 @@ public class Yummy_Sandwich : MonoBehaviour
     public void SetEnable(bool val)
     {
         button.interactable = val;
-
+        Fade2Color();
     }
 
     public void SetCorrect()

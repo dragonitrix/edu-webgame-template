@@ -15,6 +15,7 @@ public class Yummy_GameController : GameController
     public GameObject choice_prefab;
 
     [Header("Obj ref")]
+    public SimpleIntroController intro;
     public VerticalLayoutGroup pieceLayout;
     public RectTransform gameRect;
     public RectTransform pieceGroup;
@@ -56,7 +57,9 @@ public class Yummy_GameController : GameController
             sandwiches[i].SetSandwich(i, this);
         }
 
-        SetPhase(GAME_PHASE.ROUND_START);
+        SetPhase(GAME_PHASE.INTRO);
+
+        // SetPhase(GAME_PHASE.ROUND_START);
     }
 
     public override void StartGame()
@@ -110,7 +113,12 @@ public class Yummy_GameController : GameController
 
     void OnEnterIntro()
     {
+        intro.onIntroFinished += () =>
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        };
 
+        intro.Show();
     }
 
     void OnEnterRoundStart()
