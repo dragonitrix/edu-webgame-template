@@ -122,7 +122,7 @@ public class Yummy_GameController : GameController
     void NewRound(int index)
     {
         roundIndex = index;
-        foreach (var p in pieces)
+        foreach (var p in pieces.Concat(breads))
         {
             DestroyImmediate(p.gameObject);
         }
@@ -269,6 +269,7 @@ public class Yummy_GameController : GameController
     {
         AudioManager.instance.PlaySound("ui_pop");
         plateHighlight.DOScale(Vector3.zero, 0.2f);
+        plateRect.DOAnchorPos(new Vector2(700, 0), 0.5f);
 
         foreach (var item in pieces.Concat(breads))
         {

@@ -18,6 +18,10 @@ public class MenuController : MonoBehaviour
     [Header("Title")]
     public RectTransform title;
     public RectTransform[] BG_elems;
+    public RectTransform[] BG_elems_scale;
+
+    [Header("Settings")]
+    public bool instantPlay = false;
 
     void Awake()
     {
@@ -48,6 +52,11 @@ public class MenuController : MonoBehaviour
             var item = BG_elems[i];
             item.DOAnchorPos(Vector2.zero, 0.25f).SetDelay(i * 0.1f);
         }
+        for (int i = 0; i < BG_elems_scale.Length; i++)
+        {
+            var item = BG_elems_scale[i];
+            item.DOScale(Vector2.one, 0.25f).From(Vector2.zero).SetDelay(i * 0.1f);
+        }
     }
 
     // Update is called once per frame
@@ -58,7 +67,15 @@ public class MenuController : MonoBehaviour
 
     protected virtual void OnClickPlay()
     {
-        levelSelectedPopup.Enter();
+        if (!instantPlay)
+        {
+            levelSelectedPopup.Enter();
+        }
+        else
+        {
+            var sIndex = GetComponent<SubgameIndex>();
+            OnGameSelected(sIndex);
+        }
     }
 
     protected virtual void OnClickSettings()
