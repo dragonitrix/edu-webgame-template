@@ -44,8 +44,81 @@ public static class ExtensionMethods
         canvasGroup.blocksRaycasts = true;
     }
 
-    public static void AdjustTMPThaiText(this TextMeshProUGUI textMeshProUGUI){
+    public static void AdjustTMPThaiText(this TextMeshProUGUI textMeshProUGUI)
+    {
         textMeshProUGUI.text = ThaiFontAdjuster.Adjust(textMeshProUGUI.text);
     }
+    public static T SetAlpha<T>(this T g, float newAlpha)
+            where T : Graphic
+    {
+        var color = g.color;
+        color.a = newAlpha;
+        g.color = color;
+        return g;
+    }
+    public static List<T> PickRandomObjects<T>(this T[] array, int count, T objToAvoid)
+    {
+        // Create a list to store the results
+        List<T> result = new List<T>();
 
+        // Create a list of indices from the array excluding the object to avoid
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (!EqualityComparer<T>.Default.Equals(array[i], objToAvoid))
+            {
+                availableIndices.Add(i);
+            }
+        }
+
+        // Shuffle the available indices
+        for (int i = 0; i < availableIndices.Count; i++)
+        {
+            int randomIndex = Random.Range(i, availableIndices.Count);
+            int temp = availableIndices[i];
+            availableIndices[i] = availableIndices[randomIndex];
+            availableIndices[randomIndex] = temp;
+        }
+
+        // Pick the desired number of objects
+        for (int i = 0; i < count && i < availableIndices.Count; i++)
+        {
+            result.Add(array[availableIndices[i]]);
+        }
+
+        return result;
+    }
+
+    public static List<T> PickRandomObjects<T>(this List<T> list, int count, T objToAvoid)
+    {
+        // Create a list to store the results
+        List<T> result = new List<T>();
+
+        // Create a list of indices from the list excluding the object to avoid
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (!EqualityComparer<T>.Default.Equals(list[i], objToAvoid))
+            {
+                availableIndices.Add(i);
+            }
+        }
+
+        // Shuffle the available indices
+        for (int i = 0; i < availableIndices.Count; i++)
+        {
+            int randomIndex = Random.Range(i, availableIndices.Count);
+            int temp = availableIndices[i];
+            availableIndices[i] = availableIndices[randomIndex];
+            availableIndices[randomIndex] = temp;
+        }
+
+        // Pick the desired number of objects
+        for (int i = 0; i < count && i < availableIndices.Count; i++)
+        {
+            result.Add(list[availableIndices[i]]);
+        }
+
+        return result;
+    }
 }
