@@ -21,6 +21,7 @@ public class Bingo_GameController : GameController
     public TMP_InputField[] equationInputField;
     public Button homeButton;
     public Button retryButton;
+    public PopupController[] tutorialPopups;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -54,8 +55,8 @@ public class Bingo_GameController : GameController
     //debuging purpose only
     protected override void Start()
     {
-        base.Start();
         if (GameManager.instance == null) InitGame((int)level, PLAYER_COUNT._1_PLAYER);
+        base.Start();
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -84,6 +85,8 @@ public class Bingo_GameController : GameController
         BingoQuestionScriptableObject currentLevelQuestion = questions[(int)level];
         answerEquationPairs = new Dictionary<int, List<Vector2>>();
         bingoQuestions = new List<BingoQuestion>();
+
+        tutorialPopup = tutorialPopups[levelSettings.specialBoardType];
         foreach (var item in currentLevelQuestion.questions)
         {
             bingoQuestions.Add(item);
