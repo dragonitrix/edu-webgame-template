@@ -19,6 +19,8 @@ public class MysHouse_PageController : MonoBehaviour
     public List<RectTransform> extras = new();
     CanvasGroup canvasGroup;
 
+    MysHouse_PageController parent;
+
     public string transitionInID = "";
     public string transitionOutID = "";
 
@@ -40,6 +42,7 @@ public class MysHouse_PageController : MonoBehaviour
         foreach (RectTransform subPage in subPageGroup)
         {
             var _subpage = subPage.GetComponent<MysHouse_PageController>();
+            _subpage.SetParent(this);
             _subpage.Hide();
             subPages.Add(_subpage);
         }
@@ -49,6 +52,11 @@ public class MysHouse_PageController : MonoBehaviour
             _minigame.SetParent(this);
             miniGames.Add(_minigame);
         }
+    }
+
+    public void SetParent(MysHouse_PageController parent)
+    {
+        this.parent = parent;
     }
 
     public void Show(float duration = 0, bool enter = false)
@@ -133,17 +141,41 @@ public class MysHouse_PageController : MonoBehaviour
 
             case "living2_shelf":
                 miniGames[0].Hide(0.2f);
-                var obj = extras[0];
-                obj.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                var shelf = extras[0];
+                shelf.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
                 {
-                    obj.DOAnchorPosX(obj.anchoredPosition.x - 100, 1f).SetDelay(1f)
+                    shelf.DOAnchorPosX(shelf.anchoredPosition.x - 100, 1f).SetDelay(1f)
                     .OnStart(() =>
                     {
-                        AudioManager.instance.PlaySound("ui_door");
+                        AudioManager.instance.PlaySound("ui_obj_slide");
                     })
                     .OnComplete(() =>
                     {
                         Hide(1f);
+                    });
+                });
+                break;
+            case "living2_sofa":
+                miniGames[0].Hide(0.2f);
+                var sofa = extras[0];
+                sofa.DOScale(1.2f, 0.2f);
+                sofa.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    var key1 = extras[2];
+                    key1.GetComponent<CanvasGroup>().alpha = 1;
+                    sofa.DOAnchorPosX(sofa.anchoredPosition.x - 100, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        AudioManager.instance.PlaySound("ui_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        extras[1].DOScale(1f, 0.5f);
+                        key1.DOScale(2f, 0.5f);
+                        AudioManager.instance.PlaySound("ui_win_2", () =>
+                        {
+                            parent.FinishPage();
+                        });
                     });
                 });
                 break;
