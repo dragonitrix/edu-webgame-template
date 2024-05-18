@@ -42,6 +42,7 @@ public class SimpleEffectController : MonoBehaviour
             case true:
                 AudioManager.instance.PlaySound("ui_ding");
                 effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, 1.8f);
+                effect.GetComponent<RectTransform>().anchoredPosition = new(0, 100);
                 break;
             case false:
                 AudioManager.instance.PlaySound("ui_fail_1");

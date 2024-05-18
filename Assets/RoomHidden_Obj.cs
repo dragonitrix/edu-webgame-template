@@ -7,7 +7,7 @@ using DG.Tweening;
 public class RoomHidden_Obj : MonoBehaviour
 {
     public RoomHidden_GameController parent;
-    RectTransform rectTransform;
+    public RectTransform rectTransform;
     Button button;
     public Image image;
     public bool isCorrected = false;
@@ -31,7 +31,7 @@ public class RoomHidden_Obj : MonoBehaviour
         parent.OnObjClick(this);
     }
 
-    void SetEnable(bool val)
+    public void SetEnable(bool val)
     {
         if (val)
         {

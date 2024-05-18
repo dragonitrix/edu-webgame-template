@@ -7,9 +7,19 @@ using System.Linq;
 using TransitionsPlus;
 using DG.Tweening;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class RoomHidden_GameController : GameController
 {
+
+    [Header("Timer")]
+    public RectTransform barFill;
+    public TextMeshProUGUI timerText;
+
+    public float maxTime = 60;
+    public float remainingTime;
+
+    float barFillWidth = 0;
 
     [Header("Prefab")]
     public GameObject hintObj_prefab;
@@ -44,20 +54,20 @@ public class RoomHidden_GameController : GameController
 
         gameRect.anchoredPosition = new Vector2(0, -1080);
 
+        barFillWidth = barFill.sizeDelta.x;
+
         foreach (var room in rooms)
         {
             room.Hide();
         }
 
         tutorialPopup.Enter();
-        AudioManager.instance.PlaySpacialSound("mhw_tutorial_02", () =>
-        {
-            SetPhase(GAME_PHASE.ROUND_START);
-        });
+        AudioManager.instance.PlaySpacialSound("mhw_tutorial_02");
 
         tutorialPopup.OnPopupExit += () =>
         {
             AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
+            SetPhase(GAME_PHASE.ROUND_START);
         };
 
     }
@@ -118,11 +128,19 @@ public class RoomHidden_GameController : GameController
 
     void OnEnterRoundStart()
     {
-        gameRect.DOAnchorPos(new Vector2(0, -1080), 1f).OnComplete(() =>
+        foreach (var room in rooms)
         {
-            foreach (var room in rooms)
+            room.Hide();
+        }
+        foreach (var roomBtn in roomButtons)
+        {
+            roomBtn.button.interactable = false;
+        }
+        gameRect.DOAnchorPos(new Vector2(0, -1080), 0.5f).OnComplete(() =>
+        {
+            foreach (var roomBtn in roomButtons)
             {
-                room.Hide();
+                roomBtn.button.interactable = true;
             }
         });
     }
@@ -158,6 +176,10 @@ public class RoomHidden_GameController : GameController
             hints.Add(hint);
         }
 
+        remainingTime = maxTime;
+        timerText.text = FormatTime(remainingTime);
+
+
         AudioManager.instance.PlaySound("ui_swipe");
         gameRect.DOAnchorPos(Vector2.zero, 0.5f);
         SetPhase(GAME_PHASE.ROUND_WAITING);
@@ -174,6 +196,12 @@ public class RoomHidden_GameController : GameController
 
         if (!allCorrect)
         {
+
+            foreach (var _obj in currentRoom.objs)
+            {
+                if (!_obj.isCorrected) _obj.SetEnable(true);
+            }
+
             SetPhase(GAME_PHASE.ROUND_WAITING);
         }
         else
@@ -199,10 +227,44 @@ public class RoomHidden_GameController : GameController
         }
     }
 
+    void Update()
+    {
+        switch (gamePhase)
+        {
+            case GAME_PHASE.ROUND_WAITING:
+
+                if (remainingTime >= 0)
+                {
+                    remainingTime -= Time.deltaTime;
+                    timerText.text = FormatTime(remainingTime);
+                    barFill.sizeDelta = new Vector2(Mathf.Lerp(0, barFillWidth, remainingTime / maxTime), barFill.sizeDelta.y);
+                }
+                else
+                {
+                    remainingTime = 0;
+                    timerText.text = FormatTime(remainingTime);
+                    TimeUp();
+                    SetPhase(GAME_PHASE.NULL);
+                }
+                break;
+        }
+    }
+
     [ContextMenu("Cheat")]
     public void Cheat()
     {
         FinishedGame(true, 0);
+    }
+
+    [ContextMenu("TimeUp")]
+    public void TimeUp()
+    {
+        FinishedGame(false, 0);
+    }
+
+    public void ReloadLevel()
+    {
+        GameManager.instance.ReloadScene();
     }
 
     public bool CheckCorrect()
@@ -231,6 +293,14 @@ public class RoomHidden_GameController : GameController
 
     public void OnObjClick(RoomHidden_Obj obj)
     {
+
+        foreach (var _obj in currentRoom.objs)
+        {
+            _obj.SetEnable(false);
+        }
+
+        obj.rectTransform.DOAnchorPos(new Vector2(0, -100), 0.2f);
+        obj.rectTransform.DOScale(2f, 0.2f);
 
         SimpleEffectController.instance.SpawnAnswerEffectMinimal(true, () =>
         {
@@ -278,6 +348,13 @@ public class RoomHidden_GameController : GameController
         {
             return null;
         }
+    }
+
+    public string FormatTime(float timeInSeconds)
+    {
+        int minutes = Mathf.FloorToInt(timeInSeconds / 60F);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60F);
+        return string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
 }
