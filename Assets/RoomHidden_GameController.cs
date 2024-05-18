@@ -299,6 +299,8 @@ public class RoomHidden_GameController : GameController
             _obj.SetEnable(false);
         }
 
+        obj.rectTransform.SetAsLastSibling();
+
         obj.rectTransform.DOAnchorPos(new Vector2(0, -100), 0.2f);
         obj.rectTransform.DOScale(2f, 0.2f);
 
