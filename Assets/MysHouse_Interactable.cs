@@ -18,6 +18,7 @@ public class MysHouse_Interactable : MonoBehaviour
     public RectTransform highlight;
     public MysHouse_PageController finishPage;
     public MysHouse_PageController toPage;
+    public string specialSoundID;
     public string soundID;
 
     [HideInInspector] public RectTransform rectTransform;
@@ -61,6 +62,19 @@ public class MysHouse_Interactable : MonoBehaviour
             button.interactable = false;
         }
 
+        if (specialSoundID != "")
+        {
+            Debug.Log("specialSoundID: " + specialSoundID);
+            AudioManager.instance.PlaySpacialSound(specialSoundID, DoEffect);
+            return;
+        }
+
+        DoEffect();
+    }
+
+    public void DoEffect()
+    {
+
         if (showCorrect)
         {
             SimpleEffectController.instance.SpawnAnswerEffect(true, DoAction);
@@ -76,6 +90,7 @@ public class MysHouse_Interactable : MonoBehaviour
             SimpleEffectController.instance.SpawnSuccessEffect(DoAction);
             return;
         }
+
         DoAction();
     }
 

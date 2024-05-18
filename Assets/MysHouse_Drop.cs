@@ -38,6 +38,8 @@ public class MysHouse_Drop : MonoBehaviour
 
         text.text = drag.currentChar;
 
+        AudioManager.instance.PlaySound("drop_pop");
+
     }
 
 }

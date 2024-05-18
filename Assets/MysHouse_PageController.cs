@@ -24,6 +24,9 @@ public class MysHouse_PageController : MonoBehaviour
     public string transitionInID = "";
     public string transitionOutID = "";
 
+    public string audioInSoundID = "";
+    public string audioOutSoundID = "";
+
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -82,6 +85,12 @@ public class MysHouse_PageController : MonoBehaviour
 
     public void Enter()
     {
+
+        if (audioInSoundID != "")
+        {
+            AudioManager.instance.PlaySpacialSound(audioInSoundID);
+        }
+
         // actual enter script
         if (hightlightOnEnter)
         {
@@ -101,12 +110,15 @@ public class MysHouse_PageController : MonoBehaviour
 
     public void FinishPage()
     {
-        Debug.Log("myPage: " + gameObject.name);
-        Debug.Log("transitionOutID: " + transitionOutID);
         if (transitionOutID != "")
         {
             TransitionOut();
             return;
+        }
+
+        if (audioOutSoundID != "")
+        {
+            AudioManager.instance.PlaySpacialSound(audioOutSoundID);
         }
 
         ((MysHouse_GameController)GameController.instance).NextPage();
@@ -128,7 +140,7 @@ public class MysHouse_PageController : MonoBehaviour
                 extras[0].GetComponent<CanvasGroup>().DOFade(1f, 1f).SetDelay(2f)
                 .OnStart(() =>
                 {
-                    AudioManager.instance.PlaySound("ui_door");
+                    AudioManager.instance.PlaySound("sfx_door");
                 })
                 .OnComplete(() =>
                 {
@@ -141,13 +153,14 @@ public class MysHouse_PageController : MonoBehaviour
 
             case "living2_shelf":
                 miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
                 var shelf = extras[0];
                 shelf.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
                 {
-                    shelf.DOAnchorPosX(shelf.anchoredPosition.x - 100, 1f).SetDelay(1f)
+                    shelf.DOAnchorPosX(shelf.anchoredPosition.x - 300, 1f).SetDelay(1f)
                     .OnStart(() =>
                     {
-                        AudioManager.instance.PlaySound("ui_obj_slide");
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
                     })
                     .OnComplete(() =>
                     {
@@ -157,21 +170,24 @@ public class MysHouse_PageController : MonoBehaviour
                 break;
             case "living2_sofa":
                 miniGames[0].Hide(0.2f);
+                extras[4].gameObject.SetActive(false);
                 var sofa = extras[0];
                 sofa.DOScale(1.2f, 0.2f);
                 sofa.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
                 {
                     var key1 = extras[2];
                     key1.GetComponent<CanvasGroup>().alpha = 1;
-                    sofa.DOAnchorPosX(sofa.anchoredPosition.x - 100, 1f).SetDelay(1f)
+                    sofa.DOAnchorPosX(sofa.anchoredPosition.x - 1000, 1f).SetDelay(1f)
                     .OnStart(() =>
                     {
-                        AudioManager.instance.PlaySound("ui_obj_slide");
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
                     })
                     .OnComplete(() =>
                     {
+                        AudioManager.instance.PlaySpacialSound(audioOutSoundID);
                         extras[1].DOScale(1f, 0.5f);
                         key1.DOScale(2f, 0.5f);
+                        extras[3].DOScale(1f, 0.5f);
                         AudioManager.instance.PlaySound("ui_win_2", () =>
                         {
                             parent.FinishPage();

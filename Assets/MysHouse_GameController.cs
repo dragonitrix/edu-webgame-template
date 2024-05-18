@@ -25,6 +25,7 @@ public class MysHouse_GameController : GameController
     public Image roomTransitionOverlay;
 
     [Header("Data")]
+    public int startPage = 0;
     int page = 0;
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
@@ -118,7 +119,7 @@ public class MysHouse_GameController : GameController
 
     void OnEnterRoundStart()
     {
-        ToPage(0, 1f);
+        ToPage(startPage, 1f);
     }
 
     void ToPage(int index, float delay = 0)
