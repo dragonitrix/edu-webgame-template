@@ -53,8 +53,8 @@ public class MysHouse_MiniGame : MonoBehaviour
 
     public void StartMiniGame()
     {
-        DragManager.instance.GetAllDragable();
-        DragManager.instance.GetAllDropable();
+       // DragManager.instance.GetAllDragable();
+       // DragManager.instance.GetAllDropable();
 
         foreach (var condition in conditions)
         {
