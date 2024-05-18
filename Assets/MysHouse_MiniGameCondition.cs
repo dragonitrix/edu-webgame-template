@@ -15,7 +15,7 @@ public class MysHouse_MiniGameCondition : MonoBehaviour
     }
     public void SetIncorrect()
     {
-        if(!isCorrected)
+        if (!isCorrected) return;
         isCorrected = false;
         parent.OnConditionChange();
     }

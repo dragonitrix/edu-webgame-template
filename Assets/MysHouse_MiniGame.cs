@@ -47,7 +47,6 @@ public class MysHouse_MiniGame : MonoBehaviour
         {
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
-                parent.FinishPage();
             });
         }
     }
