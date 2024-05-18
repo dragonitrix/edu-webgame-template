@@ -15,8 +15,11 @@ public class MysHouse_GameController : GameController
 
     [Header("Obj ref")]
 
+    public RectTransform pageGroup;
     public SimpleIntroController StartIntro;
     public SimpleIntroController EndIntro;
+
+    [Header("Transition")]
     public TransitionAnimator roomTransition;
     public RawImage roomTransitionRaw;
     public Image roomTransitionOverlay;
@@ -25,8 +28,7 @@ public class MysHouse_GameController : GameController
     int page = 0;
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
-
-    public List<MysHouse_PageController> pageControllers = new();
+    public List<MysHouse_PageController> pages = new();
 
 
     protected override void Start()
@@ -44,6 +46,16 @@ public class MysHouse_GameController : GameController
         {
             SetPhase(GAME_PHASE.ROUND_START);
         };
+
+        pages.Clear();
+
+        // fetch page
+        foreach (RectTransform page in pageGroup)
+        {
+            pages.Add(page.GetComponent<MysHouse_PageController>());
+        }
+
+
 
         HideAllPages();
 
@@ -116,12 +128,25 @@ public class MysHouse_GameController : GameController
         {
             roomTransitionRaw.SetAlpha(0f);
             HideAllPages();
-            pageControllers[index].Show();
+            pages[index].Show();
             roomTransitionOverlay.DOFade(0f, 1f).From(1f).OnComplete(() =>
             {
-                pageControllers[index].Enter();
+                pages[index].Enter();
             });
         }, delay);
+    }
+
+    public void NextPage()
+    {
+
+        if (page >= pages.Count - 1)
+        {
+
+            return;
+        }
+
+        ToPage(page + 1);
+
     }
 
     void DoRoomTransition(UnityAction action, float delay = 0)
@@ -154,7 +179,7 @@ public class MysHouse_GameController : GameController
 
     void HideAllPages()
     {
-        foreach (var page in pageControllers)
+        foreach (var page in pages)
         {
             page.Hide();
         }
