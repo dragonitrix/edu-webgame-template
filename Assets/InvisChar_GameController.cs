@@ -67,11 +67,13 @@ public class InvisChar_GameController : GameController
         // SetPhase(GAME_PHASE.ROUND_START);
 
         tutorialPopup.Enter();
-        AudioManager.instance.PlaySpacialSound("mhw_tutorial_01", () =>
-        {
-            SetPhase(GAME_PHASE.ROUND_START);
-        });
+        AudioManager.instance.PlaySpacialSound("mhw_tutorial_01");
 
+        tutorialPopup.OnPopupExit += () =>
+        {
+            AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
+            SetPhase(GAME_PHASE.ROUND_START);
+        };
     }
 
     public override void StartGame()

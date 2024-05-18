@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sc_game_invischar.unity
     guid: 240bf3091cb86204293fbb69de313f61
+  - enabled: 1
+    path: Assets/Scenes/sc_game_roomhidden.unity
+    guid: f6e01c823e4ecaa4a9bcb3b98d967a5e
   m_configObjects: {}
