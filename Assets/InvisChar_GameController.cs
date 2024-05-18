@@ -173,7 +173,8 @@ public class InvisChar_GameController : GameController
                     drop.Setup(c.text, this);
                     drop.droppable.onDropped += OnDrop;
                     var type = GetCharType(c.text);
-                    Debug.Log(type);
+                    // Debug.Log("text: " + c.text);
+                    // Debug.Log("type: " + type);
                     drop.image.color = colors[(int)type - 1];
                     dropareas.Add(drop);
                     break;
@@ -424,7 +425,7 @@ public class InvisChar_GameController : GameController
 
     static string chars_high = "ขฃฉฐถผฝศษสห";
     static string chars_mid = "กจฎฏดตบปอ";
-    static string chars_low = "คฅฆงชซฌญฑฒณทธนพฟภมรลวฬฮ";
+    static string chars_low = "คฅฆงชซฌญฑฒณทธนพฟภมรลวฬฮย";
 
     public CHAR_LEVEL GetCharType(string input)
     {
