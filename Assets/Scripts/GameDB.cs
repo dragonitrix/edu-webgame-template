@@ -16,6 +16,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.CHAR_HEAD,"charhead"},
         {MAINGAME_INDEX.IMG_SURE,"imgsure"},
         {MAINGAME_INDEX.BINGO,"bingo"},
+        {MAINGAME_INDEX.HOWMUCH,"howmuchisit"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -32,6 +33,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
         {SUBGAME_INDEX.IMG_SURE,"imgsure"},
         {SUBGAME_INDEX.BINGO,"bingo"},
+        {SUBGAME_INDEX.HOWMUCH,"howmuchisit"},
     };
 
     // Singleton instance
@@ -79,7 +81,8 @@ public enum MAINGAME_INDEX
     HOUSE,
     CHAR_HEAD,
     IMG_SURE,
-    BINGO
+    BINGO,
+    HOWMUCH
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -96,7 +99,8 @@ public enum SUBGAME_INDEX
     CHAR_HEAD,
     WANNAYUUK,
     IMG_SURE,
-    BINGO
+    BINGO,
+    HOWMUCH
 }
 
 public enum PLAYER_COUNT
@@ -352,4 +356,9 @@ public class Bingo_LevelSettings
             //    break;
         }
     }
+}
+public enum HOWMUCH_MODE
+{
+    TUTORIAL,
+    GAMEPLAY
 }
