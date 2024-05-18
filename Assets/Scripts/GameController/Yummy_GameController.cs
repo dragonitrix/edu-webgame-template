@@ -302,7 +302,7 @@ public class Yummy_GameController : GameController
                     }
                     else
                     {
-                        SimpleEffectController.instance.SpawnSucessEffect(() =>
+                        SimpleEffectController.instance.SpawnSuccessEffect(() =>
                         {
                             SetPhase(GAME_PHASE.ROUND_START);
                         });

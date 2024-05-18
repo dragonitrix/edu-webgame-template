@@ -15,6 +15,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.CHAR_HEAD,"charhead"},
         {MAINGAME_INDEX.IMG_SURE,"imgsure"},
         {MAINGAME_INDEX.YUMMY,"yummy"},
+        {MAINGAME_INDEX.INVIS_CHAR,"invischar"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -31,6 +32,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
         {SUBGAME_INDEX.IMG_SURE,"imgsure"},
         {SUBGAME_INDEX.YUMMY,"yummy"},
+        {SUBGAME_INDEX.INVIS_CHAR,"invischar"},
+        {SUBGAME_INDEX.ROOM_HIDDEN,"roomhidden"},
     };
 
     // Singleton instance
@@ -78,7 +81,8 @@ public enum MAINGAME_INDEX
     HOUSE,
     CHAR_HEAD,
     IMG_SURE,
-    YUMMY
+    YUMMY,
+    INVIS_CHAR,
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -95,7 +99,9 @@ public enum SUBGAME_INDEX
     CHAR_HEAD,
     WANNAYUUK,
     IMG_SURE,
-    YUMMY
+    YUMMY,
+    INVIS_CHAR,
+    ROOM_HIDDEN,
 }
 
 public enum PLAYER_COUNT

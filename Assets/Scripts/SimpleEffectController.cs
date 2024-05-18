@@ -32,6 +32,26 @@ public class SimpleEffectController : MonoBehaviour
         effectDataDictionary = effectDatas.ToDictionary(x => x.id, x => x.prefab);
     }
 
+    public void SpawnAnswerEffectMinimal(bool isCorrected, UnityAction callback)
+    {
+
+        SimpleEffect effect = null;
+
+        switch (isCorrected)
+        {
+            case true:
+                AudioManager.instance.PlaySound("ui_ding");
+                effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, 1.8f);
+                break;
+            case false:
+                AudioManager.instance.PlaySound("ui_fail_1");
+                effect = SpawnEffect("effect_incorrect", 0.2f, 0f, 0.2f, 1.8f);
+                break;
+        }
+
+        effect.SetExitCallback(callback);
+    }
+
     public void SpawnAnswerEffect(bool isCorrected, UnityAction callback)
     {
 
@@ -54,7 +74,7 @@ public class SimpleEffectController : MonoBehaviour
         effect.SetExitCallback(callback);
     }
 
-    public void SpawnSucessEffect(UnityAction callback)
+    public void SpawnSuccessEffect(UnityAction callback)
     {
         AudioManager.instance.PlaySound("ui_win_2");
         var flare = SpawnEffect("effect_flare", 0.5f, 0.1f, 0.2f, 1.6f);

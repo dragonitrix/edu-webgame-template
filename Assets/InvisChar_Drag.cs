@@ -19,6 +19,10 @@ public class InvisChar_Drag : MonoBehaviour
     public void SetEnable(bool val)
     {
         draggable.enabled = val;
+    }
+
+    public void SetVisible(bool val)
+    {
         if (val)
         {
             text.alpha = 1f;
@@ -28,4 +32,5 @@ public class InvisChar_Drag : MonoBehaviour
             text.alpha = 0f;
         }
     }
+
 }

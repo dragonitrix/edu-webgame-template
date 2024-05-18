@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class InvisChar_ButtonNumber : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class InvisChar_ButtonNumber : MonoBehaviour
     InvisChar_GameController parent;
     Button button;
     CanvasGroup canvasGroup;
+    public Image buttonImage;
+    public RectTransform resultRect;
+    public Image resultImage;
+    public RectTransform checkRect;
+
+    public bool isCorrected = false;
 
     public void Setup(int index, InvisChar_GameController parent)
     {
@@ -34,13 +41,22 @@ public class InvisChar_ButtonNumber : MonoBehaviour
         if (val)
         {
             button.interactable = true;
-            canvasGroup.alpha = 1;
         }
         else
         {
             button.interactable = false;
-            canvasGroup.alpha = 0.5f;
         }
     }
 
+    public void SetCorrect()
+    {
+        if (isCorrected) return;
+
+        isCorrected = true;
+        buttonImage.DOFade(0f, 0.2f);
+        resultImage.sprite = parent.spriteKeyValuePairs["mhw_obj_" + (index + 1).ToString("00")];
+        resultRect.DOScale(1f, 0.2f);
+        checkRect.DOScale(1f, 0.2f).SetDelay(0.1f);
+        SetEnable(false);
+    }
 }

@@ -89,16 +89,23 @@ public static class ExtensionMethods
         return result;
     }
 
+    // Method to pick random objects excluding a single object
     public static List<T> PickRandomObjects<T>(this List<T> list, int count, T objToAvoid)
+    {
+        return PickRandomObjects(list, count, new List<T> { objToAvoid });
+    }
+
+    // Overloaded method to pick random objects excluding a list of objects
+    public static List<T> PickRandomObjects<T>(this List<T> list, int count, List<T> objsToAvoid)
     {
         // Create a list to store the results
         List<T> result = new List<T>();
 
-        // Create a list of indices from the list excluding the object to avoid
+        // Create a list of indices from the list excluding the objects to avoid
         List<int> availableIndices = new List<int>();
         for (int i = 0; i < list.Count; i++)
         {
-            if (!EqualityComparer<T>.Default.Equals(list[i], objToAvoid))
+            if (!objsToAvoid.Contains(list[i]))
             {
                 availableIndices.Add(i);
             }

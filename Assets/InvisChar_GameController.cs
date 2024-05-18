@@ -39,6 +39,7 @@ public class InvisChar_GameController : GameController
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
 
+    List<InvisChar_ButtonNumber> buttonNumbers = new();
     List<InvisChar_Drag> dragareas = new();
     List<InvisChar_Droparea> dropareas = new();
 
@@ -60,9 +61,17 @@ public class InvisChar_GameController : GameController
             var clone = Instantiate(numberButton_prefab, numberRect);
             var number = clone.GetComponent<InvisChar_ButtonNumber>();
             number.Setup(i, this);
+            buttonNumbers.Add(number);
         }
 
-        SetPhase(GAME_PHASE.ROUND_START);
+        // SetPhase(GAME_PHASE.ROUND_START);
+
+        tutorialPopup.Enter();
+        AudioManager.instance.PlaySpacialSound("mhw_tutorial_01", () =>
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        });
+
     }
 
     public override void StartGame()
@@ -130,6 +139,26 @@ public class InvisChar_GameController : GameController
         var levelData = levelDatas[index];
         currentLevelData = levelData;
 
+
+        //clear previous roundData
+        foreach (var drag in dragareas)
+        {
+            DestroyImmediate(drag.gameObject);
+        }
+        dragareas.Clear();
+        foreach (var drop in dropareas)
+        {
+            DestroyImmediate(drop.gameObject);
+        }
+        dropareas.Clear();
+
+        // clear remaining
+        for (int i = mainCharRect.childCount - 1; i >= 0; i--)
+        {
+            DestroyImmediate(mainCharRect.GetChild(i).gameObject);
+        }
+
+
         // create question section
         for (int i = 0; i < levelData.data.Length; i++)
         {
@@ -142,6 +171,7 @@ public class InvisChar_GameController : GameController
                     drop.Setup(c.text, this);
                     drop.droppable.onDropped += OnDrop;
                     var type = GetCharType(c.text);
+                    Debug.Log(type);
                     drop.image.color = colors[(int)type - 1];
                     dropareas.Add(drop);
                     break;
@@ -168,7 +198,15 @@ public class InvisChar_GameController : GameController
             var listType = ToListString(GetCharPool(text));
 
             pool.Add(text);
-            pool.AddRange(listType.PickRandomObjects(2, text));
+            var avoidPool = new List<string> { text };
+
+            // censored
+            if (text != "ห")
+            {
+                avoidPool.Add("ห");
+            }
+
+            pool.AddRange(listType.PickRandomObjects(2, avoidPool));
         }
 
         for (int i = 0; i < pool.Count; i++)
@@ -177,7 +215,14 @@ public class InvisChar_GameController : GameController
             var clone = Instantiate(dragChar_prefab, dragCharRect);
             var drag = clone.GetComponent<InvisChar_Drag>();
             drag.SetText(c);
+            drag.SetEnable(false);
             dragareas.Add(drag);
+        }
+
+        dragareas.Shuffle();
+        foreach (var drag in dragareas)
+        {
+            drag.transform.SetAsLastSibling();
         }
 
 
@@ -190,12 +235,22 @@ public class InvisChar_GameController : GameController
 
         gamePanel.DOAnchorPos(Vector2.zero, 0.5f);
 
-        SetPhase(GAME_PHASE.ROUND_WAITING);
         AudioManager.instance.PlaySound("ui_swipe");
+
+        var hintSoundID = "mhw_hint_" + (roundIndex + 1).ToString("00");
+        AudioManager.instance.PlaySpacialSound(hintSoundID, () =>
+        {
+            SetPhase(GAME_PHASE.ROUND_WAITING);
+        });
+
     }
 
     void OnEnterRoundWaiting()
     {
+        foreach (var d in dragareas)
+        {
+            d.SetEnable(true);
+        }
     }
 
     void OnEnterRoundAnswering()
@@ -209,7 +264,29 @@ public class InvisChar_GameController : GameController
         else
         {
             // question answer complete
+            gamePanel.DOAnchorPos(new Vector2(0, -1080), 0.5f).OnComplete(() =>
+            {
+                buttonNumbers[roundIndex].SetCorrect();
+
+                var totalCorrect = CheckTotalCorrect();
+
+                if (totalCorrect)
+                {
+                    FinishedGame(true, 0);
+                }
+                else
+                {
+                    SetPhase(GAME_PHASE.ROUND_START);
+                }
+
+            });
         }
+    }
+
+    [ContextMenu("Cheat")]
+    public void Cheat()
+    {
+        FinishedGame(true, 0);
     }
 
     public bool CheckCorrect()
@@ -227,7 +304,12 @@ public class InvisChar_GameController : GameController
     public bool CheckTotalCorrect()
     {
         var result = true;
-        result = false;
+
+        foreach (var btn in buttonNumbers)
+        {
+            if (!btn.isCorrected) result = false;
+        }
+
         return result;
     }
 
@@ -246,6 +328,7 @@ public class InvisChar_GameController : GameController
             //magic
             drop.SetCorrect();
             drag.SetEnable(false);
+            drag.SetVisible(false);
 
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
@@ -290,6 +373,12 @@ public class InvisChar_GameController : GameController
 
         resultImage.SetAlpha(Mathf.Lerp(0.25f, 1f, ratio));
 
+    }
+
+    public void ForceToNextGame()
+    {
+        // to room hidden game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ROOM_HIDDEN);
     }
 
     public enum GAME_PHASE
