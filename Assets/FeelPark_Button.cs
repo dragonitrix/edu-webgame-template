@@ -18,6 +18,7 @@ public class FeelPark_Button : MonoBehaviour
         this.isCorrected = isCorrected;
         this.parent = parent;
 
+        button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
 
     }
@@ -25,6 +26,11 @@ public class FeelPark_Button : MonoBehaviour
     void OnClick()
     {
         parent.OnAnswerClick(this);
+    }
+
+    public void SetEnable(bool val)
+    {
+        button.interactable = val;
     }
 
 }

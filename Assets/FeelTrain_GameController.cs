@@ -174,7 +174,11 @@ public class FeelTrain_GameController : GameController
             t.SetAsLastSibling();
         }
 
-        SetPhase(GAME_PHASE.ROUND_WAITING);
+        
+        AudioManager.instance.PlaySpacialSound("feel_quiz_01_" + currentData.GetIndex().ToString("00"), () =>
+        {
+            SetPhase(GAME_PHASE.ROUND_WAITING);
+        });
     }
 
     void OnEnterRoundWaiting()
