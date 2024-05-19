@@ -21,7 +21,7 @@ public class Droppable : MonoBehaviour, IDropHandler
 
     void DefaultDropEvent(Droppable droppable, Draggable draggable)
     {
-        Debug.Log("Dropping " + draggable.gameObject.name + " To " + droppable.gameObject.name);
+        // Debug.Log("Dropping " + draggable.gameObject.name + " To " + droppable.gameObject.name);
     }
     public void OnDrop(PointerEventData eventData)
     {
