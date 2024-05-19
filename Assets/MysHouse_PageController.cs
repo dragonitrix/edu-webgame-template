@@ -282,6 +282,9 @@ public class MysHouse_PageController : MonoBehaviour
 
                 interactableObjs[1].gameObject.SetActive(false);
 
+                AudioManager.instance.PlaySpacialSound("mh_quotes_03_01");
+                extras[1].DOScale(1f, 0.5f);
+
                 extras[0].GetComponent<CanvasGroup>().DOFade(1f, 1f).SetDelay(2f)
                 .OnStart(() =>
                 {
@@ -295,6 +298,83 @@ public class MysHouse_PageController : MonoBehaviour
                     });
                 });
                 break;
+
+            case "wc2_obj":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var wc_obj = extras[0];
+                wc_obj.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    wc_obj.DOAnchorPosX(wc_obj.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        // AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                    });
+                });
+                break;
+
+            case "wc2_sink":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var wc_sink = extras[0];
+
+                var key_sink = extras[2];
+                var flare_sink = extras[3];
+                var text_sink = extras[4];
+
+                wc_sink.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    key_sink.localScale = Vector2.one;
+                    wc_sink.DOAnchorPosX(wc_sink.anchoredPosition.x - 1000, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        AudioManager.instance.PlaySpacialSound(audioOutSoundID);
+                        flare_sink.DOScale(1f, 0.5f);
+                        text_sink.DOScale(1f, 0.5f);
+                        AudioManager.instance.PlaySound("ui_win_2", () =>
+                        {
+                            parent.FinishPage();
+                        });
+                    });
+
+                });
+                break;
+
+            case "wc3":
+                foreach (var p in subPages)
+                {
+                    p.Hide(0.2f);
+                }
+                var objkey3 = interactableObjs[0];
+                objkey3.rectTransform.DOAnchorPosY(objkey3.rectTransform.anchoredPosition.y - 100, 0.5f).SetDelay(0.5f);
+                objkey3.canvasGroup.DOFade(0f, 0.3f).SetDelay(0.5f);
+
+                interactableObjs[1].gameObject.SetActive(false);
+
+                // AudioManager.instance.PlaySpacialSound("mh_quotes_03_01");
+
+                extras[0].GetComponent<CanvasGroup>().DOFade(1f, 1f).SetDelay(2f)
+                .OnStart(() =>
+                {
+                    AudioManager.instance.PlaySound("sfx_door");
+                })
+                .OnComplete(() =>
+                {
+                    DoDelayAction(1f, () =>
+                    {
+                        ((MysHouse_GameController)GameController.instance).NextPage();
+                    });
+                });
+                break;
+
         }
     }
 
