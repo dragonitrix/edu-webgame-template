@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02136c3517f212241afe18a183641a4a, type: 3}
+  m_Name: AdventureFiveQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - headerText: "North - \u0E20\u0E32\u0E04\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: 73fa958a8041c484caff15f2c3561ef6, type: 3}
+    correctAnswer: Tree
+    questionClip: {fileID: 8300000, guid: 5ddf4d819c018324895e925302b11de5, type: 3}
+    choiceTexts:
+    - Ten
+    - Tree
+    - Tower
+    - Took
+  - headerText: "North - \u0E20\u0E32\u0E04\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: d500489d68677af43b2a09e1c2d22102, type: 3}
+    correctAnswer: Cave
+    questionClip: {fileID: 8300000, guid: 18337ff05f2c83f4dadbd859139d011e, type: 3}
+    choiceTexts:
+    - Cat
+    - Can
+    - Cave
+    - Cook
+  - headerText: "North - \u0E20\u0E32\u0E04\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: e80ff86bfb0ee4b48b4379971ab90cd9, type: 3}
+    correctAnswer: Mountain
+    questionClip: {fileID: 8300000, guid: 9e89f7db396bd264abbc66e3ccdfdbf7, type: 3}
+    choiceTexts:
+    - Mountain
+    - Monkey
+    - Moon
+    - Mango
+  - headerText: "North - \u0E20\u0E32\u0E04\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: 4ae270084d2caf24f9fddbc47401b488, type: 3}
+    correctAnswer: Stone
+    questionClip: {fileID: 8300000, guid: 10611c7ac2bb302428ec1d98b350d66c, type: 3}
+    choiceTexts:
+    - Star
+    - Soup
+    - Sun
+    - Stone
+  - headerText: "North - \u0E20\u0E32\u0E04\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: 2596dbeaff2ae0c478980d9ad1b93654, type: 3}
+    correctAnswer: Foggy
+    questionClip: {fileID: 8300000, guid: 2aaedbc8f3edf5846a24fbd8b7217498, type: 3}
+    choiceTexts:
+    - Fish
+    - Fine
+    - Foggy
+    - Food
+  - headerText: "North-East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E40\u0E09\u0E35\u0E22\u0E07\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: 1a0a21b452ce6c84eafc9289bae7eaea, type: 3}
+    correctAnswer: River
+    questionClip: {fileID: 8300000, guid: 3487ca42aeb8123479d8b3dd98c78f84, type: 3}
+    choiceTexts:
+    - Road
+    - Relief
+    - River
+    - Red
+  - headerText: "North-East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E40\u0E09\u0E35\u0E22\u0E07\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: c586472a4d76c404481bfa687ef65b66, type: 3}
+    correctAnswer: Lake
+    questionClip: {fileID: 8300000, guid: d9919040ef2fcf8458f0a7e46781b21c, type: 3}
+    choiceTexts:
+    - Look
+    - Lake
+    - Lonely
+    - Lune
+  - headerText: "North-East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E40\u0E09\u0E35\u0E22\u0E07\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: eafbd8254a0633d4f9cb8223b2b1e716, type: 3}
+    correctAnswer: Volcano
+    questionClip: {fileID: 8300000, guid: b2afbd56d3d10df48b5fd5b74d9695ea, type: 3}
+    choiceTexts:
+    - Van
+    - Voldermore
+    - Volume
+    - Volcano
+  - headerText: "North-East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E40\u0E09\u0E35\u0E22\u0E07\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: eb7c7cc0c577d16429d035dab533b06e, type: 3}
+    correctAnswer: Dam
+    questionClip: {fileID: 8300000, guid: 9351fb5345522c542ab950831c0d94d1, type: 3}
+    choiceTexts:
+    - Dune
+    - Duck
+    - Dog
+    - Dam
+  - headerText: "North-East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01\u0E40\u0E09\u0E35\u0E22\u0E07\u0E40\u0E2B\u0E19\u0E37\u0E2D"
+    questionSprites: {fileID: 21300000, guid: a5633efaf8ab6974185fa88601bd00cb, type: 3}
+    correctAnswer: Hill
+    questionClip: {fileID: 8300000, guid: c809483f031675f4dbd39ea2d3c02e55, type: 3}
+    choiceTexts:
+    - Ha
+    - Hill
+    - How
+    - Hat
+  - headerText: "Central - \u0E20\u0E32\u0E04\u0E01\u0E25\u0E32\u0E07 "
+    questionSprites: {fileID: 21300000, guid: 4361c1aedbce2f9479e919bbdf3d7bce, type: 3}
+    correctAnswer: Temple
+    questionClip: {fileID: 8300000, guid: f883d0af0645fcb4faa60fce88c1d2e4, type: 3}
+    choiceTexts:
+    - Tattoo
+    - Tapo
+    - Temple
+    - Teacher
+  - headerText: "Central - \u0E20\u0E32\u0E04\u0E01\u0E25\u0E32\u0E07 "
+    questionSprites: {fileID: 21300000, guid: a95bdff0fe04c6f40b4a25e66435056a, type: 3}
+    correctAnswer: Park
+    questionClip: {fileID: 8300000, guid: 7a9ec68ac9f85ad488c4268e079d9804, type: 3}
+    choiceTexts:
+    - Play
+    - Pond
+    - Proud
+    - Park
+  - headerText: "Central - \u0E20\u0E32\u0E04\u0E01\u0E25\u0E32\u0E07 "
+    questionSprites: {fileID: 21300000, guid: ad6f23ed23253934e82c57f34243df61, type: 3}
+    correctAnswer: Buddha
+    questionClip: {fileID: 8300000, guid: c728bf012a8852c45ba26c5d8cc6086d, type: 3}
+    choiceTexts:
+    - Button
+    - Bow
+    - Book
+    - Buddha
+  - headerText: "Central - \u0E20\u0E32\u0E04\u0E01\u0E25\u0E32\u0E07 "
+    questionSprites: {fileID: 21300000, guid: 6c1664a229aab05458c826cf1d6b235e, type: 3}
+    correctAnswer: Monk
+    questionClip: {fileID: 8300000, guid: 7c2b476ba918805449a4b7af140c1a4b, type: 3}
+    choiceTexts:
+    - Man
+    - Most
+    - Monk
+    - Minute
+  - headerText: "Central - \u0E20\u0E32\u0E04\u0E01\u0E25\u0E32\u0E07 "
+    questionSprites: {fileID: 21300000, guid: cd1442c60d8568f498152d77484c71e3, type: 3}
+    correctAnswer: Candle
+    questionClip: {fileID: 8300000, guid: 9e69d0bc579f7964199119d3730276ce, type: 3}
+    choiceTexts:
+    - Can
+    - Candle
+    - Cook
+    - Corn
+  - headerText: "East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01"
+    questionSprites: {fileID: 21300000, guid: 4a04a02627a1b5c4f840296166f06767, type: 3}
+    correctAnswer: Waterfall
+    questionClip: {fileID: 8300000, guid: 4d2002434534dd8439796d80e32fd195, type: 3}
+    choiceTexts:
+    - Water
+    - Waterfall
+    - Walking
+    - Wet
+  - headerText: "East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01"
+    questionSprites: {fileID: 21300000, guid: 609ae191afb7a164187a4449937bb9ea, type: 3}
+    correctAnswer: Forest
+    questionClip: {fileID: 8300000, guid: 8bf21c6e6b2bb3546811aa914454a449, type: 3}
+    choiceTexts:
+    - Four
+    - Friend
+    - Forest
+    - From
+  - headerText: "East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01"
+    questionSprites: {fileID: 21300000, guid: 6cf31b8dc2f3c714f9a1f1706a5547fc, type: 3}
+    correctAnswer: Jungle
+    questionClip: {fileID: 8300000, guid: c2b922e81c39aa747970203b9a563e94, type: 3}
+    choiceTexts:
+    - June
+    - January
+    - Job
+    - Jungle
+  - headerText: "East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01"
+    questionSprites: {fileID: 21300000, guid: 3484f340864070c45b45504fbd0c9511, type: 3}
+    correctAnswer: Flower
+    questionClip: {fileID: 8300000, guid: 8611e42df0aa2b14f9a36c83aaa58521, type: 3}
+    choiceTexts:
+    - Flower
+    - Flow
+    - Forest
+    - From
+  - headerText: "East - \u0E20\u0E32\u0E04\u0E15\u0E30\u0E27\u0E31\u0E19\u0E2D\u0E2D\u0E01"
+    questionSprites: {fileID: 21300000, guid: 9012fdcd40cb6d942b9aafa822b06473, type: 3}
+    correctAnswer: Plant
+    questionClip: {fileID: 8300000, guid: 1e03da4aa4c1d3a43a5a7b524d942f46, type: 3}
+    choiceTexts:
+    - Plants
+    - Pays
+    - Put
+    - Pill
+  - headerText: "South - \u0E20\u0E32\u0E04\u0E43\u0E15\u0E49"
+    questionSprites: {fileID: 21300000, guid: 9efb94c0e5299a6488498d7af32faf57, type: 3}
+    correctAnswer: Sea
+    questionClip: {fileID: 8300000, guid: 4c93d217d3b95a44495bf522340c3ce8, type: 3}
+    choiceTexts:
+    - Sea
+    - Soup
+    - Sad
+    - Star
+  - headerText: "South - \u0E20\u0E32\u0E04\u0E43\u0E15\u0E49"
+    questionSprites: {fileID: 21300000, guid: 85a500412f9a14440a250d3c868bfff1, type: 3}
+    correctAnswer: Beach
+    questionClip: {fileID: 8300000, guid: 9052b5bd053bdca4595ce877f92b863c, type: 3}
+    choiceTexts:
+    - Bed
+    - Beach
+    - Bon
+    - But
+  - headerText: "South - \u0E20\u0E32\u0E04\u0E43\u0E15\u0E49"
+    questionSprites: {fileID: 21300000, guid: 412c686df1de8b34287f34cfe53ab047, type: 3}
+    correctAnswer: Coast
+    questionClip: {fileID: 8300000, guid: 16ee197e12aa9f44b81b4e2039f2831c, type: 3}
+    choiceTexts:
+    - Cat
+    - Coast
+    - Cosmos
+    - Cow
+  - headerText: "South - \u0E20\u0E32\u0E04\u0E43\u0E15\u0E49"
+    questionSprites: {fileID: 21300000, guid: 045223bc8b70864469774aef0f1f263d, type: 3}
+    correctAnswer: Wave
+    questionClip: {fileID: 8300000, guid: 95871e63aa22f0948bcce49f29696ddf, type: 3}
+    choiceTexts:
+    - Win
+    - Wave
+    - With
+    - What
+  - headerText: "South - \u0E20\u0E32\u0E04\u0E43\u0E15\u0E49"
+    questionSprites: {fileID: 21300000, guid: d198a20079e730c4ba30bd344d736042, type: 3}
+    correctAnswer: Sunset
+    questionClip: {fileID: 8300000, guid: aac05a05bcef7c14aa0d0791d4e49a4c, type: 3}
+    choiceTexts:
+    - Sunrise
+    - Surprise
+    - Sun
+    - Sunset
