@@ -62,10 +62,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_yummy.unity
     guid: 05606c8ffea2e334cb3bb6fc4ccbdbfe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_menu_invischar.unity
     guid: 609d4452c833ebe4bab4396c3fa8da58
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_game_invischar.unity
     guid: 240bf3091cb86204293fbb69de313f61
   - enabled: 0
