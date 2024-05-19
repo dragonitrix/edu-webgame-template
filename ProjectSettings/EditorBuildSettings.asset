@@ -77,4 +77,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_myshouse.unity
     guid: 61e8d2bd570cb29459807f4658be9da1
+  - enabled: 1
+    path: Assets/Scenes/sc_menu_feel.unity
+    guid: 0576bdbb4349df04d9624b2e4b37becf
+  - enabled: 1
+    path: Assets/Scenes/sc_game_feelpark.unity
+    guid: 8d7a37e8fa66efc44bae515ddb06d27d
+  - enabled: 1
+    path: Assets/Scenes/sc_game_feeltrain.unity
+    guid: d60f9501eddcb274a89602a38a837244
+  - enabled: 1
+    path: Assets/Scenes/sc_game_feelwheel.unity
+    guid: 0b2bdec3f0f26f046bbac1bdda7f4288
   m_configObjects: {}
