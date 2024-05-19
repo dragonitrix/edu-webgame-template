@@ -27,6 +27,8 @@ public class MysHouse_PageController : MonoBehaviour
     public string audioInSoundID = "";
     public string audioOutSoundID = "";
 
+    public MysHouse_PageController targetPage;
+
     void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -38,8 +40,11 @@ public class MysHouse_PageController : MonoBehaviour
         foreach (RectTransform interactable in interactableGroup)
         {
             var _interactable = interactable.GetComponent<MysHouse_Interactable>();
-            _interactable.SetParent(this);
-            interactableObjs.Add(_interactable);
+            if (_interactable)
+            {
+                _interactable.SetParent(this);
+                interactableObjs.Add(_interactable);
+            }
         }
 
         foreach (RectTransform subPage in subPageGroup)
@@ -192,6 +197,101 @@ public class MysHouse_PageController : MonoBehaviour
                         {
                             parent.FinishPage();
                         });
+                    });
+                });
+                break;
+            case "kitchen_dish":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var dish = extras[0];
+                dish.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    extras[2].localScale = Vector2.one;
+                    dish.DOAnchorPosX(dish.anchoredPosition.x - 1000, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(0f);
+                        targetPage.Show(1f, true);
+                    });
+                });
+                break;
+            case "kitchen_oven":
+                var oven = extras[0];
+                oven.GetComponent<CanvasGroup>().DOFade(1f, 1f).OnComplete(() =>
+                {
+                    Hide(0f);
+                    targetPage.Show(1f, true);
+                });
+                break;
+            case "kitchen_note_table":
+            case "kitchen_note_oven":
+                Hide(0f);
+                targetPage.Show(1f, true);
+                break;
+            case "kitchen_bin":
+                var bin = extras[0];
+                var key_bin = extras[1];
+                var flare_bin = extras[2];
+                var text_bin = extras[3];
+
+                key_bin.localScale = Vector2.one;
+                bin.DOAnchorPosX(bin.anchoredPosition.x - 1000, 1f).SetDelay(0.2f)
+                .OnStart(() =>
+                {
+                    AudioManager.instance.PlaySound("sfx_obj_slide");
+                })
+                .OnComplete(() =>
+                {
+                    AudioManager.instance.PlaySpacialSound(audioOutSoundID);
+                    flare_bin.DOScale(1f, 0.5f);
+                    key_bin.DOScale(2f, 0.5f);
+                    text_bin.DOScale(1f, 0.5f);
+                    AudioManager.instance.PlaySound("ui_win_2", () =>
+                    {
+                        parent.FinishPage();
+                    });
+                });
+                break;
+            case "stair1":
+                extras[0].GetComponent<CanvasGroup>().DOFade(1f, 1f).SetDelay(2f)
+                .OnStart(() =>
+                {
+                    AudioManager.instance.PlaySound("sfx_walk");
+                })
+                .OnComplete(() =>
+                {
+                    DoDelayAction(1f, () =>
+                    {
+                        ((MysHouse_GameController)GameController.instance).NextPage();
+                    });
+                });
+                break;
+
+            case "wc1":
+                foreach (var p in subPages)
+                {
+                    p.Hide(0.2f);
+                }
+                var objkey = interactableObjs[0];
+                objkey.rectTransform.DOAnchorPosY(objkey.rectTransform.anchoredPosition.y - 100, 0.5f).SetDelay(0.5f);
+                objkey.canvasGroup.DOFade(0f, 0.3f).SetDelay(0.5f);
+
+                interactableObjs[1].gameObject.SetActive(false);
+
+                extras[0].GetComponent<CanvasGroup>().DOFade(1f, 1f).SetDelay(2f)
+                .OnStart(() =>
+                {
+                    AudioManager.instance.PlaySound("sfx_door");
+                })
+                .OnComplete(() =>
+                {
+                    DoDelayAction(1f, () =>
+                    {
+                        ((MysHouse_GameController)GameController.instance).NextPage();
                     });
                 });
                 break;

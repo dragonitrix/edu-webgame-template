@@ -18,6 +18,7 @@ public class MysHouse_Interactable : MonoBehaviour
     public RectTransform highlight;
     public MysHouse_PageController finishPage;
     public MysHouse_PageController toPage;
+    public MysHouse_PageController hidePage;
     public string specialSoundID;
     public string soundID;
 
@@ -105,6 +106,11 @@ public class MysHouse_Interactable : MonoBehaviour
         if (toPage)
         {
             toPage.Show(1f, true);
+        }
+
+        if (hidePage)
+        {
+            hidePage.Hide(0);
         }
 
         if (soundID != "")
