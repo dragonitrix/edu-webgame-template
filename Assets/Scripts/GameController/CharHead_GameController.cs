@@ -66,7 +66,14 @@ public class CharHead_GameController : GameController
 
         levelTitleRect.localScale = Vector2.zero;
 
-        SetPhase(GAME_PHASE.ROUND_START);
+        tutorialPopup.Enter();
+
+        tutorialPopup.OnPopupExit += () =>
+        {
+            tutorialPopup.OnPopupExit = ()=>{};
+            SetPhase(GAME_PHASE.ROUND_START);
+        };
+
     }
 
     public override void StartGame()
