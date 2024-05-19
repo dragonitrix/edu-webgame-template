@@ -24,7 +24,6 @@ public static class ExtensionMethods
         }
     }
 
-
     public static void SetDisplayed(this CanvasGroup canvasGroup, bool val)
     {
         if (val) canvasGroup.TotalShow();

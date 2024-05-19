@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d355344ba4532224a9c71a532c359d0c, type: 3}
+  m_Name: AdventureFourQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - readingClip: {fileID: 8300000, guid: 90d4ab671c82c354a8dad1c14cdc179a, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 90d4ab671c82c354a8dad1c14cdc179a, type: 3}
+    correctAnswer: ant
+  - readingClip: {fileID: 8300000, guid: 2567b2eee2d0f484091a1175dc951602, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 2567b2eee2d0f484091a1175dc951602, type: 3}
+    correctAnswer: bat
+  - readingClip: {fileID: 8300000, guid: d4a875f4c4e75c342917e1e811e657c6, type: 3}
+    fullWordClip: {fileID: 8300000, guid: d4a875f4c4e75c342917e1e811e657c6, type: 3}
+    correctAnswer: cat
+  - readingClip: {fileID: 8300000, guid: 16c2e0efef09ccd4a869111853cbf4c6, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 16c2e0efef09ccd4a869111853cbf4c6, type: 3}
+    correctAnswer: dog
+  - readingClip: {fileID: 8300000, guid: ec22769d9f7de294dbd4dfe3fc2f1706, type: 3}
+    fullWordClip: {fileID: 8300000, guid: ec22769d9f7de294dbd4dfe3fc2f1706, type: 3}
+    correctAnswer: egg
+  - readingClip: {fileID: 8300000, guid: 7db7e7af313e2444db413ee8f4ddf68e, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 7db7e7af313e2444db413ee8f4ddf68e, type: 3}
+    correctAnswer: ink
+  - readingClip: {fileID: 8300000, guid: f9c70e386671a9b48832270bbec30798, type: 3}
+    fullWordClip: {fileID: 8300000, guid: f9c70e386671a9b48832270bbec30798, type: 3}
+    correctAnswer: jet
+  - readingClip: {fileID: 8300000, guid: 560210d118b8c7a479f6d62946fbf584, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 560210d118b8c7a479f6d62946fbf584, type: 3}
+    correctAnswer: man
+  - readingClip: {fileID: 8300000, guid: 13fd20bb35bbbef4aa8c84d94a448b62, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 13fd20bb35bbbef4aa8c84d94a448b62, type: 3}
+    correctAnswer: rat
+  - readingClip: {fileID: 8300000, guid: 0011d2395da4d7d4ba5657174ca85855, type: 3}
+    fullWordClip: {fileID: 8300000, guid: 0011d2395da4d7d4ba5657174ca85855, type: 3}
+    correctAnswer: van

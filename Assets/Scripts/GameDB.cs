@@ -362,3 +362,11 @@ public enum HOWMUCH_MODE
     TUTORIAL,
     GAMEPLAY
 }
+
+public enum ADVENTURE_LEVEL
+{
+    LEVEL1,
+    LEVEL2,
+    LEVEL3,
+    LEVEL4
+}
