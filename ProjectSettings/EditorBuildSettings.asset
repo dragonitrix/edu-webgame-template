@@ -29,13 +29,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_house.unity
     guid: 02b774584836c1843ad71494ecad146b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_menu_charhead.unity
     guid: 68d9a4e0ee0d3b14ba355afbc51b2a66
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_game_charhead.unity
     guid: d303610b46f971946a703065ee5f5de2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_game_wannayuuk.unity
     guid: 6f31677580bd8e24e87506819289051b
   - enabled: 0
@@ -62,10 +62,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_yummy.unity
     guid: 05606c8ffea2e334cb3bb6fc4ccbdbfe
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/sc_menu_invischar.unity
     guid: 609d4452c833ebe4bab4396c3fa8da58
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/sc_game_invischar.unity
     guid: 240bf3091cb86204293fbb69de313f61
   - enabled: 0

@@ -56,7 +56,14 @@ public class ImgSure_GameController : GameController
         int ms = maxScore;
         currentLevelData = levelData;
 
-        SetPhase(GAME_PHASE.ROUND_START);
+        tutorialPopup.Enter();
+
+        tutorialPopup.OnPopupExit += () =>
+        {
+            tutorialPopup.OnPopupExit = () => { };
+            SetPhase(GAME_PHASE.ROUND_START);
+        };
+
     }
 
     public override void StartGame()

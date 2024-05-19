@@ -1311,6 +1311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1283159592}
   - component: {fileID: 1283159591}
+  - component: {fileID: 1283159593}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -1337,6 +1338,8 @@ MonoBehaviour:
   title: {fileID: 530085061}
   BG_elems:
   - {fileID: 311726783}
+  BG_elems_scale: []
+  instantPlay: 1
 --- !u!4 &1283159592
 Transform:
   m_ObjectHideFlags: 0
@@ -1352,6 +1355,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283159593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283159590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8aa0230bec6e44f9909b2f61431afd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subgameIndex: 11
 --- !u!1 &1310455530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,6 +1768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1756519851264982514, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
+      propertyPath: bgmMixerGroups.maxValue
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1756519851264982514, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
       propertyPath: bgmMixerGroups.defaultVolume
       value: 0.2
