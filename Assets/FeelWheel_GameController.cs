@@ -218,6 +218,14 @@ public class FeelWheel_GameController : GameController
     }
 
 
+    public void ForceToNextGame()
+    {
+        // to room hidden game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.FEEL_TRAIN);
+    }
+
+
+
 
     [ContextMenu("TestSpin")]
     public void TestSpin()
