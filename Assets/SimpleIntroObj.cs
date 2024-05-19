@@ -9,11 +9,17 @@ public class SimpleIntroObj : MonoBehaviour
 {
     public float duration;
 
+    public string soundID;
+
     public void Show()
     {
         var rt = GetComponent<RectTransform>();
         rt.DOScale(Vector3.one, 0.5f);
         AudioManager.instance.PlaySound("ui_pop");
+        if (soundID != "")
+        {
+            AudioManager.instance.PlaySound(soundID);
+        }
     }
 
     public void Reset()

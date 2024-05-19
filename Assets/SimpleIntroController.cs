@@ -68,12 +68,19 @@ public class SimpleIntroController : MonoBehaviour
             return;
         }
 
+        if (pageIndex > 0 && pageIndex < pages.Length)
+        {
+            pages[pageIndex].ResetObjs();
+            pages[pageIndex].ResetCallback();
+        }
+
         pageIndex = index;
         pages[pageIndex].StartIntroPage();
 
         if (nextPageButton)
         {
             var btn_cg = nextPageButton.GetComponent<CanvasGroup>();
+            btn_cg.DOKill();
             btn_cg.TotalHide();
         }
     }

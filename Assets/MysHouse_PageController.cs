@@ -374,7 +374,41 @@ public class MysHouse_PageController : MonoBehaviour
                     });
                 });
                 break;
-
+            case "bedroom_obj":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var bedroom_obj = extras[0];
+                bedroom_obj.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    bedroom_obj.DOAnchorPosX(bedroom_obj.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        // AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                    });
+                });
+                break;
+            case "bedroom_bed":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var bedroom_bed = extras[0];
+                bedroom_bed.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    bedroom_bed.DOAnchorPosX(bedroom_bed.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                        ((MysHouse_GameController)GameController.instance).EndGame();
+                    });
+                });
+                break;
         }
     }
 

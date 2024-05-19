@@ -24,10 +24,7 @@ public class SimpleIntroPage : MonoBehaviour
 
     public void StartIntroPage()
     {
-        foreach (var obj in objs)
-        {
-            obj.Reset();
-        }
+        ResetObjs();
         StartCoroutine(_StartIntroPage());
     }
 
@@ -48,6 +45,19 @@ public class SimpleIntroPage : MonoBehaviour
         onIntroPageFinished?.Invoke();
 
         yield return null;
+    }
+
+    public void ResetObjs()
+    {
+        foreach (var obj in objs)
+        {
+            obj.Reset();
+        }
+    }
+
+    public void ResetCallback(){
+        onIntroPageStart = ()=>{};
+        onIntroPageFinished = ()=>{};
     }
 
 }

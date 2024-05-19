@@ -48,6 +48,11 @@ public class MysHouse_GameController : GameController
             SetPhase(GAME_PHASE.ROUND_START);
         };
 
+        EndIntro.onIntroFinished += () =>
+        {
+            FinishedGame(true, 0);
+        };
+
         pages.Clear();
 
         // fetch page
@@ -148,6 +153,11 @@ public class MysHouse_GameController : GameController
 
         ToPage(page + 1);
 
+    }
+
+    public void EndGame()
+    {
+        EndIntro.Show();
     }
 
     void DoRoomTransition(UnityAction action, float delay = 0)
