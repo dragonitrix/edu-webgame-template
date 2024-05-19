@@ -180,7 +180,6 @@ public class FeelTrain_GameController : GameController
     void OnEnterRoundWaiting()
     {
 
-        
 
     }
 
@@ -240,6 +239,13 @@ public class FeelTrain_GameController : GameController
         if (!wagon3.isCorrected) result = false;
 
         return result;
+    }
+
+
+    public void ForceToNextGame()
+    {
+        // to room hidden game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.FEEL_PARK);
     }
 
 

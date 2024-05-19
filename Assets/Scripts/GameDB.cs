@@ -40,6 +40,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.MYS_HOUSE,"myshouse"},
         {SUBGAME_INDEX.FEEL_WHEEL,"feelwheel"},
         {SUBGAME_INDEX.FEEL_TRAIN,"feeltrain"},
+        {SUBGAME_INDEX.FEEL_PARK,"feelpark"},
     };
 
     // Singleton instance
@@ -113,7 +114,7 @@ public enum SUBGAME_INDEX
     MYS_HOUSE,
     FEEL_WHEEL,
     FEEL_TRAIN,
-
+    FEEL_PARK,
 }
 
 public enum PLAYER_COUNT
