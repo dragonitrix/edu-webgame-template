@@ -62,13 +62,19 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/sc_game_yummy.unity
     guid: 05606c8ffea2e334cb3bb6fc4ccbdbfe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_menu_invischar.unity
     guid: 609d4452c833ebe4bab4396c3fa8da58
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_game_invischar.unity
     guid: 240bf3091cb86204293fbb69de313f61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/sc_game_roomhidden.unity
     guid: f6e01c823e4ecaa4a9bcb3b98d967a5e
+  - enabled: 1
+    path: Assets/Scenes/sc_menu_myshouse.unity
+    guid: 0762aae8ee57efc48867006fb7f6029d
+  - enabled: 1
+    path: Assets/Scenes/sc_game_myshouse.unity
+    guid: 61e8d2bd570cb29459807f4658be9da1
   m_configObjects: {}

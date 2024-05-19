@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
         }
 
         LoadSounds();
+        LoadAdditionalSounds(additionalSounds);
     }
 
     private Dictionary<string, AudioClip> audioDictionary = new Dictionary<string, AudioClip>();
@@ -176,6 +177,10 @@ public class AudioManager : MonoBehaviour
         BGM,
         SPECIAL
     }
+
+
+    [Header("Additional Resources")]
+    public List<AudioClip> additionalSounds = new();
 
     [Header("Sources")]
     public AudioSource bgmSource;

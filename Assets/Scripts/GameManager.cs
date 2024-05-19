@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlayBGM("bgm");
+        AudioManager.instance.PlayBGM(bgmID);
         DOTween.Init();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PLAYER_COUNT gamePlayers;
 
+    public string bgmID = "bgm";
 
     // unique code for each game
     public void SetTargetGame(int index)
