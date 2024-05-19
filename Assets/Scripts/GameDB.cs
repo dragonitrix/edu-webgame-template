@@ -97,7 +97,7 @@ public enum MAINGAME_INDEX
     YUMMY,
     INVIS_CHAR,
     MYS_HOUSE,
-    FEEL
+    FEEL,
     BINGO,
     HOWMUCH,
     ADVENTURE
