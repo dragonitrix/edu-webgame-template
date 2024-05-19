@@ -9,9 +9,15 @@ public class FeelWheel_Drag : MonoBehaviour
 {
     public string text;
     public bool isCorrected;
+    public Button button;
     public RectTransform rect;
     public TextMeshProUGUI textMeshPro;
     public Draggable draggable;
+
+    void Start()
+    {
+        button.onClick.AddListener(OnClick);
+    }
 
     public void SetText(string text)
     {
@@ -35,6 +41,14 @@ public class FeelWheel_Drag : MonoBehaviour
     public void SetEnable(bool val)
     {
         draggable.enabled = val;
+    }
+
+    void OnClick()
+    {
+        if (text != "")
+        {
+            AudioManager.instance.PlaySpacialSound("feel_" + text);
+        }
     }
 
 }

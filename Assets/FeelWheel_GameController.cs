@@ -123,6 +123,12 @@ public class FeelWheel_GameController : GameController
 
     void OnEnterRoundStart()
     {
+        // NewRound();
+    }
+
+    public void OnSpinClick()
+    {
+        if (gamePhase != GAME_PHASE.ROUND_START) return;
         NewRound();
     }
 
@@ -153,6 +159,8 @@ public class FeelWheel_GameController : GameController
 
     void OnDrop(Droppable droppable, Draggable draggable)
     {
+        if (gamePhase != GAME_PHASE.ROUND_WAITING) return;
+        
         var drag = draggable.GetComponent<FeelWheel_Drag>();
 
         if (drag.text == currentData)
