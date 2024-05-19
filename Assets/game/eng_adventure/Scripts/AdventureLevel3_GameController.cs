@@ -58,7 +58,7 @@ public class AdventureLevel3_GameController : GameController
             answerList.Add(alphabets[i], phonicsClips[i]);
         }
 
-        alphabets.Shuffle();
+        //alphabets.Shuffle();
 
         for (int i = 0; i < mainGridCells.Count; i++)
         {
@@ -99,7 +99,7 @@ public class AdventureLevel3_GameController : GameController
 
     public void SetQuestion()
     {
-        alphabets.Shuffle();
+        //alphabets.Shuffle();
         for (int i = 0; i < alphabets.Count; i++)
         {
             SetMainGridCellValue(i, alphabets[i]);

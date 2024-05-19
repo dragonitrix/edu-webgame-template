@@ -16,4 +16,5 @@ public class AdventureLevelFourQuestion
     public AudioClip readingClip;
     public AudioClip fullWordClip;
     public string correctAnswer;
+    public Sprite sprite;
 }

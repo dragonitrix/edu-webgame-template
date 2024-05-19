@@ -16,6 +16,7 @@ public class AdventureLevel4_GameController : GameController
     public AudioSource dropzoneAudioSource;
     public Droppable dropzone;
     public TextMeshProUGUI dropzoneText;
+    public Image imageAudio;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -90,6 +91,7 @@ public class AdventureLevel4_GameController : GameController
 
     public void SetQuestion()
     {
+        imageAudio.sprite = questions[gameStage].sprite;
         ClearDropzoneText();
     }
 
@@ -143,7 +145,7 @@ public class AdventureLevel4_GameController : GameController
     }
     void OnAnswerTrueEffectComplete()
     {
-        completeAudioSource.PlayOneShot(questions[gameStage].fullWordClip);
-        OnAnswerEffectComplete();
+        AudioManager.instance.PlaySpacialSound(questions[gameStage].fullWordClip.name, () => {OnAnswerEffectComplete();});
+        //completeAudioSource.PlayOneShot(questions[gameStage].fullWordClip);
     }
 }
