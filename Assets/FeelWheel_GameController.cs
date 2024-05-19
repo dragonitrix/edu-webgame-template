@@ -160,7 +160,7 @@ public class FeelWheel_GameController : GameController
     void OnDrop(Droppable droppable, Draggable draggable)
     {
         if (gamePhase != GAME_PHASE.ROUND_WAITING) return;
-        
+
         var drag = draggable.GetComponent<FeelWheel_Drag>();
 
         if (drag.text == currentData)
@@ -179,6 +179,16 @@ public class FeelWheel_GameController : GameController
 
     }
 
+    [ContextMenu("Cheat")]
+    public void Cheat()
+    {
+        foreach (var drag in drags)
+        {
+            drag.SetCorrect();
+        }
+        SetPhase(GAME_PHASE.ROUND_ANSWERING);
+    }
+
     void OnEnterRoundAnswering()
     {
         var allCorrect = CheckCorrect();
@@ -189,7 +199,10 @@ public class FeelWheel_GameController : GameController
         }
         else
         {
-            FinishedGame(true, 0);
+            SimpleEffectController.instance.SpawnSuccessEffect(() =>
+            {
+                FinishedGame(true, 0);
+            });
         }
     }
 
