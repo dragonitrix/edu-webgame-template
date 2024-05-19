@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TransitionsPlus;
@@ -10,6 +10,9 @@ public class AdventureLevel2_GameController : GameController
     [Header("Object Ref")]
     public TextMeshProUGUI questionText;
     public GridController mainGridController;
+    public Button goNextButton;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI winText;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -38,7 +41,8 @@ public class AdventureLevel2_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
-
+        goNextButton.onClick.RemoveAllListeners();
+        goNextButton.onClick.AddListener(OnNextButtonClick);
         level = (ADVENTURE_LEVEL)gameLevel;
         mainGridController.InitGrid();
         var mainGridCells = mainGridController.cells;
@@ -100,14 +104,15 @@ public class AdventureLevel2_GameController : GameController
         {
             //Debug.Log("answer corrected");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
-            // increase score
+            ScoreManager.Instance.UpdateCurrentScore(10);
         }
         else
         {
             //Debug.Log("answer incorrect");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(false, OnAnswerEffectComplete);
-            // minus score
+            ScoreManager.Instance.UpdateCurrentScore(-10);
         }
+        moneyText.text = "Money: " + ScoreManager.Instance.currentScore + "฿";
     }
 
     public void SetQuestion()
@@ -144,11 +149,18 @@ public class AdventureLevel2_GameController : GameController
 
         if (gameState == GAME_STATE.ENDED)
         {
+            winText.text = "เก่งมาก\nคุณมีเงินสะสม " + ScoreManager.Instance.currentScore + "฿";
             FinishedGame(true, 0);
         }
         else
         {
             SetQuestion();
         }
+    }
+
+    public void OnNextButtonClick()
+    {
+        GameManager.instance.NextScene();
+        ScoreManager.Instance.UpdateFinalScore();
     }
 }

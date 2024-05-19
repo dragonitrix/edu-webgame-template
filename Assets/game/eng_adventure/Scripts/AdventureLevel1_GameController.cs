@@ -12,6 +12,7 @@ public class AdventureLevel1_GameController : GameController
     public CellController[] questionCells;
     public CellController[] answerCells;
     public GridController mainGridController;
+    public Button goNextButton;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -36,7 +37,9 @@ public class AdventureLevel1_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
-
+        goNextButton.onClick.RemoveAllListeners();
+        goNextButton.onClick.AddListener(OnNextButtonClick);
+        ScoreManager.Instance.UpdateCurrentScore(1000);
         level = (ADVENTURE_LEVEL)gameLevel;
         mainGridController.InitGrid();
         var mainGridCells = mainGridController.cells;
@@ -112,6 +115,7 @@ public class AdventureLevel1_GameController : GameController
         if(check)
         {
             gameState = GAME_STATE.ENDED;
+            ScoreManager.Instance.UpdateCurrentScore(500);
         }
         SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(check, OnAnswerEffectComplete);
     }
@@ -122,5 +126,11 @@ public class AdventureLevel1_GameController : GameController
         {
             FinishedGame(true, 0);
         }
+    }
+
+    public void OnNextButtonClick()
+    {
+        GameManager.instance.NextScene();
+        ScoreManager.Instance.UpdateFinalScore();
     }
 }

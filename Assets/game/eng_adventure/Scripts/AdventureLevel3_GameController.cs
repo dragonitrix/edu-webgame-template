@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TransitionsPlus;
@@ -10,6 +10,9 @@ public class AdventureLevel3_GameController : GameController
     [Header("Object Ref")]
     public GridController mainGridController;
     public AudioSource questionAudioSource;
+    public Button goNextButton;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI winText;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -38,12 +41,13 @@ public class AdventureLevel3_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
-
+        goNextButton.onClick.RemoveAllListeners();
+        goNextButton.onClick.AddListener(OnNextButtonClick);
         level = (ADVENTURE_LEVEL)gameLevel;
         mainGridController.InitGrid();
         var mainGridCells = mainGridController.cells;
         char[] alphabetsChar = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
-
+        moneyText.text = "Money: " + ScoreManager.Instance.currentScore + "฿";
         titleText.text = "Level:3";
         foreach (char c in alphabetsChar)
         {
@@ -82,14 +86,17 @@ public class AdventureLevel3_GameController : GameController
         {
             //Debug.Log("answer corrected");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
+            ScoreManager.Instance.UpdateCurrentScore(10);
             // increase score
         }
         else
         {
             //Debug.Log("answer incorrect");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(false, OnAnswerEffectComplete);
+            ScoreManager.Instance.UpdateCurrentScore(-10);
             // minus score
         }
+        moneyText.text = "Money: " + ScoreManager.Instance.currentScore + "฿";
     }
 
     public void OnPlaySoundIconClick()
@@ -116,11 +123,18 @@ public class AdventureLevel3_GameController : GameController
 
         if (gameState == GAME_STATE.ENDED)
         {
+            winText.text = "เก่งมาก\nคุณมีเงินสะสม " + ScoreManager.Instance.currentScore + "฿";
             FinishedGame(true, 0);
         }
         else
         {
             SetQuestion();
         }
+    }
+
+    public void OnNextButtonClick()
+    {
+        GameManager.instance.NextScene();
+        ScoreManager.Instance.UpdateFinalScore();
     }
 }

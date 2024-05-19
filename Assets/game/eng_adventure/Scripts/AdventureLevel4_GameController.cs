@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TransitionsPlus;
@@ -17,6 +17,9 @@ public class AdventureLevel4_GameController : GameController
     public Droppable dropzone;
     public TextMeshProUGUI dropzoneText;
     public Image imageAudio;
+    public Button goNextButton;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI winText;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -46,7 +49,10 @@ public class AdventureLevel4_GameController : GameController
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
         base.InitGame(gameLevel, playerCount);
+        goNextButton.onClick.RemoveAllListeners();
+        goNextButton.onClick.AddListener(OnNextButtonClick);
 
+        moneyText.text = "Money: " + ScoreManager.Instance.currentScore + "฿";
         level = (ADVENTURE_LEVEL)gameLevel;
         mainGridController.InitGrid();
         var mainGridCells = mainGridController.cells;
@@ -116,14 +122,16 @@ public class AdventureLevel4_GameController : GameController
         {
             //Debug.Log("answer corrected");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerTrueEffectComplete);
-            // increase score
+            ScoreManager.Instance.UpdateCurrentScore(20);
         }
         else
         {
             //Debug.Log("answer incorrect");
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(false, OnAnswerEffectComplete);
+            ScoreManager.Instance.UpdateCurrentScore(-20);
             // minus score
         }
+        moneyText.text = "Money: " + ScoreManager.Instance.currentScore + "฿";
     }
 
     void OnAnswerEffectComplete()
@@ -136,6 +144,7 @@ public class AdventureLevel4_GameController : GameController
 
         if (gameState == GAME_STATE.ENDED)
         {
+            winText.text = "เก่งมาก\nคุณมีเงินสะสม " + ScoreManager.Instance.currentScore + "฿";
             FinishedGame(true, 0);
         }
         else
@@ -147,5 +156,11 @@ public class AdventureLevel4_GameController : GameController
     {
         AudioManager.instance.PlaySpacialSound(questions[gameStage].fullWordClip.name, () => {OnAnswerEffectComplete();});
         //completeAudioSource.PlayOneShot(questions[gameStage].fullWordClip);
+    }
+
+    public void OnNextButtonClick()
+    {
+        GameManager.instance.NextScene();
+        ScoreManager.Instance.UpdateFinalScore();
     }
 }

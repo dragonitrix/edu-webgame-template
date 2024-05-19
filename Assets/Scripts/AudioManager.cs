@@ -85,6 +85,18 @@ public class AudioManager : MonoBehaviour
             StartCoroutine(WaitForSoundEnd(clip.length, callback));
         }
     }
+    public void PlaySound(AudioClip audioClip, Channel channel, System.Action callback = null)
+    {
+        var clip = audioClip;
+        if (clip != null)
+        {
+            AudioSource source = GetSource(channel);
+            source.clip = clip;
+            source.Play();
+            //Debug.Log("play sound: " + clipname + " on channel: " + channel);
+            StartCoroutine(WaitForSoundEnd(clip.length, callback));
+        }
+    }
 
     public void PlaySound(string clipname, System.Action callback = null)
     {
@@ -97,6 +109,18 @@ public class AudioManager : MonoBehaviour
             }
         }
         Debug.LogWarning("No available SFX channels to play sound " + clipname);
+    }
+    public void PlaySound(AudioClip clip, System.Action callback = null)
+    {
+        foreach (AudioSource source in sfxSources)
+        {
+            if (!source.isPlaying)
+            {
+                PlaySound(clip, (Channel)sfxSources.IndexOf(source), callback);
+                return;
+            }
+        }
+        Debug.LogWarning("No available SFX channels to play sound " + clip);
     }
 
     public void StopSound(string clipname)

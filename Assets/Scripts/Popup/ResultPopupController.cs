@@ -34,6 +34,7 @@ public class ResultPopupController : PopupController
     public void OnRetryButtonClicked()
     {
         GameManager.instance.ReloadScene();
+        if (ScoreManager.Instance) ScoreManager.Instance.HardResetCurrent();
     }
 
     public void Enter(bool result)

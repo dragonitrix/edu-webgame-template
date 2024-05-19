@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
     {
         ExitSceneTransition(() =>
         {
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.ResetCurrentScore();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
@@ -152,6 +156,7 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.CHAR_HEAD:
             case SUBGAME_INDEX.WANNAYUUK:
             case SUBGAME_INDEX.IMG_SURE:
+            case SUBGAME_INDEX.ADVENTURE:
                 JumpToGame(subgameIndex);
                 break;
             default:
