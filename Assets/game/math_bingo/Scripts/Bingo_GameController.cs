@@ -22,6 +22,7 @@ public class Bingo_GameController : GameController
     public Button homeButton;
     public Button retryButton;
     public PopupController[] tutorialPopups;
+    public Button informationButton;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -95,6 +96,13 @@ public class Bingo_GameController : GameController
         {
             answerEquationPairs.Add(pair.answer, pair.equations);
         }
+
+        informationButton.onClick.AddListener(() => 
+        {
+            tutorialPopup.Enter();
+        }
+        );
+
         List<int> mainCellsMember = new List<int>(levelSettings.members);
         mainCellsMember.Shuffle();
         for (int i = 0; i < mainGridCells.Count; i++)

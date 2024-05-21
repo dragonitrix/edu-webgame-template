@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_howmuchisit.unity
-    guid: 0496e8cc373f7ae4793e66d80de6e775
+    path: Assets/Scenes/sc_menu_adventure.unity
+    guid: 2ffc30cca04382b419958552cb4f1ba9
   - enabled: 1
-    path: Assets/Scenes/sc_game_howmuchisit.unity
-    guid: 06994e9e9f346284e9c248cc2c7dedad
+    path: Assets/Scenes/sc_game_adventure_level1.unity
+    guid: 2e6956af603e5e0439c94e7cd4aad156
+  - enabled: 1
+    path: Assets/Scenes/sc_game_adventure_level2.unity
+    guid: f82f51c14f5410b48bb7a70736ec5a80
+  - enabled: 1
+    path: Assets/Scenes/sc_game_adventure_level3.unity
+    guid: 19a16f88f1834064b9db647dd16bb3d3
+  - enabled: 1
+    path: Assets/Scenes/sc_game_adventure_level4.unity
+    guid: 7c87733797915684d831224a12799b69
+  - enabled: 1
+    path: Assets/Scenes/sc_game_adventure_level5.unity
+    guid: 017ea419e7196a444b897c452ea36809
   m_configObjects: {}

@@ -97,35 +97,28 @@ public class AdventureLevel1_GameController : GameController
             if (answerCells[i].value == answersList[i])
             {
                 answerCells[i].SetStatus(1, true);
-                AudioManager.instance.PlaySound("ui_ding");
             }
             else
             {
                 answerCells[i].SetStatus(2, true);
-                AudioManager.instance.PlaySound("ui_fail_1");
                 check = false;
             }
-            yield return new WaitForSeconds(.15f);
+            yield return null;
         }
         CheckAnswer(check);
     }
 
     void CheckAnswer(bool check)
     {
-        if(check)
+        
+        SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(check, () =>
         {
-            gameState = GAME_STATE.ENDED;
-            ScoreManager.Instance.UpdateCurrentScore(500);
-        }
-        SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(check, OnAnswerEffectComplete);
-    }
-
-    void OnAnswerEffectComplete()
-    {
-        if (gameState == GAME_STATE.ENDED)
-        {
-            FinishedGame(true, 0);
-        }
+            if (check)
+            {
+                ScoreManager.Instance.UpdateCurrentScore(500);
+                FinishedGame(true, 0);
+            }
+        });
     }
 
     public void OnNextButtonClick()

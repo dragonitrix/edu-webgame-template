@@ -1506,6 +1506,8 @@ MonoBehaviour:
   levelSelectedPopup: {fileID: 197619190}
   title: {fileID: 0}
   BG_elems: []
+  BG_elems_scale: []
+  instantPlay: 0
 --- !u!4 &1283159592
 Transform:
   m_ObjectHideFlags: 0
@@ -1834,10 +1836,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c42c6f0d6a3024b94648d2465b8c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maingameIndex: 4
+  maingameIndex: 3
   subgameIndex: 0
   gameLevel: 0
   gamePlayers: 0
+  bgmID: bgm
 --- !u!4 &1519833098
 Transform:
   m_ObjectHideFlags: 0

@@ -147,7 +147,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 964135215}
+        m_Texture: {fileID: 485414156}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -256,6 +256,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -358,6 +386,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -459,6 +515,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -834,6 +918,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -935,6 +1047,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -1175,6 +1315,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1287,6 +1455,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -1401,6 +1601,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1502,6 +1734,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -1754,6 +2014,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1855,6 +2147,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bea2ab5f07d84a04188e743cc8076005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!28 &485414156
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &486008008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,6 +2206,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -1969,6 +2341,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2070,6 +2470,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -2328,54 +2756,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!28 &541044339
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &541359774
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,6 +2853,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -2770,6 +3182,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -3210,6 +3650,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3322,6 +3794,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -3913,6 +4417,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4092,6 +4628,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4193,6 +4757,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -4648,54 +5244,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881565019}
   m_CullTransparentMesh: 1
---- !u!28 &964135215
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
-  m_Width: 256
-  m_Height: 1
-  m_CompleteImageSize: 2044
-  m_MipsStripped: 0
-  m_TextureFormat: 4
-  m_MipCount: 9
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 0
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 2044
-  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!114 &967805135 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7332116264413965337, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
@@ -4718,6 +5266,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -4843,6 +5423,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4944,6 +5556,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -5058,6 +5698,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5170,6 +5842,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -5329,6 +6033,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -5573,6 +6305,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5745,6 +6505,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5859,7 +6651,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 541044339}
+        m_Texture: {fileID: 1658397663}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -5933,6 +6725,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -6046,6 +6866,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -6171,6 +7023,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6283,6 +7167,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -6565,6 +7481,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6677,6 +7625,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -6972,6 +7948,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7084,6 +8088,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -7295,6 +8327,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7408,6 +8468,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7520,6 +8612,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -7872,6 +8992,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8051,6 +9203,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619525603}
   m_CullTransparentMesh: 1
+--- !u!28 &1658397663
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 2
+  m_Width: 256
+  m_Height: 1
+  m_CompleteImageSize: 2044
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 9
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 0
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 2044
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &1671671010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8077,7 +9277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76.884995
+      value: 76.88498
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8277,7 +9477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76.884995
+      value: 76.88498
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8321,6 +9521,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -8613,6 +9845,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8812,6 +10076,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8924,6 +10216,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -9659,6 +10979,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9869,6 +11217,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9981,6 +11361,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -10095,6 +11503,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnswerCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10207,6 +11647,34 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Name
       value: QuestionCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
@@ -10391,6 +11859,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestionCell
       objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_text
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSize
+      value: 63.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 7b74a91b20c795d409b47a548dfb4142, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10503,6 +11999,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
@@ -10627,6 +12155,38 @@ PrefabInstance:
     - target: {fileID: 4652977807802889632, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Name
       value: AnswerCell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -9095717837082945937, guid: f92262c6485197c43be9dde74f6c829d, type: 3}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.g
+      value: 0.96343774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5691944263913953227, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_text
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_fontSize
+      value: 47.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776230995850282064, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7305479453687572212, guid: 3660ab13b11e33c4c89ed8107110c7ee, type: 3}
       propertyPath: m_Pivot.x
