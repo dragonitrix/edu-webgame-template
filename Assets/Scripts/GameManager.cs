@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
     {
         ExitSceneTransition(() =>
         {
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.ResetCurrentScore();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
@@ -140,7 +144,21 @@ public class GameManager : MonoBehaviour
         {
             case SUBGAME_INDEX.SUPERX:
             case SUBGAME_INDEX.TIC_TAC_TOE:
+            case SUBGAME_INDEX.BINGO:
+            case SUBGAME_INDEX.HOWMUCH:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
+                break;
+            case SUBGAME_INDEX.WONDER_SOUND:
+            case SUBGAME_INDEX.HOME_CARD:
+            case SUBGAME_INDEX.JOB_MATCHING:
+            case SUBGAME_INDEX.HOW_MUCH_YOU_EARN:
+            case SUBGAME_INDEX.LETS_SAVE_UP:
+            case SUBGAME_INDEX.HOUSE:
+            case SUBGAME_INDEX.CHAR_HEAD:
+            case SUBGAME_INDEX.WANNAYUUK:
+            case SUBGAME_INDEX.IMG_SURE:
+            case SUBGAME_INDEX.ADVENTURE:
+                JumpToGame(subgameIndex);
                 break;
             default:
                 JumpToGame(subgameIndex);
@@ -157,6 +175,10 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.SUPERX:
             case SUBGAME_INDEX.TIC_TAC_TOE:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(2);
+                break;
+            case SUBGAME_INDEX.BINGO:
+            case SUBGAME_INDEX.HOWMUCH:
+                JumpToGame(subgameIndex);
                 break;
         }
     }

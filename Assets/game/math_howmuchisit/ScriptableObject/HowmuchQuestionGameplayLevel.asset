@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d577659e262e864ca4dea85e905eaf4, type: 3}
+  m_Name: HowmuchQuestionGameplayLevel
+  m_EditorClassIdentifier: 
+  questions:
+  - questionSprite: {fileID: 21300000, guid: b1c8acea9ae6a714a9bc803a56c2e0f4, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 177f8ec8913dbe14caf361133f8d9589, type: 3}
+    correctAnswer: 46
+    dividedBox: 2
+    questionText: "\u0E19\u0E21 2 \u0E01\u0E25\u0E48\u0E2D\u0E07\u0E43\u0E2B\u0E0D\u0E48\n\u0E23\u0E32\u0E04\u0E32
+      92 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 8105db1afe7af4347bf59fd8d0bc634e, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 5d8a80bf5cf5e1b4985c301fb5d742dc, type: 3}
+    correctAnswer: 43
+    dividedBox: 2
+    questionText: "\u0E21\u0E30\u0E1E\u0E23\u0E49\u0E32\u0E27 2 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      86 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: c9cf37a7662bdc04f8422cba740459a7, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 6ae619984d5046d4db4e6be55363735d, type: 3}
+    correctAnswer: 15
+    dividedBox: 2
+    questionText: "\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E14\u0E37\u0E48\u0E21
+      2 \u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32 30 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: c48492fc1d4d8184782abd865fb8016a, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: c9f34aaec262b614f8ecb31531e402e2, type: 3}
+    correctAnswer: 150
+    dividedBox: 2
+    questionText: "\u0E41\u0E0A\u0E21\u0E1E\u0E39 2 \u0E02\u0E27\u0E14\n\u0E23\u0E32\u0E04\u0E32
+      300 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 70b055483671ec441948bd81a3868848, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: fdf3808899a381d428230e71fe7390d3, type: 3}
+    correctAnswer: 22
+    dividedBox: 2
+    questionText: "\u0E40\u0E04\u0E49\u0E01 2 \u0E01\u0E49\u0E2D\u0E19\n\u0E23\u0E32\u0E04\u0E32
+      44 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: c9319c3266a77a540bdaab977fb49cb8, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: f6c1cd130b931ee4f8b7eafff56c3b02, type: 3}
+    correctAnswer: 35
+    dividedBox: 2
+    questionText: "\u0E02\u0E19\u0E21 2 \u0E16\u0E38\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      70 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 98ce58c067bcadb48b875865442cebec, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 9dc6ba0f5cb53b04995f29fdd15d5617, type: 3}
+    correctAnswer: 300
+    dividedBox: 2
+    questionText: "\u0E1A\u0E32\u0E2A\u0E40\u0E01\u0E15\u0E1A\u0E2D\u0E25 2 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      600 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: c87182beab3973244b64772325a85cb4, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: d4c765525969771419a86549332daa26, type: 3}
+    correctAnswer: 400
+    dividedBox: 2
+    questionText: "\u0E01\u0E23\u0E30\u0E40\u0E1B\u0E4B\u0E32\u0E19\u0E31\u0E01\u0E40\u0E23\u0E35\u0E22\u0E19
+      2 \u0E43\u0E1A\n\u0E23\u0E32\u0E04\u0E32 800 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: a19a30c9ed273a542b2a73b725e7de9d, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 915035dceaf646f43a93bb9e88b3c262, type: 3}
+    correctAnswer: 100
+    dividedBox: 2
+    questionText: "\u0E14\u0E34\u0E19\u0E2A\u0E2D\u0E2A\u0E35 2 \u0E01\u0E25\u0E48\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      200 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: b3cff916818e1f746a927591fab8caa1, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: dbbf64586eb922c488c1aa794411726c, type: 3}
+    correctAnswer: 23
+    dividedBox: 2
+    questionText: "\u0E42\u0E14\u0E19\u0E31\u0E17 2 \u0E0A\u0E34\u0E49\u0E19\n\u0E23\u0E32\u0E04\u0E32
+      46 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: ce1c5fd5bfde7844fa74185c0f969b0f, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 177f8ec8913dbe14caf361133f8d9589, type: 3}
+    correctAnswer: 49
+    dividedBox: 3
+    questionText: "\u0E19\u0E21 3 \u0E01\u0E25\u0E48\u0E2D\u0E07\u0E43\u0E2B\u0E0D\u0E48\n\u0E23\u0E32\u0E04\u0E32
+      147 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 995c843cb14676641ad78245a85ce8d2, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 5d8a80bf5cf5e1b4985c301fb5d742dc, type: 3}
+    correctAnswer: 65
+    dividedBox: 3
+    questionText: "\u0E21\u0E30\u0E1E\u0E23\u0E49\u0E32\u0E27 3 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      195 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: f25c34412b0cab048bc54d4a3889ab4e, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 6ae619984d5046d4db4e6be55363735d, type: 3}
+    correctAnswer: 14
+    dividedBox: 3
+    questionText: "\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E14\u0E37\u0E48\u0E21
+      3 \u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32 42 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 2cc81a66881ae924cb2e5577997ef53c, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: c9f34aaec262b614f8ecb31531e402e2, type: 3}
+    correctAnswer: 157
+    dividedBox: 3
+    questionText: "\u0E41\u0E0A\u0E21\u0E1E\u0E39 3 \u0E02\u0E27\u0E14\n\u0E23\u0E32\u0E04\u0E32
+      471 \u0E02\u0E27\u0E14"
+  - questionSprite: {fileID: 21300000, guid: 7979c3eb343d1c54c94e385d3abcae89, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: fdf3808899a381d428230e71fe7390d3, type: 3}
+    correctAnswer: 23
+    dividedBox: 3
+    questionText: "\u0E40\u0E04\u0E49\u0E01 3 \u0E01\u0E49\u0E2D\u0E19\n\u0E23\u0E32\u0E04\u0E32
+      69 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 999d0ea29cad2f6469b985b309f9bffe, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: f6c1cd130b931ee4f8b7eafff56c3b02, type: 3}
+    correctAnswer: 30
+    dividedBox: 3
+    questionText: "\u0E02\u0E19\u0E21 3 \u0E16\u0E38\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      90 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 2eb87e0a2bac5f7429ad0c7ce98ca1c2, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 9dc6ba0f5cb53b04995f29fdd15d5617, type: 3}
+    correctAnswer: 350
+    dividedBox: 3
+    questionText: "\u0E1A\u0E32\u0E2A\u0E40\u0E01\u0E15\u0E1A\u0E2D\u0E25 3 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      1,050 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: b87232025f09a5148b9b04f735a28720, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: d4c765525969771419a86549332daa26, type: 3}
+    correctAnswer: 300
+    dividedBox: 3
+    questionText: "\u0E01\u0E23\u0E30\u0E40\u0E1B\u0E4B\u0E32\u0E19\u0E31\u0E01\u0E40\u0E23\u0E35\u0E22\u0E19
+      3 \u0E43\u0E1A\n\u0E35\u0E23\u0E32\u0E04\u0E32 900 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: fc1a9771871af8347b7663cf8ec6d43e, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 915035dceaf646f43a93bb9e88b3c262, type: 3}
+    correctAnswer: 100
+    dividedBox: 3
+    questionText: "\u0E14\u0E34\u0E19\u0E2A\u0E2D\u0E2A\u0E35 3 \u0E01\u0E25\u0E48\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      300"
+  - questionSprite: {fileID: 21300000, guid: e101152eb96270841824450b9615072a, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: dbbf64586eb922c488c1aa794411726c, type: 3}
+    correctAnswer: 32
+    dividedBox: 3
+    questionText: "\u0E42\u0E14\u0E19\u0E31\u0E17 3 \u0E0A\u0E34\u0E49\u0E19\n\u0E23\u0E32\u0E04\u0E32
+      96 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 97f9b7d1edd61b34abbec4ad07595a73, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 177f8ec8913dbe14caf361133f8d9589, type: 3}
+    correctAnswer: 53
+    dividedBox: 4
+    questionText: "\u0E19\u0E21 4 \u0E01\u0E25\u0E48\u0E2D\u0E07\u0E43\u0E2B\u0E0D\u0E48\n\u0E23\u0E32\u0E04\u0E32
+      212 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 30794b1691f9bd94cbe2aace36d31221, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 5d8a80bf5cf5e1b4985c301fb5d742dc, type: 3}
+    correctAnswer: 64
+    dividedBox: 4
+    questionText: "\u0E21\u0E30\u0E1E\u0E23\u0E49\u0E32\u0E27 4 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      256 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 2ab1351c03a49ac47ac9c81b5b83aff7, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 6ae619984d5046d4db4e6be55363735d, type: 3}
+    correctAnswer: 19
+    dividedBox: 5
+    questionText: "\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E14\u0E37\u0E48\u0E21
+      5 \u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32 95 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: d3cda71eb55a2b048a9d202eef0cfa2b, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 9dc6ba0f5cb53b04995f29fdd15d5617, type: 3}
+    correctAnswer: 200
+    dividedBox: 5
+    questionText: "\u0E1A\u0E32\u0E2A\u0E40\u0E01\u0E15\u0E1A\u0E2D\u0E25 5 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      1,000 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 5395fe88e532dfc4297d057d4d336b88, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: f6c1cd130b931ee4f8b7eafff56c3b02, type: 3}
+    correctAnswer: 50
+    dividedBox: 6
+    questionText: "\u0E02\u0E19\u0E21 6 \u0E16\u0E38\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      300 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 37a5bf12cb892e04d841f31239365167, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: d4c765525969771419a86549332daa26, type: 3}
+    correctAnswer: 1000
+    dividedBox: 6
+    questionText: "\u0E01\u0E23\u0E30\u0E40\u0E1B\u0E4B\u0E32\u0E19\u0E31\u0E01\u0E40\u0E23\u0E35\u0E22\u0E19
+      6 \u0E43\u0E1A\n\u0E23\u0E32\u0E04\u0E32 6,000 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 73a20f9e362270a428cffd0bfc71287e, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 177f8ec8913dbe14caf361133f8d9589, type: 3}
+    correctAnswer: 72
+    dividedBox: 7
+    questionText: "\u0E19\u0E21 7 \u0E01\u0E25\u0E48\u0E2D\u0E07\u0E43\u0E2B\u0E0D\u0E48\n\u0E23\u0E32\u0E04\u0E32
+      504 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 343e928b027b11849a0ca4f8afa89baf, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: c9f34aaec262b614f8ecb31531e402e2, type: 3}
+    correctAnswer: 153
+    dividedBox: 7
+    questionText: "\u0E41\u0E0A\u0E21\u0E1E\u0E39 7 \u0E02\u0E27\u0E14\n\u0E23\u0E32\u0E04\u0E32
+      1,071 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 62aa6437bc8793d419416b6df5567168, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: fdf3808899a381d428230e71fe7390d3, type: 3}
+    correctAnswer: 20
+    dividedBox: 8
+    questionText: "\u0E40\u0E04\u0E49\u0E01 8 \u0E01\u0E49\u0E2D\u0E19\n\u0E23\u0E32\u0E04\u0E32
+      160 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 066645fc82352e14b94cc38675588b2d, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 6ae619984d5046d4db4e6be55363735d, type: 3}
+    correctAnswer: 11
+    dividedBox: 8
+    questionText: "\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07\u0E14\u0E37\u0E48\u0E21
+      8 \u0E01\u0E23\u0E30\u0E1B\u0E4B\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32 88 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 18f05889d344f734b80d754278ba75ef, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 915035dceaf646f43a93bb9e88b3c262, type: 3}
+    correctAnswer: 80
+    dividedBox: 9
+    questionText: "\u0E14\u0E34\u0E19\u0E2A\u0E2D\u0E2A\u0E35 9 \u0E01\u0E25\u0E48\u0E2D\u0E07\n\u0E23\u0E32\u0E04\u0E32
+      720 \u0E1A\u0E32\u0E17"
+  - questionSprite: {fileID: 21300000, guid: 757332afa10dd2c44ab8286b1bf2c24a, type: 3}
+    questionMiniIcon: {fileID: 21300000, guid: 9dc6ba0f5cb53b04995f29fdd15d5617, type: 3}
+    correctAnswer: 300
+    dividedBox: 9
+    questionText: "\u0E1A\u0E32\u0E2A\u0E40\u0E01\u0E15\u0E1A\u0E2D\u0E25 9 \u0E25\u0E39\u0E01\n\u0E23\u0E32\u0E04\u0E32
+      2,700 \u0E1A\u0E32\u0E17"

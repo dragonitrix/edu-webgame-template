@@ -69,6 +69,12 @@ public class ScoreManager : MonoBehaviour
         _finalMaxScore = 0;
     }
 
+    public void HardResetCurrent()
+    {
+        ResetCurrentScore();
+        ResetCurrentMaxScore();
+    }
+
     public void HardReset()
     {
         ResetCurrentScore();

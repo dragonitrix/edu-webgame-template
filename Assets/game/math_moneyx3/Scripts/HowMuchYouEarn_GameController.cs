@@ -44,9 +44,9 @@ public class HowMuchYouEarn_GameController : GameController
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
-        base.InitGame(gameLevel, playerCount);
+        base.InitGame(1, playerCount);
 
-        game = (MONEY_GAME)gameLevel;
+        game = MONEY_GAME.GAME_TWO;
         levelSettings = new MoneyMM_LevelSettings(game);
 
         titleText.text = levelSettings.titleText;

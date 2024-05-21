@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f082ed8b1064ea046846bcb67525ff46, type: 3}
+  m_Name: BingoQuestionLevel2
+  m_EditorClassIdentifier: 
+  questions:
+  - answer: 29
+    equations:
+    - {x: 18, y: 11}
+  - answer: 25
+    equations:
+    - {x: 10, y: 15}
+  - answer: 27
+    equations:
+    - {x: 12, y: 15}
+  - answer: 22
+    equations:
+    - {x: 10, y: 12}
+  - answer: 31
+    equations:
+    - {x: 20, y: 11}
+  - answer: 36
+    equations:
+    - {x: 24, y: 12}
+  - answer: 34
+    equations:
+    - {x: 23, y: 11}
+  - answer: 35
+    equations:
+    - {x: 12, y: 23}
+  - answer: 44
+    equations:
+    - {x: 33, y: 11}
+  - answer: 48
+    equations:
+    - {x: 25, y: 23}
+  - answer: 47
+    equations:
+    - {x: 24, y: 23}
+  - answer: 58
+    equations:
+    - {x: 43, y: 15}
+  - answer: 52
+    equations:
+    - {x: 40, y: 12}
+  - answer: 51
+    equations:
+    - {x: 30, y: 21}
+  - answer: 43
+    equations:
+    - {x: 22, y: 21}
+  - answer: 56
+    equations:
+    - {x: 33, y: 23}
