@@ -38,7 +38,20 @@ public class PTW_GameController : GameController
     {
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+        // SetPhase(GAME_PHASE.ROUND_START);
+
+        tutorialPopup.Enter();
+
+        AudioManager.instance.PlaySpacialSound("ptw_pair_info");
+
+        tutorialPopup.OnPopupExit += OnTutorialExit;
+    }
+
+    void OnTutorialExit()
+    {
+        tutorialPopup.OnPopupExit = () => { };
         SetPhase(GAME_PHASE.ROUND_START);
+        AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
     }
 
     public override void StartGame()
@@ -199,6 +212,12 @@ public class PTW_GameController : GameController
         }
     }
 
+
+    public void ForceToNextGame()
+    {
+        // to room hidden game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.PTW_PLANT);
+    }
 
     public enum GAME_PHASE
     {
