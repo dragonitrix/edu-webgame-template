@@ -14,6 +14,8 @@ public class VTR_TextButton : MonoBehaviour
     public RectTransform correctRect;
     public RectTransform wrongRect;
     VTRPart1_GameController parent;
+    VTRPart2_GameController parent2;
+
 
     public void Setup(string text, VTRPart1_GameController parent)
     {
@@ -21,13 +23,22 @@ public class VTR_TextButton : MonoBehaviour
         this.text = text;
         textmesh.text = text;
 
-        rect.anchoredPosition = Random.insideUnitCircle.normalized * 50f;
         button.onClick.AddListener(OnClick);
     }
-
+    public void Setup(string text, VTRPart2_GameController parent)
+    {
+        this.parent2 = parent;
+        this.text = text;
+        textmesh.text = text;
+        button.onClick.AddListener(OnClick2);
+    }
     void OnClick()
     {
         parent.OnButtonClick(this);
+    }
+    void OnClick2()
+    {
+        parent2.OnButtonClick(this);
     }
 
 
