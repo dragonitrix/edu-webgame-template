@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sc_game_ptw_pair.unity
     guid: aabfb246385d9ba4695c8d7bfdb9d7e4
+  - enabled: 1
+    path: Assets/Scenes/sc_game_ptw_plant.unity
+    guid: a807ae65546dd634eb5f637cb16b3c95
   m_configObjects: {}
