@@ -32,7 +32,7 @@ public class SimpleEffectController : MonoBehaviour
         effectDataDictionary = effectDatas.ToDictionary(x => x.id, x => x.prefab);
     }
 
-    public void SpawnAnswerEffectMinimal(bool isCorrected, UnityAction callback)
+    public void SpawnAnswerEffectMinimal(bool isCorrected, UnityAction callback, float delay = 1.8f)
     {
 
         SimpleEffect effect = null;
@@ -41,12 +41,12 @@ public class SimpleEffectController : MonoBehaviour
         {
             case true:
                 AudioManager.instance.PlaySound("ui_ding");
-                effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, 1.8f);
+                effect = SpawnEffect("effect_correct", 0.2f, 0f, 0.2f, delay);
                 effect.GetComponent<RectTransform>().anchoredPosition = new(0, 100);
                 break;
             case false:
                 AudioManager.instance.PlaySound("ui_fail_1");
-                effect = SpawnEffect("effect_incorrect", 0.2f, 0f, 0.2f, 1.8f);
+                effect = SpawnEffect("effect_incorrect", 0.2f, 0f, 0.2f, delay);
                 break;
         }
 

@@ -23,6 +23,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.HOWMUCH,"howmuchisit"},
         {MAINGAME_INDEX.ADVENTURE,"adventure"},
         {MAINGAME_INDEX.PTW,"ptw"},
+        {MAINGAME_INDEX.VTR,"vtr"},
 
     };
 
@@ -51,6 +52,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.ADVENTURE,"adventure_level1"},
         {SUBGAME_INDEX.PTW_PAIR,"ptw_pair"},
         {SUBGAME_INDEX.PTW_PLANT,"ptw_plant"},
+        {SUBGAME_INDEX.VTR_PART1,"vtr_part1"},
+        {SUBGAME_INDEX.VTR_PART2,"vtr_part2"},
     };
 
     // Singleton instance
@@ -106,6 +109,7 @@ public enum MAINGAME_INDEX
     HOWMUCH,
     ADVENTURE,
     PTW,
+    VTR,
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -133,7 +137,9 @@ public enum SUBGAME_INDEX
     HOWMUCH,
     ADVENTURE,
     PTW_PAIR,
-    PTW_PLANT
+    PTW_PLANT,
+    VTR_PART1,
+    VTR_PART2,
 }
 
 public enum PLAYER_COUNT
@@ -385,8 +391,8 @@ public class Bingo_LevelSettings
                 titleText = "Bingo: Level 3";
                 members = new int[] { 31, 38, 34, 35, 44, 46, 47, 43, 58, 52, 56, 51, 60, 61, 64, 63 };
                 break;
-            //case BINGO_LEVEL.FOUR:
-            //    break;
+                //case BINGO_LEVEL.FOUR:
+                //    break;
         }
     }
 }
