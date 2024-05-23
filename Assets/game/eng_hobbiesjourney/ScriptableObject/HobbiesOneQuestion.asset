@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfb769781b1bbc4280bb951c120a5be, type: 3}
+  m_Name: HobbiesOneQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - correctAnswer: reading
+    choiceTexts:
+    - reading
+    - drawing
+    - baking
+    extensionText: 
+  - correctAnswer: travelling
+    choiceTexts:
+    - baking
+    - travelling
+    - dancing
+    extensionText: 
+  - correctAnswer: cycling
+    choiceTexts:
+    - cooking
+    - cycling
+    - reading
+    extensionText: 
+  - correctAnswer: drawing
+    choiceTexts:
+    - drawing
+    - swimming
+    - cycling
+    extensionText: 
+  - correctAnswer: singing
+    choiceTexts:
+    - swimming
+    - singing
+    - baking
+    extensionText: 
+  - correctAnswer: playing
+    choiceTexts:
+    - playing
+    - gardening
+    - watching
+    extensionText: ' phone games'
+  - correctAnswer: watching
+    choiceTexts:
+    - playing
+    - watching
+    - travelling
+    extensionText: ' TV'
+  - correctAnswer: cooking
+    choiceTexts:
+    - cycling
+    - travelling
+    - cooking
+    extensionText: 
+  - correctAnswer: gardening
+    choiceTexts:
+    - gardening
+    - travelling
+    - swimming
+    extensionText: 
+  - correctAnswer: dancing
+    choiceTexts:
+    - singing
+    - baking
+    - dancing
+    extensionText: 
+  - correctAnswer: swimming
+    choiceTexts:
+    - dancing
+    - singing
+    - swimming
+    extensionText: 
+  - correctAnswer: baking
+    choiceTexts:
+    - drawing
+    - dancing
+    - baking
+    extensionText: 
