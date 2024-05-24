@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_vtr.unity
-    guid: 607345c9530dc70458d30dd9393a6c30
+    path: Assets/Scenes/sc_menu_carriage.unity
+    guid: e91eda58fd0bdc94d96a41a1a08e3e91
   - enabled: 1
-    path: Assets/Scenes/sc_game_vtr_part1.unity
-    guid: 1259b4408eb21424280438877c857e70
-  - enabled: 1
-    path: Assets/Scenes/sc_game_vtr_part2.unity
-    guid: 7f480b35c70a0924c814554a2869f8f8
+    path: Assets/Scenes/sc_game_carriage.unity
+    guid: 62f5044a40b4ce646acbae631be81cdf
   m_configObjects: {}

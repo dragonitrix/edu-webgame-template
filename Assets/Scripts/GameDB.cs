@@ -24,6 +24,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.ADVENTURE,"adventure"},
         {MAINGAME_INDEX.PTW,"ptw"},
         {MAINGAME_INDEX.VTR,"vtr"},
+        {MAINGAME_INDEX.CARRIAGE,"carriage"},
 
     };
 
@@ -54,6 +55,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.PTW_PLANT,"ptw_plant"},
         {SUBGAME_INDEX.VTR_PART1,"vtr_part1"},
         {SUBGAME_INDEX.VTR_PART2,"vtr_part2"},
+        {SUBGAME_INDEX.CARRIAGE,"carriage"},
     };
 
     // Singleton instance
@@ -110,6 +112,7 @@ public enum MAINGAME_INDEX
     ADVENTURE,
     PTW,
     VTR,
+    CARRIAGE
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -140,6 +143,7 @@ public enum SUBGAME_INDEX
     PTW_PLANT,
     VTR_PART1,
     VTR_PART2,
+    CARRIAGE
 }
 
 public enum PLAYER_COUNT

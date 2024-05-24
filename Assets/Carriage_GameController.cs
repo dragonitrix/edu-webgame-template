@@ -20,10 +20,20 @@ public class Carriage_GameController : GameController
     public TextMeshProUGUI answerText;
     public RectTransform buttonRect1;
 
+
+    public RectTransform trashRect;
+    public Image trashImage;
+
+    public SimpleSin carriageSin;
+    public SimpleSpin wheelSpin1;
+    public SimpleSpin wheelSpin2;
+
+
     [Header("Data")]
     public int roundIndex = -1;
     public List<Carriage_LevelData> levelDatas;
     Carriage_LevelData currentLevelData;
+    public List<Sprite> trashSprites;
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
 
@@ -39,22 +49,19 @@ public class Carriage_GameController : GameController
     {
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
-        SetPhase(GAME_PHASE.ROUND_START);
+        // SetPhase(GAME_PHASE.ROUND_START);
 
-        // tutorialPopup.Enter();
+        tutorialPopup.Enter();
+        tutorialPopup.OnPopupExit += OnTutorialExit;
     }
 
     void OnTutorialExit()
     {
         tutorialPopup.OnPopupExit = () => { };
         SetPhase(GAME_PHASE.ROUND_START);
-        AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
+        // AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
     }
 
-    void OnSoundPopupExit()
-    {
-        SetPhase(GAME_PHASE.ROUND_WAITING);
-    }
 
     public override void StartGame()
     {
@@ -148,7 +155,22 @@ public class Carriage_GameController : GameController
 
         answerText.text = "";
 
-        SetPhase(GAME_PHASE.ROUND_WAITING);
+        carriageSin.speed = 1;
+        wheelSpin1.speed = -100;
+        wheelSpin2.speed = -100;
+
+        trashRect.anchoredPosition = new Vector2(-1200, -400);
+        trashImage.sprite = trashSprites[roundIndex];
+
+        trashRect.DOAnchorPos(new Vector2(-340, -400), 1f).OnComplete(() =>
+        {
+            carriageSin.speed = 0;
+            wheelSpin1.speed = 0;
+            wheelSpin2.speed = 0;
+            SetPhase(GAME_PHASE.ROUND_WAITING);
+        });
+
+        // SetPhase(GAME_PHASE.ROUND_WAITING);
 
     }
 
