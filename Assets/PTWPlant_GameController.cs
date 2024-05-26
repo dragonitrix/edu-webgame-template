@@ -45,14 +45,14 @@ public class PTWPlant_GameController : GameController
 
         tutorialPopup.Enter();
 
-        AudioManager.instance.PlaySpacialSound("ptw_plant_info");
+        // AudioManager.instance.PlaySpacialSound("ptw_plant_info");
 
         tutorialPopup.OnPopupExit += OnTutorialExit;
     }
     void OnTutorialExit()
     {
         tutorialPopup.OnPopupExit = () => { };
-        AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
+        // AudioManager.instance.StopSound(AudioManager.Channel.SPECIAL);
         SetPhase(GAME_PHASE.ROUND_START);
     }
     public override void StartGame()
