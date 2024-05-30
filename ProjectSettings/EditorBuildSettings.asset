@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_hobbiesjourney.unity
-    guid: 08e88e78630ec1546a014c6ac5bf76bd
+    path: Assets/Scenes/sc_menu_jubkumyumsup.unity
+    guid: d0880b4364536764ea5ad1c6101a9791
   - enabled: 1
-    path: Assets/Scenes/sc_game_hobby_level1.unity
-    guid: 50f026893dec926468526b1fe1cb8716
-  - enabled: 1
-    path: Assets/Scenes/sc_game_hobby_level2.unity
-    guid: 80927177bcfcfb64783a4901692987b0
-  - enabled: 1
-    path: Assets/Scenes/sc_game_hobby_level3.unity
-    guid: d3de06014f6d8354e8b258935be0bc60
+    path: Assets/Scenes/sc_game_jubkumyumsup.unity
+    guid: 57b356b3b9b35cf41b0c2f3dc0583f15
   m_configObjects: {}
