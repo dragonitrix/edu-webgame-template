@@ -115,7 +115,7 @@ public enum MAINGAME_INDEX
     ADVENTURE,
     PTW,
     VTR,
-    CARRIAGEม
+    CARRIAGE,
     HOBBY,
     JUBKUM
 }
@@ -148,7 +148,7 @@ public enum SUBGAME_INDEX
     PTW_PLANT,
     VTR_PART1,
     VTR_PART2,
-    CARRIAGEม
+    CARRIAGE,
     HOBBY,
     JUBKUM
 }
