@@ -102,7 +102,7 @@ public class AdventureLevel5_Gamecontroller : GameController
 
         if (gameState == GAME_STATE.ENDED)
         {
-            winText.text = "คุณมีเงินสะสมทั้งหมด 20XX฿\r\nมีเงินซื้อของฝากใหเพื่อนแลว!";
+            winText.text = "คุณมีเงินสะสมทั้งหมด 20XX฿\r\nมีเงินซื้อของฝากให้เพื่อนแล้ว!";
             FinishedGame(true, 0);
         }
         else

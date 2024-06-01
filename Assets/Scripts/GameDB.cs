@@ -25,7 +25,8 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.PTW,"ptw"},
         {MAINGAME_INDEX.VTR,"vtr"},
         {MAINGAME_INDEX.CARRIAGE,"carriage"},
-
+        {MAINGAME_INDEX.HOBBY,"hobbiesjourney"},
+        {MAINGAME_INDEX.JUBKUM,"jubkumyumsup"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -56,6 +57,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.VTR_PART1,"vtr_part1"},
         {SUBGAME_INDEX.VTR_PART2,"vtr_part2"},
         {SUBGAME_INDEX.CARRIAGE,"carriage"},
+        {SUBGAME_INDEX.HOBBY,"hobby_level1"},
+        {SUBGAME_INDEX.JUBKUM,"jubkumyumsup"},
     };
 
     // Singleton instance
@@ -112,7 +115,9 @@ public enum MAINGAME_INDEX
     ADVENTURE,
     PTW,
     VTR,
-    CARRIAGE
+    CARRIAGEม
+    HOBBY,
+    JUBKUM
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -143,7 +148,9 @@ public enum SUBGAME_INDEX
     PTW_PLANT,
     VTR_PART1,
     VTR_PART2,
-    CARRIAGE
+    CARRIAGEม
+    HOBBY,
+    JUBKUM
 }
 
 public enum PLAYER_COUNT

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b8cedfd62b05404f9c1d8418f1bdd07, type: 3}
+  m_Name: JubkumQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - correctAnswer: "\u0E1B\u0E2D\u0E42\u0E2D\u0E07\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E42\u0E1B\u0E49\u0E07"
+  - correctAnswer: "\u0E16\u0E2D\u0E2D\u0E38\u0E07\u0E2D"
+    checkText: "\u0E16\u0E38\u0E07"
+  - correctAnswer: "\u0E01\u0E2D\u0E2D\u0E32\u0E07\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E01\u0E49\u0E32\u0E07"
+  - correctAnswer: "\u0E17\u0E2D\u0E2D\u0E34\u0E07\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E17\u0E34\u0E49\u0E07"
+  - correctAnswer: "\u0E1F\u0E2D\u0E42\u0E2D\u0E21\u0E2D"
+    checkText: "\u0E42\u0E1F\u0E21"
+  - correctAnswer: "\u0E17\u0E2D\u0E40\u0E2D\u0E35\u0E22\u0E21\u0E2D"
+    checkText: "\u0E40\u0E17\u0E35\u0E22\u0E21"
+  - correctAnswer: "\u0E2A\u0E2D\u0E2D\u0E2D\u0E21\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E2A\u0E49\u0E2D\u0E21"
+  - correctAnswer: "\u0E2B\u0E2D\u0E2D\u0E32\u0E21\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E2B\u0E49\u0E32\u0E21"
+  - correctAnswer: "\u0E1B\u0E2D\u0E2D\u0E38\u0E22\u0E2D\u0E44\u0E21\u0E49\u0E08\u0E31\u0E15\u0E27\u0E32"
+    checkText: "\u0E1B\u0E38\u0E4B\u0E22"
+  - correctAnswer: "\u0E25\u0E2D\u0E40\u0E2D\u0E2D\u0E22\u0E2D"
+    checkText: "\u0E40\u0E25\u0E22"
+  - correctAnswer: "\u0E19\u0E2D\u0E40\u0E2D\u0E2D\u0E22\u0E2D"
+    checkText: "\u0E40\u0E19\u0E22"
+  - correctAnswer: "\u0E2D\u0E2D\u0E2D\u0E2D\u0E22\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E2D\u0E49\u0E2D\u0E22"
+  - correctAnswer: "\u0E19\u0E2D\u0E2D\u0E34\u0E27\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E19\u0E34\u0E49\u0E27"
+  - correctAnswer: "\u0E17\u0E2D\u0E40\u0E2D\u0E35\u0E22\u0E27\u0E2D\u0E44\u0E21\u0E49\u0E40\u0E2D\u0E01"
+    checkText: "\u0E40\u0E17\u0E35\u0E48\u0E22\u0E27"
+  - correctAnswer: "\u0E01\u0E2D\u0E41\u0E2D\u0E27\u0E2D\u0E44\u0E21\u0E49\u0E42\u0E17"
+    checkText: "\u0E41\u0E01\u0E49\u0E27"
+  - correctAnswer: "\u0E14\u0E2D\u0E2D\u0E32\u0E27\u0E2D"
+    checkText: "\u0E14\u0E32\u0E27"
