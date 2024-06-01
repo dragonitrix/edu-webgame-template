@@ -33,6 +33,7 @@ public class JobMatching_Gamecontroller : GameController
     public GAME_PHASE gamePhase;
     float timer = 0;
     int winIndex = 0;
+    bool isCheckingAnswer = false;
 
     protected override void Start()
     {
@@ -128,24 +129,42 @@ public class JobMatching_Gamecontroller : GameController
 
     public void OnFirstRowButtonClick(CellController cell)
     {
+        if (isCheckingAnswer) return;
         if (gameState == GAME_STATE.ENDED) return;
-        if (firstToMatch != null || cell.GetEnableImage) return;
+        if (cell.GetEnableImage) return;
+        if(firstToMatch != null)
+        {
+            firstToMatch.SetEnableImage(false);
+            firstToMatch.SetStatus(0, false);
+        }
         firstToMatch = cell;
         firstToMatch.SetEnableImage(true);
         firstToMatch.SetStatus(1, true);
+
+        if (secondToMatch != null)
+            CheckAnswer_GameOne();
     }
     public void OnSecondRowButtonClick(CellController cell)
     {
+        if (isCheckingAnswer) return;
         if (gameState == GAME_STATE.ENDED) return;
-        if ((firstToMatch == null || secondToMatch != null) || cell.GetEnableImage) return;
+        if (cell.GetEnableImage) return;
+        if (secondToMatch != null)
+        {
+            secondToMatch.SetEnableImage(false);
+            secondToMatch.SetStatus(0, false);
+        }
         secondToMatch = cell;
         secondToMatch.SetEnableImage(true);
         secondToMatch.SetStatus(1, true);
-        CheckAnswer_GameOne();
+
+        if (firstToMatch != null)
+            CheckAnswer_GameOne();
     }
 
     void CheckAnswer_GameOne()
     {
+        isCheckingAnswer = true;
         if (firstToMatch == null || secondToMatch == null) return;
         if (firstToMatch.value == secondToMatch.value)
         {
@@ -168,6 +187,7 @@ public class JobMatching_Gamecontroller : GameController
         {
             ClearGameState();
         }
+        isCheckingAnswer = false;
     }
 
     void OnAnswerEffectCompleteWrong()
@@ -177,6 +197,7 @@ public class JobMatching_Gamecontroller : GameController
         secondToMatch.SetStatus(0, true);
         secondToMatch.SetEnableImage(false);
         ClearGameState();
+        isCheckingAnswer = false;
     }
 
     void ClearGameState()
