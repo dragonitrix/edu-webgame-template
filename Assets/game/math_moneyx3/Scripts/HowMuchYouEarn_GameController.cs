@@ -13,6 +13,7 @@ public class HowMuchYouEarn_GameController : GameController
     public GameObject targetPopup;
     public Transform dropZone;
     public TextMeshProUGUI helperBoardText;
+    public TextMeshProUGUI[] answerText;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -134,7 +135,8 @@ public class HowMuchYouEarn_GameController : GameController
 
     void CheckForWinCondition()
     {
-        if (dropValue == currentTargetValue)
+        int value = int.Parse(answerText[0].text) + int.Parse(answerText[1].text) + int.Parse(answerText[2].text);
+        if (dropValue == currentTargetValue && value == currentTargetValue)
         {
             gameState = GAME_STATE.ENDED;
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
