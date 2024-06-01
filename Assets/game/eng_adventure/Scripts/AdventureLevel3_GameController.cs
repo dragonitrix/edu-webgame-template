@@ -116,10 +116,10 @@ public class AdventureLevel3_GameController : GameController
     void OnAnswerEffectComplete()
     {
         gameStage++;
-        //if (gameStage >= answersList.Count)
-        //{
-        //    gameState = GAME_STATE.ENDED;
-        //}
+        if (gameStage >= currentAnswer.Count)
+        {
+            gameState = GAME_STATE.ENDED;
+        }
 
         if (gameState == GAME_STATE.ENDED)
         {
