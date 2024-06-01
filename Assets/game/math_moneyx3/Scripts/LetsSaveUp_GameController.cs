@@ -46,7 +46,7 @@ public class LetsSaveUp_GameController : GameController
     {
         base.InitGame(gameLevel, playerCount);
 
-        game = (MONEY_GAME)gameLevel;
+        game = MONEY_GAME.GAME_THREE;
         levelSettings = new MoneyMM_LevelSettings(game);
         dropValues = new List<int>();
         dropZoneValue = new Dictionary<Droppable, int>();

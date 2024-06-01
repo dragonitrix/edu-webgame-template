@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3505d58f96f05e489e2b35018a5e826, type: 3}
+  m_Name: yummy_level_0
+  m_EditorClassIdentifier: 
+  rounds:
+  - pieceDatas:
+    - {fileID: 11400000, guid: 9355a37ba8a8d294ebadb3c0feff74b5, type: 2}
+    - {fileID: 11400000, guid: f557f3a552ef7e6448e7e4102c749aa7, type: 2}
+    - {fileID: 11400000, guid: 2d1fe844e7f3c224b9c88d27f804f900, type: 2}
+  - pieceDatas:
+    - {fileID: 11400000, guid: 7a92cefd7bd799b4aae73681e711ac7d, type: 2}
+    - {fileID: 11400000, guid: 1605d5f6034e03943ad24a69495bf738, type: 2}
+    - {fileID: 11400000, guid: c0908728c64b1b34ca439e9b4bc8d9b1, type: 2}
+  - pieceDatas:
+    - {fileID: 11400000, guid: eb5e78e7a9123fa44a020416c2a634c7, type: 2}
+    - {fileID: 11400000, guid: e78c147199c6bd14db0cce763c21fef5, type: 2}
+    - {fileID: 11400000, guid: 3cd28cafe869da04fbb555b562220aba, type: 2}

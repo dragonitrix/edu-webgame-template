@@ -36,7 +36,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     void DefaultDragEvent(Draggable draggable)
     {
-        Debug.Log("StartDragging " + gameObject.name);
+        // Debug.Log("StartDragging " + gameObject.name);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

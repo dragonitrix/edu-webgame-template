@@ -72,6 +72,16 @@ public class DragManager : MonoBehaviour
         dragableTempBGImage.color = currentDragableComponent.dragableBG.color;
         dragableTempBGImage.rectTransform.sizeDelta = currentDragableComponent.dragableBG.rectTransform.sizeDelta;
 
+        if (currentDragableComponent.dragableBG.rectTransform.sizeDelta == Vector2.zero)
+        {
+            var gridLayoutGroup = currentDragableComponent.dragableBG.rectTransform.parent.GetComponent<GridLayoutGroup>();
+
+            if (gridLayoutGroup)
+            {
+                currentDragableComponent.dragableBG.rectTransform.sizeDelta = gridLayoutGroup.spacing;
+            }
+        }
+
         if (currentDragableComponent.dragableContentText != null)
         {
             dragableTempContentText.gameObject.SetActive(true);
@@ -113,7 +123,7 @@ public class DragManager : MonoBehaviour
 
     public void OnBeginDragEvent(Draggable dragable)
     {
-        currentDragableComponent = new DragableEssentialComponent(dragable.dragableBG, dragable.dragableContentText,dragable.dragableContentImage);
+        currentDragableComponent = new DragableEssentialComponent(dragable.dragableBG, dragable.dragableContentText, dragable.dragableContentImage);
         InitialzeDragableTempObject();
     }
     public void OnDragEvent(Draggable dragable)
@@ -143,5 +153,5 @@ public class DragableEssentialComponent
         this.dragableBG = dragableBG;
         this.dragableContentText = dragableContentText;
         this.dragableContentImage = dragableContentImage;
-    }   
+    }
 }

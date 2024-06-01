@@ -22,6 +22,7 @@ public class Bingo_GameController : GameController
     public Button homeButton;
     public Button retryButton;
     public PopupController[] tutorialPopups;
+    public Button informationButton;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -52,6 +53,7 @@ public class Bingo_GameController : GameController
     int questionIndex;
     Vector2 currentEquation = Vector2.zero;
     int helperboardFillAmount = 0;
+    bool isCorrect = false;
     //debuging purpose only
     protected override void Start()
     {
@@ -95,6 +97,13 @@ public class Bingo_GameController : GameController
         {
             answerEquationPairs.Add(pair.answer, pair.equations);
         }
+
+        informationButton.onClick.AddListener(() => 
+        {
+            tutorialPopup.Enter();
+        }
+        );
+        isCorrect = true;
         List<int> mainCellsMember = new List<int>(levelSettings.members);
         mainCellsMember.Shuffle();
         for (int i = 0; i < mainGridCells.Count; i++)
@@ -132,6 +141,7 @@ public class Bingo_GameController : GameController
             //Debug.Log("answer corrected");
             cell.SetStatus((int)currentPlayer);
             bingoQuestions.Remove(bingoQuestions[questionIndex]);
+            isCorrect = true;
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
         }
         else
@@ -195,16 +205,17 @@ public class Bingo_GameController : GameController
                 for (int i = 0; i < currentEquation.x; i++)
                 {
                     cells[i].SetStatus(1, false);
+                    cells[i].GetComponent<Draggable>().EnableSelf(true);
                 }
                 for (int i = 10; i < 10 + currentEquation.y; i++)
                 {
                     cells[i].SetStatus(2, false);
                     cells[i].GetComponent<Draggable>().EnableSelf(true);
                 }
-                for (int i = (int)currentEquation.x; i < currentEquation.x + currentEquation.y; i++)
-                {
-                    cells[i].GetComponent<Droppable>().EnableSelf(true);
-                }
+                //for (int i = (int)currentEquation.x; i < currentEquation.x + currentEquation.y; i++)
+                //{
+                //    cells[i].GetComponent<Droppable>().EnableSelf(true);
+                //}
                 break;
             case BINGO_LEVEL.TWO:
             case BINGO_LEVEL.THREE:
@@ -260,10 +271,11 @@ public class Bingo_GameController : GameController
     {
         CellController draggingCell = draggable.GetComponent<CellController>();
         CellController droppedCell = droppable.GetComponent<CellController>();
+        if (droppedCell.status != 0) return;
         droppedCell.SetStatus(draggingCell.status, true);
         draggingCell.SetStatus(0, false);
+        droppable.GetComponent<Draggable>().EnableSelf(true);
         draggable.EnableSelf(false);
-        droppable.EnableSelf(false);
     }
 
     public void InitHelperBoard(int type)
@@ -286,7 +298,7 @@ public class Bingo_GameController : GameController
                     Droppable dp = t.gameObject.AddComponent<Droppable>();
                     dp.onDropped += OnDroppingCell;
                     dg.EnableSelf(false);
-                    dp.EnableSelf(false);
+                    dp.EnableSelf(true);
                     index++;
                     if (index > 10) index = 1;
                 }
@@ -477,7 +489,11 @@ public class Bingo_GameController : GameController
         {
             case GAME_PHASE.SELECTNUMBER:
                 //spinButton.interactable = false;
-                GetCurrentAnswer();
+                if (isCorrect)
+                {
+                    GetCurrentAnswer();
+                    isCorrect = false;
+                }
                 break;
             case GAME_PHASE.SELECTNUMBER_2_ANSWER:
                 break;
@@ -518,7 +534,7 @@ public class Bingo_GameController : GameController
                 }
                 break;
             case GAME_PHASE.ANSWER_2_SELECTNUMBER:
-                ResetCalculationValue();
+                //ResetCalculationValue();
                 ClearHelperBoard();
                 if (gameState != GAME_STATE.ENDED)
                     SetPhase(GAME_PHASE.SELECTNUMBER);

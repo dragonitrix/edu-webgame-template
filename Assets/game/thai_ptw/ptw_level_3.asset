@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c204da1551174842bfdda5859cb375f, type: 3}
+  m_Name: ptw_level_3
+  m_EditorClassIdentifier: 
+  datas:
+  - text: "\u0E1E\u0E23\u0E34\u0E01"
+    sprite: {fileID: 21300000, guid: 6e74722181e55a841af9d61aa626b18b, type: 3}
+  - text: "\u0E04\u0E30\u0E19\u0E49\u0E32"
+    sprite: {fileID: 21300000, guid: 49527a4c65441ea46a342128f571ea39, type: 3}
+  - text: "\u0E40\u0E2B\u0E47\u0E14"
+    sprite: {fileID: 21300000, guid: 7f216e3059364ec42a5cb6e878372c65, type: 3}
+  - text: "\u0E2B\u0E31\u0E27\u0E2B\u0E2D\u0E21"
+    sprite: {fileID: 21300000, guid: d7005d2fe4fd3814d90cad2348fd2bd7, type: 3}
+  - text: "\u0E1C\u0E31\u0E01\u0E0A\u0E35"
+    sprite: {fileID: 21300000, guid: c57bd3b9a3237ed4998591782541f39b, type: 3}

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.PlayBGM("bgm");
+        AudioManager.instance.PlayBGM(bgmID);
         DOTween.Init();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -59,6 +59,10 @@ public class GameManager : MonoBehaviour
     {
         ExitSceneTransition(() =>
         {
+            if (ScoreManager.Instance != null)
+            {
+                ScoreManager.Instance.ResetCurrentScore();
+            }
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
     }
@@ -125,6 +129,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public PLAYER_COUNT gamePlayers;
 
+    public string bgmID = "bgm";
 
     // unique code for each game
     public void SetTargetGame(int index)
@@ -152,10 +157,12 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.CHAR_HEAD:
             case SUBGAME_INDEX.WANNAYUUK:
             case SUBGAME_INDEX.IMG_SURE:
+            case SUBGAME_INDEX.ADVENTURE:
+            case SUBGAME_INDEX.JUBKUM:
                 JumpToGame(subgameIndex);
                 break;
             default:
-                //SetTargetGame(index);
+                JumpToGame(subgameIndex);
                 break;
         }
     }

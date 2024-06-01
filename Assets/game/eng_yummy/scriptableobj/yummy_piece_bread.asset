@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16481794dc13cda45a8c458674473abd, type: 3}
+  m_Name: yummy_piece_bread
+  m_EditorClassIdentifier: 
+  normal_sprite: {fileID: 21300000, guid: 3e73da20b5eb15e45812f7d9fb2f3e9c, type: 3}
+  bw_sprite: {fileID: 21300000, guid: 20e201ce0d2bda74f91e543d9a7ce214, type: 3}
+  correctWord: bread
+  wrongWords:
+  - dread
+  - dreab

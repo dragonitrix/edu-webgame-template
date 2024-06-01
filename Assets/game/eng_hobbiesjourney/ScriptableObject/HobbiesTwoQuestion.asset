@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48fcc1e16669b5b4992d00a115e51e4f, type: 3}
+  m_Name: HobbiesTwoQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - correctAnswer: drawing
+    choiceText:
+    - a
+    - b
+    - d
+    - w
+    - r
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: ____
+  - correctAnswer: swimming
+    choiceText:
+    - w
+    - i
+    - m
+    - s
+    - l
+    maxLettersLength: 5
+    extensionText: ing
+    blankSlotText: _____
+  - correctAnswer: cycling
+    choiceText:
+    - l
+    - c
+    - y
+    - i
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: _____
+  - correctAnswer: watching
+    choiceText:
+    - w
+    - t
+    - c
+    - h
+    - n
+    - a
+    maxLettersLength: 5
+    extensionText: ing TV
+    blankSlotText: _____
+  - correctAnswer: cooking
+    choiceText:
+    - c
+    - k
+    - o
+    - a
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: ____
+  - correctAnswer: travelling
+    choiceText:
+    - r
+    - a
+    - v
+    - l
+    - t
+    - e
+    maxLettersLength: 7
+    extensionText: ing
+    blankSlotText: _______
+  - correctAnswer: reading
+    choiceText:
+    - e
+    - a
+    - d
+    - r
+    - b
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: ____
+  - correctAnswer: playing
+    choiceText:
+    - q
+    - a
+    - l
+    - p
+    - y
+    maxLettersLength: 4
+    extensionText: ing phone games
+    blankSlotText: ____
+  - correctAnswer: dancing
+    choiceText:
+    - b
+    - a
+    - c
+    - d
+    - n
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: ____
+  - correctAnswer: gardening
+    choiceText:
+    - r
+    - d
+    - e
+    - n
+    - g
+    - a
+    - h
+    maxLettersLength: 6
+    extensionText: ing
+    blankSlotText: ______
+  - correctAnswer: singing
+    choiceText:
+    - i
+    - n
+    - s
+    - h
+    - g
+    maxLettersLength: 4
+    extensionText: ing
+    blankSlotText: ____
+  - correctAnswer: baking
+    choiceText:
+    - b
+    - a
+    - k
+    - d
+    maxLettersLength: 3
+    extensionText: ing
+    blankSlotText: ___

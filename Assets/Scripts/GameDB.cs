@@ -15,8 +15,18 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.HOUSE,"house"},
         {MAINGAME_INDEX.CHAR_HEAD,"charhead"},
         {MAINGAME_INDEX.IMG_SURE,"imgsure"},
+        {MAINGAME_INDEX.YUMMY,"yummy"},
+        {MAINGAME_INDEX.INVIS_CHAR,"invischar"},
+        {MAINGAME_INDEX.MYS_HOUSE,"myshouse"},
+        {MAINGAME_INDEX.FEEL,"feel"},
         {MAINGAME_INDEX.BINGO,"bingo"},
         {MAINGAME_INDEX.HOWMUCH,"howmuchisit"},
+        {MAINGAME_INDEX.ADVENTURE,"adventure"},
+        {MAINGAME_INDEX.PTW,"ptw"},
+        {MAINGAME_INDEX.VTR,"vtr"},
+        {MAINGAME_INDEX.CARRIAGE,"carriage"},
+        {MAINGAME_INDEX.HOBBY,"hobbiesjourney"},
+        {MAINGAME_INDEX.JUBKUM,"jubkumyumsup"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -32,8 +42,23 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.CHAR_HEAD,"charhead"},
         {SUBGAME_INDEX.WANNAYUUK,"wannayuuk"},
         {SUBGAME_INDEX.IMG_SURE,"imgsure"},
+        {SUBGAME_INDEX.YUMMY,"yummy"},
+        {SUBGAME_INDEX.INVIS_CHAR,"invischar"},
+        {SUBGAME_INDEX.ROOM_HIDDEN,"roomhidden"},
+        {SUBGAME_INDEX.MYS_HOUSE,"myshouse"},
+        {SUBGAME_INDEX.FEEL_WHEEL,"feelwheel"},
+        {SUBGAME_INDEX.FEEL_TRAIN,"feeltrain"},
+        {SUBGAME_INDEX.FEEL_PARK,"feelpark"},
         {SUBGAME_INDEX.BINGO,"bingo"},
         {SUBGAME_INDEX.HOWMUCH,"howmuchisit"},
+        {SUBGAME_INDEX.ADVENTURE,"adventure_level1"},
+        {SUBGAME_INDEX.PTW_PAIR,"ptw_pair"},
+        {SUBGAME_INDEX.PTW_PLANT,"ptw_plant"},
+        {SUBGAME_INDEX.VTR_PART1,"vtr_part1"},
+        {SUBGAME_INDEX.VTR_PART2,"vtr_part2"},
+        {SUBGAME_INDEX.CARRIAGE,"carriage"},
+        {SUBGAME_INDEX.HOBBY,"hobby_level1"},
+        {SUBGAME_INDEX.JUBKUM,"jubkumyumsup"},
     };
 
     // Singleton instance
@@ -81,8 +106,18 @@ public enum MAINGAME_INDEX
     HOUSE,
     CHAR_HEAD,
     IMG_SURE,
+    YUMMY,
+    INVIS_CHAR,
+    MYS_HOUSE,
+    FEEL,
     BINGO,
-    HOWMUCH
+    HOWMUCH,
+    ADVENTURE,
+    PTW,
+    VTR,
+    CARRIAGE,
+    HOBBY,
+    JUBKUM
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -99,8 +134,23 @@ public enum SUBGAME_INDEX
     CHAR_HEAD,
     WANNAYUUK,
     IMG_SURE,
+    YUMMY,
+    INVIS_CHAR,
+    ROOM_HIDDEN,
+    MYS_HOUSE,
+    FEEL_WHEEL,
+    FEEL_TRAIN,
+    FEEL_PARK,
     BINGO,
-    HOWMUCH
+    HOWMUCH,
+    ADVENTURE,
+    PTW_PAIR,
+    PTW_PLANT,
+    VTR_PART1,
+    VTR_PART2,
+    CARRIAGE,
+    HOBBY,
+    JUBKUM
 }
 
 public enum PLAYER_COUNT
@@ -352,8 +402,8 @@ public class Bingo_LevelSettings
                 titleText = "Bingo: Level 3";
                 members = new int[] { 31, 38, 34, 35, 44, 46, 47, 43, 58, 52, 56, 51, 60, 61, 64, 63 };
                 break;
-            //case BINGO_LEVEL.FOUR:
-            //    break;
+                //case BINGO_LEVEL.FOUR:
+                //    break;
         }
     }
 }
@@ -361,4 +411,12 @@ public enum HOWMUCH_MODE
 {
     TUTORIAL,
     GAMEPLAY
+}
+
+public enum ADVENTURE_LEVEL
+{
+    LEVEL1,
+    LEVEL2,
+    LEVEL3,
+    LEVEL4
 }
