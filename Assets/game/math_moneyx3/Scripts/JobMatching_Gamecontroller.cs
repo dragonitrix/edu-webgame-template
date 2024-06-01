@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using TransitionsPlus;
 using UnityEngine;
@@ -116,7 +117,7 @@ public class JobMatching_Gamecontroller : GameController
 
     private void FixedUpdate()
     {
-        if(gameState == GAME_STATE.STARTED)
+        if (gameState == GAME_STATE.STARTED)
         {
             timer += Time.deltaTime;
         }
@@ -132,17 +133,22 @@ public class JobMatching_Gamecontroller : GameController
         if (isCheckingAnswer) return;
         if (gameState == GAME_STATE.ENDED) return;
         if (cell.GetEnableImage) return;
-        if(firstToMatch != null)
+        if (firstToMatch != null)
         {
             firstToMatch.SetEnableImage(false);
             firstToMatch.SetStatus(0, false);
+            // firstToMatch.transform.DOScale(0f, 0.2f).From(1f);
         }
         firstToMatch = cell;
         firstToMatch.SetEnableImage(true);
-        firstToMatch.SetStatus(1, true);
+        firstToMatch.SetStatus(1, false);
+        firstToMatch.transform.DOScale(1f, 0.2f).From(0f);
+        firstToMatch.bgImg.DOColor(firstToMatch.colors[1], 0.2f).OnComplete(() =>
+        {
+            if (secondToMatch != null)
+                CheckAnswer_GameOne();
+        });
 
-        if (secondToMatch != null)
-            CheckAnswer_GameOne();
     }
     public void OnSecondRowButtonClick(CellController cell)
     {
@@ -157,9 +163,13 @@ public class JobMatching_Gamecontroller : GameController
         secondToMatch = cell;
         secondToMatch.SetEnableImage(true);
         secondToMatch.SetStatus(1, true);
+        secondToMatch.transform.DOScale(1f, 0.2f).From(0f);
+        secondToMatch.bgImg.DOColor(secondToMatch.colors[1], 0.2f).OnComplete(() =>
+        {
+            if (firstToMatch != null)
+                CheckAnswer_GameOne();
+        });
 
-        if (firstToMatch != null)
-            CheckAnswer_GameOne();
     }
 
     void CheckAnswer_GameOne()
@@ -172,8 +182,8 @@ public class JobMatching_Gamecontroller : GameController
         }
         else
         {
-            firstToMatch.SetStatus(3, true);
-            secondToMatch.SetStatus(3, true);
+            firstToMatch.SetStatus(3, false);
+            secondToMatch.SetStatus(3, false);
             SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectCompleteWrong);
         }
     }
