@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class HowMuchYouEarn_GameController : GameController
 {
     [Header("Object Ref")]
+    public RectTransform phase01_title;
     public GridController mainGridController;
     public GameObject dropGameplayObject;
     public GameObject targetPopup;
@@ -105,6 +106,7 @@ public class HowMuchYouEarn_GameController : GameController
 
     void SwitchToDropGameplay(bool value)
     {
+        phase01_title.gameObject.SetActive(!value);
         mainGridController.gameObject.SetActive(!value);
         helperBoardText.text = currentTargetValue.ToString() + " =";
         dropGameplayObject.SetActive(value);
