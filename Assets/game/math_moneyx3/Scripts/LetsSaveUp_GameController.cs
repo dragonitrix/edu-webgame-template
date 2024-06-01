@@ -67,6 +67,8 @@ public class LetsSaveUp_GameController : GameController
         {
             item.onDropped += OnMoneyDrop;
         }
+
+        tutorialPopup.Enter();
     }
 
     void OnHomeButtonClicked()
