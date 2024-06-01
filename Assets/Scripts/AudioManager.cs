@@ -99,6 +99,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void PlaySound(string clipname)
+    {
+        foreach (AudioSource source in sfxSources)
+        {
+            if (!source.isPlaying)
+            {
+                PlaySound(clipname, (Channel)sfxSources.IndexOf(source), ()=>{});
+                return;
+            }
+        }
+        Debug.LogWarning("No available SFX channels to play sound " + clipname);
+    }
     public void PlaySound(string clipname, System.Action callback = null)
     {
         foreach (AudioSource source in sfxSources)
