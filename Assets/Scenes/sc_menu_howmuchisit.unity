@@ -1968,6 +1968,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1756519851264982514, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
+      propertyPath: bgmMixerGroups.maxValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756519851264982514, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
+      propertyPath: sfxMixerGroups.maxValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1756519851264982514, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
+      propertyPath: sfxMixerGroups.minValue
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 4207962153446622554, guid: 4a195dbe6d095554f8d1d25b48d40e26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

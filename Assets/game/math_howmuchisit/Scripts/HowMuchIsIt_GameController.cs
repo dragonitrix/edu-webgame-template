@@ -55,12 +55,12 @@ public class HowMuchIsIt_GameController : GameController
         {
             default:
             case HOWMUCH_MODE.TUTORIAL:
-                titleText.text = "ทบทวน";
+                titleText.text = ThaiFontAdjuster.Adjust("ทบทวน");
 
                 currentQuestionSet = questions[gameLevel].questions;
                 break;
             case HOWMUCH_MODE.GAMEPLAY:
-                titleText.text = "พร้อมลุย";
+                titleText.text = ThaiFontAdjuster.Adjust("พร้อมลุย");
                 List<HowmuchQuestion> howmuchQuestionScriptableObject = new List<HowmuchQuestion>();
 
                 foreach (var item in questions[gameLevel].questions)
@@ -150,7 +150,7 @@ public class HowMuchIsIt_GameController : GameController
         else
             foreach (var item in DragManager.instance.allDropablesInScene)
             {
-                Color color = new Color(1,1,1,0);
+                Color color = new Color(1, 1, 1, 0);
                 item.transform.parent.GetChild(1).GetComponent<Image>().color = color;
             }
     }
@@ -178,7 +178,7 @@ public class HowMuchIsIt_GameController : GameController
         }
         allNumberIsCorrect = isCorrect;
 
-        if(allNumberIsCorrect)
+        if (allNumberIsCorrect)
         {
             SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
         }
@@ -240,7 +240,7 @@ public class HowMuchIsIt_GameController : GameController
         int index = 0;
         foreach (Transform item in parent)
         {
-            if(item == child)
+            if (item == child)
             {
                 break;
             }
