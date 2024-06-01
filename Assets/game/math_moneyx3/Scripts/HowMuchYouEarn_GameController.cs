@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using TransitionsPlus;
 using UnityEngine;
@@ -111,15 +112,23 @@ public class HowMuchYouEarn_GameController : GameController
 
     void ShowTargetPopup(bool value = true)
     {
-        if(value)
+        if (value)
         {
-            AudioManager.instance.PlaySound("ui_highlight_1");
+            AudioManager.instance.PlaySound("ui_swipe");
+            targetPopup.SetActive(true);
+            targetPopup.GetComponent<RectTransform>().DOScale(1f, 0.5f).From(new Vector3(0f, 1f, 1f)).OnComplete(() =>
+            {
+            });
         }
         else
         {
             AudioManager.instance.PlaySound("ui_click_1");
+            targetPopup.GetComponent<RectTransform>().DOScale(0f, 0.2f).From(1f).OnComplete(() =>
+            {
+                targetPopup.SetActive(false);
+            });
         }
-        targetPopup.SetActive(value);
+        // targetPopup.SetActive(value);
     }
 
     public void OnTargetPopupClick()
@@ -151,11 +160,7 @@ public class HowMuchYouEarn_GameController : GameController
     {
         if (gameState != GAME_STATE.ENDED)
         {
-            foreach (Transform item in dropZone)
-            {
-                Destroy(item.gameObject);
-            }
-            dropValue = 0;
+            ResetBoard();
             SetPhase(GAME_PHASE.SELECT_TWO);
         }
         else
@@ -165,13 +170,52 @@ public class HowMuchYouEarn_GameController : GameController
         }
     }
 
+    public void ResetBoard()
+    {
+        foreach (Transform item in dropZone)
+        {
+            Destroy(item.gameObject);
+        }
+        dropValue = 0;
+    }
+
     public void OnMoneyDrop(Droppable droppable, Draggable draggable)
     {
         int moneyValue = draggable.gameObject.GetComponent<DragableCoin>().moneyValue;
         GameObject dragableTemp = DragManager.instance.DuplicateDragableTemp();
-        dragableTemp.SetActive(true);
-        dragableTemp.transform.SetParent(droppable.transform);
         dropValue += moneyValue;
+
+        switch (moneyValue)
+        {
+            case 500:
+            case 100:
+            case 50:
+            case 20:
+                dragableTemp.transform.SetParent(droppable.transform);
+                break;
+            case 10:
+            case 5:
+            case 2:
+            case 1:
+                var clone = new GameObject("coin", typeof(RectTransform));
+                clone.transform.SetParent(droppable.transform);
+                clone.transform.localScale = Vector3.one;
+                dragableTemp.transform.SetParent(clone.transform);
+
+                var dragableTemp_rt = dragableTemp.GetComponent<RectTransform>();
+
+                dragableTemp_rt.anchorMin = new Vector2(0.5f, 0.5f);
+                dragableTemp_rt.anchorMax = new Vector2(0.5f, 0.5f);
+                dragableTemp_rt.pivot = new Vector2(0.5f, 0.5f);
+
+                dragableTemp_rt.anchoredPosition = Vector2.zero;
+
+
+                break;
+        }
+
+        dragableTemp.SetActive(true);
+
         if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
     }
 
