@@ -111,6 +111,22 @@ public class MysHouse_PageController : MonoBehaviour
             minigame.StartMiniGame();
         }
 
+        TransitionIn();
+
+    }
+
+    void TransitionIn()
+    {
+        switch (transitionInID)
+        {
+            case "living2":
+
+                interactableObjs[0].ShowHightLight(0.5f);
+
+                interactableObjs[1].canvasGroup.interactable = false;
+                break;
+        }
+
     }
 
     public void FinishPage()
@@ -170,6 +186,8 @@ public class MysHouse_PageController : MonoBehaviour
                     .OnComplete(() =>
                     {
                         Hide(1f);
+                        parent.interactableObjs[1].canvasGroup.interactable = true;
+                        parent.interactableObjs[1].ShowHightLight(0.5f);
                     });
                 });
                 break;

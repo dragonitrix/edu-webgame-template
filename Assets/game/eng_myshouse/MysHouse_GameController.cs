@@ -19,6 +19,8 @@ public class MysHouse_GameController : GameController
     public SimpleIntroController StartIntro;
     public SimpleIntroController EndIntro;
 
+    public bool skipIntro = false;
+
     [Header("Transition")]
     public TransitionAnimator roomTransition;
     public RawImage roomTransitionRaw;
@@ -65,7 +67,15 @@ public class MysHouse_GameController : GameController
 
         HideAllPages();
 
-        StartIntro.Show();
+        if (skipIntro)
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
+        else
+        {
+            StartIntro.Show();
+        }
+
 
     }
 
