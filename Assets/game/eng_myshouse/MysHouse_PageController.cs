@@ -111,6 +111,38 @@ public class MysHouse_PageController : MonoBehaviour
             minigame.StartMiniGame();
         }
 
+        TransitionIn();
+
+    }
+
+    void TransitionIn()
+    {
+        switch (transitionInID)
+        {
+            case "living2":
+
+                interactableObjs[0].ShowHightLight(0.5f);
+                interactableObjs[1].canvasGroup.interactable = false;
+                break;
+            case "kitchen":
+                interactableObjs[0].ShowHightLight(0.5f);
+                interactableObjs[1].canvasGroup.interactable = false;
+                interactableObjs[2].canvasGroup.interactable = false;
+                interactableObjs[3].canvasGroup.interactable = false;
+                break;
+            case "wc2":
+                interactableObjs[0].ShowHightLight(0.5f);
+                interactableObjs[1].canvasGroup.interactable = false;
+                interactableObjs[2].canvasGroup.interactable = false;
+                interactableObjs[3].canvasGroup.interactable = false;
+                break;
+            case "bedroom":
+                interactableObjs[0].ShowHightLight(0.5f);
+                interactableObjs[1].canvasGroup.interactable = false;
+                interactableObjs[2].canvasGroup.interactable = false;
+                break;
+        }
+
     }
 
     public void FinishPage()
@@ -170,6 +202,8 @@ public class MysHouse_PageController : MonoBehaviour
                     .OnComplete(() =>
                     {
                         Hide(1f);
+                        parent.interactableObjs[1].canvasGroup.interactable = true;
+                        parent.interactableObjs[1].ShowHightLight(0.5f);
                     });
                 });
                 break;
@@ -298,14 +332,13 @@ public class MysHouse_PageController : MonoBehaviour
                     });
                 });
                 break;
-
-            case "wc2_obj":
+            case "wc2_toothbrush":
                 miniGames[0].Hide(0.2f);
                 extras[1].gameObject.SetActive(false);
-                var wc_obj = extras[0];
-                wc_obj.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                var wc_toothbrush = extras[0];
+                wc_toothbrush.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
                 {
-                    wc_obj.DOAnchorPosX(wc_obj.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    wc_toothbrush.DOAnchorPosX(wc_toothbrush.anchoredPosition.x - 300, 1f).SetDelay(1f)
                     .OnStart(() =>
                     {
                         // AudioManager.instance.PlaySound("sfx_obj_slide");
@@ -313,6 +346,46 @@ public class MysHouse_PageController : MonoBehaviour
                     .OnComplete(() =>
                     {
                         Hide(1f);
+                        parent.interactableObjs[1].canvasGroup.interactable = true;
+                        parent.interactableObjs[1].ShowHightLight(0.5f);
+                    });
+                });
+                break;
+            case "wc2_soap":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var wc2_soap = extras[0];
+                wc2_soap.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    wc2_soap.DOAnchorPosX(wc2_soap.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        // AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                        parent.interactableObjs[2].canvasGroup.interactable = true;
+                        parent.interactableObjs[2].ShowHightLight(0.5f);
+                    });
+                });
+                break;
+            case "wc2_toilet":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var wc2_toilet = extras[0];
+                wc2_toilet.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    wc2_toilet.DOAnchorPosX(wc2_toilet.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                        parent.interactableObjs[3].canvasGroup.interactable = true;
+                        parent.interactableObjs[3].ShowHightLight(0.5f);
                     });
                 });
                 break;
@@ -374,13 +447,13 @@ public class MysHouse_PageController : MonoBehaviour
                     });
                 });
                 break;
-            case "bedroom_obj":
+            case "bedroom_clothes":
                 miniGames[0].Hide(0.2f);
                 extras[1].gameObject.SetActive(false);
-                var bedroom_obj = extras[0];
-                bedroom_obj.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                var bedroom_clothes = extras[0];
+                bedroom_clothes.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
                 {
-                    bedroom_obj.DOAnchorPosX(bedroom_obj.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    bedroom_clothes.DOAnchorPosX(bedroom_clothes.anchoredPosition.x - 300, 1f).SetDelay(1f)
                     .OnStart(() =>
                     {
                         // AudioManager.instance.PlaySound("sfx_obj_slide");
@@ -388,6 +461,27 @@ public class MysHouse_PageController : MonoBehaviour
                     .OnComplete(() =>
                     {
                         Hide(1f);
+                        parent.interactableObjs[1].canvasGroup.interactable = true;
+                        parent.interactableObjs[1].ShowHightLight(0.5f);
+                    });
+                });
+                break;
+            case "bedroom_pillow":
+                miniGames[0].Hide(0.2f);
+                extras[1].gameObject.SetActive(false);
+                var bedroom_pillow = extras[0];
+                bedroom_pillow.DOAnchorPos(Vector2.zero, 0.2f).OnComplete(() =>
+                {
+                    bedroom_pillow.DOAnchorPosX(bedroom_pillow.anchoredPosition.x - 300, 1f).SetDelay(1f)
+                    .OnStart(() =>
+                    {
+                        // AudioManager.instance.PlaySound("sfx_obj_slide");
+                    })
+                    .OnComplete(() =>
+                    {
+                        Hide(1f);
+                        parent.interactableObjs[2].canvasGroup.interactable = true;
+                        parent.interactableObjs[2].ShowHightLight(0.5f);
                     });
                 });
                 break;
