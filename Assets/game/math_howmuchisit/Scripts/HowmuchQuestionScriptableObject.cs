@@ -19,4 +19,5 @@ public class HowmuchQuestion
     public int dividedBox;
     [TextArea(2, 3)]
     public string questionText;
+    public GameObject coinsPrefab;
 }

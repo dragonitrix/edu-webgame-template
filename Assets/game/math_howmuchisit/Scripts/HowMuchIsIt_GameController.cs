@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using TransitionsPlus;
@@ -12,7 +13,9 @@ public class HowMuchIsIt_GameController : GameController
     public GameObject[] dropBoxSets;
     public TMP_InputField answerField;
     public Image targetImage;
+    public Image targetImageTobtuan;
     public TextMeshProUGUI targetText;
+    public GameObject[] questionFields;
 
     [Header("Transition")]
     public TransitionProfile transitionProfile;
@@ -30,6 +33,8 @@ public class HowMuchIsIt_GameController : GameController
     public GAME_PHASE gamePhase;
     public HowmuchQuestionScriptableObject[] questions;
     public int gameplayLevelCount = 9;
+    public GameObject coinbaht;
+    public RectTransform coinSpace;
     List<HowmuchQuestion> currentQuestionSet;
     int gameStage = 0;
     int currentTargetValue = 0;
@@ -50,6 +55,7 @@ public class HowMuchIsIt_GameController : GameController
         base.InitGame(gameLevel, playerCount);
 
         game = (HOWMUCH_MODE)gameLevel;
+        questionFields[gameLevel].SetActive(true);
         currentQuestionSet = new List<HowmuchQuestion>();
         switch (game)
         {
@@ -90,6 +96,31 @@ public class HowMuchIsIt_GameController : GameController
         }
         SetQuestion();
     }
+
+    void OnDoubleClickCoinTen(Tappable tappable)
+    {
+        Vector2 center = tappable.GetComponent<RectTransform>().anchoredPosition;
+        for (int i = 0; i < 10; i++)
+        {
+            int a = 360 / 10 * i;
+            Vector2 pos = RandomCircle(center, 100, a);
+            GameObject newCoin = Instantiate(coinbaht, coinSpace);
+            //newCoin.GetComponent<RectTransform>().anchoredPosition = center;
+            newCoin.GetComponent<RectTransform>().DOAnchorPos(pos, 0.25f).From(center);
+        }
+        Destroy(tappable.gameObject);
+        if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
+    }
+
+    Vector2 RandomCircle(Vector3 center, float radius, int a)
+    {
+        float ang = a;
+        Vector2 pos;
+        pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+        pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        return pos;
+    }
+
     void GetCurrentSet(int index)
     {
         foreach (var item in dropBoxSets)
@@ -111,15 +142,56 @@ public class HowMuchIsIt_GameController : GameController
     void SetQuestion()
     {
         HowmuchQuestion thisQuestion = currentQuestionSet[gameStage];
-        ResetAnswer();
+        ResetAnswer(true);
         currentTargetValue = thisQuestion.correctAnswer;
-        targetImage.sprite = thisQuestion.questionSprite;
-        targetText.text = thisQuestion.questionText;
-        SetDroppableBoxIcon(thisQuestion.questionMiniIcon);
         GetCurrentSet(thisQuestion.dividedBox);
+
+        switch (game)
+        {
+            case HOWMUCH_MODE.TUTORIAL:
+                targetImageTobtuan.sprite = thisQuestion.questionSprite;
+                for (int i = 0; i < coinSpace.childCount; i++)
+                {
+                    Destroy(coinSpace.GetChild(i).gameObject);
+                }
+
+                GameObject go = Instantiate(thisQuestion.coinsPrefab, coinSpace);
+                for (int i = 0; i < go.transform.childCount; i++)
+                {
+                    if (go.transform.GetChild(i).GetComponent<Tappable>())
+                    {
+                        go.transform.GetChild(i).GetComponent<Tappable>().onDoubleClick += OnDoubleClickCoinTen;
+                    }
+                }
+                //Destroy(go);
+                break;
+            default:
+            case HOWMUCH_MODE.GAMEPLAY:
+                targetImage.sprite = thisQuestion.questionSprite;
+                targetText.text = thisQuestion.questionText;
+                SetDroppableBoxIcon(thisQuestion.questionMiniIcon);
+                break;
+        }
     }
 
     void ResetAnswer()
+    {
+        allNumberIsCorrect = false;
+        dividedNumberIsCorrect = false;
+        ClearDropValueText();
+        answerField.text = "";
+        switch (game)
+        {
+            case HOWMUCH_MODE.TUTORIAL:
+                SetQuestion();
+                break;
+            default:
+            case HOWMUCH_MODE.GAMEPLAY:
+                break;
+        }
+    }
+
+    void ResetAnswer(bool call)
     {
         allNumberIsCorrect = false;
         dividedNumberIsCorrect = false;
@@ -164,7 +236,7 @@ public class HowMuchIsIt_GameController : GameController
         ResetAnswer();
     }
 
-    public void CheckAllBox()
+    public bool CheckAllBox()
     {
         HowmuchQuestion thisQuestion = currentQuestionSet[gameStage];
         bool isCorrect = true;
@@ -178,27 +250,48 @@ public class HowMuchIsIt_GameController : GameController
         }
         allNumberIsCorrect = isCorrect;
 
-        if (allNumberIsCorrect)
-        {
-            SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
-        }
-        else
-        {
-            SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
-        }
+        return allNumberIsCorrect;
     }
 
     public void CheckAnswerField()
     {
-        dividedNumberIsCorrect = int.Parse(answerField.text) == currentTargetValue;
+        switch (game)
+        {
+            case HOWMUCH_MODE.TUTORIAL:
+                int i = 0;
+                if (int.TryParse(answerField.text, out i))
+                {
+                    i = int.Parse(answerField.text);
+                }
+                else
+                {
+                    i = 0;
+                }
+                dividedNumberIsCorrect = i == currentTargetValue;
 
-        if (dividedNumberIsCorrect)
-        {
-            SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
-        }
-        else
-        {
-            SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+                if (dividedNumberIsCorrect && CheckAllBox())
+                {
+                    SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
+                }
+                else
+                {
+                    SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+                }
+                break;
+            default:
+            case HOWMUCH_MODE.GAMEPLAY:
+                dividedNumberIsCorrect = int.Parse(answerField.text) == currentTargetValue;
+
+                if (dividedNumberIsCorrect)
+                {
+                    allNumberIsCorrect = true;
+                    SimpleEffectController.instance.SpawnAnswerEffect(true, OnAnswerEffectComplete);
+                }
+                else
+                {
+                    SimpleEffectController.instance.SpawnAnswerEffect(false, OnAnswerEffectComplete);
+                }
+                break;
         }
     }
 
@@ -233,6 +326,15 @@ public class HowMuchIsIt_GameController : GameController
         dropValues[drop] += moneyValue;
         money.text = dropValues[drop].ToString();
         if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
+        switch (game)
+        {
+            case HOWMUCH_MODE.TUTORIAL:
+                Destroy(draggable.gameObject);
+                break;
+            default:
+            case HOWMUCH_MODE.GAMEPLAY:
+                break;
+        }
     }
 
     int GetChildNumber(Transform parent, Transform child)
