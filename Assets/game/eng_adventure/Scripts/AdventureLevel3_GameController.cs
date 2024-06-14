@@ -30,6 +30,7 @@ public class AdventureLevel3_GameController : GameController
     List<string> currentAnswer = new List<string>();
     int gameStage = 0;
     List<string> alphabets = new List<string>();
+    CellController currentCell = null;
 
     //debuging purpose only
     protected override void Start()
@@ -81,10 +82,12 @@ public class AdventureLevel3_GameController : GameController
     public void OnMainGridButtonClick(CellController cell)
     {
 
+        currentCell = cell;
         // check answer
         if (cell.value == currentAnswer[gameStage])
         {
             //Debug.Log("answer corrected");
+            currentCell.SetStatus(1, true);
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
             ScoreManager.Instance.UpdateCurrentScore(10);
             // increase score
@@ -92,6 +95,7 @@ public class AdventureLevel3_GameController : GameController
         else
         {
             //Debug.Log("answer incorrect");
+            currentCell.SetStatus(2, true);
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(false, OnAnswerEffectComplete);
             ScoreManager.Instance.UpdateCurrentScore(-10);
             // minus score
@@ -116,6 +120,8 @@ public class AdventureLevel3_GameController : GameController
     void OnAnswerEffectComplete()
     {
         gameStage++;
+        currentCell.SetStatus(0, false);
+        currentCell = null;
         if (gameStage >= currentAnswer.Count)
         {
             gameState = GAME_STATE.ENDED;

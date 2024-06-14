@@ -5,6 +5,7 @@ using TMPro;
 using TransitionsPlus;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class AdventureLevel1_GameController : GameController
 {
@@ -73,6 +74,12 @@ public class AdventureLevel1_GameController : GameController
         {
             mainGridCells[i].SetValue(mainCellsMember[i], false);
             mainGridCells[i].SetEnableText(true);
+            Draggable draggable = mainGridCells[i].GetComponent<Draggable>();
+            draggable.onDragged += (Draggable draggable) =>
+            {
+                CellController cell = draggable.GetComponent<CellController>();
+                cell.SetStatus(1, true);
+            };
         }
     }
 
@@ -80,8 +87,10 @@ public class AdventureLevel1_GameController : GameController
     {
         CellController draggingCell = draggable.GetComponent<CellController>();
         CellController droppedCell = droppable.GetComponent<CellController>();
+
+        draggingCell.SetStatus(0, true);
         droppedCell.SetValue(draggingCell.value, true);
-        droppedCell.SetStatus(draggingCell.status, true);
+        droppedCell.SetStatus(0, true);
     }
 
     public void OnButtonCheckClick()
