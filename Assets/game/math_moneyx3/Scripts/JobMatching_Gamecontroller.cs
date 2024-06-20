@@ -51,7 +51,7 @@ public class JobMatching_Gamecontroller : GameController
         gameState = GAME_STATE.STARTED;
     }
 
-    string getTimer()
+    string GetTimer()
     {
         TimeSpan time = TimeSpan.FromSeconds(timer);
         return time.ToString("mm':'ss");
@@ -124,7 +124,7 @@ public class JobMatching_Gamecontroller : GameController
 
         foreach (var item in timerTexts)
         {
-            item.text = getTimer();
+            item.text = GetTimer();
         }
     }
 
@@ -223,7 +223,7 @@ public class JobMatching_Gamecontroller : GameController
         if (winIndex == 4)
         {
             gameState = GAME_STATE.ENDED;
-            finishText.text = "เก่งมาก! คุณใช้เวลาทั้งหมด " + getTimer() + " นาที";
+            finishText.text = "เก่งมาก! คุณใช้เวลาทั้งหมด " + GetTimer() + " นาที";
             FinishedGame(true);
         }
     }
