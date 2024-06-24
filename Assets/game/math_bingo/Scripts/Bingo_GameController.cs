@@ -24,12 +24,6 @@ public class Bingo_GameController : GameController
     public PopupController[] tutorialPopups;
     public Button informationButton;
 
-    [Header("Transition")]
-    public TransitionProfile transitionProfile;
-    public TransitionAnimator transitionAnimator;
-    public RawImage transitionRenderer;
-    public Image bgImage;
-
     [Header("Game Settings")]
     public TextMeshProUGUI titleText;
     public BINGO_LEVEL level;
@@ -37,11 +31,6 @@ public class Bingo_GameController : GameController
     public int gridWidth = 6;
     public int gridHeight = 6;
     public int consecutiveCountToWin = 4;
-
-    public Player currentPlayer;
-
-    public Color p_1Color;
-    public Color p_2Color;
 
     [Header("Game Value")]
     GridController helperBoard;
@@ -112,9 +101,7 @@ public class Bingo_GameController : GameController
             mainGridCells[i].SetEnableText(true);
             mainGridCells[i].onClicked += OnMainGridButtonClick;
         }
-        SetCurrentPlayer(Player.P_1, false);
         InitHelperBoard(levelSettings.specialBoardType);
-        transitionAnimator.onTransitionEnd.AddListener(OnPlayerSwitchTransitionComplete);
         SetPhase(GAME_PHASE.SELECTNUMBER_2_ANSWER);
     }
 
@@ -139,7 +126,7 @@ public class Bingo_GameController : GameController
         if (cell.value == correctNumber.ToString())
         {
             //Debug.Log("answer corrected");
-            cell.SetStatus((int)currentPlayer);
+            cell.SetStatus(1);
             bingoQuestions.Remove(bingoQuestions[questionIndex]);
             isCorrect = true;
             SimpleEffectController.instance.SpawnAnswerEffect_tictactoe(true, OnAnswerEffectComplete);
@@ -160,7 +147,20 @@ public class Bingo_GameController : GameController
 
         Vector2 equation = answerEquationPairs[chosenAnswer][Random.Range(0, answerEquationPairs[chosenAnswer].Count)];
         currentEquation = equation;
-        equationText.text = equation.x + " + " + equation.y + " = ?";
+        switch (level)
+        {
+            default:
+            case BINGO_LEVEL.ONE:
+            case BINGO_LEVEL.TWO:
+            case BINGO_LEVEL.THREE:
+                equationText.text = equation.x + " + " + equation.y + " = ?";
+                break;
+            case BINGO_LEVEL.SUBONE:
+            case BINGO_LEVEL.SUBTWO:
+            case BINGO_LEVEL.SUBTHREE:
+                equationText.text = equation.x + " - " + equation.y + " = ?";
+                break;
+        }
     }
 
     void ClearHelperBoard()
@@ -217,6 +217,16 @@ public class Bingo_GameController : GameController
                 //    cells[i].GetComponent<Droppable>().EnableSelf(true);
                 //}
                 break;
+            case BINGO_LEVEL.SUBONE:
+                for (int i = 0; i < currentEquation.x; i++)
+                {
+                    cells[i].SetStatus(1, false);
+                }
+                for (int i = 10; i < 10 + currentEquation.y; i++)
+                {
+                    cells[i].SetStatus(2, false);
+                }
+                break;
             case BINGO_LEVEL.TWO:
             case BINGO_LEVEL.THREE:
                 string equationX = currentEquation.x.ToString();
@@ -237,6 +247,34 @@ public class Bingo_GameController : GameController
                 {
                     equationYText[index].text = item.ToString();
                     index++;
+                }
+                break;
+            case BINGO_LEVEL.SUBTWO:
+            case BINGO_LEVEL.SUBTHREE:
+                equationX = currentEquation.x.ToString();
+                equationY = currentEquation.y.ToString();
+
+                foreach (var item in equationX)
+                {
+                    Debug.Log(item);
+                }
+                index = 0;
+                foreach (char item in equationX)
+                {
+                    equationXText[index].text = item.ToString();
+                    index++;
+                }
+                index = 0;
+                foreach (char item in equationY)
+                {
+                    equationYText[index].text = item.ToString();
+                    index++;
+                }
+
+                helperboardFillAmount = (int)currentEquation.x -1;
+                for (int i = 0; i < helperboardFillAmount; i++)
+                {
+                    helperBoard.cells[i].SetStatus(1, false);
                 }
                 break;
         }
@@ -293,12 +331,21 @@ public class Bingo_GameController : GameController
                 {
                     t.SetValue(index.ToString(), false);
                     t.SetEnableText(true);
-                    Draggable dg = t.gameObject.AddComponent<Draggable>();
-                    dg.SetupEssentialComponent();
-                    Droppable dp = t.gameObject.AddComponent<Droppable>();
-                    dp.onDropped += OnDroppingCell;
-                    dg.EnableSelf(false);
-                    dp.EnableSelf(true);
+                    switch (level)
+                    {
+                        default:
+                        case BINGO_LEVEL.ONE:
+                            Draggable dg = t.gameObject.AddComponent<Draggable>();
+                            dg.SetupEssentialComponent();
+                            Droppable dp = t.gameObject.AddComponent<Droppable>();
+                            dp.onDropped += OnDroppingCell;
+                            dg.EnableSelf(false);
+                            dp.EnableSelf(true);
+                            break;
+                        case BINGO_LEVEL.SUBONE:
+
+                            break;
+                    }
                     index++;
                     if (index > 10) index = 1;
                 }
@@ -310,7 +357,7 @@ public class Bingo_GameController : GameController
                 }
                 break;
         }
-        extraInputObject.SetActive((int)level == 2);
+        extraInputObject.SetActive((int)level == 2 || (int)level == 5);
     }
 
     void OnAnswerEffectComplete()
@@ -318,16 +365,7 @@ public class Bingo_GameController : GameController
         CheckWinCondition();
         if (gameState != GAME_STATE.ENDED)
         {
-
-            switch (playerCount)
-            {
-                case PLAYER_COUNT._1_PLAYER:
-                    SetPhase(GAME_PHASE.SELECTNUMBER);
-                    break;
-                case PLAYER_COUNT._2_PLAYER:
-                    SwitchTurn();
-                    break;
-            }
+            SetPhase(GAME_PHASE.SELECTNUMBER);
         }
         SetPhase(GAME_PHASE.NOANSWER);
     }
@@ -369,6 +407,26 @@ public class Bingo_GameController : GameController
     public void HelperButtonOne(int type)
     {
         HelperBoardButton(1, type);
+    }
+
+    void HelperBoardMinusButton(int value, int type)
+    {
+        if (helperboardFillAmount <= 0) return;
+        int boardFillLimit = helperboardFillAmount - value <= 0 ? 0 : helperboardFillAmount - value;
+        List<CellController> cells = helperBoard.cells;
+        for (int i = helperboardFillAmount; i > boardFillLimit; i--)
+        {
+            cells[i].SetStatus(type);
+        }
+        helperboardFillAmount = boardFillLimit;
+    }
+    public void HelperButtonMinusTen(int type)
+    {
+        HelperBoardMinusButton(10, type);
+    }
+    public void HelperButtonMinusOne(int type)
+    {
+        HelperBoardMinusButton(1, type);
     }
 
     public Player CheckConnect()
@@ -543,65 +601,6 @@ public class Bingo_GameController : GameController
                 SetPhase(GAME_PHASE.ANSWER_2_SELECTNUMBER);
                 break;
         }
-    }
-
-    public void SwitchTurn()
-    {
-        switch (currentPlayer)
-        {
-            case Player.P_1:
-                SetCurrentPlayer(Player.P_2);
-                break;
-            case Player.P_2:
-                SetCurrentPlayer(Player.P_1);
-                break;
-        }
-    }
-
-    public void SetCurrentPlayer(Player player, bool transitionAnim = true)
-    {
-        if (currentPlayer == player) return;
-        currentPlayer = player;
-
-        if (transitionAnim)
-        {
-            // do something
-            StartPlayerSwitchTransition(currentPlayer);
-        }
-    }
-
-    public void StartPlayerSwitchTransition(Player player)
-    {
-        var color = Color.white;
-        switch (player)
-        {
-            case Player.P_1:
-                color = p_1Color;
-                break;
-            case Player.P_2:
-                color = p_2Color;
-                break;
-        }
-        transitionProfile.color = color;
-        transitionAnimator.Play();
-
-    }
-
-    public void OnPlayerSwitchTransitionComplete()
-    {
-        transitionAnimator.SetProgress(0);
-        var color = Color.white;
-        switch (currentPlayer)
-        {
-            case Player.P_1:
-                color = p_1Color;
-                break;
-            case Player.P_2:
-                color = p_2Color;
-                break;
-        }
-        bgImage.color = color;
-        SetPhase(GAME_PHASE.SELECTNUMBER);
     }
 
     public enum GAME_PHASE

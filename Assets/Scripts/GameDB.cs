@@ -373,8 +373,10 @@ public enum BINGO_LEVEL
 {
     ONE,
     TWO,
-    THREE
-    //FOUR
+    THREE,
+    SUBONE,
+    SUBTWO,
+    SUBTHREE
 }
 public class Bingo_LevelSettings
 {
@@ -401,6 +403,19 @@ public class Bingo_LevelSettings
             case BINGO_LEVEL.THREE:
                 titleText = "Bingo: Level 3";
                 members = new int[] { 31, 38, 34, 35, 44, 46, 47, 43, 58, 52, 56, 51, 60, 61, 64, 63 };
+                break;
+            case BINGO_LEVEL.SUBONE:
+                titleText = "Bingo Subtract: Level 1";
+                members = new int[] { 1, 5, 6, 2, 2, 8, 5, 1, 3, 7, 4, 4, 4, 0, 3, 5 };
+                specialBoardType = 0;
+                break;
+            case BINGO_LEVEL.SUBTWO:
+                titleText = "Bingo Subtract: Level 2";
+                members = new int[] { 29, 31, 44, 58, 25, 36, 48, 52, 27, 34, 47, 56, 22, 35, 43, 51 };
+                break;
+            case BINGO_LEVEL.SUBTHREE:
+                titleText = "Bingo Subtract: Level 3";
+                members = new int[] { 31, 44, 58, 60, 38, 46, 52, 61, 34, 47, 56, 64, 35, 43, 51, 63 };
                 break;
                 //case BINGO_LEVEL.FOUR:
                 //    break;
