@@ -1236,7 +1236,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2526001428738286480, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_text
-      value: TIC-TAC-TOE
+      value: Subtraction
       objectReference: {fileID: 0}
     - target: {fileID: 2526001428738286480, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_fontSize
@@ -1248,7 +1248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4890890605821926860, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_text
-      value: TIC-TAC-TOE
+      value: Subtraction
       objectReference: {fileID: 0}
     - target: {fileID: 4890890605821926860, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_fontSize
@@ -1320,11 +1320,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5796741656682821310, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 5796741656682821310, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 251
+      value: -54
       objectReference: {fileID: 0}
     - target: {fileID: 5796741656682821310, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1344,7 +1344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5885947269087494244, guid: 4996084ffa273084681f9aba0538828b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1436,7 +1436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1270275423
 RectTransform:
   m_ObjectHideFlags: 0
