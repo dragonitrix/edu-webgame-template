@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.TIC_TAC_TOE:
             case SUBGAME_INDEX.BINGO:
             case SUBGAME_INDEX.HOWMUCH:
+            case SUBGAME_INDEX.BINGOSUBT:
                 MenuController.instance.levelSelectedPopup.pageController.ToPage(1);
                 break;
             case SUBGAME_INDEX.WONDER_SOUND:
@@ -179,6 +180,7 @@ public class GameManager : MonoBehaviour
                 break;
             case SUBGAME_INDEX.BINGO:
             case SUBGAME_INDEX.HOWMUCH:
+            case SUBGAME_INDEX.BINGOSUBT:
                 JumpToGame(subgameIndex);
                 break;
         }

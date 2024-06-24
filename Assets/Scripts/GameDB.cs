@@ -27,6 +27,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.CARRIAGE,"carriage"},
         {MAINGAME_INDEX.HOBBY,"hobbiesjourney"},
         {MAINGAME_INDEX.JUBKUM,"jubkumyumsup"},
+        {MAINGAME_INDEX.BINGOSUBT,"bingosubt"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -59,6 +60,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.CARRIAGE,"carriage"},
         {SUBGAME_INDEX.HOBBY,"hobby_level1"},
         {SUBGAME_INDEX.JUBKUM,"jubkumyumsup"},
+        {SUBGAME_INDEX.BINGOSUBT,"bingosubt"},
     };
 
     // Singleton instance
@@ -117,7 +119,8 @@ public enum MAINGAME_INDEX
     VTR,
     CARRIAGE,
     HOBBY,
-    JUBKUM
+    JUBKUM,
+    BINGOSUBT
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -150,7 +153,8 @@ public enum SUBGAME_INDEX
     VTR_PART2,
     CARRIAGE,
     HOBBY,
-    JUBKUM
+    JUBKUM,
+    BINGOSUBT
 }
 
 public enum PLAYER_COUNT
@@ -415,7 +419,7 @@ public class Bingo_LevelSettings
                 break;
             case BINGO_LEVEL.SUBTHREE:
                 titleText = "Bingo Subtract: Level 3";
-                members = new int[] { 31, 44, 58, 60, 38, 46, 52, 61, 34, 47, 56, 64, 35, 43, 51, 63 };
+                members = new int[] { 31, 44, 58, 62, 38, 46, 52, 61, 34, 47, 56, 64, 35, 43, 51, 63 };
                 break;
                 //case BINGO_LEVEL.FOUR:
                 //    break;

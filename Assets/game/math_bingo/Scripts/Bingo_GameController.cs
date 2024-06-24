@@ -84,6 +84,7 @@ public class Bingo_GameController : GameController
         }
         foreach (var pair in bingoQuestions)
         {
+            if (answerEquationPairs.ContainsKey(pair.answer)) continue;
             answerEquationPairs.Add(pair.answer, pair.equations);
         }
 
@@ -271,7 +272,7 @@ public class Bingo_GameController : GameController
                     index++;
                 }
 
-                helperboardFillAmount = (int)currentEquation.x -1;
+                helperboardFillAmount = (int)currentEquation.x;
                 for (int i = 0; i < helperboardFillAmount; i++)
                 {
                     helperBoard.cells[i].SetStatus(1, false);
@@ -416,7 +417,7 @@ public class Bingo_GameController : GameController
         List<CellController> cells = helperBoard.cells;
         for (int i = helperboardFillAmount; i > boardFillLimit; i--)
         {
-            cells[i].SetStatus(type);
+            cells[i - 1].SetStatus(type);
         }
         helperboardFillAmount = boardFillLimit;
     }
