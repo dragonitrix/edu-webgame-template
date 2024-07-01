@@ -23,6 +23,7 @@ public class Bingo_GameController : GameController
     public Button retryButton;
     public PopupController[] tutorialPopups;
     public Button informationButton;
+    public Transform lineGroup;
 
     [Header("Game Settings")]
     public TextMeshProUGUI titleText;
@@ -171,6 +172,10 @@ public class Bingo_GameController : GameController
         {
             item.text = "";
         }
+        foreach (Transform item in lineGroup)
+        {
+            item.gameObject.SetActive(false);
+        }
         helperboardFillAmount = 0;
     }
 
@@ -203,6 +208,7 @@ public class Bingo_GameController : GameController
         {
             default:
             case BINGO_LEVEL.ONE:
+                Debug.Log((int)currentEquation.x);
                 for (int i = 0; i < currentEquation.x; i++)
                 {
                     cells[i].SetStatus(1, false);
@@ -219,10 +225,12 @@ public class Bingo_GameController : GameController
                 //}
                 break;
             case BINGO_LEVEL.SUBONE:
+                lineGroup.GetChild((int)currentEquation.x - 1).gameObject.SetActive(true);
                 for (int i = 0; i < currentEquation.x; i++)
                 {
                     cells[i].SetStatus(1, false);
                 }
+                lineGroup.GetChild((int)currentEquation.y - 1).gameObject.SetActive(true);
                 for (int i = 10; i < 10 + currentEquation.y; i++)
                 {
                     cells[i].SetStatus(2, false);
