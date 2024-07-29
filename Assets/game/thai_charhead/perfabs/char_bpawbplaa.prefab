@@ -347,6 +347,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctStatus: 0
+  index: 
+  rectTransform: {fileID: 0}
   char_base: {fileID: 21300000, guid: 7b049b5c314482e459db6c77fc093e99, type: 3}
   char_final: {fileID: 21300000, guid: 6562da4b3bec4964a878adbb16929802, type: 3}
   charImage: {fileID: 5021750245371704978}
@@ -431,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3767910519594671477, guid: a27ddcc90a46b3b479bf6b32bb2e808b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 294.4683
       objectReference: {fileID: 0}
     - target: {fileID: 3767910519594671477, guid: a27ddcc90a46b3b479bf6b32bb2e808b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -467,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3767910519594671477, guid: a27ddcc90a46b3b479bf6b32bb2e808b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 164
+      value: 211.23419
       objectReference: {fileID: 0}
     - target: {fileID: 3767910519594671477, guid: a27ddcc90a46b3b479bf6b32bb2e808b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
