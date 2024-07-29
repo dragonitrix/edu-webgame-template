@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_bingosubt.unity
-    guid: dca5d2fd966ec3242863df0b19f51f12
+    path: Assets/Scenes/sc_menu_feel.unity
+    guid: 0576bdbb4349df04d9624b2e4b37becf
   - enabled: 1
-    path: Assets/Scenes/sc_game_bingosubt.unity
-    guid: f9995df907af7db45941c5889c70ea98
+    path: Assets/Scenes/sc_game_feelwheel.unity
+    guid: 0b2bdec3f0f26f046bbac1bdda7f4288
+  - enabled: 1
+    path: Assets/Scenes/sc_game_feeltrain.unity
+    guid: d60f9501eddcb274a89602a38a837244
+  - enabled: 1
+    path: Assets/Scenes/sc_game_feelpark.unity
+    guid: 8d7a37e8fa66efc44bae515ddb06d27d
   m_configObjects: {}
