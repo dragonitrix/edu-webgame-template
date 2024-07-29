@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ac52ff156ca1944b496445d9552f5b, type: 3}
   m_Name: feelpark_q_1
   m_EditorClassIdentifier: 
-  question: 'They feel hungry. What should he do? '
+  question: 'They feel hungry. What should they do? '
   answerPrefix: "They should \u2026"
   choices:
   - eat something

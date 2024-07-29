@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24f563bcf1b59b458b55e87992890c2, type: 3}
   m_Name: feeltrain_q_10
   m_EditorClassIdentifier: 
-  subject: We
+  subject: You
   verbs:
   - feel
   - feels
