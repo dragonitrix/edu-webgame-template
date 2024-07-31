@@ -20,6 +20,8 @@ public class Fruit_GameController : GameController
     public TextMeshProUGUI mainText;
     public RectTransform dropRect;
     public RectTransform dragRect;
+    public RectTransform matraRect;
+    public Droppable matraDrop;
 
     [Header("Setting")]
     public Vector2 dropOffset;
@@ -29,6 +31,7 @@ public class Fruit_GameController : GameController
     public int roundIndex = -1;
 
     public Fruit_Datas fruit_Datas;
+    public List<Fruit_Data> pools;
 
     public Fruit_WordData currentWord;
 
@@ -50,6 +53,10 @@ public class Fruit_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        pools = fruit_Datas.datas.ToList<Fruit_Data>();
+        pools.Shuffle();
+        matraDrop.onDropped += OnMatraDrop;
 
         SetPhase(GAME_PHASE.ROUND_START);
     }
@@ -121,7 +128,52 @@ public class Fruit_GameController : GameController
 
         InitNewWord();
 
+        matraRect.DOAnchorPosX(600, 0.2f);
     }
+    public void InitNewWord()
+    {
+        //clear old data
+        foreach (var drag in drags)
+        {
+            DestroyImmediate(drag.gameObject);
+        }
+        drags.Clear();
+
+        foreach (var drop in drops)
+        {
+            DestroyImmediate(drop.gameObject);
+        }
+        drops.Clear();
+
+        //var word = CreateWordData(fruit_Datas.datas[0]);
+
+        var word = CreateWordData(pools[0]);
+        pools.RemoveAt(0);
+
+        foreach (var dropData in word.dropDatas)
+        {
+            var clone = Instantiate(drop_prefab, dropRect);
+            clone.GetComponent<RectTransform>().anchoredPosition = dropData.pos;
+            var dropScript = clone.GetComponent<Fruit_Drop>();
+            dropScript.droppable.onDropped += OnCharDrop;
+            dropScript.text = dropData.correctChar;
+            dropScript.index = dropData.index;
+            drops.Add(dropScript);
+        }
+
+        foreach (var dragData in word.choices)
+        {
+            var clone = Instantiate(drag_prefab, dragRect);
+            var dragScript = clone.GetComponent<Fruit_Drag>();
+            dragScript.text = dragData;
+            dragScript.textMesh.text = dragData;
+            drags.Add(dragScript);
+        }
+
+        this.currentWord = word;
+
+    }
+
     public Fruit_WordData CreateWordData(Fruit_Data raw)
     {
 
@@ -156,48 +208,6 @@ public class Fruit_GameController : GameController
         return wordData;
     }
 
-    public void InitNewWord()
-    {
-
-        //clear old data
-        foreach (var drag in drags)
-        {
-            DestroyImmediate(drag.gameObject);
-        }
-        drags.Clear();
-
-        foreach (var drop in drops)
-        {
-            DestroyImmediate(drop.gameObject);
-        }
-        drops.Clear();
-
-        var word = CreateWordData(fruit_Datas.datas[0]);
-
-        foreach (var dropData in word.dropDatas)
-        {
-            var clone = Instantiate(drop_prefab, dropRect);
-            clone.GetComponent<RectTransform>().anchoredPosition = dropData.pos;
-            var dropScript = clone.GetComponent<Fruit_Drop>();
-            dropScript.droppable.onDropped += OnDrop;
-            dropScript.text = dropData.correctChar;
-            dropScript.index = dropData.index;
-            drops.Add(dropScript);
-        }
-
-        foreach (var dragData in word.choices)
-        {
-            var clone = Instantiate(drag_prefab, dragRect);
-            var dragScript = clone.GetComponent<Fruit_Drag>();
-            dragScript.text = dragData;
-            dragScript.textMesh.text = dragData;
-            drags.Add(dragScript);
-        }
-
-        this.currentWord = word;
-
-    }
-
 
     void OnEnterRoundWaiting()
     {
@@ -205,7 +215,7 @@ public class Fruit_GameController : GameController
 
     }
 
-    void OnDrop(Droppable droppable, Draggable draggable)
+    void OnCharDrop(Droppable droppable, Draggable draggable)
     {
         var dropScript = droppable.GetComponent<Fruit_Drop>();
         var dragScript = draggable.GetComponent<Fruit_Drag>();
@@ -214,11 +224,11 @@ public class Fruit_GameController : GameController
 
         if (dropScript.text == dragScript.text)
         {
-            Debug.Log("correct");
             StringBuilder sb = new(mainText.text);
             sb[dropScript.index] = dropScript.text.ToCharArray()[0];
             mainText.text = sb.ToString();
             dropScript.isCorrect = true;
+            dragScript.canvasGroup.TotalHide();
         }
 
         mainText.ForceMeshUpdate();
@@ -230,19 +240,62 @@ public class Fruit_GameController : GameController
             var pos = charInfo.bottomLeft + (Vector3)dropOffset;
             drop.GetComponent<RectTransform>().anchoredPosition = pos;
         }
+
+        //check chars correct
+        var allCorrect = true;
+        foreach (var drop in drops)
+        {
+            if (!drop.isCorrect)
+            {
+                allCorrect = false;
+                break;
+            }
+        }
+
+        if (allCorrect)
+        {
+            foreach (var drag in drags)
+            {
+                drag.canvasGroup.interactable = false;
+            }
+
+            matraRect.DOAnchorPosX(0, 0.2f);
+
+        }
+
     }
 
+    void OnMatraDrop(Droppable droppable, Draggable draggable)
+    {
+        var dragScript = draggable.GetComponent<Fruit_MatraDrag>();
+
+        if (dragScript.type == currentWord.type)
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+            {
+                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            });
+        }
+        else
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
+            {
+                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            });
+        }
+
+    }
 
     void OnEnterRoundAnswering()
     {
-        var allCorrect = CheckCorrect();
-
-    }
-
-    public bool CheckCorrect()
-    {
-        var result = true;
-        return result;
+        if (roundIndex >= fruit_Datas.datas.Length - 1)
+        {
+            FinishedGame(true, 0);
+        }
+        else
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
     }
 
 

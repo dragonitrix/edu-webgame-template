@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1331511557937893855}
   - component: {fileID: 7679876927996412711}
   - component: {fileID: 1305960598480086603}
+  - component: {fileID: 5875699283336871631}
   m_Layer: 5
   m_Name: drag
   m_TagString: Untagged
@@ -108,6 +109,18 @@ MonoBehaviour:
   draggable: {fileID: 0}
   textMesh: {fileID: 0}
   text: 
+--- !u!225 &5875699283336871631
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986198208631105618}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8244183461256766652
 GameObject:
   m_ObjectHideFlags: 0
