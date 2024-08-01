@@ -23,6 +23,10 @@ public class Fruit_GameController : GameController
     public RectTransform matraRect;
     public Droppable matraDrop;
 
+    public RectTransform fruitRect;
+    public RectTransform basketRect;
+
+
     [Header("Setting")]
     public Vector2 dropOffset;
 
@@ -41,6 +45,7 @@ public class Fruit_GameController : GameController
     public List<Fruit_Drag> drags = new List<Fruit_Drag>();
     public List<Fruit_Drop> drops = new List<Fruit_Drop>();
 
+    public int score = 0;
 
     protected override void Start()
     {
@@ -58,7 +63,15 @@ public class Fruit_GameController : GameController
         pools.Shuffle();
         matraDrop.onDropped += OnMatraDrop;
 
-        SetPhase(GAME_PHASE.ROUND_START);
+
+        tutorialPopup.Enter();
+
+        tutorialPopup.OnPopupExit += () =>
+        {
+            tutorialPopup.OnPopupExit = () => { };
+            SetPhase(GAME_PHASE.ROUND_START);
+        };
+
     }
 
 
@@ -129,6 +142,10 @@ public class Fruit_GameController : GameController
         InitNewWord();
 
         matraRect.DOAnchorPosX(600, 0.2f);
+
+        fruitRect.anchoredPosition = new Vector2(-730, 118);
+        fruitRect.localScale = Vector2.zero;
+
     }
     public void InitNewWord()
     {
@@ -221,15 +238,18 @@ public class Fruit_GameController : GameController
         var dragScript = draggable.GetComponent<Fruit_Drag>();
 
         if (dropScript.isCorrect) return;
-
-        if (dropScript.text == dragScript.text)
+        if (dropScript.text != dragScript.text)
         {
-            StringBuilder sb = new(mainText.text);
-            sb[dropScript.index] = dropScript.text.ToCharArray()[0];
-            mainText.text = sb.ToString();
-            dropScript.isCorrect = true;
-            dragScript.canvasGroup.TotalHide();
+            AudioManager.instance.PlaySound("ui_fail_1");
+            return;
         }
+
+        AudioManager.instance.PlaySound("ui_ding");
+        StringBuilder sb = new(mainText.text);
+        sb[dropScript.index] = dropScript.text.ToCharArray()[0];
+        mainText.text = sb.ToString();
+        dropScript.isCorrect = true;
+        dragScript.canvasGroup.TotalHide();
 
         mainText.ForceMeshUpdate();
         var textInfo = mainText.textInfo;
@@ -273,7 +293,9 @@ public class Fruit_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
-                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                score++;
+                TweenFruitDrop();
+                //SetPhase(GAME_PHASE.ROUND_ANSWERING);
             });
         }
         else
@@ -283,7 +305,6 @@ public class Fruit_GameController : GameController
                 SetPhase(GAME_PHASE.ROUND_ANSWERING);
             });
         }
-
     }
 
     void OnEnterRoundAnswering()
@@ -298,6 +319,28 @@ public class Fruit_GameController : GameController
         }
     }
 
+    void TweenFruitDrop()
+    {
+
+        fruitRect.anchoredPosition = new Vector2(-730, 118);
+        fruitRect.localScale = Vector2.one;
+
+        fruitRect.DOAnchorPosY(-266, 0.3f).OnComplete(() =>
+        {
+            if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
+        });
+        fruitRect.DORotate(new Vector3(0, 0, 360), 1f);
+
+        basketRect.DOScale(Vector2.one * 1.1f, 0.1f).SetDelay(0.3f).OnComplete(() =>
+            {
+                basketRect.DOScale(Vector2.one * 1f, 0.1f).OnComplete(() =>
+                {
+                    SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                });
+            }
+        );
+
+    }
 
     public enum GAME_PHASE
     {
