@@ -160,6 +160,7 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.IMG_SURE:
             case SUBGAME_INDEX.ADVENTURE:
             case SUBGAME_INDEX.JUBKUM:
+            case SUBGAME_INDEX.FRUIT:
                 JumpToGame(subgameIndex);
                 break;
             default:
