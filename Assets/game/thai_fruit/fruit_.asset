@@ -41,3 +41,55 @@ MonoBehaviour:
     mainWord: "\u0E41\u0E1C\u0E48\u0E19\u0E44\u0E21\u0E49"
     maskWord: "\u0E41\u0E1C\u0E48_\u0E44_\u0E49"
     choices: "\u0E21 \u0E17 \u0E2B \u0E19 \u0E2D"
+  - type: 1
+    mainWord: "\u0E1B\u0E32\u0E01\u0E01\u0E32"
+    maskWord: "\u0E1B\u0E32__\u0E32"
+    choices: "\u0E01 \u0E0A \u0E1E \u0E21 \u0E1D \u0E01"
+  - type: 1
+    mainWord: "\u0E2A\u0E35\u0E40\u0E21\u0E08\u0E34\u0E01"
+    maskWord: "_\u0E35\u0E40\u0E21\u0E08\u0E34_"
+    choices: "\u0E01 \u0E15 \u0E2A \u0E19 \u0E0B \u0E1E"
+  - type: 1
+    mainWord: "\u0E0A\u0E2D\u0E25\u0E4C\u0E01"
+    maskWord: "_\u0E2D\u0E25\u0E4C_"
+    choices: "\u0E01 \u0E19 \u0E22 \u0E0A \u0E1F"
+  - type: 1
+    mainWord: "\u0E2B\u0E21\u0E36\u0E01"
+    maskWord: "_\u0E21\u0E36_"
+    choices: "\u0E17 \u0E1A \u0E19 \u0E2B \u0E01"
+  - type: 1
+    mainWord: "\u0E41\u0E21\u0E47\u0E01\u0E0B\u0E4C"
+    maskWord: "\u0E41_\u0E47_\u0E0B\u0E4C"
+    choices: "\u0E21 \u0E17 \u0E1F \u0E19 \u0E2D \u0E01"
+  - type: 2
+    mainWord: "\u0E22\u0E32\u0E07\u0E25\u0E1A"
+    maskWord: "_\u0E32\u0E07\u0E25_"
+    choices: "\u0E1E \u0E19 \u0E22 \u0E0A \u0E1A"
+  - type: 2
+    mainWord: "\u0E15\u0E31\u0E27\u0E2B\u0E19\u0E35\u0E1A"
+    maskWord: "_\u0E31\u0E27\u0E2B_\u0E35_"
+    choices: "\u0E1A \u0E15 \u0E16 \u0E19 \u0E0B \u0E1E"
+  - type: 2
+    mainWord: "\u0E01\u0E1A\u0E40\u0E2B\u0E25\u0E32"
+    maskWord: "\u0E01_\u0E40\u0E2B_\u0E32"
+    choices: "\u0E17 \u0E1A \u0E19 \u0E25 \u0E1C"
+  - type: 3
+    mainWord: "\u0E08\u0E14\u0E2B\u0E21\u0E32\u0E22"
+    maskWord: "\u0E08_\u0E2B\u0E21\u0E32_"
+    choices: "\u0E01 \u0E14 \u0E16 \u0E19 \u0E22 \u0E1E"
+  - type: 3
+    mainWord: "\u0E44\u0E21\u0E49\u0E1A\u0E23\u0E23\u0E17\u0E31\u0E14"
+    maskWord: "\u0E44_\u0E49\u0E1A\u0E23\u0E23_\u0E31_"
+    choices: "\u0E21 \u0E17 \u0E14 \u0E19 \u0E2D"
+  - type: 3
+    mainWord: "\u0E25\u0E27\u0E14"
+    maskWord: "_\u0E27_"
+    choices: "\u0E14 \u0E04 \u0E08 \u0E19 \u0E25"
+  - type: 3
+    mainWord: "\u0E2A\u0E21\u0E38\u0E14"
+    maskWord: "_\u0E21\u0E38_"
+    choices: "\u0E14 \u0E15 \u0E2A \u0E19 \u0E0B"
+  - type: 3
+    mainWord: "\u0E2B\u0E21\u0E38\u0E14"
+    maskWord: "_\u0E21\u0E38_"
+    choices: "\u0E17 \u0E14 \u0E19 \u0E2B \u0E01"

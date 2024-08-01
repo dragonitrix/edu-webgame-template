@@ -26,6 +26,7 @@ public class Fruit_GameController : GameController
     public RectTransform fruitRect;
     public RectTransform basketRect;
 
+    public TextMeshProUGUI numberText;
 
     [Header("Setting")]
     public Vector2 dropOffset;
@@ -138,6 +139,8 @@ public class Fruit_GameController : GameController
         Debug.Log("round start");
 
         roundIndex = index;
+
+        numberText.text = (roundIndex + 1).ToString() + "/" + fruit_Datas.datas.Length;
 
         InitNewWord();
 
@@ -329,7 +332,7 @@ public class Fruit_GameController : GameController
         {
             if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
         });
-        fruitRect.DORotate(new Vector3(0, 0, 360), 1f);
+        fruitRect.DORotate(new Vector3(0, 0, 180), 1f);
 
         basketRect.DOScale(Vector2.one * 1.1f, 0.1f).SetDelay(0.3f).OnComplete(() =>
             {
