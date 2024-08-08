@@ -213,6 +213,13 @@ public class EngPlant1_GameController : GameController
         });
 
     }
+
+    public void ForceToNextGame()
+    {
+        // to room hidden game
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.PTW_PLANT);
+    }
+
     public enum GAME_PHASE
     {
         NULL,

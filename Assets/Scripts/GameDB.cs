@@ -29,6 +29,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.JUBKUM,"jubkumyumsup"},
         {MAINGAME_INDEX.BINGOSUBT,"bingosubt"},
         {MAINGAME_INDEX.FRUIT,"fruit"},
+        {MAINGAME_INDEX.ENG_PLANT,"eng_plant"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -63,6 +64,9 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.JUBKUM,"jubkumyumsup"},
         {SUBGAME_INDEX.BINGOSUBT,"bingosubt"},
         {SUBGAME_INDEX.FRUIT,"fruit"},
+        {SUBGAME_INDEX.ENG_PLANT_1,"eng_plant_1"},
+        {SUBGAME_INDEX.ENG_PLANT_2,"eng_plant_2"},
+        {SUBGAME_INDEX.ENG_PLANT_3,"eng_plant_3"},
     };
 
     // Singleton instance
@@ -123,7 +127,8 @@ public enum MAINGAME_INDEX
     HOBBY,
     JUBKUM,
     BINGOSUBT,
-    FRUIT
+    FRUIT,
+    ENG_PLANT,
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -158,7 +163,10 @@ public enum SUBGAME_INDEX
     HOBBY,
     JUBKUM,
     BINGOSUBT,
-    FRUIT
+    FRUIT,
+    ENG_PLANT_1,
+    ENG_PLANT_2,
+    ENG_PLANT_3,
 }
 
 public enum PLAYER_COUNT
