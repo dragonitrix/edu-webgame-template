@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabff84baa5819f45b60d5837589db7c, type: 3}
+  m_Name: engplant1_0
+  m_EditorClassIdentifier: 
+  datas:
+  - texts:
+    - carrot
+    - carrol
+  - texts:
+    - cabbage
+    - caddage
+  - texts:
+    - corn
+    - garlic
+  - texts:
+    - onion
+    - chili
+  - texts:
+    - garlic
+    - gartic
+  - texts:
+    - pumpkin
+    - qumqin
+  - texts:
+    - coriander
+    - cabbage
+  - texts:
+    - tomato
+    - carrot
+  - texts:
+    - lettuce
+    - telluce
+  - texts:
+    - chili
+    - chiti
