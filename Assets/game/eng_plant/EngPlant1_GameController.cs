@@ -217,7 +217,7 @@ public class EngPlant1_GameController : GameController
     public void ForceToNextGame()
     {
         // to room hidden game
-        GameManager.instance.SetTargetGame(SUBGAME_INDEX.PTW_PLANT);
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_PLANT_2);
     }
 
     public enum GAME_PHASE

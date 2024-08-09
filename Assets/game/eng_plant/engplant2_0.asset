@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e4da1d6338da74ebf03809bbaa0e37, type: 3}
+  m_Name: engplant2_0
+  m_EditorClassIdentifier: 
+  datas:
+  - mainWord: It is a chili .
+    maskWord: It is a __i__ .
+    choices: hcil
+  - mainWord: It is a lettuce .
+    maskWord: It is a __t___e .
+    choices: ectlu
+  - mainWord: It is a corn .
+    maskWord: It is a ____ .
+    choices: rcno
+  - mainWord: It is a pumpkin .
+    maskWord: It is a ___p___ .
+    choices: nipkmu
+  - mainWord: It is an onion .
+    maskWord: It is an _____ .
+    choices: innoo
+  - mainWord: It is a tomato .
+    maskWord: It is a _o__t_ .
+    choices: amot
+  - mainWord: It is a coriander  .
+    maskWord: It is a ___i___er .
+    choices: oacnrd
+  - mainWord: It is a carrot .
+    maskWord: It is a __r___ .
+    choices: aoctr
