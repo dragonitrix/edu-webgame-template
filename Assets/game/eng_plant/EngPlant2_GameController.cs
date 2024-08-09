@@ -169,6 +169,7 @@ public class EngPlant2_GameController : GameController
         wordGameRect.blocksRaycasts = true;
 
         wordImage.sprite = spriteKeyValuePairs["02-" + (roundIndex + 1).ToString("00")];
+        wordImage.SetNativeSize();
 
         InitNewWord(roundIndex);
 
@@ -375,7 +376,7 @@ public class EngPlant2_GameController : GameController
     public void ForceToNextGame()
     {
         // to room hidden game
-        GameManager.instance.SetTargetGame(SUBGAME_INDEX.PTW_PLANT);
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_PLANT_3);
     }
 
     public enum GAME_PHASE

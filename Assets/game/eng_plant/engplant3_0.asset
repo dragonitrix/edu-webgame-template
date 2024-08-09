@@ -19,7 +19,7 @@ MonoBehaviour:
     - onion
     - coriander
     - pumpkin
-  - mainWord: She wants a onion and pumpkin .
+  - mainWord: She wants a garlic and pumpkin .
     maskWord: She wants a ___ and ___ .
     choices:
     - garlic

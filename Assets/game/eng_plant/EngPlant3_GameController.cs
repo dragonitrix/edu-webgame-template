@@ -319,13 +319,6 @@ public class EngPlant3_GameController : GameController
 
         foreach (var drop in drops)
         {
-            //var charInfo = textInfo.characterInfo[drop.index];
-            //var pos = charInfo.bottomLeft + (Vector3)dropOffset;
-            //drop.GetComponent<RectTransform>().anchoredPosition = pos;
-        }
-
-        foreach (var drop in drops)
-        {
             if (drop.index >= dropScript.index) drop.index--;
             if (drop.index < 0) continue;
 
@@ -380,7 +373,10 @@ public class EngPlant3_GameController : GameController
                 drag.canvasGroup.interactable = false;
             }
 
-            SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            DoDelayAction(0.5f, () =>
+            {
+                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            });
 
         }
 
@@ -393,17 +389,22 @@ public class EngPlant3_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        mainImage.rectTransform.DOAnchorPosX(-2000, 0.3f).OnComplete(() =>
+        AudioManager.instance.StopSound("ui_ding");
+        SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
         {
-            if (roundIndex >= engPlant3_Datas.datas.Length - 1)
+            mainImage.rectTransform.DOAnchorPosX(-2000, 0.5f).OnComplete(() =>
             {
-                FinishedGame(true, 0);
-            }
-            else
-            {
-                SetPhase(GAME_PHASE.ROUND_START);
-            }
+                if (roundIndex >= engPlant3_Datas.datas.Length - 1)
+                {
+                    FinishedGame(true, 0);
+                }
+                else
+                {
+                    SetPhase(GAME_PHASE.ROUND_START);
+                }
+            });
         });
+
 
     }
 
