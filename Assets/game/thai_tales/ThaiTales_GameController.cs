@@ -18,7 +18,6 @@ public class ThaiTales_GameController : GameController
 
 
     [Header("Obj ref")]
-
     public PopupController[] talesPopups;
     public CanvasGroup doorRect;
     public Button doorA;
@@ -26,6 +25,15 @@ public class ThaiTales_GameController : GameController
     public CanvasGroup gameRect;
     public TextMeshProUGUI questionText;
     public RectTransform choicesRect;
+    public CanvasGroup safeRect;
+    public RectTransform[] digits;
+
+
+    public CanvasGroup rewardRect;
+    public CanvasGroup safe_close;
+    public CanvasGroup safe_open;
+    public RectTransform reward;
+    public RectTransform fail;
 
 
     [Header("Setting")]
@@ -82,6 +90,7 @@ public class ThaiTales_GameController : GameController
 
         HideDoors();
         HideQuestion();
+        HidePassword();
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -131,6 +140,21 @@ public class ThaiTales_GameController : GameController
         });
     }
 
+    void ShowPassword()
+    {
+        safeRect.TotalHide();
+        safeRect.DOFade(1, 0.5f).OnComplete(() =>
+        {
+            safeRect.TotalShow();
+        });
+    }
+    void HidePassword()
+    {
+        safeRect.TotalHide();
+        safeRect.DOFade(0, 0.5f).From(1).OnComplete(() =>
+        {
+        });
+    }
 
     public GAME_PHASE gamePhase = GAME_PHASE.NULL;
 
@@ -189,6 +213,7 @@ public class ThaiTales_GameController : GameController
             currentTale = tales_Datas[talesIndex];
             talesPopups[talesIndex].Enter();
             roundIndex = -1;
+            ResetPassword();
         }
         ShowDoors();
         //NewRound(roundIndex + 1);
@@ -237,20 +262,96 @@ public class ThaiTales_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        HideQuestion();
 
-        // if (roundIndex >= fruit_Datas.datas.Length - 1)
-        // {
-        //     FinishedGame(true, 0);
-        // }
-        // else
-        // {
-        SetPhase(GAME_PHASE.ROUND_START);
-        // }
+        if (roundIndex >= currentTale.datas.Length - 1)
+        {
+            // show reward
+            var correctCount = 0;
+
+            foreach (var digit in digits)
+            {
+                var text = digit.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text;
+
+                if (text == "1")
+                {
+                    digit.DOScale(0, 0.3f).OnComplete(() =>
+                    {
+                        ColorUtility.TryParseHtmlString("#35D977", out Color color);
+                        digit.GetComponent<Image>().color = color;
+                        digit.DOScale(1, 0.3f);
+                    });
+                    correctCount++;
+                }
+            }
+
+            DoDelayAction(1f, () =>
+            {
+                HidePassword();
+                rewardRect.alpha = 1;
+                safe_close.alpha = 0;
+                safe_open.alpha = 0;
+                reward.localScale = Vector3.zero;
+                fail.localScale = Vector3.zero;
+                if (correctCount >= 4)
+                {
+
+                    safe_close.DOFade(1f, 0.5f).OnComplete(() =>
+                    {
+                        safe_close.DOFade(0f, 1f).SetDelay(1f);
+                        safe_open.DOFade(1f, 1f).SetDelay(1f).OnComplete(() =>
+                        {
+                            DoDelayAction(1f, () =>
+                            {
+                                AudioManager.instance.PlaySound("ui_win_2");
+                                reward.DOScale(1, 0.5f).OnComplete(() =>
+                                {
+                                    DoDelayAction(1f, () =>
+                                    {
+                                        rewardRect.alpha = 1;
+                                        safe_close.alpha = 0;
+                                        safe_open.alpha = 0;
+                                        reward.localScale = Vector3.zero;
+                                        SetPhase(GAME_PHASE.ROUND_START);
+                                    });
+                                });
+                            });
+                        });
+                    });
+                }
+                else
+                {
+                    safe_close.DOFade(1f, 0.5f).SetDelay(1f).OnComplete(() =>
+                    {
+                        DoDelayAction(1f, () =>
+                        {
+                            AudioManager.instance.PlaySound("ui_fail_1");
+                            fail.DOScale(1, 0.5f).SetDelay(1f).OnComplete(() =>
+                            {
+                                DoDelayAction(1f, () =>
+                                {
+                                    rewardRect.alpha = 1;
+                                    safe_close.alpha = 0;
+                                    safe_open.alpha = 0;
+                                    fail.localScale = Vector3.zero;
+                                    SetPhase(GAME_PHASE.ROUND_START);
+                                });
+                            });
+                        });
+                    });
+                }
+            });
+
+        }
+        else
+        {
+            HidePassword();
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
     }
 
     void OnDoorClick(int index)
     {
+        AudioManager.instance.PlaySound("ui_click_1");
         HideDoors();
         var type = index;
         NewRound(roundIndex + 1, type);
@@ -264,18 +365,61 @@ public class ThaiTales_GameController : GameController
             //correct
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
-                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                //SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                SetPasswordScore(true);
             });
         }
         else
         {
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
-                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                //SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                SetPasswordScore(false);
             });
         }
 
     }
+
+    public void SetPasswordScore(bool val)
+    {
+        HideQuestion();
+        ShowPassword();
+        DoDelayAction(1f, () =>
+        {
+            var digit = digits[roundIndex];
+            digit.DOScale(0, 0.3f).OnComplete(() =>
+            {
+                if (val)
+                {
+                    AudioManager.instance.PlaySound("ui_ding");
+                }
+                else
+                {
+                    AudioManager.instance.PlaySound("ui_fail_1");
+                }
+
+                digit.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = val ? 1.ToString() : 0.ToString();
+                digit.DOScale(1, 0.3f).OnComplete(() =>
+                {
+                    DoDelayAction(1f, () =>
+                    {
+                        SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                    });
+                });
+            });
+        });
+    }
+
+    public void ResetPassword()
+    {
+        foreach (var digit in digits)
+        {
+            digit.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-";
+            ColorUtility.TryParseHtmlString("#2B2B2B", out Color color);
+            digit.GetComponent<Image>().color = color;
+        }
+    }
+
     public enum GAME_PHASE
     {
         NULL,
