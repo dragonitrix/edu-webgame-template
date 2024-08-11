@@ -34,7 +34,7 @@ public class ThaiTales_GameController : GameController
     public CanvasGroup safe_open;
     public RectTransform reward;
     public RectTransform fail;
-
+    public TextMeshProUGUI resultText;
 
     [Header("Setting")]
 
@@ -207,7 +207,7 @@ public class ThaiTales_GameController : GameController
     void OnEnterRoundStart()
     {
 
-        if (currentTale == null || roundIndex >= currentTale.datas.Length)
+        if (currentTale == null || roundIndex >= currentTale.datas.Length - 1)
         {
             talesIndex++;
             currentTale = tales_Datas[talesIndex];
@@ -311,7 +311,16 @@ public class ThaiTales_GameController : GameController
                                         safe_close.alpha = 0;
                                         safe_open.alpha = 0;
                                         reward.localScale = Vector3.zero;
-                                        SetPhase(GAME_PHASE.ROUND_START);
+                                        score += 2;
+                                        if (talesIndex >= tales_Datas.Length - 1)
+                                        {
+                                            resultText.text = "สำเร็จ\nได้รับทอง " + score.ToString() + " แท่ง";
+                                            FinishedGame(true, 0);
+                                        }
+                                        else
+                                        {
+                                            SetPhase(GAME_PHASE.ROUND_START);
+                                        }
                                     });
                                 });
                             });
@@ -333,7 +342,15 @@ public class ThaiTales_GameController : GameController
                                     safe_close.alpha = 0;
                                     safe_open.alpha = 0;
                                     fail.localScale = Vector3.zero;
-                                    SetPhase(GAME_PHASE.ROUND_START);
+                                    if (talesIndex >= tales_Datas.Length - 1)
+                                    {
+                                        resultText.text = "สำเร็จ\nได้รับทอง " + score.ToString() + " แท่ง";
+                                        FinishedGame(true, 0);
+                                    }
+                                    else
+                                    {
+                                        SetPhase(GAME_PHASE.ROUND_START);
+                                    }
                                 });
                             });
                         });
