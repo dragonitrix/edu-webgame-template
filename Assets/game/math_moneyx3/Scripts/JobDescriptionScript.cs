@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "JobDescription", menuName = "ScriptableObjects/MoneyMoneyMoney", order = 1)]
+[CreateAssetMenu(fileName = "JobDescription", menuName = "Math/ScriptableObjects/MoneyMoneyMoney", order = 1)]
 public class JobDescriptionScript : ScriptableObject
 {
     public string index;

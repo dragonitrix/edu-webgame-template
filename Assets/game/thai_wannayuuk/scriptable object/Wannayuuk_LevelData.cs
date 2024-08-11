@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "wannayuuk_level_0", menuName = "wannayuuk/LevelData")]
+[CreateAssetMenu(fileName = "wannayuuk_level_0", menuName = "Thai/wannayuuk/LevelData")]
 public class Wannayuuk_LevelData : ScriptableObject
 {
     public Wannayuuk_RoundData[] roundDatas;

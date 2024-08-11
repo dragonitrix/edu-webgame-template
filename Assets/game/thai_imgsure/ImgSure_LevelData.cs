@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "imgSure_level_0", menuName = "imgSure/LevelData")]
+[CreateAssetMenu(fileName = "imgSure_level_0", menuName = "Thai/imgSure/LevelData")]
 public class ImgSure_LevelData : ScriptableObject
 {
     public ImgSure_RoundData[] rounds;

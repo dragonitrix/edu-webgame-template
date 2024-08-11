@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "AdventureFourQuestion", menuName = "adventure/AdventureFourQuestionScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "AdventureFourQuestion", menuName = "Eng/adventure/AdventureFourQuestionScriptableObject", order = 1)]
 public class AdventureLevelFourQuestionScriptableObject : ScriptableObject
 {
     public List<AdventureLevelFourQuestion> questions;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ptw_level_0", menuName = "ptw/LevelData")]
+[CreateAssetMenu(fileName = "ptw_level_0", menuName = "Thai/ptw/LevelData")]
 public class PTW_LeveData : ScriptableObject
 {
     public PTW_Data[] datas;

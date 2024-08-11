@@ -31,6 +31,10 @@ public class PageController : MonoBehaviour
 
     public bool forwardOnly = false;
 
+
+    public delegate void OnFinalPageDelegate();
+    public OnFinalPageDelegate onFinalPage = () => { };
+
     void Awake()
     {
         // fetch all pages to list
@@ -85,6 +89,7 @@ public class PageController : MonoBehaviour
         tween.OnComplete(() =>
         {
             isChanging = false;
+            if (currentPage == pages.Count - 1) onFinalPage();
         });
 
         // update button status and indicator

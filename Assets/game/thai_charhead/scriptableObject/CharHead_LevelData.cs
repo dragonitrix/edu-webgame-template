@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "charHead_level_0", menuName = "charHead/LevelData")]
+[CreateAssetMenu(fileName = "charHead_level_0", menuName = "Thai/charHead/LevelData")]
 public class CharHead_LevelData : ScriptableObject
 {
     public CharHead_RoundData[] rounds;

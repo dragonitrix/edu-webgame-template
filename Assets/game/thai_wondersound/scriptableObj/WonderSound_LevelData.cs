@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "wonderSound_level_0", menuName = "wonderSound/LevelData")]
+[CreateAssetMenu(fileName = "wonderSound_level_0", menuName = "Thai/wonderSound/LevelData")]
 public class WonderSound_LevelData : ScriptableObject
 {
     public WonderSound_RoundData[] rounds;

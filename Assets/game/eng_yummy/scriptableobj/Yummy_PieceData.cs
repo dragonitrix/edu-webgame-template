@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "yummy_piece_0", menuName = "yummy/PieceData")]
+[CreateAssetMenu(fileName = "yummy_piece_0", menuName = "Eng/yummy/PieceData")]
 public class Yummy_PieceData : ScriptableObject
 {
     public string correctWord;

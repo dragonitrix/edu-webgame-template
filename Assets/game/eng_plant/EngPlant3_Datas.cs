@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "engplant3_0", menuName = "EngPlant/03")]
+[CreateAssetMenu(fileName = "engplant3_0", menuName = "Eng/EngPlant/03")]
 public class EngPlant3_Datas : ScriptableObject
 {
     public EngPlant3_Data[] datas;

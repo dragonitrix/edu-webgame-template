@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HowmuchQuestion", menuName = "howmuch/HowmuchQuestionScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "HowmuchQuestion", menuName = "Math/howmuch/HowmuchQuestionScriptableObject", order = 1)]
 public class HowmuchQuestionScriptableObject : ScriptableObject
 {
     public List<HowmuchQuestion> questions;

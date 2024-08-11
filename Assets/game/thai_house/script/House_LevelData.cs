@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "house_level_0", menuName = "house/LevelData")]
+[CreateAssetMenu(fileName = "house_level_0", menuName = "Thai/house/LevelData")]
 public class House_LevelData : ScriptableObject
 {
     public string[] houseTexts;

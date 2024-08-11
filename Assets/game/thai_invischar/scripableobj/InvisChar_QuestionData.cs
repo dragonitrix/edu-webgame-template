@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "invisChar_q0", menuName = "invisChar/QuestionData")]
+[CreateAssetMenu(fileName = "invisChar_q0", menuName = "Thai/invisChar/QuestionData")]
 public class InvisChar_QuestionData : ScriptableObject
 {
     public string fulltext = "";

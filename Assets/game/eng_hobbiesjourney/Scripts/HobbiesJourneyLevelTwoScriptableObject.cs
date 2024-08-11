@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HobbiesTwoQuestion", menuName = "hobbiesjourney/HobbiesTwoQuestionScriptableObject", order = 2)]
+[CreateAssetMenu(fileName = "HobbiesTwoQuestion", menuName = "Eng/hobbiesjourney/HobbiesTwoQuestionScriptableObject", order = 2)]
 public class HobbiesJourneyLevelTwoScriptableObject : ScriptableObject
 {
     public List<HobbiesJourneyLevelTwoQuestion> questions;

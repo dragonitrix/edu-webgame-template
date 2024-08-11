@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "feelpark_q_0", menuName = "feelpark/Data")]
+[CreateAssetMenu(fileName = "feelpark_q_0", menuName = "Eng/feelpark/Data")]
 public class FeelPark_Data : ScriptableObject
 {
     public string question;
