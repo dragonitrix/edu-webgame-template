@@ -41,7 +41,6 @@ public class ThaiTales_GameController : GameController
     [Header("Data")]
 
     public int talesIndex = 0;
-
     public int roundIndex = -1;
 
     public ThaiTales_Datas[] tales_Datas;
@@ -54,6 +53,8 @@ public class ThaiTales_GameController : GameController
     List<ThaiTales_Choice> choices = new();
 
     public int score = 0;
+
+    bool isAnswering = false;
 
     protected override void Start()
     {
@@ -252,6 +253,7 @@ public class ThaiTales_GameController : GameController
 
         ShowQuestion();
         SetPhase(GAME_PHASE.ROUND_WAITING);
+        isAnswering = false;
     }
 
     void OnEnterRoundWaiting()
@@ -376,6 +378,8 @@ public class ThaiTales_GameController : GameController
 
     public void OnChoiceClick(ThaiTales_Choice choice)
     {
+        if (isAnswering) return;
+        isAnswering = true;
 
         if (choice.index == 0)
         {
