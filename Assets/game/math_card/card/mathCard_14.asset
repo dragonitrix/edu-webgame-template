@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99bf0eff3d27c084b95b85e46f76f564, type: 3}
-  m_Name: mathCard_2
+  m_Name: mathCard_14
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 3b2b8a467ef68504e934db92bfd16cb7, type: 3}
-  type: 0
+  sprite: {fileID: 21300000, guid: 2fbd583cc3ed88f4abeaefe0b88d7661, type: 3}
+  type: 3
   value: 1
