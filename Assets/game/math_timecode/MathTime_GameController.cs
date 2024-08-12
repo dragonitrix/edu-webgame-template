@@ -122,6 +122,11 @@ public class MathTime_GameController : GameController
         // }
     }
 
+    public void OnSegmentClick(MathTime_Segment segment)
+    {
+        Debug.Log("segment click: " + segment.levelIndex + " " + segment.roundIndex);
+    }
+
     public enum GAME_PHASE
     {
         NULL,
