@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d971f9b58ba148b4dbb7444fcc5feba5, type: 3}
+  m_Name: EngTrash3_
+  m_EditorClassIdentifier: 
+  datas:
+  - mainWord: It is a round yellow battery .
+    maskWord: It is a ___ ___ battery .
+    choices: 'round yellow brown square '
+  - mainWord: It is a green glass bottle .
+    maskWord: It is a ___ ___ bottle .
+    choices: 'green glass plastic blue '
+  - mainWord: It is a round metal can .
+    maskWord: It is a ___ ___ can .
+    choices: 'round metal wood triangle '
+  - mainWord: It is a red plastic chopsticks .
+    maskWord: It is a ___ ___ chopsticks .
+    choices: 'red plastic green paper '
+  - mainWord: It is a square brown paper box .
+    maskWord: It is a ___ ___ ___ ___ .
+    choices: 'square brown paper box   '
+  - mainWord: It is a rectangle blue plastic bag .
+    maskWord: It is a ___ ___ ___ ___ .
+    choices: 'rectangle blue plastic bag   '

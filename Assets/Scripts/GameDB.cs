@@ -70,9 +70,10 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.ENG_PLANT_2,"eng_plant_2"},
         {SUBGAME_INDEX.ENG_PLANT_3,"eng_plant_3"},
         {SUBGAME_INDEX.THAI_TALES,"thai_tales"},
-        {SUBGAME_INDEX.ENG_TRASH1,"eng_trash1"},
-        {SUBGAME_INDEX.ENG_TRASH2,"eng_trash2"},
-        {SUBGAME_INDEX.ENG_TRASH3,"eng_trash3"},
+        {SUBGAME_INDEX.ENG_TRASH1,"eng_trash_1"},
+        {SUBGAME_INDEX.ENG_TRASH2,"eng_trash_2"},
+        {SUBGAME_INDEX.ENG_TRASH3,"eng_trash_3"},
+        {SUBGAME_INDEX.ENG_TRASH4,"eng_trash_3"},
     };
 
     // Singleton instance
@@ -179,6 +180,7 @@ public enum SUBGAME_INDEX
     ENG_TRASH1,
     ENG_TRASH2,
     ENG_TRASH3,
+    ENG_TRASH4,
 }
 
 public enum PLAYER_COUNT
