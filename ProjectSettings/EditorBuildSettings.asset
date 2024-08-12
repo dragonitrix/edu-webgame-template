@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_thai_tales.unity
-    guid: bab605c488cc98e4fa4ab39b5439f227
+    path: Assets/Scenes/sc_menu_eng_trash.unity
+    guid: 9f658730563be4d44a43b72e4161a2ab
   - enabled: 1
-    path: Assets/Scenes/sc_game_thai_tales.unity
-    guid: f7267c86327e0444c93fc638320bb718
+    path: Assets/Scenes/sc_game_eng_trash_1.unity
+    guid: 45b138608ec55144e8d3c1120ba12c6c
+  - enabled: 1
+    path: Assets/Scenes/sc_game_eng_trash_2.unity
+    guid: a563d79adec12e84d87c9171758581f6
+  - enabled: 1
+    path: Assets/Scenes/sc_game_eng_trash_3.unity
+    guid: b5a78c063980fa84790c91de6b2b1b5b
+  - enabled: 1
+    path: Assets/Scenes/sc_game_eng_trash_4.unity
+    guid: df5157c4f05bce24a80efe0b67344fe3
   m_configObjects: {}

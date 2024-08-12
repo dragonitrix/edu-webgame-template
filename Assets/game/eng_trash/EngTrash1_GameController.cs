@@ -38,6 +38,8 @@ public class EngTrash1_GameController : GameController
 
     public List<EngTrash1_Choice> choices = new();
 
+    bool isAnswering = false;
+
     protected override void Start()
     {
         base.Start();
@@ -189,6 +191,7 @@ public class EngTrash1_GameController : GameController
                     {
                         ShowScene(Mathf.FloorToInt((roundIndex + 1) / 4));
                     }
+                    isAnswering = false;
                     SetPhase(GAME_PHASE.ROUND_START);
                 }
             });
@@ -228,6 +231,8 @@ public class EngTrash1_GameController : GameController
     public void OnChoiceClick(EngTrash1_Choice choice)
     {
         if (gamePhase != GAME_PHASE.ROUND_WAITING) return;
+        if (isAnswering) return;
+        isAnswering = true;
         if (choice.index == 0)
         {
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
@@ -241,6 +246,7 @@ public class EngTrash1_GameController : GameController
 
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
+                isAnswering = false;
                 SetPhase(GAME_PHASE.ROUND_WAITING);
             });
         }

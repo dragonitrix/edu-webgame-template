@@ -162,6 +162,7 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.JUBKUM:
             case SUBGAME_INDEX.FRUIT:
             case SUBGAME_INDEX.ENG_PLANT_1:
+            case SUBGAME_INDEX.ENG_TRASH1:
                 JumpToGame(subgameIndex);
                 break;
             default:
