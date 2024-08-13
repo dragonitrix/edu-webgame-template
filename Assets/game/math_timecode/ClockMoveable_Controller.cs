@@ -17,6 +17,28 @@ public class ClockMoveable_Controller : MonoBehaviour
 
     RectTransform rt;
 
+    int markerIndex = 0;
+    public CanvasGroup[] markers;
+    public string timeString = "00:00:00";
+
+    public void SetMarker(int index)
+    {
+        if (index < 0 || index >= markers.Length) return;
+        markerIndex = index;
+        foreach (var marker in markers)
+        {
+            marker.alpha = 0;
+        }
+        markers[index].alpha = 1;
+    }
+
+    public void SwitchMarker()
+    {
+        markerIndex++;
+        if (markerIndex >= markers.Length) markerIndex -= markers.Length;
+        SetMarker(markerIndex);
+    }
+
     void Awake()
     {
         rt = GetComponent<RectTransform>();
@@ -24,7 +46,7 @@ public class ClockMoveable_Controller : MonoBehaviour
 
     void Start()
     {
-
+        SetMarker(0);
     }
 
     void Update()
@@ -85,7 +107,7 @@ public class ClockMoveable_Controller : MonoBehaviour
     void UpdateTime()
     {
         var timeString = hour.ToString("00") + ":" + minute.ToString("00") + ":00";
-        Debug.Log(timeString);
+        this.timeString = timeString;
     }
 
     float GetArmAngle(int step, int position)
