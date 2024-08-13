@@ -19,13 +19,12 @@ public class MathTime_GameController : GameController
     public MathTime_Game[] games;
 
     [Header("Setting")]
+    public RectTransform segmentRect;
 
     [Header("Data")]
-
     public int roundIndex = 0;
-
     public MathTime_Segment currentSegment;
-
+    public List<MathTime_Segment> segments = new();
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
 
@@ -50,13 +49,16 @@ public class MathTime_GameController : GameController
             game.canvasGroup.TotalHide();
         }
 
-        tutorialPopup.Enter();
-        tutorialPopup.OnPopupExit += () =>
-        {
-            tutorialPopup.OnPopupExit = () => { };
-            SetPhase(GAME_PHASE.ROUND_START);
-        };
+        segments = segmentRect.GetComponentsInChildren<MathTime_Segment>().ToList<MathTime_Segment>();
 
+        // tutorialPopup.Enter();
+        // tutorialPopup.OnPopupExit += () =>
+        // {
+        //     tutorialPopup.OnPopupExit = () => { };
+        //     SetPhase(GAME_PHASE.ROUND_START);
+        // };
+
+        SetPhase(GAME_PHASE.ROUND_START);
     }
 
 
@@ -124,14 +126,14 @@ public class MathTime_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        // if (CheckAllCorrect())
-        // {
-        //     FinishedGame(true, 0);
-        // }
-        // else
-        // {
-        //     SetPhase(GAME_PHASE.ROUND_START);
-        // }
+        if (CheckAllCorrect())
+        {
+            FinishedGame(true, 0);
+        }
+        else
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
     }
 
     public void OnSubGameAnswerCorrect()
@@ -139,6 +141,21 @@ public class MathTime_GameController : GameController
         currentSegment.SetCorrect();
 
         //check all correct here
+    }
+
+    bool CheckAllCorrect()
+    {
+
+        var allCorrect = true;
+        foreach (var segment in segments)
+        {
+            if (!segment.isCorrect)
+            {
+                allCorrect = false;
+                break;
+            }
+        }
+        return allCorrect;
     }
 
     public void OnSegmentClick(MathTime_Segment segment)

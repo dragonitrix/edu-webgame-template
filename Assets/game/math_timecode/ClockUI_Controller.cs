@@ -14,6 +14,8 @@ public class ClockUI_Controller : MonoBehaviour
 
     public string timeString = "00:00:00";
 
+    public bool mock = false;
+
     public void SetMarker(int index)
     {
         if (index < 0 || index >= markers.Length) return;
@@ -35,6 +37,10 @@ public class ClockUI_Controller : MonoBehaviour
     void Start()
     {
         SetMarker(0);
+        if (mock)
+        {
+            SetClock(timeString);
+        }
     }
 
     public void SetClock(string timer)

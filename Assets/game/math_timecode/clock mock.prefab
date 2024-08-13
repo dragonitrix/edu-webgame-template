@@ -22586,7 +22586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2168607488870301670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25656,7 +25656,7 @@ GameObject:
   - component: {fileID: 5571218113761093482}
   - component: {fileID: 6935771981286867665}
   m_Layer: 5
-  m_Name: clock UI
+  m_Name: clock mock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25753,7 +25753,7 @@ MonoBehaviour:
   - {fileID: 2748987534636366966}
   - {fileID: 5589627708220186889}
   timeString: 00:00:00
-  mock: 0
+  mock: 1
 --- !u!1 &7800371152935272528
 GameObject:
   m_ObjectHideFlags: 0
