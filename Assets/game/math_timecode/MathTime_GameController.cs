@@ -141,6 +141,7 @@ public class MathTime_GameController : GameController
         currentSegment.SetCorrect();
 
         //check all correct here
+        SetPhase(GAME_PHASE.ROUND_ANSWERING);
     }
 
     bool CheckAllCorrect()
