@@ -12,7 +12,7 @@ public class ThaiSubject_Drag : MonoBehaviour
 
     void Awake()
     {
-        image = transform.GetChild(0).GetComponent<Image>();
+        if (transform.childCount > 0) image = transform.GetChild(0).GetComponent<Image>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
