@@ -33,6 +33,7 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.THAI_TALES,"thai_tales"},
         {MAINGAME_INDEX.ENG_TRASH,"eng_trash"},
         {MAINGAME_INDEX.MATH_TIME,"math_time"},
+        {MAINGAME_INDEX.THAI_SUBJECT,"thai_subject"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -76,6 +77,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.ENG_TRASH3,"eng_trash_3"},
         {SUBGAME_INDEX.ENG_TRASH4,"eng_trash_3"},
         {SUBGAME_INDEX.MATH_TIME,"math_time"},
+        {SUBGAME_INDEX.THAI_SUBJECT_1,"thai_subject_1"},
+        {SUBGAME_INDEX.THAI_SUBJECT_2,"thai_subject_2"},
     };
 
     // Singleton instance
@@ -141,6 +144,7 @@ public enum MAINGAME_INDEX
     THAI_TALES,
     ENG_TRASH,
     MATH_TIME,
+    THAI_SUBJECT,
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -185,6 +189,8 @@ public enum SUBGAME_INDEX
     ENG_TRASH3,
     ENG_TRASH4,
     MATH_TIME,
+    THAI_SUBJECT_1,
+    THAI_SUBJECT_2,
 }
 
 public enum PLAYER_COUNT
