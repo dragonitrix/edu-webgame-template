@@ -9,10 +9,32 @@ public class ClockUI_Controller : MonoBehaviour
     public RectTransform hourArm;
     public RectTransform minuteArm;
     public RectTransform secondArm;
+    int markerIndex = 0;
+    public CanvasGroup[] markers;
+
+    public string timeString = "00:00:00";
+
+    public void SetMarker(int index)
+    {
+        if (index < 0 || index >= markers.Length) return;
+        markerIndex = index;
+        foreach (var marker in markers)
+        {
+            marker.alpha = 0;
+        }
+        markers[index].alpha = 1;
+    }
+
+    public void SwitchMarker()
+    {
+        markerIndex++;
+        if (markerIndex >= markers.Length) markerIndex -= markers.Length;
+        SetMarker(markerIndex);
+    }
 
     void Start()
     {
-        SetClock("07:42:10");
+        SetMarker(0);
     }
 
     public void SetClock(string timer)
@@ -32,7 +54,9 @@ public class ClockUI_Controller : MonoBehaviour
         hourArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(12, hour) - 90);
         minuteArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(60, minute) - 90);
         secondArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(60, second) - 90);
-        Debug.Log(hour + ":" + minute + ":" + second);
+
+        timeString = hour + ":" + minute + ":" + second;
+
     }
 
     List<int> ParsedTimer(string[] timers)

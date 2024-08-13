@@ -8,17 +8,23 @@ using TransitionsPlus;
 using DG.Tweening;
 using UnityEngine.Events;
 using System.Text;
+using System;
 public class MathTime_GameController : GameController
 {
     [Header("Prefab")]
-    [Header("Obj ref")]
 
+
+
+    [Header("Obj ref")]
+    public MathTime_Game[] games;
 
     [Header("Setting")]
 
     [Header("Data")]
 
     public int roundIndex = 0;
+
+    public MathTime_Segment currentSegment;
 
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
@@ -30,6 +36,7 @@ public class MathTime_GameController : GameController
     {
         base.Start();
         if (GameManager.instance == null) InitGame(0, PLAYER_COUNT._1_PLAYER);
+
     }
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
@@ -37,6 +44,11 @@ public class MathTime_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        foreach (var game in games)
+        {
+            game.canvasGroup.TotalHide();
+        }
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -122,9 +134,22 @@ public class MathTime_GameController : GameController
         // }
     }
 
+    public void OnSubGameAnswerCorrect()
+    {
+        currentSegment.SetCorrect();
+
+        //check all correct here
+    }
+
     public void OnSegmentClick(MathTime_Segment segment)
     {
-        Debug.Log("segment click: " + segment.levelIndex + " " + segment.roundIndex);
+        if (segment.isCorrect) return;
+        if (segment.levelIndex >= games.Length) return;
+        //Debug.Log("segment click: " + segment.levelIndex + " " + segment.roundIndex);
+
+        currentSegment = segment;
+        games[segment.levelIndex].Enter();
+
     }
 
     public enum GAME_PHASE
