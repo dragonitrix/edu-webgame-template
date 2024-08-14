@@ -18,6 +18,7 @@ public class ThaiLeadword_GameController : GameController
     public GameObject drop_down_prefab;
 
     [Header("Obj ref")]
+    public CanvasGroup miniIntro;
     public RectTransform dragRect_main_char;
     public RectTransform dragRect_main_sara;
     public RectTransform dragRect_char;
@@ -29,7 +30,14 @@ public class ThaiLeadword_GameController : GameController
     public RectTransform hintPanel;
     public Image hintImage;
 
+    public GameObject menuBtn;
+    public GameObject nextBtn;
+    public GameObject retryBtn;
+
+    public RectTransform[] hearts;
+
     [Header("Setting")]
+    public string levelID = "01";
     public Vector2 charSize = new Vector2(130, 200);
     public float padding = 50;
     public float spacing = 30;
@@ -65,19 +73,23 @@ public class ThaiLeadword_GameController : GameController
 
     public override void InitGame(int gameLevel, PLAYER_COUNT playerCount)
     {
-
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
-
+        miniIntro.TotalShow();
         hintPanel.DOAnchorPosY(2000, 0);
-
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
         {
             tutorialPopup.OnPopupExit = () => { };
-            SetPhase(GAME_PHASE.ROUND_START);
+            DoDelayAction(1f, () =>
+            {
+                SetPhase(GAME_PHASE.ROUND_START);
+                miniIntro.DOFade(0, 1f).OnComplete(() =>
+                {
+                    miniIntro.TotalHide();
+                });
+            });
         };
-
     }
 
 
@@ -168,11 +180,15 @@ public class ThaiLeadword_GameController : GameController
         isAnswering = false;
         roundIndex = index;
         heart = 3;
+        foreach (var item in hearts)
+        {
+            item.DOScale(1, 0);
+        }
 
         currentData = datas.datas[roundIndex];
 
-        var level = "01_";
-        hintImage.sprite = spriteKeyValuePairs["leadword_" + level + (roundIndex + 1).ToString()];
+        var level = levelID + "_";
+        hintImage.sprite = spriteKeyValuePairs["leadword_" + level + (roundIndex + 1).ToString("00")];
 
         // setup data
         var chars = new List<string>();
@@ -331,15 +347,28 @@ public class ThaiLeadword_GameController : GameController
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
                 heart--;
-                if (heart == 1)
+                switch (heart)
                 {
-                    ShowHint();
+                    case 2:
+                        hearts[0].DOScale(0, 0.2f);
+                        isAnswering = false;
+                        break;
+                    case 1:
+                        hearts[1].DOScale(0, 0.2f).OnComplete(() =>
+                        {
+                            ShowHint();
+                        });
+                        break;
+                    case 0:
+                        hearts[2].DOScale(0, 0.2f).OnComplete(() =>
+                        {
+                            nextBtn.SetActive(false);
+                            retryBtn.SetActive(true);
+                            FinishedGame(false, 0);
+                        });
+                        break;
                 }
-                if (heart == 0)
-                {
-                    FinishedGame(false, 0);
-                }
-                isAnswering = false;
+
             });
         }
 
@@ -347,12 +376,18 @@ public class ThaiLeadword_GameController : GameController
 
     public void ShowHint()
     {
-        hintPanel.DOAnchorPosY(0, 0.5f);
+        hintPanel.DOAnchorPosY(0, 0.5f).OnComplete(() =>
+        {
+            isAnswering = false;
+        });
     }
 
     public void HideHint()
     {
-        hintPanel.DOAnchorPosY(2000, 0.5f);
+        hintPanel.DOAnchorPosY(2000, 0.5f).OnComplete(() =>
+        {
+            isAnswering = false;
+        });
     }
 
     void OnEnterRoundWaiting()
@@ -375,6 +410,22 @@ public class ThaiLeadword_GameController : GameController
             {
                 if (roundIndex >= datas.datas.Length - 1)
                 {
+                    if (levelID == "04")
+                    {
+                        menuBtn.GetComponent<RectTransform>().anchoredPosition = new Vector2(
+                            0,
+                            menuBtn.GetComponent<RectTransform>().anchoredPosition.y
+                        );
+                        nextBtn.SetActive(false);
+                        retryBtn.SetActive(false);
+                    }
+                    else
+                    {
+                        nextBtn.SetActive(true);
+                        retryBtn.SetActive(false);
+                    }
+
+
                     FinishedGame(true, 0);
                 }
                 else
@@ -391,11 +442,26 @@ public class ThaiLeadword_GameController : GameController
 
     }
 
+    public void Retry()
+    {
+        GameManager.instance.SetTargetGame(GameManager.instance.subgameIndex);
+    }
     public void ForceToNextGame()
     {
-        // to room hidden game
-        GameManager.instance.SetTargetGame(SUBGAME_INDEX.THAI_LEADWORD_2);
+        switch (levelID)
+        {
+            case "01":
+                GameManager.instance.SetTargetGame(SUBGAME_INDEX.THAI_LEADWORD_2);
+                break;
+            case "02":
+                GameManager.instance.SetTargetGame(SUBGAME_INDEX.THAI_LEADWORD_3);
+                break;
+            case "03":
+                GameManager.instance.SetTargetGame(SUBGAME_INDEX.THAI_LEADWORD_4);
+                break;
+        }
     }
+
 
     public enum GAME_PHASE
     {
