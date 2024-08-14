@@ -15,7 +15,9 @@ public class EngShare2_GameController : GameController
 
     [Header("Obj ref")]
 
-    public Image mainImage;
+    public Image leftImage;
+    public Image rightImage;
+    public Button[] buttons;
 
     [Header("Setting")]
 
@@ -24,6 +26,13 @@ public class EngShare2_GameController : GameController
     public int roundIndex = -1;
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
+
+    public enum CHOICE
+    {
+        LESS, MORE, EQUAL
+    }
+
+    public CHOICE[] choices;
 
     public int score = 0;
     int correctCount = 0;
@@ -41,6 +50,15 @@ public class EngShare2_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            int x = i;
+            buttons[i].onClick.AddListener(() =>
+            {
+                OnChoiceClick((CHOICE)x);
+            });
+        }
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -117,10 +135,15 @@ public class EngShare2_GameController : GameController
         roundIndex = index;
 
         var mainID = (roundIndex + 1).ToString("00");
-        mainImage.sprite = spriteKeyValuePairs[mainID + "-q"];
-        mainImage.SetNativeSize();
+        leftImage.sprite = spriteKeyValuePairs["share_02_" + mainID + "_01"];
+        leftImage.SetNativeSize();
+        leftImage.rectTransform.DOScale(1, 0.3f).From(0);
 
-        mainImage.rectTransform.DOScale(1, 0.3f).From(0);
+        rightImage.sprite = spriteKeyValuePairs["share_02_" + mainID + "_02"];
+        rightImage.SetNativeSize();
+        rightImage.rectTransform.DOScale(1, 0.3f).From(0);
+
+        isAnswering = false;
         SetPhase(GAME_PHASE.ROUND_WAITING);
     }
 
@@ -129,26 +152,42 @@ public class EngShare2_GameController : GameController
 
     }
 
+    void OnChoiceClick(CHOICE choice)
+    {
+        if (isAnswering) return;
+        isAnswering = true;
+        if (choice == choices[roundIndex])
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+            {
+                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            });
+        }
+        else
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
+            {
+                isAnswering = false;
+            });
+        }
+    }
+
     void OnEnterRoundAnswering()
     {
-        AudioManager.instance.StopSound("ui_ding");
-        SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+        if (roundIndex >= choices.Length - 1)
         {
-            // if (roundIndex >= datas.datas.Length - 1)
-            // {
-            //     FinishedGame(true, 0);
-            // }
-            // else
-            // {
-            //     SetPhase(GAME_PHASE.ROUND_START);
-            // }
-        });
+            FinishedGame(true, 0);
+        }
+        else
+        {
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
     }
 
     public void ForceToNextGame()
     {
         // to room hidden game
-        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_SHARE_2);
+        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_SHARE_3);
     }
 
     public enum GAME_PHASE
