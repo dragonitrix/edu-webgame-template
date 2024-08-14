@@ -14,8 +14,7 @@ public class EngShare3_GameController : GameController
     [Header("Prefab")]
 
     [Header("Obj ref")]
-
-    public Image mainImage;
+    public EngShare3_SubController[] subs;
 
     [Header("Setting")]
 
@@ -24,6 +23,8 @@ public class EngShare3_GameController : GameController
     public int roundIndex = -1;
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
+
+    EngShare3_SubController currentSub;
 
     public int score = 0;
     int correctCount = 0;
@@ -41,6 +42,11 @@ public class EngShare3_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        foreach (var sub in subs)
+        {
+            sub.mainCanvasGroup.TotalHide();
+        }
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -112,16 +118,45 @@ public class EngShare3_GameController : GameController
 
     void NewRound(int index)
     {
-        correctCount = 0;
         isAnswering = false;
         roundIndex = index;
 
-        var mainID = (roundIndex + 1).ToString("00");
-        mainImage.sprite = spriteKeyValuePairs[mainID + "-q"];
-        mainImage.SetNativeSize();
+        currentSub = subs[roundIndex];
 
-        mainImage.rectTransform.DOScale(1, 0.3f).From(0);
+        currentSub.Enter();
+
+        isAnswering = false;
         SetPhase(GAME_PHASE.ROUND_WAITING);
+    }
+
+    public void OnCheck()
+    {
+        if (isAnswering) return;
+        isAnswering = true;
+
+        var result = currentSub.Check();
+
+        if (result)
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+            {
+                correctCount++;
+                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+            });
+        }
+        else
+        {
+            SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
+            {
+                isAnswering = false;
+            });
+        }
+    }
+
+    public void OnReset()
+    {
+        AudioManager.instance.PlaySound("ui_click_1");
+        currentSub.ResetDrop();
     }
 
     void OnEnterRoundWaiting()
@@ -131,18 +166,15 @@ public class EngShare3_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        AudioManager.instance.StopSound("ui_ding");
-        SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
+        if (correctCount >= subs.Length)
         {
-            // if (roundIndex >= datas.datas.Length - 1)
-            // {
-            //     FinishedGame(true, 0);
-            // }
-            // else
-            // {
-            //     SetPhase(GAME_PHASE.ROUND_START);
-            // }
-        });
+            FinishedGame(true, 0);
+        }
+        else
+        {
+            currentSub.Exit();
+            SetPhase(GAME_PHASE.ROUND_START);
+        }
     }
 
     public void ForceToNextGame()
