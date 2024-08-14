@@ -14,15 +14,26 @@ public class ThaiJigsaw_GameController : GameController
     [Header("Prefab")]
 
     [Header("Obj ref")]
-
+    public RectTransform[] levelButtons;
+    public CanvasGroup maingameRect;
     public CanvasGroup[] jigsawGames;
     public RectTransform dragRect;
     public Image textImage;
+    public CanvasGroup hintText;
+    public TextMeshProUGUI hintText_level;
+    public RectTransform check_true;
+    public RectTransform check_false;
+    public TextMeshProUGUI starsText;
+    public TextMeshProUGUI resultText;
 
     [Header("Setting")]
 
     [Header("Data")]
 
+    [TextArea(2, 2)]
+    public string[] hintTexts;
+
+    int roundIndex = -1;
     string roundID = "";
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
@@ -32,7 +43,10 @@ public class ThaiJigsaw_GameController : GameController
     int correctCount = 0;
     bool isAnswering = false;
 
+    int answerCount = 0;
+
     CanvasGroup currentGame;
+    RectTransform currentLevelButton;
 
     protected override void Start()
     {
@@ -45,6 +59,16 @@ public class ThaiJigsaw_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            var btn = levelButtons[i];
+            btn.gameObject.AddComponent<ThaiJigsaw_Index>();
+            btn.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                OnLevelClick(btn);
+            });
+        }
 
         for (int i = 0; i < jigsawGames.Length; i++)
         {
@@ -59,6 +83,7 @@ public class ThaiJigsaw_GameController : GameController
         tutorialPopup.OnPopupExit += () =>
         {
             tutorialPopup.OnPopupExit = () => { };
+            SetupRound(roundIndex + 1);
             SetPhase(GAME_PHASE.ROUND_START);
         };
 
@@ -121,12 +146,57 @@ public class ThaiJigsaw_GameController : GameController
     void OnEnterRoundStart()
     {
 
-        //
-        NewRound("01-01");
+    }
+
+
+    void SetupRound(int index)
+    {
+
+        starsText.text = score.ToString("00") + "/24";
+
+        roundIndex = index;
+        answerCount = 0;
+
+        maingameRect.interactable = false;
+        maingameRect.blocksRaycasts = false;
+        maingameRect.DOFade(0, 0.5f);
+        isAnswering = false;
+
+        var _choices = new List<int> { 0, 1, 2 };
+        _choices.Shuffle();
+
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            levelButtons[i].GetComponent<ThaiJigsaw_Index>().index = _choices[i];
+            var img = levelButtons[i].GetChild(0).GetComponent<Image>();
+            img.sprite = spriteKeyValuePairs["jigsaw_" + (roundIndex + 1).ToString("00") + "_" + (_choices[i] + 1).ToString("00")];
+            img.SetNativeSize();
+            levelButtons[i].GetComponent<Button>().interactable = true;
+            levelButtons[i].GetComponent<Animator>().enabled = true;
+        }
+
+        hintText.GetComponent<TextMeshProUGUI>().text = hintTexts[index];
+        hintText_level.text = hintTexts[index];
+
+    }
+
+    void OnLevelClick(RectTransform rect)
+    {
+        if (isAnswering) return;
+        isAnswering = true;
+        currentLevelButton = rect;
+        var index = rect.GetComponent<ThaiJigsaw_Index>();
+        NewRound((roundIndex + 1).ToString("00") + "-" + (index.index + 1).ToString("00"));
     }
 
     void NewRound(string id)
     {
+        isAnswering = false;
+
+        maingameRect.interactable = true;
+        maingameRect.blocksRaycasts = true;
+        maingameRect.DOFade(1, 0.5f);
+
         roundID = id;
 
         correctCount = 0;
@@ -145,6 +215,14 @@ public class ThaiJigsaw_GameController : GameController
             drops.Add(child);
         }
 
+        for (int i = dragRect.childCount - 1; i >= 0; i--)
+        {
+            // Destroy the child GameObject immediately
+            DestroyImmediate(dragRect.GetChild(i).gameObject);
+        }
+
+        var drags = new List<Transform>();
+
         foreach (var drop in drops)
         {
             drop.GetComponent<Droppable>().onDropped += OnDrop;
@@ -153,13 +231,19 @@ public class ThaiJigsaw_GameController : GameController
             clone.GetComponent<Droppable>().enabled = false;
             var drag = clone.AddComponent<Draggable>();
             drag.dragableBG = clone.GetComponent<Image>();
+            drags.Add(drag.transform);
 
             drop.GetComponent<Image>().DOFade(0, 0);
         }
 
+        drags.Shuffle();
+        foreach (var drag in drags)
+        {
+            drag.SetAsLastSibling();
+        }
 
-
-        isAnswering = false;
+        textImage.DOFade(0, 0);
+        hintText.DOFade(0, 0);
         SetPhase(GAME_PHASE.ROUND_WAITING);
     }
 
@@ -193,18 +277,17 @@ public class ThaiJigsaw_GameController : GameController
     void JigsawAnswering()
     {
         var dropsRect = currentGame.transform.GetChild(1).transform;
-        dropsRect.GetComponent<CanvasGroup>().DOFade(0, 1f);
-        currentGame.transform.GetChild(0).GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
+        dropsRect.GetComponent<CanvasGroup>().DOFade(0, 1f).OnComplete(() =>
         {
             var guideID = "jigsaw_" + roundID.Replace("-", "_") + "_ans";
             var guideImg = spriteKeyValuePairs["jigsaw_" + roundID.Replace("-", "_") + "_ans"];
-            Debug.Log(guideID);
-            Debug.Log(guideImg);
             textImage.sprite = guideImg;
+            textImage.SetNativeSize();
             currentGame.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
+            hintText.DOFade(1, 1);
             textImage.DOFade(1, 1).OnComplete(() =>
             {
-                DoDelayAction(2f, () =>
+                DoDelayAction(1f, () =>
                 {
                     SetPhase(GAME_PHASE.ROUND_ANSWERING);
                 });
@@ -222,14 +305,52 @@ public class ThaiJigsaw_GameController : GameController
     {
         //Debug.Log(roundID);
         //
-        //var r = roundID.Split("-");
-        //
-        //if (r[1] == "01")
-        //{
-        //    Debug.Log("correctttt!!!!");
-        //}
+        var r = roundID.Split("-");
+        if (r[1] == "01")
+        {
+            AudioManager.instance.PlaySound("ui_win_1");
+            check_true.DOScale(1, 0.5f);
 
+            DoDelayAction(1f, () =>
+            {
+                maingameRect.TotalHide();
+                maingameRect.DOFade(0, 0.5f).From(1);
+                check_true.DOScale(0, 0f);
+                check_false.DOScale(0, 0f);
+                currentGame.TotalHide();
+                var score = answerCount == 0 ? 3 : 2 - answerCount;
+                this.score += score;
 
+                if (roundIndex >= hintTexts.Length - 1)
+                {
+                    resultText.text = resultText.text.Replace("[x]", this.score.ToString("00") + "/24");
+                    FinishedGame(true, 0);
+                }
+                else
+                {
+                    SetupRound(roundIndex + 1);
+                }
+
+            });
+        }
+        else
+        {
+            answerCount++;
+            AudioManager.instance.PlaySound("ui_fail_1");
+            check_false.DOScale(1, 0.5f);
+            DoDelayAction(1f, () =>
+            {
+                maingameRect.TotalHide();
+                maingameRect.DOFade(0, 0.5f).From(1);
+                check_true.DOScale(0, 0f);
+                check_false.DOScale(0, 0f);
+                currentLevelButton.GetComponent<Button>().interactable = false;
+                currentLevelButton.GetComponent<Animator>().enabled = false;
+                currentLevelButton.DOScale(0, 0.5f);
+                currentGame.TotalHide();
+                SetPhase(GAME_PHASE.ROUND_START);
+            });
+        }
 
         // if (roundIndex >= choices.Length - 1)
         // {
@@ -241,10 +362,6 @@ public class ThaiJigsaw_GameController : GameController
         // }
     }
 
-    public void ForceToNextGame()
-    {
-        GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_SHARE_3);
-    }
 
     public enum GAME_PHASE
     {
