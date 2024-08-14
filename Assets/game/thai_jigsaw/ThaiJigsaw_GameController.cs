@@ -17,6 +17,7 @@ public class ThaiJigsaw_GameController : GameController
 
     public CanvasGroup[] jigsawGames;
     public RectTransform dragRect;
+    public Image textImage;
 
     [Header("Setting")]
 
@@ -180,17 +181,36 @@ public class ThaiJigsaw_GameController : GameController
             var dropsRect = currentGame.transform.GetChild(1).transform;
             if (correctCount == dropsRect.childCount)
             {
-                Debug.Log("all correct");
-
+                AudioManager.instance.StopSound("ui_ding");
                 SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
                 {
-                    SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                    JigsawAnswering();
                 });
             }
         }
-
     }
 
+    void JigsawAnswering()
+    {
+        var dropsRect = currentGame.transform.GetChild(1).transform;
+        dropsRect.GetComponent<CanvasGroup>().DOFade(0, 1f);
+        currentGame.transform.GetChild(0).GetComponent<Image>().DOFade(1, 1f).OnComplete(() =>
+        {
+            var guideID = "jigsaw_" + roundID.Replace("-", "_") + "_ans";
+            var guideImg = spriteKeyValuePairs["jigsaw_" + roundID.Replace("-", "_") + "_ans"];
+            Debug.Log(guideID);
+            Debug.Log(guideImg);
+            textImage.sprite = guideImg;
+            currentGame.transform.GetChild(0).GetComponent<Image>().DOFade(0, 0.5f);
+            textImage.DOFade(1, 1).OnComplete(() =>
+            {
+                DoDelayAction(2f, () =>
+                {
+                    SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                });
+            });
+        });
+    }
 
     void OnEnterRoundWaiting()
     {
@@ -200,16 +220,16 @@ public class ThaiJigsaw_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        Debug.Log(roundID);
+        //Debug.Log(roundID);
+        //
+        //var r = roundID.Split("-");
+        //
+        //if (r[1] == "01")
+        //{
+        //    Debug.Log("correctttt!!!!");
+        //}
 
-        var r = roundID.Split("-");
 
-        if (r[1] == "01")
-        {
-            Debug.Log("correctttt!!!!");
-        }
-
-        
 
         // if (roundIndex >= choices.Length - 1)
         // {
