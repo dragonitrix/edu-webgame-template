@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_math_time.unity
-    guid: 8ba6e9b459d18af4c9a2209d5ef493b9
+    path: Assets/Scenes/sc_menu_thai_subject.unity
+    guid: b5e303924aff8a84e8db4ab6bc90af3f
   - enabled: 1
-    path: Assets/Scenes/sc_game_math_time.unity
-    guid: b093f07198460ad4a92fcfd2f7e00336
+    path: Assets/Scenes/sc_game_thai_subject_1.unity
+    guid: e6ec1a9a656bb8b48be49d3171f19135
+  - enabled: 1
+    path: Assets/Scenes/sc_game_thai_subject_2.unity
+    guid: d923009ae68e8784c8152f8a922f0e08
   m_configObjects: {}
