@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/sc_menu_bingodivi.unity
+    guid: cb8d8120ae9e63a4899515f324a21422
+  - enabled: 1
     path: Assets/Scenes/sc_menu_bingomulti.unity
     guid: 8b78034cbabec094291c7b56f7814417
   - enabled: 1
@@ -20,4 +23,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sc_game_bingomulti_4.unity
     guid: 9859b038cc3dd59419481dfb86e9e98c
+  - enabled: 1
+    path: Assets/Scenes/sc_game_bingodivi_1.unity
+    guid: 8db65ca4c17fe394cae87554d6a8d787
+  - enabled: 1
+    path: Assets/Scenes/sc_game_bingodivi_2.unity
+    guid: f7a5c69cd1e130147b47306046586be8
+  - enabled: 1
+    path: Assets/Scenes/sc_game_bingodivi_3.unity
+    guid: eb135e7ae95ed2e43991122cc036877f
+  - enabled: 1
+    path: Assets/Scenes/sc_game_bingodivi_4.unity
+    guid: 4822bb99ef583cd44adbadf7764522d3
   m_configObjects: {}

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BingoMultiHelperBoard : MonoBehaviour
 {
-
     GridController gridController;
     List<CellController> cells = new List<CellController>();
 
@@ -18,8 +18,11 @@ public class BingoMultiHelperBoard : MonoBehaviour
 
     public bool showHeadColumnCount = true;
     public bool showTailColumnCount = true;
+    public bool isButtonEnabled = false;
 
     public bool initSelf = false; // for testing only
+
+    public TextMeshProUGUI[] helperBoardInputField;
 
     void Start()
     {
@@ -49,6 +52,10 @@ public class BingoMultiHelperBoard : MonoBehaviour
                 cells[i].SetText("" + (i + 1).ToString(), false);
                 cells[i].text.color = textColor;
                 cells[i].SetEnableText(true);
+                if (isButtonEnabled)
+                { 
+                    cells[i].SetEnableButton(true); 
+                }
             }
 
             rowCount++;
@@ -59,6 +66,19 @@ public class BingoMultiHelperBoard : MonoBehaviour
             }
         }
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+    }
+
+    public void InitButtonListener(int y)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            cells[i].button.onClick.RemoveAllListeners();
+            int x = i + 1;
+            cells[i].button.onClick.AddListener(() =>
+            {
+                MarkEquationHelperBoard(x, y);
+            });
+        }
     }
 
     public void MarkEquationHelperBoard(int x, int y)
@@ -88,6 +108,15 @@ public class BingoMultiHelperBoard : MonoBehaviour
                 columnCount++;
             }
         }
+        if (helperBoardInputField.Length > 0)
+        {
+            string board = (x * y).ToString();
+            board = board.Length > 1 ? board : 0 + "" + board;
+            for (int i = 0; i < helperBoardInputField.Length; i++)
+            {
+                helperBoardInputField[i].text = board[i].ToString();
+            }
+        }
     }
 
     public void ClearMarkedHelperBoard()
@@ -95,6 +124,10 @@ public class BingoMultiHelperBoard : MonoBehaviour
         for (int i = 0; i < cells.Count; i++)
         {
             cells[i].SetEnableImage(false);
+        }
+        for (int i = 0; i < helperBoardInputField.Length; i++)
+        {
+            helperBoardInputField[i].text = "0";
         }
     }
 }
