@@ -186,7 +186,6 @@ public class EngShare2_GameController : GameController
 
     public void ForceToNextGame()
     {
-        // to room hidden game
         GameManager.instance.SetTargetGame(SUBGAME_INDEX.ENG_SHARE_3);
     }
 
