@@ -199,6 +199,7 @@ public class ThaiLeadword_GameController : GameController
             switch (_char)
             {
                 case "เ":
+                case "า":
                     saras.Add(_char);
                     break;
                 default:

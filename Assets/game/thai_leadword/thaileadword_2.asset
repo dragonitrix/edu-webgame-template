@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd74d7e24ff7dda46962b712db3b5e7a, type: 3}
+  m_Name: thaileadword_2
+  m_EditorClassIdentifier: 
+  datas:
+  - correct_chars:
+    - "\u0E1B"
+    - "\u0E23"
+    - "\u0E2D"
+    - "\u0E17"
+    correct_wannayuks: []
+    spare_chars:
+    - "\u0E01"
+    - "\u0E02"
+    spare_saras: []
+    spare_wannayuks: []
+  - correct_chars:
+    - "\u0E15"
+    - "\u0E25"
+    - "\u0E01"
+    correct_wannayuks: []
+    spare_chars:
+    - "\u0E01"
+    - "\u0E2B"
+    spare_saras: []
+    spare_wannayuks: []
+  - correct_chars:
+    - "\u0E15"
+    - "\u0E25"
+    - "\u0E32"
+    - "\u0E14"
+    correct_wannayuks: []
+    spare_chars:
+    - "\u0E15"
+    spare_saras:
+    - "\u0E30"
+    spare_wannayuks: []
+  - correct_chars:
+    - "\u0E2D"
+    - "\u0E23"
+    - "\u0E2D"
+    - "\u0E22"
+    correct_wannayuks:
+    - index: 1
+      up2: 
+      up1: "\u0E48"
+      down1: 
+    spare_chars:
+    - "\u0E23"
+    - "\u0E14"
+    spare_saras: []
+    spare_wannayuks:
+    - "\u0E49"
+  - correct_chars:
+    - "\u0E08"
+    - "\u0E21"
+    - "\u0E01"
+    correct_wannayuks:
+    - index: 1
+      up2: 
+      up1: 
+      down1: "\u0E39"
+    spare_chars:
+    - "\u0E01"
+    - "\u0E07"
+    - "\u0E02"
+    spare_saras: []
+    spare_wannayuks:
+    - "\u0E48"
+    - "\u0E49"
+    - "\u0E49\u0E38"
+  - correct_chars:
+    - "\u0E2D"
+    - "\u0E07"
+    - "\u0E19"
+    correct_wannayuks:
+    - index: 1
+      up2: 
+      up1: "\u0E48"
+      down1: "\u0E38"
+    spare_chars:
+    - "\u0E23"
+    - "\u0E15"
+    spare_saras: []
+    spare_wannayuks:
+    - "\u0E49"
+    - "\u0E39"
