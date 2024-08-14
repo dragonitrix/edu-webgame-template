@@ -26,6 +26,8 @@ public class ThaiLeadword_GameController : GameController
     public RectTransform dropRect_main_char;
     public RectTransform dropRect_Char;
     public RectTransform dropRect_Wannayuk;
+    public RectTransform hintPanel;
+    public Image hintImage;
 
     [Header("Setting")]
     public Vector2 charSize = new Vector2(130, 200);
@@ -49,9 +51,11 @@ public class ThaiLeadword_GameController : GameController
     public List<Sprite> levelSprites;
     public Dictionary<string, Sprite> spriteKeyValuePairs = new Dictionary<string, Sprite>();
 
+    public int heart = 3;
     public int score = 0;
     int correctCount = 0;
     bool isAnswering = false;
+
     protected override void Start()
     {
         base.Start();
@@ -64,6 +68,8 @@ public class ThaiLeadword_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        hintPanel.DOAnchorPosY(2000, 0);
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -161,8 +167,12 @@ public class ThaiLeadword_GameController : GameController
         correctCount = 0;
         isAnswering = false;
         roundIndex = index;
+        heart = 3;
 
         currentData = datas.datas[roundIndex];
+
+        var level = "01_";
+        hintImage.sprite = spriteKeyValuePairs["leadword_" + level + (roundIndex + 1).ToString()];
 
         // setup data
         var chars = new List<string>();
@@ -320,12 +330,30 @@ public class ThaiLeadword_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
+                heart--;
+                if (heart == 1)
+                {
+                    ShowHint();
+                }
+                if (heart == 0)
+                {
+                    FinishedGame(false, 0);
+                }
                 isAnswering = false;
             });
         }
 
     }
 
+    public void ShowHint()
+    {
+        hintPanel.DOAnchorPosY(0, 0.5f);
+    }
+
+    public void HideHint()
+    {
+        hintPanel.DOAnchorPosY(2000, 0.5f);
+    }
 
     void OnEnterRoundWaiting()
     {
