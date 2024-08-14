@@ -22,6 +22,9 @@ public class EngShare1_GameController : GameController
     public GameObject nextBtn;
     public GameObject retryBtn;
 
+    public Button[] levelBtns;
+
+    public CanvasGroup gameRect;
 
     [Header("Setting")]
 
@@ -52,6 +55,17 @@ public class EngShare1_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        var i = 0;
+        foreach (var btn in levelBtns)
+        {
+            int x = i;
+            btn.onClick.AddListener(() =>
+            {
+                OnLevelClick(x);
+            });
+            i++;
+        }
 
         foreach (var btn in choicesBtn)
         {
@@ -126,12 +140,23 @@ public class EngShare1_GameController : GameController
 
     void OnEnterRoundStart()
     {
-        NewRound(roundIndex + 1);
+        isAnswering = false;
+        //NewRound(roundIndex + 1);
+    }
+
+    public void OnLevelClick(int index)
+    {
+        if (isAnswering) return;
+        isAnswering = true;
+
+        gameRect.TotalShow();
+        gameRect.DOFade(1, 0.2f).From(0);
+
+        NewRound(index);
     }
 
     void NewRound(int index)
     {
-        correctCount = 0;
         isAnswering = false;
         roundIndex = index;
 
@@ -167,6 +192,7 @@ public class EngShare1_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
+                correctCount++;
                 SetPhase(GAME_PHASE.ROUND_ANSWERING);
             });
         }
@@ -202,7 +228,7 @@ public class EngShare1_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
-        if (roundIndex >= datas.datas.Length - 1)
+        if (correctCount >= datas.datas.Length)
         {
             nextBtn.SetActive(true);
             retryBtn.SetActive(false);
@@ -210,6 +236,13 @@ public class EngShare1_GameController : GameController
         }
         else
         {
+            gameRect.TotalHide();
+            gameRect.DOFade(0, 0.2f).From(1);
+
+            levelBtns[roundIndex].interactable = false;
+            levelBtns[roundIndex].animator.enabled = false;
+            levelBtns[roundIndex].GetComponent<RectTransform>().DOScale(0, 0.2f);
+
             SetPhase(GAME_PHASE.ROUND_START);
         }
     }
