@@ -15,7 +15,8 @@ public class EngShare3_GameController : GameController
 
     [Header("Obj ref")]
     public EngShare3_SubController[] subs;
-
+    public Button[] levelBtns;
+    public CanvasGroup gameRect;
     [Header("Setting")]
 
     [Header("Data")]
@@ -42,6 +43,17 @@ public class EngShare3_GameController : GameController
 
         base.InitGame(gameLevel, playerCount);
         spriteKeyValuePairs = levelSprites.ToDictionary(x => x.name, x => x);
+
+        var i = 0;
+        foreach (var btn in levelBtns)
+        {
+            int x = i;
+            btn.onClick.AddListener(() =>
+            {
+                OnLevelClick(x);
+            });
+            i++;
+        }
 
         foreach (var sub in subs)
         {
@@ -113,7 +125,18 @@ public class EngShare3_GameController : GameController
 
     void OnEnterRoundStart()
     {
-        NewRound(roundIndex + 1);
+        isAnswering = false;
+        // NewRound(roundIndex + 1);
+    }
+    public void OnLevelClick(int index)
+    {
+        if (isAnswering) return;
+        isAnswering = true;
+
+        gameRect.TotalShow();
+        gameRect.DOFade(1, 0.2f).From(0);
+
+        NewRound(index);
     }
 
     void NewRound(int index)
@@ -172,6 +195,11 @@ public class EngShare3_GameController : GameController
         }
         else
         {
+            gameRect.TotalHide();
+            gameRect.DOFade(0, 0.2f).From(1);
+            levelBtns[roundIndex].interactable = false;
+            levelBtns[roundIndex].animator.enabled = false;
+            levelBtns[roundIndex].GetComponent<RectTransform>().DOScale(0, 0.2f);
             currentSub.Exit();
             SetPhase(GAME_PHASE.ROUND_START);
         }
