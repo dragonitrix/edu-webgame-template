@@ -336,6 +336,8 @@ public class ThaiLeadword_GameController : GameController
         var drop = droppable.GetComponent<ThaiLeadword_Drop>();
         var drag = draggable.GetComponent<ThaiLeadword_Drag>();
 
+        if (drop.isCorrect) return;
+
         if (drag.textString.Replace("-", "") == drop.textString)
         {
             AudioManager.instance.PlaySound("ui_ding");
