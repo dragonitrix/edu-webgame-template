@@ -78,7 +78,7 @@ MonoBehaviour:
     spare_wannayuks:
     - "\u0E48"
     - "\u0E49"
-    - "\u0E49\u0E38"
+    - "\u0E38"
   - correct_chars:
     - "\u0E2D"
     - "\u0E07"
