@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e7456768cae5d46b0b7bd8c083b54d, type: 3}
+  m_Name: BingoMultiLevelOneQuestion
+  m_EditorClassIdentifier: 
+  questions:
+  - answer: 8+8
+    equations: {x: 2, y: 8}
+    equationSprite: {fileID: 21300000, guid: 52338ff955bb73e499495628c3af991f, type: 3}
+  - answer: 4+4
+    equations: {x: 2, y: 4}
+    equationSprite: {fileID: 21300000, guid: 49688cf8615af3a4bb2d445c6a6e311b, type: 3}
+  - answer: 5+5
+    equations: {x: 2, y: 5}
+    equationSprite: {fileID: 21300000, guid: a2b5df2a3e3e5ec45808fbeb5247b0d7, type: 3}
+  - answer: 7+7
+    equations: {x: 2, y: 7}
+    equationSprite: {fileID: 21300000, guid: 0396df364e8e80943acd0ce46caddc88, type: 3}
+  - answer: 8+8+8
+    equations: {x: 3, y: 8}
+    equationSprite: {fileID: 21300000, guid: 70f533736933fe34081faf83892f2599, type: 3}
+  - answer: 9+9+9
+    equations: {x: 3, y: 9}
+    equationSprite: {fileID: 21300000, guid: 0ec725e62aa2ef24d85dd2c3dc57c4f9, type: 3}
+  - answer: 4+4+4
+    equations: {x: 3, y: 4}
+    equationSprite: {fileID: 21300000, guid: f8a7688de7348154c880178b21f81b87, type: 3}
+  - answer: 6+6+6
+    equations: {x: 3, y: 6}
+    equationSprite: {fileID: 21300000, guid: 66801fee85f6e3242a1f9735dd758bed, type: 3}
+  - answer: 2+2+2
+    equations: {x: 3, y: 2}
+    equationSprite: {fileID: 21300000, guid: 4a1c151bba3c29a4787efee0ab09ac8b, type: 3}
+  - answer: 3+3+3+3
+    equations: {x: 4, y: 3}
+    equationSprite: {fileID: 21300000, guid: 26d8aa34506fb034b9c63e9684c49175, type: 3}
+  - answer: 2+2+2+2
+    equations: {x: 4, y: 2}
+    equationSprite: {fileID: 21300000, guid: 87d4e7941724ed14b9ccb2488ddeefb4, type: 3}
+  - answer: 9+9+9+9
+    equations: {x: 4, y: 9}
+    equationSprite: {fileID: 21300000, guid: bd0b53c90f89d494a821fd40c0a8879f, type: 3}
+  - answer: 9+9+9+9+9
+    equations: {x: 5, y: 9}
+    equationSprite: {fileID: 21300000, guid: de1a00460febb834f970d92b4090bf81, type: 3}
+  - answer: 4+4+4+4+4
+    equations: {x: 5, y: 4}
+    equationSprite: {fileID: 21300000, guid: 98e424f9c5686d14a8c638574d9f81ae, type: 3}
+  - answer: 5+5+5+5+5+5+5+5
+    equations: {x: 8, y: 5}
+    equationSprite: {fileID: 21300000, guid: d0623424bfd82894a924a609eb342a1e, type: 3}
+  - answer: 3+3+3+3+3+3
+    equations: {x: 6, y: 3}
+    equationSprite: {fileID: 21300000, guid: 106263439c7541b4e84652265ded5369, type: 3}
+  - answer: 6+6+6+6+6+6+6+6+6
+    equations: {x: 9, y: 6}
+    equationSprite: {fileID: 21300000, guid: 316416ec9c251aa4fad6cb88411f939b, type: 3}
+  - answer: 5+5+5+5+5+5+5
+    equations: {x: 7, y: 5}
+    equationSprite: {fileID: 21300000, guid: 3bc30ab5936c906478cb7d4e078fa7ad, type: 3}
+  - answer: 2+2+2+2+2+2+2+2+2
+    equations: {x: 9, y: 2}
+    equationSprite: {fileID: 21300000, guid: 531ef9794b69f8e47ba4cdfb53072650, type: 3}
+  - answer: 3+3
+    equations: {x: 2, y: 3}
+    equationSprite: {fileID: 21300000, guid: efa38aab70e4ded4ab28b22d8e92bcb2, type: 3}

@@ -37,6 +37,8 @@ public class GameDB : MonoBehaviour
         {MAINGAME_INDEX.ENG_SHARE,"eng_share"},
         {MAINGAME_INDEX.THAI_JIGSAW,"thai_jigsaw"},
         {MAINGAME_INDEX.THAI_LEADWORD,"thai_leadword"},
+        {MAINGAME_INDEX.BINGOMUL,"bingomulti"},
+        {MAINGAME_INDEX.BINGODIV,"bingodivi"},
     };
 
     public static Dictionary<SUBGAME_INDEX, string> subgameSceneIndices = new Dictionary<SUBGAME_INDEX, string>()
@@ -90,6 +92,8 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.THAI_LEADWORD_2,"thai_leadword_2"},
         {SUBGAME_INDEX.THAI_LEADWORD_3,"thai_leadword_3"},
         {SUBGAME_INDEX.THAI_LEADWORD_4,"thai_leadword_4"},
+        {SUBGAME_INDEX.BINGOMUL,"bingomulti_1"},
+        {SUBGAME_INDEX.BINGODIV,"bingodivi_1"},
     };
 
     // Singleton instance
@@ -159,6 +163,8 @@ public enum MAINGAME_INDEX
     ENG_SHARE,
     THAI_JIGSAW,
     THAI_LEADWORD,
+    BINGOMUL,
+    BINGODIV,
 }
 [Serializable]
 public enum SUBGAME_INDEX
@@ -213,6 +219,8 @@ public enum SUBGAME_INDEX
     THAI_LEADWORD_2,
     THAI_LEADWORD_3,
     THAI_LEADWORD_4,
+    BINGOMUL,
+    BINGODIV,
 }
 
 public enum PLAYER_COUNT

@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour
             case SUBGAME_INDEX.ENG_PLANT_1:
             case SUBGAME_INDEX.ENG_TRASH1:
             case SUBGAME_INDEX.MATH_TIME:
+            case SUBGAME_INDEX.BINGOMUL:
                 JumpToGame(subgameIndex);
                 break;
             default:
