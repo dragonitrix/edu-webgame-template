@@ -29,8 +29,16 @@ public class ThaiLeadword_Drop : MonoBehaviour
     public void SetCorrect()
     {
         isCorrect = true;
-        text.text = ThaiFontAdjuster.Adjust("ก" + textString);
-        text.text = text.text.Replace("ก", "");
+        if (textString != "ก")
+        {
+            text.text = ThaiFontAdjuster.Adjust("ก" + textString);
+            text.text = text.text.Replace("ก", "");
+        }
+        else
+        {
+            text.text = ThaiFontAdjuster.Adjust("ข" + textString);
+            text.text = text.text.Replace("ข", "");
+        }
     }
 
 }

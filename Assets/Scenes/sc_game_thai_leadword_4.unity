@@ -147,7 +147,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _GradientTex:
-        m_Texture: {fileID: 368676836}
+        m_Texture: {fileID: 377716621}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -449,19 +449,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76.88498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1275324591928638990, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1531538313561398319, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
@@ -585,19 +585,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6949406632806136743, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6949406632806136743, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6949406632806136743, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 780.655
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6949406632806136743, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7085417110365451999, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_Alpha
@@ -613,35 +613,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8500959713518900417, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500959713518900417, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500959713518900417, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 780.655
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500959713518900417, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 76.88498
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681942976284923775, guid: 8748f56eab6be814fbace35d0855ee88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -959,7 +959,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315810171}
   m_CullTransparentMesh: 1
---- !u!28 &368676836
+--- !u!28 &377716621
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1628,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4498099682474188183, guid: d097a011e381bee4b82ba5fc72c5afd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ForceToNextGame2
+      value: ForceToNextGame
       objectReference: {fileID: 0}
     - target: {fileID: 4498099682474188183, guid: d097a011e381bee4b82ba5fc72c5afd8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
