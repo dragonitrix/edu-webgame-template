@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_catdog.unity
-    guid: f0a35935c281ca840ade1fb9b7b3cf12
+    path: Assets/Scenes/sc_menu_fruit.unity
+    guid: b09819bc950a174499b9257c54399df7
   - enabled: 1
-    path: Assets/Scenes/sc_game_catdog.unity
-    guid: 81661f8325c529d42b3a2523ae87c2b1
+    path: Assets/Scenes/sc_game_fruit.unity
+    guid: dd89ef583bd185948951df7f17e5b50f
   m_configObjects: {}

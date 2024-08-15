@@ -24,9 +24,12 @@ public class Fruit_GameController : GameController
     public Droppable matraDrop;
 
     public RectTransform fruitRect;
+    public RectTransform flowerRect;
     public RectTransform basketRect;
 
     public TextMeshProUGUI numberText;
+
+    public TextMeshProUGUI resultText;
 
     [Header("Setting")]
     public Vector2 dropOffset;
@@ -139,8 +142,8 @@ public class Fruit_GameController : GameController
         Debug.Log("round start");
 
         roundIndex = index;
-
-        numberText.text = (roundIndex + 1).ToString() + "/" + fruit_Datas.datas.Length;
+        var numText = "ข้อที่" + (roundIndex + 1).ToString() + "/" + fruit_Datas.datas.Length;
+        numberText.text = ThaiFontAdjuster.Adjust(numText);
 
         InitNewWord();
 
@@ -148,6 +151,8 @@ public class Fruit_GameController : GameController
 
         fruitRect.anchoredPosition = new Vector2(-730, 118);
         fruitRect.localScale = Vector2.zero;
+        flowerRect.anchoredPosition = new Vector2(-730, 118);
+        flowerRect.localScale = Vector2.zero;
 
     }
     public void InitNewWord()
@@ -297,7 +302,7 @@ public class Fruit_GameController : GameController
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
                 score++;
-                TweenFruitDrop();
+                TweenFruitDrop(true);
                 //SetPhase(GAME_PHASE.ROUND_ANSWERING);
             });
         }
@@ -305,7 +310,8 @@ public class Fruit_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffect(false, () =>
             {
-                SetPhase(GAME_PHASE.ROUND_ANSWERING);
+                TweenFruitDrop(false);
+                // SetPhase(GAME_PHASE.ROUND_ANSWERING);
             });
         }
     }
@@ -314,6 +320,7 @@ public class Fruit_GameController : GameController
     {
         if (roundIndex >= fruit_Datas.datas.Length - 1)
         {
+            resultText.text = resultText.text.Replace("[x]", score.ToString("00") + "/20");
             FinishedGame(true, 0);
         }
         else
@@ -322,17 +329,19 @@ public class Fruit_GameController : GameController
         }
     }
 
-    void TweenFruitDrop()
+    void TweenFruitDrop(bool value)
     {
 
-        fruitRect.anchoredPosition = new Vector2(-730, 118);
-        fruitRect.localScale = Vector2.one;
+        var rectToMove = value ? fruitRect : flowerRect;
 
-        fruitRect.DOAnchorPosY(-266, 0.3f).OnComplete(() =>
+        rectToMove.anchoredPosition = new Vector2(-730, 118);
+        rectToMove.localScale = Vector2.one;
+
+        rectToMove.DOAnchorPosY(-266, 0.3f).OnComplete(() =>
         {
             if (AudioManager.instance) AudioManager.instance.PlaySound("drop_pop");
         });
-        fruitRect.DORotate(new Vector3(0, 0, 180), 1f);
+        rectToMove.DORotate(new Vector3(0, 0, 180), 1f);
 
         basketRect.DOScale(Vector2.one * 1.1f, 0.1f).SetDelay(0.3f).OnComplete(() =>
             {
