@@ -1640,7 +1640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8aa0230bec6e44f9909b2f61431afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subgameIndex: 35
+  subgameIndex: 51
 --- !u!1 &1310455530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c42c6f0d6a3024b94648d2465b8c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maingameIndex: 23
+  maingameIndex: 30
   subgameIndex: 0
   gameLevel: 0
   gamePlayers: 0
