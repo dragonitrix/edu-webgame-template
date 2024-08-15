@@ -318,9 +318,9 @@ public class Fruit_GameController : GameController
 
     void OnEnterRoundAnswering()
     {
+        resultText.text = resultText.text.Replace("[x]", score.ToString("00") + "/20");
         if (roundIndex >= fruit_Datas.datas.Length - 1)
         {
-            resultText.text = resultText.text.Replace("[x]", score.ToString("00") + "/20");
             FinishedGame(true, 0);
         }
         else
