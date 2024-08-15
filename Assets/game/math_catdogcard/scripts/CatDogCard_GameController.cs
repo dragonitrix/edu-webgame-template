@@ -153,7 +153,7 @@ public class CatDogCard_GameController : GameController
         rightCardSelector.cardButton.interactable = false;
         selector.cardImage.DOFade(0,0);
         cardTemp.GetComponent<CanvasGroup>().alpha = 1.0f;
-        cardTemp.GetComponent<Image>().sprite = selector.sprite;
+        cardTemp.transform.GetChild(0).GetComponent<Image>().sprite = selector.sprite;
         TweenToTarget(leftCardSelector.transform, leftGraveyardPlaceHolder, .25f, () => Destroy(leftCardSelector.gameObject));
         TweenToTarget(rightCardSelector.transform, rightGraveyardPlaceHolder, .25f, () => Destroy(leftCardSelector.gameObject));
 

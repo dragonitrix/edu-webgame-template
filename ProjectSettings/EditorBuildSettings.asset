@@ -6,33 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/sc_menu_bingodivi.unity
-    guid: cb8d8120ae9e63a4899515f324a21422
+    path: Assets/Scenes/sc_menu_catdog.unity
+    guid: f0a35935c281ca840ade1fb9b7b3cf12
   - enabled: 1
-    path: Assets/Scenes/sc_menu_bingomulti.unity
-    guid: 8b78034cbabec094291c7b56f7814417
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingomulti_1.unity
-    guid: 797a967be8f684042a5ab98f71939fb7
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingomulti_2.unity
-    guid: f977dbf0793e238488931f4638c3ef2e
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingomulti_3.unity
-    guid: ec7aca66bfc36434498c846861c84b52
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingomulti_4.unity
-    guid: 9859b038cc3dd59419481dfb86e9e98c
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingodivi_1.unity
-    guid: 8db65ca4c17fe394cae87554d6a8d787
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingodivi_2.unity
-    guid: f7a5c69cd1e130147b47306046586be8
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingodivi_3.unity
-    guid: eb135e7ae95ed2e43991122cc036877f
-  - enabled: 1
-    path: Assets/Scenes/sc_game_bingodivi_4.unity
-    guid: 4822bb99ef583cd44adbadf7764522d3
+    path: Assets/Scenes/sc_game_catdog.unity
+    guid: 81661f8325c529d42b3a2523ae87c2b1
   m_configObjects: {}
