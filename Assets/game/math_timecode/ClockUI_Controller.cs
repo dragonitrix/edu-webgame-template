@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,12 +58,13 @@ public class ClockUI_Controller : MonoBehaviour
         var minute = timers[1];
         var second = timers[2];
 
-        hourArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(12, hour) - 90);
+        var _m = Mathf.FloorToInt(((float)minute).Remap(0, 60, 0, 10));
+
         minuteArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(60, minute) - 90);
         secondArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(60, second) - 90);
+        hourArm.localRotation = Quaternion.Euler(0, 0, GetArmAngle(120, (hour * 10) + _m) - 90);
 
         timeString = hour + ":" + minute + ":" + second;
-
     }
 
     List<int> ParsedTimer(string[] timers)
