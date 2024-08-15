@@ -331,15 +331,17 @@ public class ThaiLeadword_GameController : GameController
     void OnDrop(Droppable droppable, Draggable draggable)
     {
         if (isAnswering) return;
-        isAnswering = true;
 
         var drop = droppable.GetComponent<ThaiLeadword_Drop>();
         var drag = draggable.GetComponent<ThaiLeadword_Drag>();
 
         if (drop.isCorrect) return;
 
+        isAnswering = true;
+
         if (drag.textString.Replace("-", "") == drop.textString)
         {
+            AudioManager.instance.StopSound("ui_ding");
             AudioManager.instance.PlaySound("ui_ding");
             drag.Hide();
             drop.SetCorrect();
@@ -370,6 +372,8 @@ public class ThaiLeadword_GameController : GameController
                             nextBtn.SetActive(false);
                             retryBtn.SetActive(true);
                             FinishedGame(false, 0);
+                            var _resultPopup = (ResultPopupController)resultPopup;
+                            _resultPopup.failTitle.SetDisplayed(false);
                         });
                         break;
                 }
@@ -449,7 +453,10 @@ public class ThaiLeadword_GameController : GameController
 
     public void Retry()
     {
-        GameManager.instance.SetTargetGame(GameManager.instance.subgameIndex);
+        //GameManager.instance.SetTargetGame(GameManager.instance.subgameIndex);
+        var _resultPopup = (ResultPopupController)resultPopup;
+        _resultPopup.Exit();
+        NewRound(roundIndex);
     }
     public void ForceToNextGame()
     {
