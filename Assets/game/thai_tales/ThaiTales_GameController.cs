@@ -346,8 +346,15 @@ public class ThaiTales_GameController : GameController
                                     fail.localScale = Vector3.zero;
                                     if (talesIndex >= tales_Datas.Length - 1)
                                     {
-                                        resultText.text = "สำเร็จ\nได้รับทอง " + score.ToString() + " แท่ง";
-                                        FinishedGame(true, 0);
+                                        if (score != 0)
+                                        {
+                                            resultText.text = "สำเร็จ\nได้รับทอง " + score.ToString() + " แท่ง";
+                                            FinishedGame(true, 0);
+                                        }
+                                        else
+                                        {
+                                            FinishedGame(false, 0);
+                                        }
                                     }
                                     else
                                     {
@@ -399,6 +406,23 @@ public class ThaiTales_GameController : GameController
             });
         }
 
+    }
+
+    public void OnRetryClick()
+    {
+        if (gamePhase == GAME_PHASE.ROUND_ANSWERING) return;
+        rewardRect.alpha = 1;
+        safe_close.alpha = 0;
+        safe_open.alpha = 0;
+        reward.localScale = Vector3.zero;
+        fail.localScale = Vector3.zero;
+        currentTale = tales_Datas[talesIndex];
+        talesPopups[talesIndex].Enter();
+        roundIndex = -1;
+        HidePassword();
+        ResetPassword();
+        ShowDoors();
+        pausePopup.Exit();
     }
 
     public void SetPasswordScore(bool val)

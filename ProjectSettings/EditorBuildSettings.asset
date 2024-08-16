@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/sc_menu_thai_tales.unity
+    guid: bab605c488cc98e4fa4ab39b5439f227
+  - enabled: 1
+    path: Assets/Scenes/sc_game_thai_tales.unity
+    guid: f7267c86327e0444c93fc638320bb718
   m_configObjects: {}
