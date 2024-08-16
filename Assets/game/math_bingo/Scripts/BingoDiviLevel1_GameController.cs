@@ -47,7 +47,6 @@ public class BingoDiviLevel1_GameController : GameController
 
         titleText.text = "Division: Level " + (level + 1);
 
-        level = gameLevel;
         foreach (var item in boards)
         {
             item.InitHelperBoard();

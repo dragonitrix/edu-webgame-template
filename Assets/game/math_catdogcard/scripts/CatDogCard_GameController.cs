@@ -189,6 +189,7 @@ public class CatDogCard_GameController : GameController
                     currentDataForAnswer.value = y - affectValue;
                     break;
                 case MATHCARD_CARD_EFFECT.MULTIPLY_POINT:
+                    currentCardValue = x;
                     currentDataForAnswer.value = y * x;
                     break;
             }
