@@ -168,6 +168,7 @@ public class CatDogCard_GameController : GameController
         Debug.Log("Selector Type : " + selector.type + " with index : " + (int)selector.type);
         Debug.Log("currentPlayer : " + currentPlayer + " with index : " + (int)currentPlayer);
         currentDataForAnswer = new MathCard_CardData();
+        currentDataForAnswer.value = 0;
         currentDataForAnswer.type = selector.type;
         currentDataForAnswer.effect = selector.effect;
         int affectValue = x * playerNumber[(int)currentPlayer];
@@ -188,7 +189,8 @@ public class CatDogCard_GameController : GameController
                     currentDataForAnswer.value = y - affectValue;
                     break;
                 case MATHCARD_CARD_EFFECT.MULTIPLY_POINT:
-                    currentDataForAnswer.value = y * affectValue;
+                    currentCardValue = x;
+                    currentDataForAnswer.value = y * x;
                     break;
             }
             interactableGroups[(int)currentPlayer].interactable = true;

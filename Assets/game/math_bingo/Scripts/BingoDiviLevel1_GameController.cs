@@ -47,7 +47,6 @@ public class BingoDiviLevel1_GameController : GameController
 
         titleText.text = "Division: Level " + (level + 1);
 
-        level = gameLevel;
         foreach (var item in boards)
         {
             item.InitHelperBoard();
@@ -186,6 +185,7 @@ public class BingoDiviLevel1_GameController : GameController
                 boards[1].InitButtonListener(z);
                 break;
             case 3:
+                z = Random.Range(2, 10);
                 w = Random.Range(2, 10);
 
 

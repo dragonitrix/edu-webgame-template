@@ -50,7 +50,6 @@ public class BingoMultiLevelX : GameController
 
         titleText.text = "Multiplication: Level " + (level + 1);
 
-        level = gameLevel;
         foreach (var item in boards)
         {
             item.InitHelperBoard();
