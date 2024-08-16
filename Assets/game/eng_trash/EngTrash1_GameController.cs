@@ -23,6 +23,8 @@ public class EngTrash1_GameController : GameController
 
     public RectTransform choiceRect;
 
+    public TextMeshProUGUI questionText;
+
     [Header("Setting")]
 
     [Header("Data")]
@@ -142,6 +144,19 @@ public class EngTrash1_GameController : GameController
         var sprite = trash.sprite;
 
         var data = trash_Datas.datas[index];
+
+        switch (index)
+        {
+            case 0:
+                questionText.text = "It is .....";
+                break;
+            case 8:
+                questionText.text = "It is an .....";
+                break;
+            default:
+                questionText.text = "It is a .....";
+                break;
+        }
 
         for (int i = 0; i < data.choices.Length; i++)
         {
