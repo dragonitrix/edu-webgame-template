@@ -4,20 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/sc_menu_thai_leadword.unity
-    guid: 487571b8672622742b628110b78e7985
-  - enabled: 1
-    path: Assets/Scenes/sc_game_thai_leadword_1.unity
-    guid: a9ee6d0d6fbafa04189e7d17abc9057d
-  - enabled: 1
-    path: Assets/Scenes/sc_game_thai_leadword_2.unity
-    guid: 52cd28b33f6e6dc40aedc986c85ae907
-  - enabled: 1
-    path: Assets/Scenes/sc_game_thai_leadword_3.unity
-    guid: 2c30c285ae506f6499284f1d510e9624
-  - enabled: 1
-    path: Assets/Scenes/sc_game_thai_leadword_4.unity
-    guid: d4e8fd6269e10df4c813182f7433655f
+  m_Scenes: []
   m_configObjects: {}

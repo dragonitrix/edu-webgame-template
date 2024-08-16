@@ -151,7 +151,7 @@ public class CatDogCard_GameController : GameController
     {
         leftCardSelector.cardButton.interactable = false;
         rightCardSelector.cardButton.interactable = false;
-        selector.cardImage.DOFade(0,0);
+        selector.cardImage.DOFade(0, 0);
         cardTemp.GetComponent<CanvasGroup>().alpha = 1.0f;
         cardTemp.transform.GetChild(0).GetComponent<Image>().sprite = selector.sprite;
         TweenToTarget(leftCardSelector.transform, leftGraveyardPlaceHolder, .25f, () => Destroy(leftCardSelector.gameObject));
@@ -194,10 +194,10 @@ public class CatDogCard_GameController : GameController
             interactableGroups[(int)currentPlayer].interactable = true;
             SetPhase(GAME_PHASE.SELECTNUMBER_2_ANSWER);
         }
-        else if((int)selector.type != (int)currentPlayer)
+        else if ((int)selector.type != (int)currentPlayer)
         {
             Debug.Log("Check in not match");
-            TweenToTarget(cardTemp.transform, tempGraveyardPlaceHolder,.25f,()=> SetPhase(GAME_PHASE.NOANSWER));
+            TweenToTarget(cardTemp.transform, tempGraveyardPlaceHolder, .25f, () => SetPhase(GAME_PHASE.NOANSWER));
         }
 
     }
@@ -311,6 +311,10 @@ public class CatDogCard_GameController : GameController
             if (playerPoint[(int)currentPlayer] >= 150)
             {
                 return currentPlayer;
+            }
+            if (playerPoint[(int)currentPlayer] < 0)
+            {
+                return currentPlayer == Player.P_1 ? Player.P_2 : Player.P_1;
             }
         }
         else
