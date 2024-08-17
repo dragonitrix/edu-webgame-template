@@ -137,6 +137,7 @@ public class BingoMultiLevelX : GameController
                 boards[0].MarkEquationHelperBoard(x, y);
                 break;
             case 2:
+                helperBoardInputFieldX.text = "";
                 z = Random.Range(2, 10);
                 string board1 = (y * z).ToString();
                 board1 = board1.Length > 1 ? board1 : 0 + "" + board1;
@@ -168,6 +169,8 @@ public class BingoMultiLevelX : GameController
                 boards[1].MarkEquationHelperBoard(x, z);
                 break;
             case 3:
+                helperBoardInputFieldX.text = "";
+                helperBoardInputFieldY.text = "";
                 x = Random.Range(1, 6);
                 y = Random.Range(1, 6);
                 z = Random.Range(1, 6);
