@@ -30,6 +30,9 @@ public class ThaiSubject_GameControllerEX : GameController
     public CanvasGroup[] clickRects;
     public CanvasGroup[] dragRects;
 
+    public RectTransform skipRect;
+    public RectTransform retryRect;
+
     [Header("Setting")]
 
     [Header("Data")]
@@ -47,6 +50,7 @@ public class ThaiSubject_GameControllerEX : GameController
     int correctCount = 0;
     int roundCount = 0;
 
+    int failCount = 0;
 
     bool isAnswering = false;
     protected override void Start()
@@ -75,6 +79,9 @@ public class ThaiSubject_GameControllerEX : GameController
         {
             rect.GetComponentInChildren<Button>().onClick.AddListener(OnCircleClick);
         }
+
+        skipRect.anchoredPosition = new Vector2(0, 2000);
+        retryRect.anchoredPosition = new Vector2(0, 2000);
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -216,6 +223,7 @@ public class ThaiSubject_GameControllerEX : GameController
         o_drop.GetComponent<Image>().DOFade(0, 0);
 
         correctCount = 0;
+        failCount = 0;
         isAnswering = false;
 
         SetPhase(GAME_PHASE.ROUND_WAITING);
@@ -243,6 +251,8 @@ public class ThaiSubject_GameControllerEX : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
@@ -270,6 +280,8 @@ public class ThaiSubject_GameControllerEX : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
@@ -297,12 +309,30 @@ public class ThaiSubject_GameControllerEX : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
     }
 
-
+    void CheckFail()
+    {
+        if (failCount >= 3)
+        {
+            skipRect.DOAnchorPosY(0, 0.3f).OnComplete(() =>
+            {
+                DoDelayAction(1f, () =>
+                {
+                    skipRect.DOAnchorPosY(2000, 0.3f).OnComplete(() =>
+                    {
+                        currentLevel = null;
+                        SetPhase(GAME_PHASE.ROUND_START);
+                    });
+                });
+            });
+        }
+    }
 
     void OnEnterRoundWaiting()
     {

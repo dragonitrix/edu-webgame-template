@@ -28,6 +28,8 @@ public class ThaiSubject_GameController : GameController
     public Image v_image;
     public Image o_image;
 
+    public RectTransform skipRect;
+    public RectTransform retryRect;
 
     [Header("Setting")]
 
@@ -42,6 +44,11 @@ public class ThaiSubject_GameController : GameController
     public int score = 0;
 
     int correctCount = 0;
+
+    int failCount = 0;
+    List<int> skippedList = new List<int>();
+
+    bool isSkipped = false;
 
     List<ThaiSubject_Drag> drags = new();
 
@@ -62,6 +69,9 @@ public class ThaiSubject_GameController : GameController
         s_drop.onDropped += OnSDrop;
         v_drop.onDropped += OnVDrop;
         o_drop.onDropped += OnODrop;
+
+        skipRect.anchoredPosition = new Vector2(0, 2000);
+        retryRect.anchoredPosition = new Vector2(0, 2000);
 
         tutorialPopup.Enter();
         tutorialPopup.OnPopupExit += () =>
@@ -128,7 +138,15 @@ public class ThaiSubject_GameController : GameController
 
     void OnEnterRoundStart()
     {
-        NewRound(roundIndex + 1);
+        if (isSkipped && skippedList.Count > 0)
+        {
+            NewRound(skippedList[0]);
+            skippedList.RemoveAt(0);
+        }
+        else
+        {
+            NewRound(roundIndex + 1);
+        }
     }
 
     void NewRound(int index)
@@ -149,6 +167,7 @@ public class ThaiSubject_GameController : GameController
         o_drop.GetComponent<Image>().DOFade(0, 0);
 
         correctCount = 0;
+        failCount = 0;
 
         isAnswering = false;
 
@@ -197,6 +216,8 @@ public class ThaiSubject_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
@@ -222,6 +243,8 @@ public class ThaiSubject_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
@@ -247,12 +270,77 @@ public class ThaiSubject_GameController : GameController
         {
             SimpleEffectController.instance.SpawnAnswerEffectMinimal(false, () =>
             {
+                failCount++;
+                CheckFail();
                 isAnswering = false;
             });
         }
     }
 
+    void CheckFail()
+    {
+        if (failCount >= 3)
+        {
+            skipRect.DOAnchorPosY(0, 0.3f).OnComplete(() =>
+            {
+                DoDelayAction(1f, () =>
+                {
+                    skippedList.Add(roundIndex);
+                    skipRect.DOAnchorPosY(2000, 0.3f).OnComplete(() =>
+                    {
+                        CheckFinalRound();
+                    });
+                });
+            });
+        }
+    }
 
+    void CheckFinalRound()
+    {
+        if (isSkipped)
+        {
+            if (skippedList.Count > 0)
+            {
+                SetPhase(GAME_PHASE.ROUND_START);
+            }
+            else
+            {
+                FinishedGame(true, 0);
+            }
+        }
+        else
+        {
+            if (roundIndex >= datas.datas.Length - 1)
+            {
+                if (skippedList.Count > 0)
+                {
+                    isSkipped = true;
+                    retryRect.DOAnchorPosY(0, 0.3f).OnComplete(() =>
+                    {
+                        DoDelayAction(2f, () =>
+                        {
+                            retryRect.DOAnchorPosY(2000, 0.3f).OnComplete(() =>
+                            {
+                                SetPhase(GAME_PHASE.ROUND_START);
+                            });
+                        });
+                    });
+                }
+                else
+                {
+                    FinishedGame(true, 0);
+                }
+            }
+            else
+            {
+                SetPhase(GAME_PHASE.ROUND_START);
+            }
+        }
+
+
+
+
+    }
 
     void OnEnterRoundWaiting()
     {
@@ -266,14 +354,7 @@ public class ThaiSubject_GameController : GameController
             AudioManager.instance.StopSound("ui_ding");
             SimpleEffectController.instance.SpawnAnswerEffect(true, () =>
             {
-                if (roundIndex >= datas.datas.Length - 1)
-                {
-                    FinishedGame(true, 0);
-                }
-                else
-                {
-                    SetPhase(GAME_PHASE.ROUND_START);
-                }
+                CheckFinalRound();
             });
         }
         else

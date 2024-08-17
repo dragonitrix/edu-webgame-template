@@ -81,7 +81,7 @@ public class GameDB : MonoBehaviour
         {SUBGAME_INDEX.ENG_TRASH1,"eng_trash_1"},
         {SUBGAME_INDEX.ENG_TRASH2,"eng_trash_2"},
         {SUBGAME_INDEX.ENG_TRASH3,"eng_trash_3"},
-        {SUBGAME_INDEX.ENG_TRASH4,"eng_trash_3"},
+        {SUBGAME_INDEX.ENG_TRASH4,"eng_trash_4"},
         {SUBGAME_INDEX.MATH_TIME,"math_time"},
         {SUBGAME_INDEX.THAI_SUBJECT_1,"thai_subject_1"},
         {SUBGAME_INDEX.THAI_SUBJECT_2,"thai_subject_2"},
